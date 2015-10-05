@@ -242,6 +242,8 @@ u_{SS} + u_{TT} = 0
 \noindent\\
 \indent It's finally time to talk about Fourier Series. Before we start though, it may be helpful to look at some common patterns amongst the Fourier Series. We have the following information that will help us:\\\\
 \centerline{
+\bgroup
+\def\arraystretch{1.5}
 \begin{tabular}{|c|c|c|c|}
 \hline
 & Cosine & Sine & Full Series \\ \hline
@@ -254,6 +256,7 @@ $\frac{b_{0}}{2} + \sum_{n=1}^{\infty}[b_{n}\cos{\left(\frac{n\pi x}{L}\right)}]
 $\sum_{n=1}^{\infty}[a_{n}\sin{\left(\frac{n\pi x}{L}\right)}]$&
 $\frac{b_{0}}{2} + \sum_{n=1}^{\infty} [a_{n}\sin{\left(\frac{n\pi x}{L}\right)} + b_{n}\cos{\left(\frac{n\pi x}{L}\right)}]$\\ \hline
 \end{tabular}
+\egroup
 }\\\\
 \noindent To solve for the coefficients, we have:
 \begin{align*}
@@ -264,7 +267,38 @@ Full: \qquad\qquad &a_{n} = \frac{2}{L}\int_{-L}^{L}f(x)\sin{\left(\frac{n\pi x}
 &b_{n} = \frac{2}{L}\int_{-L}^{L}f(x)\cos{\left(\frac{n\pi x}{L}\right)}dx\\
 &b_{0} =  \frac{1}{L}\int_{-L}^{L}f(x)dx
 \end{align*}
-The first thing we will look at is the Full Fourier Series. Note that this series is just a combination of a Fourier Sine Series and a Fourier Cosine Series. A typical problem would look something like this:\\\\
+\indent It will also help us to quickly review the concept of odd and even functions, as they will help us to simplify the process of computing Fourier series later. Specifically, let's look at the graphs for $\sin$ and $\cos$ on $[-\pi,\pi]$, as well as another function that will turn out to be neither even nor odd..
+\begin{center}
+\begin{tabular}{c c c}
+\includegraphics[scale=0.4]{cos_eo} & \includegraphics[scale=0.4]{sin_eo} & \includegraphics[scale=0.4]{cube_eo}\\
+$f(x) = \cos{x}$ & $f(x) = \sin{x}$ & $f(x) = x^{3}-x +1$
+\end{tabular}
+\end{center}
+\noindent\\
+\indent We should recall that a function is \textit{even} when $f(x) = f(-x)$ for all $x$ in the domain of $f$. Graphically speaking, an \textit{even} function is reflected across only the $y$-axis. By looking at the above graphs, we can see that $f(x) = \cos{x}$ is an even function.\\
+\indent A function is \textit{odd} when $-f(x) = f(-x)$ for all x in the domain of $f$. Graphically speaking, the function is reflected across the $x$-axis and the $y$-axis. From the above graphs, we can say that $f(x) = \sin{x}$ is an odd function. Note that we can have a function that is neither odd nor even, but we won't see much of this in the following problems. The reason that we want to discuss odd and even functions here is because the integration that we will be seeing later will be affected by the symmetry of a function. Let's take a look at how even and odd functions effect integration:\\\\
+\textbf{\textit{Ex:}} Compute the following integral:
+\[
+\int_{0}^{\pi}\cos{x}dx
+\]
+\indent \textbf{\textit{Solution:}} Looking at this integral, we can see from the graph of the $\cos$ above that this will be 0. That answer is meaningless to us however. What we are really looking for is
+\[
+2\int_{0}^{\frac{\pi}{2}}\cos{x}dx
+\]
+\noindent We are allowed to do this since the $\cos$ function is even. Essentially, we have turned the negative half of the cosine into a positive half. Similarly, we could ask for something like
+\[
+\int_{0}^{\pi}|\cos{x}|dx
+\]
+\noindent Since the absolute value of a function is no integrable, we drop the absolute value signs. This will leave us with our initial problem, which we will have to change anyways. Our integral becomes:
+\[
+\int_{0}^{\pi}|\cos{x}|dx = 2\int_{0}^{\frac{\pi}{2}}\cos{x}dx = 1
+\]
+\noindent And we are done.
+\newpage
+
+
+
+\indent The first type of series we will look at is the Full Fourier Series. Note that this series is just a combination of a Fourier Sine Series and a Fourier Cosine Series. A typical problem would look something like this:\\\\
 \textbf{\textit{Ex:}} Find the corresponding Fourier Series for
 \begin{gather*}
 f(x)=
@@ -427,4 +461,76 @@ u_{t}(x,0) &= 4\sin{(3\pi x)} - 7\sin{(5\pi x)} = \sum_{n=1}^{\infty}\left[n\pi 
 u(x,t) = 2\cos{(\pi t)}\sin{(\pi x)} + 3\cos{(2\pi t)}\sin{(2\pi x)} + \frac{4}{3\pi}\sin{(3\pi t)}\sin{(3\pi x)} - \frac{7}{5\pi}\sin{(5\pi t)}\sin{(5\pi x)}
 \]
 \noindent And we are done.
+\newpage
+
+
+\indent Up to this point, we have found a Fourier series and left our solutions at that. We will now look into the convergence of a Fourier series. This topic includes two questions:
+\begin{enumerate}
+\item Does the series converge?
+\item If the series converges, to what value does it converge?
+\end{enumerate}
+\noindent Both of these questions are highly theoretical. We will discuss the answers to them, but first we need to go over some terms:
+\begin{enumerate}
+\item \textit{\textbf{Jump Discontinuity:}} To say that $f(x)$ has a jump discontinuity at $x = a$ is to say that
+\[
+\lim_{x \to a^{-}}f(x) \neq \lim_{x \to a^{+}}f(x)
+\]
+Where both the limit from the left and the limit from the right exist.
+\item \textit{\textbf{Piecewise Smooth:}} A function $f(x)$ is said to be piecewise smooth if the function can be broken into two distinct intervals, and on each interval both $f(x)$ and $f^{'}(x)$ are continuous.
+\item \textit{\textbf{Periodic Extension:}} The periodic extension of $f(x)$ on $[-L,L]$ is the repetition of the function on intervals on periods to the left and right of $[-L,L]$.
+\end{enumerate}
+\indent With these definitions, we can lay out a general rule for convergence of a Fourier series. We won't give a proof of these rules for the time being. We just need them to lay out some groundwork for the rest of the information we will present on Fourier series. We have the following:
+\begin{quote}
+Suppose $f(x)$ is a function, and that $f(x)$ is piecewise smooth on the interval $[-L,L]$. The corresponding Fourier series for $f(x)$ converges to either
+\begin{enumerate}
+\item the periodic extension of $f(x)$, if $f(x)$ is continuous, or
+\item the average of the two one-sided limits, if the periodic extension of $f(x)$ has a jump discontinuity at $x = a$.
+\end{enumerate}
+\end{quote}
+\noindent We should note that the second condition can be expressed by the formula
+\[\frac{1}{2}\left[\lim_{x \to a^{-}}f(x) + \lim_{x \to a^{+}}f(x)\right]\]
+which gives us a nice way to calculate the value to which the series converges if we happen to meet the criteria in (2). Let's take a look at some examples.\\\\
+
+
+\noindent\textbf{\textit{Ex:}} Find the Fourier series for the following equation, and determine if the series converges. If it does, tell where the series converges to.
+\[ f(x) =
+\begin{cases}
+L \qquad\qquad -L \leq x \leq 0\\
+2x \qquad\qquad 0 \leq x \leq L
+\end{cases}
+\]
+\indent\textbf{\textit{Solution:}} We will go ahead and skip the details of finding the Fourier series for this function. If you do want to find it, you will have to find a full piecewise Fourier series. For this particular $f(x)$, we have:
+\begin{align*}
+f(x) &\sim L + \sum_{n=1}^{\infty}\left[\frac{2L}{n^{2}\pi^{2}}([-1]^{n}-1)\cos{\left(\frac{n\pi x}{L}\right)}\right] - \sum_{n=1}^{\infty}\left[\frac{L}{n\pi}(1 + [-1]^{n})\sin{\left(\frac{n\pi x}{L}\right)}\right]
+\end{align*}
+\noindent You'll notice that we didn't simplify this solution to a nicer form. If we evaluate this series, we will run across terms where the series is 0, but that is okay for now. You should also notice that this function is defined as a piecewise function, and on both intervals ($[-L,0]$ and $[0,L]$), $f(x)$ is continuous. In other words, $f(x)$ is piecewise smooth, so we know that this series converges. Now let's take a look at the graph of $f(x)$ on an arbitrary interval of $[-1,1]$.
+\begin{center}
+\begin{tabular}{c}
+\includegraphics[scale=0.6]{pw_graph_01}\\
+$
+f(x) =
+\begin{cases}
+1 \qquad\qquad -1 \leq x \leq 0\\
+2x \qquad\qquad 0 \leq x \leq 1
+\end{cases}
+$
+\end{tabular}
+\end{center}
+\noindent We can see that there is a jump in the graph at $x = 0$. In other words, there is a jump discontinuity at $x = 0$, and that means that we need to use (2) in order to find the value of convergence. We will let $\sum$ stand in for our entire series. We have:
+\begin{align*}
+\sum &\to \frac{1}{2}\left[\lim_{x\to 0}L + \lim_{x\to0}2x\right]\\
+&\to \frac{1}{2}[L + 0]\\
+&\to \frac{L}{2}
+\end{align*}
+\noindent So, at $x=0$, the series converges to $\frac{L}{2}$. We are not done yet, however. Now, we need to consider the periodic extension of the series. The function will repeat every $[-L,L]$, so we need to look at what the convergence of the series looks like at $-L$ and $L$. Let's take a look:
+\begin{alignat*}{3}
+\sum&\to\frac{1}{2}\left[\lim_{x\to-L^{-}}f(x) + \lim_{x\to-L^{+}}f(x)\right] \qquad\qquad \sum&&\to \frac{1}{2}\left[\lim_{x\to L^{-}}f(x) + \lim_{x\to L^{+}}f(x)\right]\\
+&\to \frac{1}{2}[2L + L] &&\to \frac{1}{2}[2L + L]\\
+&\to\frac{3L}{2} &&\to\frac{3L}{2}
+\end{alignat*}
+\noindent And we are done.
+\newpage
+
+
+
 \end{document}
