@@ -2,39 +2,13 @@
 \usepackage{amssymb,amsmath}
 \usepackage{mathtools}
 \usepackage{graphicx}
+\usepackage{multicol}
 \topmargin=-0.3in
 \textheight=9.2in
 \textwidth=168mm
 \oddsidemargin=-0.2in
 \evensidemargin=-0.2in
 \begin{document}
-%\indent Let's look at another second order PDE: the wave equation. This equation will be a little harder to solve due to the fact that it contains two second order derivates. Let's take a look:\\
-%\noindent\textbf{\textit{Ex:}} Solve the following PDE
-%\[
-%\begin{cases*}
-%u_{tt} - u_{xx} = 0\\
-%u(0,t)=u(L,t) = 0\\
-%u(x,0) = f(x),\ u_{t}(x,0) = g(x)
-%\end{cases*}
-%\]
-%\indent Let's take a second before we jump into solving this equation to analyze it. We have a homogeneous, second order PDE. We also have boundary conditions, much like with the heat equation. The initial conditions are a little strange, but we won't get into them until we discuss Fourier series.\\
-%\noindent We will use separation of variables to solve this equation. With this technique, we know that we are looking for a solution in the form of 
-%\[
-%u(x,t) = \xi(x)\phi(t).
-%\]
-%\noindent So, we substitute into the original PDE, and we get as follows:
-%\begin{gather*}
-%u_{tt} - u_{xx} = 0 =\phi^{''}\xi - \xi^{''}\phi\\
-%\frac{\phi^{''}}{\phi} = \frac{\xi^{''}}{\xi} = \lambda
-%\end{gather*}
-%\noindent Now we need to find our eigenvalues and eigenfunctions. There's a trick here, however. In the heat equation, we had the liberty of solving the time equation whenever we wanted to. Here, we don't have that ability just yet, since $\phi(t)$ is ``trapped'' in a second order ODE. The only real choice we have here is to do what we did earlier, and apply our boundary conditions to the $\xi(x)$ ODE. We won't delve into the process for finding the eigenvalues, so here's the only non-trivial pair:
-%\[
-%\{\lambda_{n} = (n\pi)^{2},\ \sin{(n\pi x)}\}
-%\]
-%\indent Now let's take a second to imagine that we had had boundary conditions for our second order ODE. We would have had the same setup for finding the eigenvalues, but our eigenfunction would have involved $t$ instead of $x$.
-
-
-\newpage
 \section{First Order Partial Differential Equations}
 \hrule
 \noindent\\
@@ -726,7 +700,7 @@ a_{2}''(t) + 4\pi^{2}a_{2}(t) = t\\
 a_{2}'(0) = 1,\quad a_{2}(0) = 2
 \end{cases}
 \end{alignat*}
-Luckily, Mathematica is here to save the day. We will skip the work and let the computer do the thinking for us here. We get that
+Luckily, Mathematica is here to save the day. We will skip the work and let the computer do the thinking for us. We get that
 \begin{align*}
 a_{0}(t) &= \frac{1}{2}t^{2} + t\\
 a_{1}(t) &= \frac{\pi\cos{(t\pi)} + \sin{(t\pi)}}{\pi}\\
@@ -736,7 +710,11 @@ Now all we need to do is plug back in to our $u$. Our final answer becomes
 \[
 u(x,t) = \frac{1}{2}t^{2} + t + \frac{\pi\cos{(t\pi)} + \sin{(t\pi)}}{\pi}\cos{(\pi x)} +  \frac{2\pi t + 16\pi^{3}\cos{(2\pi t)} - \sin{(2\pi t)} + 4\pi^{2}\sin{(2\pi t)}}{8\pi^{3}}\cos{(2\pi x)}
 \]
-And we are done.
+Just for interest, the plot of this solution looks like
+\begin{center}
+\includegraphics[scale=0.6]{pg23_plot} 
+\end{center}
+On $-\pi \leq \theta \leq \pi$ and $-\pi \leq x \leq \pi$; and we are done.
 \newpage
 
 
@@ -754,7 +732,7 @@ u_{xx} + u_{yy} = 0\quad \text{on}\ x^{2} + y^{2} < a^{2}\\
 u(x,y)\ \big |_{x^{2} + y^{2} = a^{2}} = f(x,y)
 \end{cases}
 \end{align*}
-$A$ is an example of a separable Laplace equation. We can see graphically that the domain $[0,1] \times [0,2]$ is rectangular. $B$'s domain is not separable, since it is circular. Let's take a look $A$.\\\\
+$A$ is an example of a separable Laplace equation. We can see graphically that the domain $[0,1] \times [0,2]$ is rectangular. $B$'s domain is not separable, since it is circular. Let's take a look at $A$.\\\\
 \noindent \textbf{\textit{Ex:}} Solve the following PDE
 \[
 \begin{cases*}
@@ -796,13 +774,14 @@ And we are done
 \newpage
 
 
-\indent Now we turn our attention to the Laplace Equation with a circular domain. As we discussed earlier, we can't simply say that our solution will be in the form of $X(x)Y(y)$. However, we can force the domain to be rectangular if we use polar coordinates. The translation is not too difficult. Let's consider $B$ from above.\\\\
+\indent Now we turn our attention to the Laplace Equation with a circular domain. As we discussed earlier, we can't simply say that our solution will be in the form of $X(x)Y(y)$. However, we can force the domain to be rectangular if we use polar coordinates. Let's consider a variation of $B$ from above.\\\\
 
 \noindent \textbf{\textit{Ex:}} Solve the following PDE
 \[
 \begin{cases*}
 u_{xx} + u_{yy} = 0\quad \text{on}\ x^{2} + y^{2} < a^{2}\\
-u(x,y)\ \big |_{x^{2} + y^{2} = a^{2}} = f(x,y)
+u(a,\theta) = U_{1}\quad \text{on}\ 0 \leq \theta \leq \pi\\
+u(a,\theta) = U_{2}\quad \text{on}\ \pi \leq \theta \leq 2\pi
 \end{cases*}
 \]
 \indent \textbf{\textit{Solution:}} We want to express the partial derivatives here in terms of $r\ \text{and}\ \theta$. Recall that we have
@@ -832,23 +811,151 @@ We won't delve into finding $u_{\theta\theta}$, as the partials get a little out
 \frac{\partial^{2}u}{\partial r^{2}} + \frac{1}{r^{2}}\frac{\partial^{2}u}{\partial\theta^{2}} &= -\frac{1}{r}\frac{\partial u}{\partial r} + \frac{\partial^{2} u}{\partial x^{2}} + \frac{\partial^{2} u}{\partial y^{2}}\\
 u_{xx} + u_{yy} &= u_{rr} + \frac{1}{r}u_{r} + \frac{1}{r^{2}}u_{\theta\theta} = 0
 \end{align*}
-We now have the Laplace equation represented in the polar coordinate system. Note that the translation of the boundary condition is simple. It becomes a function of only $\theta$. We have the following system:
+Lets go ahead and formalize it:
+\[
+\nabla^{2}u = u_{rr} + \frac{1}{r}u_{r} + \frac{1}{r^{2}}u_{\theta\theta}
+\]
+Now we can treat this as a 2D problem; in other words, we can now use separation of variables to solve for $u$. As before, we know our solution will look like
+\[
+u(r,\theta) = R(r)T(\theta)
+\]
+Plugging everything in and realizing by the usual trick that everything s equal to a constant gives us
+\[
+-\frac{T''}{T} = \frac{R'' + \frac{R'}{r}}{\frac{R}{r^{2}}} = \lambda
+\]
+Since we are dealing in polar coordinates, we will go ahead and walk through the eigenvalues/functions. We will be solving for $T(\theta)$, since our boundary conditions are in terms of $\theta$. We also should note that the solutions will repeat themselves every $2\pi$, since we are in the polar system. In addition, our $u$ should be finite at $r=0$. Let's take a look at the eigenvalues for the Laplace equation.\\\\
+\begin{minipage}[t]{0.32\textwidth}
+\underline{$\lambda = 0$}\\
+When $\lambda = 0$, we have \[T(\theta) = a\theta + b.\] This also tells us that \[R(r) = c\ln{(r)} + d.\] Putting everything together gives us \[ u(r,\theta) = (a\theta + b)(c\ln{r} + d).\] Since the solution is periodic on $2\pi$, we know that $a=0$. Since the solution has to remain finite at $r=0$, we know that $c = 0$. This gives us that $u = bd$, or that $u$ is equal to a constant.
+\end{minipage}
+\hspace{0.01\textwidth}
+\begin{minipage}[t]{0.32\textwidth}
+\underline{$\lambda > 0$}\\
+With $\lambda > 0$, we have our characteristic equation $(m = \pm\ \sqrt{\lambda})$ yielding a real valued solution. This tells us that
+\[
+T(\theta) = c_{1}\cosh{(\sqrt{\lambda}\theta)} + c_{2}\sinh{(\sqrt{\lambda}\theta)}.
+\]
+The solution is periodic on $2\pi$, so we can say that $c_{1} = c_{2} = 0$. Therefore, we have a trivial solution.
+\end{minipage}
+\hspace{0.01\textwidth}
+\begin{minipage}[t]{0.32\textwidth}
+\underline{$\lambda < 0$}\\
+$\lambda < 0$ gives us 
+\[
+T(\theta) = c_{1}\cos{(\sqrt{\lambda}\theta)} + c_{2}\sin{(\sqrt{\lambda}\theta)}
+\]
+This solution is periodic with $2\pi$, and it yields a trivial eigenvector.
+\end{minipage}
+\noindent\\\\\\
+\noindent So we know that the only $\lambda$ that yields eigenvalues is $\lambda = 0$, and we know that this particular eigenvalue yields a constant solution. If we solve the differential equation for $R$, we will find that the only solution we care about is $r^{n}$. We can finally say that our solution will look like
+\[
+u(r,\theta) = \frac{a_{0}}{2} + \sum_{n=1}^{\infty}r^{n}[a_{n}\cos{(n\theta)} + b_{n}\sin{(n\theta)}]
+\]
+This solution is worth memorizing, as it will generally be the same for all variations of the Laplace equation similar to this one. Now we can apply the conditions for $\theta$. We have two conditions, but it is really just a piecewise function which we will call $f(\theta)$. We also know that our bound on the domain is $a$, or the length of the radius. This is enough information to find all the various variables in our $u(r,\theta)$. We have as follows:
+\[
+u(a,\theta) = f(\theta) = \frac{a_{0}}{2} + \sum_{n=1}^{\infty}a^{n}[a_{n}\cos{(n\theta)} + b_{n}\sin{(n\theta)}]
+\]
+Note that the $a$ which is the length of the radius is \textit{not} the same $a$ as $a_{n}$. Now we can solve for $a_{0}$ and $a_{n}$.
+\begin{alignat*}{3}
+a_{0} &= \frac{1}{\pi}\int_{0}^{2\pi}f(\theta)d\theta \qquad\qquad a_{n} &&= \frac{1}{\pi}\left[\int_{0}^{\pi}U_{1}\cos{(n\theta)}d\theta + \int_{\pi}^{2\pi}U_{2}\cos{(n\theta)}d\theta\right]\\
+&= U_{1} + U_{2} &&=0
+\end{alignat*}
+For $b_{n}$, we have
+\begin{align*}
+a^{n}b_{n} &= \frac{1}{\pi}\left[\int_{0}^{\pi}U_{1}\sin{(n\theta)}d\theta + \int_{\pi}^{2\pi}U_{2}\sin{(n\theta)}d\theta\right]\\
+&= \frac{1 - (-1)^{n}}{n\pi}(U_{1} - U_{2})\\
+b_{n} &= \frac{\left[1 - (-1)^{n}\right](U_{1} - U_{2})}{n\pi a^{n}}\\
+&= \frac{2(U_{1} - U_{2})}{(2k+1)\pi a^{2k+1}}
+\end{align*}
+Putting it all together gives us a final solution of
+\[
+u(r,\theta) = \frac{U_{1} + U_{2}}{2} + \sum_{k=0}^{\infty}r^{k}\frac{2(U_{1} - U_{2})}{(2k+1)\pi a^{2k+1}}
+\]
+And we are done.
+\newpage
+
+
+\indent Now let's look at another Laplace equation in polar coordinates. Again, we will be dealing with Dirichlet boundary conditions, so we will be able to jump straight into the solution. This one won't take us as long to solve, as we have already done a lot of the work. We are asked the following:\\\\
+\noindent \textbf{\textit{Ex:}} Solve the following PDE
 \[
 \begin{cases*}
-u_{rr} + \frac{1}{r}u_{r} + \frac{1}{r^{2}}u_{\theta\theta} = 0\quad \text{on}\ 0 < r < a\\
-u(\theta) = f(\theta)\quad \text{on}\ 0 < \theta < 2\pi
+\nabla^{2}u = 0\\
+u(3,\theta) =
+\begin{cases*}
+1 \qquad\qquad 0 \leq \theta \leq \pi\\
+\sin^{2}{\theta}\qquad \pi \leq \theta \leq 2\pi 
+\end{cases*}
 \end{cases*}
 \]
-Now we can use separation of variables to solve the PDE. The steps are the same (although this time we will use $R(r)\ \text{and}\ T(\theta)$). We will end up with the following equivalence:
+\indent \textbf{\textit{Solution:}} We already know what our separable equation will look like:
 \[
-\frac{r^{2}R'' + rR'}{R} = \frac{T''}{T} = \lambda
+\frac{r^{2}R'' + rR'}{R} = -\frac{T''}{T} = -\lambda
 \]
-Since we have a Dirichlet boundary conditions, we know that
+This yields an eigenvalue of $\lambda = n^{2}$. We know this because our function $T$ must be periodic on $2\pi$, and as such we get the following piecewise function:
 \[
-\lambda_{n} = \frac{n^{2}}{4}
+T(\theta) =
+\begin{cases*}
+a_{0}\qquad\qquad\qquad\qquad\qquad\quad\ \text{for}\ n=0\\
+a_{n}\cos{(n\theta)} + b_{n}\sin{(n\theta)}\qquad \text{for}\ n > 0
+\end{cases*}
 \]
-Plugging this into our equation for $R$ gives us
+The solution to our equation for $R$ yields
 \[
-r^{2}R'' + rR' - \frac{n^{2}}{4}R = 0 
+R(r) = 
+\begin{cases*}
+c_{1} + c_{2}\ln{r} \qquad\qquad \text{for}\ n=0\\
+c_{1}r^{n} + c_{2}r^{-n}\qquad\quad \text{for}\ n > 0
+\end{cases*}
 \]
+We can disregard $c_{2}$ for this equation, since it would cause our solution to go to $\infty$ as $r \to 0$, at the center of the disk. Putting everything together gives us
+\begin{align*}
+u(r,\theta) &= R(r)T(\theta)\\
+&=
+\begin{cases*}
+a_{0}\qquad\qquad\qquad\qquad\qquad\qquad\quad\ \text{for}\ n=0\\
+a_{n}r^{n}\cos{(n\theta)} + b_{n}r^{n}\sin{(n\theta)}\qquad \text{for}\ n > 0
+\end{cases*}
+\end{align*}
+We should probably construct a series out of this, since that is what we usually do. The corresponding series is
+\[
+u(r,\theta) = \frac{a_{0}}{2} + \sum_{n=1}^{\infty}a_{n}r^{n}\cos{(n\theta)} + b_{n}r^{n}\sin{(n\theta)}
+\]
+And applying the boundary conditions gives us
+\[
+u(3,\theta) = \frac{a_{0}}{2} + \sum_{n=1}^{\infty}a_{n}3^{n}\cos{(n\theta)} + b_{n}3^{n}\sin{(n\theta)}
+\]
+For $a_{0}$, we have
+\begin{align*}
+a_{0} &= \frac{1}{\pi}\left[\int_{0}^{\pi}1 d\theta + \int_{\pi}^{2\pi}sin^{2}{\theta}d\theta\right]\\
+&= \frac{3}{2}
+\end{align*}
+Solving for $a_{n}$ gives us
+\begin{align*}
+a_{n} &= \frac{1}{3^{n}\pi}\left[\int_{0}^{\pi}\cos{(n\theta)}d\theta + \int_{\pi}^{2\pi}\cos{(n\theta)}\sin^{2}{\theta}d\theta\right]\\
+&= \frac{[n^{2} - 2 - 4\cos{(n\pi)}]\sin{(n\pi)}}{3^{n}n(n^{2}-4)\pi}\\
+&= 0
+\end{align*}
+Our $b_{n}$ term is
+\begin{align*}
+b_{n} &= \frac{1}{3^{n}\pi}\left[\int_{0}^{\pi}\sin{(n\theta)}d\theta + \int_{\pi}^{2\pi}\sin{(n\theta)}\sin^{2}{\theta}d\theta\right]\\
+&= \frac{2\left[n^{2} - 6 - 4\cos{(n\pi)}\right]\sin^{2}{\left(\frac{n\pi}{2}\right)}}{3^{n}n\pi(n^{2} - 4)}\\
+&= \frac{2\left[n^{2} - 6 - 4(-1)^{n}\right]\sin^{2}{\left(\frac{n\pi}{2}\right)}}{3^{n}n\pi(n^{2} - 4)}\\
+&=
+\begin{cases*}
+0 \qquad\qquad\qquad\qquad\quad\ \ n \in \{ 2k\ |\ k \in \mathbb{Z} \}\\
+\frac{1}{3^{n}\pi}\left[\frac{2}{n} + \frac{4}{n(n^{2} - 4)}\right]\qquad n \in \{ 2k + 1\ |\ k \in \mathbb{Z} \}
+\end{cases*}
+\end{align*}
+We essentially have our solution. All we have to do is combine everything:
+\[
+u(r,\theta) = \frac{3}{4} + \sum_{k=0}^{\infty}\frac{r^{2k + 1}}{3^{2k+1}\pi}\frac{2(4k^{2} + 4k -1)}{(2k + 3)(4k^{2} -1)}\sin{\left[(2k +1)\theta\right]}
+\]
+Let's take a look at some of the plots for this equation.\\
+\begin{center}
+\begin{tabular}{c c c}
+\includegraphics[scale=0.3]{lap_01_3} & \includegraphics[scale=0.3]{lap_01_30} & \includegraphics[scale=0.3]{lap_01_50}\\
+\textit{The first 3 terms} & \textit{The first 30 terms} & \textit{The first 50 terms}
+\end{tabular}
+\end{center}
+Plugging this infinite sum into mathematica tells us that it does not converge; and we are done.
 \end{document}
