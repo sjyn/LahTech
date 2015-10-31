@@ -1085,4 +1085,100 @@ u(h,\theta) = f(\theta)\quad \text{on}\ x < \theta < L
 \end{cases}\\
 u(r,\theta) = a_{0} + \sum_{n=1}^{\infty}a_{n}r^{n}\cos{\left(\frac{n \pi \theta}{L}\right)} + b_{n}r^{n}\sin{\left(\frac{n \pi \theta}{L}\right)}
 \end{gather*}
+\newpage
+
+
+\section{The Cauchy Problem}
+\hrule
+\noindent \\\\
+\indent Up until now, we have always been given our PDE's with boundary conditions and initial values; but imagine that we did not have a boundary? The traditional method that we have been using would fail at this point. Since we would not be able to find any eigenvalues, we would not be able to form a series solution by using the \textit{Separation of Variables} technique. Let's consider the familiar heat equation:
+\[
+\begin{cases}
+\xi_{t} - k\xi_{xx} = 0\\
+\xi(x,0) = f(x)
+\end{cases}
+\]
+Through much careful derivation and theory, we can say that the general solution for this problem will be
+\[
+\xi(x,t) = \frac{1}{\sqrt{4 \pi k t}}\int_{-\infty}^{\infty}e^{-\frac{(x-y)^{2}}{4kt}}f(y)dy.
+\]
+The question now should be ``How can we solve this?'' The first step we will take is letting
+\[
+u = \frac{y-x}{\sqrt{4kt}}.
+\]
+We are going to perform a \textit{u substitution} to try and put this integral into a nicer form. This yields
+\begin{align*}
+y &= x + u\sqrt{4kt}\\
+dy &= \sqrt{4kt}\ du.
+\end{align*}
+This changes our original problem into
+\[
+\xi(x,t) = \frac{1}{\sqrt{\pi}}\int_{-\infty}^{\infty}e^{-u^{2}}f(x+u\sqrt{4kt})du.
+\]
+Let's look at an example\\\\
+\noindent \textbf{\textit{Ex:}} Solve the following PDE
+\[
+\begin{cases}
+\mu_{t} - k\mu_{xx} = 0\\
+\mu(x,0) = \cos{x}
+\end{cases}
+\]
+\indent \textbf{\textit{Solution:}} From above, we know what our general solution will look like. All we need to do is substitute in our initial condition. We have the following:
+\begin{align*}
+\mu(x,t) &= \frac{1}{\sqrt{\pi}}\int_{-\infty}^{\infty}e^{-u^{2}}\cos{(x + u\sqrt{4kt})}du\\
+&= \frac{1}{\sqrt{\pi}}\int_{-\infty}^{\infty}e^{-u^{2}}\left[\cos{(x)}\cos{(u\sqrt{4kt})} - \sin{(x)}\sin{(u\sqrt{4kt})}\right]du\\
+&=  \frac{2}{\sqrt{\pi}}\cos{(x)}\int_{0}^{\infty}e^{-u^{2}}\cos{(u\sqrt{4kt})}du.
+\end{align*}
+You may be wondering what happened to the $\sin$ terms. Recall that $\sin$ is an odd function, so it will ultimately be $0$ on the interval $[-\infty,\infty]$; because of this fact, we can remove it now. We also use the face that the $\cos$ is even, so it is okay to halve the interval and multiply by two. Now we need to evaluate this integral. We will substitute $\alpha = \sqrt{4kt}$, and assign a function, $\Upsilon(\alpha)$, to the integral. This gives us the following system:
+\[
+\begin{cases}
+\Upsilon(\alpha) = \int_{0}^{\infty}e^{-u^{2}}\cos{(\alpha u)}du\\
+\Upsilon(0) = \int_{0}^{\infty}e^{-u^{2}}du\\
+\end{cases}
+\]
+Believe it or not, we actually know the answer to $\Upsilon(0)$. To find it, we can assign a function to the integral in a similar fashion as we have already done. Calling it $\Psi$, we have
+\begin{align*}
+\Psi &= \int_{0}^{\infty}e^{-u^{2}}du\\
+\Psi^{2} &= \int_{0}^{\infty}e^{-u^{2}}du \int_{0}^{\infty}e^{-v^{2}}dv\\
+\Psi^{2} &= \int_{0}^{\infty}\int_{0}^{\infty}e^{-u^{2}-v^{2}}dudv\\
+\Psi^{2} &= \int_{0}^{\pi/2}\int_{0}^{\infty}re^{-r^{2}}drd\theta\\
+\Psi^{2} &= \frac{\pi}{2}\left[-\frac{1}{2}e^{-r^{2}}\right]\Bigg |_{r=0}^{r=\infty}\\
+\Psi^{2} &= \frac{\pi}{4}\\
+\Psi &= \frac{\sqrt{\pi}}{2}.
+\end{align*}
+So we know that $\Upsilon(0) = \frac{\sqrt{\pi}}{2}$. Plugging this into our system gives us
+\[
+\begin{cases}
+\Upsilon(\alpha) = \int_{0}^{\infty}e^{-u^{2}}\cos{(\alpha u)}du\\
+\Upsilon(0) = \frac{\sqrt{\pi}}{2}\\
+\end{cases}
+\]
+Now, we will take the derivative of $\Upsilon$. This gives us
+\[
+\Upsilon'(\alpha) = -\int_{0}^{\infty}ue^{-u^{2}}\sin{(\alpha u)}du.
+\]
+Integration by parts gives us
+\[
+\frac{1}{2}e^{-u^{2}}\sin{(\alpha u)}\Big |_{0}^{\infty} - \alpha\int_{0}^{\infty}\frac{1}{2}e^{-u^{2}}\cos{(\alpha u)}du.
+\]
+The value from $0$ to $\infty$ is zero, since the $\sin$ function odd. This leaves us with following relationship:
+\[
+\Upsilon'(\alpha) = -\frac{\alpha}{2}\Upsilon(\alpha) \alpha.
+\]
+We can solve this as an ODE. It's separable, so we get
+\begin{align*}
+\frac{d\Upsilon}{\Upsilon} &= -\frac{\alpha}{2}d\alpha\\
+\ln{(\Upsilon)} &= -\frac{\alpha^{2}}{4} + c_{1}\\
+\Upsilon &= c_{2}e^{-\frac{\alpha^{2}}{4}}.
+\end{align*}
+Applying the initial condition gives us
+\[
+\Upsilon = \frac{\sqrt{\pi}}{2}e^{-\frac{\alpha^{2}}{4}}.
+\]
+Substituting back in gives us a final answer of
+\begin{align*}
+\mu(x,t) &= \frac{2}{\sqrt{\pi}}\cos{x}\Upsilon(\sqrt{4kt})\\
+&= \cos{x}e^{-kt},
+\end{align*}
+and we are done.
 \end{document}
