@@ -1,5 +1,8 @@
 /notebooks/*
 /geogebra/*
+/wim/twitter_problem/const.rb
+/wim/twitter_problem/tw_log.txt
+/wim/twitter_problem/twitter_data.txt
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
