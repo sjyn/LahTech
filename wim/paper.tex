@@ -1,7 +1,10 @@
 \documentclass{article}
 \usepackage{setspace}
 \usepackage{amssymb,amsmath}
+\usepackage{url}
+\usepackage{fancyvrb}
 \usepackage{mathtools}
+\usepackage[square,sort,comma,numbers]{natbib}
 \usepackage[margin=1in]{geometry}
 \doublespacing
 \title{The Count Distinct Problem}
@@ -9,34 +12,154 @@
 \date{}
 \begin{document}
 \maketitle
-\indent Today's modern world is completely connected; nearly everyone has access to the internet at some point 
-during the day. This constant connection to the internet means that data is constantly being transferred and 
-collected. Companies such as Google, Facebook, and Twitter often collect the data that they
+\indent Processing data efficiently has always been a goal of organizations that collect data; companies like Facebook and Google have been collecting and storing data for as long as they have existed. 
+The count-distinct problem poses the question of how many distinct elements are in a given set. 
+The three problems that we will analyze are
+\begin{enumerate}
+\item \underline{The Twitter Problem}: How many unique hashtags are created on any given day?
+\item \underline{The Facebook Problem}: How many unique Facebook app installs are made on any given day?
+\item \underline{The Pok\'emon Problem}: How many unique Pok\'emon encounters will a player face in a given play through of a game from each generation.
+\end{enumerate}
+Each of these problems can be solved by using one of three different solutions to the count distinct problem: the hash table, the linear probabilistic counter, and the hyperloglog algorithm.
 \\\\
-\indent The problem of processing data has not always been a problem. Before the internet was widely used by
-the population, storing data was expensive, and as a result most companies did not want to spend money on the 
-the hardware and space that would be required to store large amounts of data. In addition, data was not 
-transferred and gathered at a fast enough rate to warrant finding a way to count the data; even if companies wanted to count the data, the computers at the time were not powerful enough to perform the necessary calculations. The problem of counting big data did not arise until the 1990's, when the internet began to facilitate the easy transfer and collection of data. Today, more than 25 exabytes of data are created a day, and out of that data, nearly 50\% of it is stored for later use. The main factor that contributes most to the problem is that gathering and storing data is cheap, but analyzing it is not. The volume of the data is what leads to the count distinct problem that we will analyze.
+\indent The count-distinct problem has not always been a problem. 
+Before the internet was widely used by the population, storing data was expensive, and as a result most companies did not want to spend money on the hardware and space that would be required to store large amounts of data. 
+In addition, data was not transferred and gathered at a fast enough rate to warrant finding a way to count the data; even if companies wanted to count the data, the computers at the time were not powerful enough to perform the necessary calculations. 
+The problem of counting big data did not arise until the 1990's, when the internet began to facilitate the easy transfer and collection of data. 
+Today, more than 25 exabytes of data are created and stored a day. 
+The main factor that contributes most to the problem is that gathering and storing data is cheap, but analyzing it is not. The volume of the data leads to the count distinct problem that we will analyze \cite[pp. 1]{Yousra}.
 \\\\
-\indent The first solution to the count distinct problem is called the \textit{Hash Table}. The algorithm is as follows:
+\indent The first solution to the count distinct problem is called the \textit{Hash Table}. 
+A hash-table is a matrix that is stored in memory where each entry was uniquely obtained from another value. 
+The algorithm is as follows:
 \begin{center}
 Let $\mathbb{S}$ be a set of random elements. In order to count the number of distinct elements in $\mathbb{S}$,
 \begin{enumerate}
 \item Apply a bijection, $h(n)$ to all $n\in\mathbb{S}$, and store the result in a set $\mathbb{V}$.
-\item Count the number of elements in $\mathbb{V}$.
+\item Count the number of elements in $\mathbb{V}$. $||\mathbb{V}||$ will be the number of unique elements in $\mathbb{S}$.
 \end{enumerate}
 \end{center}
-Since $\mathbb{V}$ is a bijection, it is surjective. As a result, if we take any $x\in\mathbb{S}\ \text{and}\ y\in\mathbb{S}$, then if $x = y$, they will hash to the same value. For example, Say we want to count the number of distinct names in the set $\mathbb{S} = \{\text{``Alice''},\text{``Emily''},\text{``Alice''}\}$. We can create a simple hash function where we map each letter to its corresponding value in the alphabet, sum up each value in a name, and mod it with the number of letters in the name. Applying the function on each element of $\mathbb{S}$ yields a set $\mathbb{V} = \{0,4\}$. $||\mathbb{V}|| = 2$, so there were two distinct elements in $\mathbb{S}$. In this example, the hash function we chose was bijective. However, this may not always be the case.
+Since $\mathbb{V}$ is a bijection, it is surjective. 
+As a result, if we take any $x\in\mathbb{S}\ \text{and}\ y\in\mathbb{S}$, then if $x = y$, they will hash to the same value, and we can ignore it \cite[p. 6]{Maurer}. 
+For example, Say we want to count the number of distinct names in the set $\mathbb{S} = \{\text{``Alice''},\text{``Emily''},\text{``Alice''}\}$. 
+We can create a simple hash function where we map each letter to its corresponding value in the alphabet, sum up total of all the letter values in a name, and mod that value with the number of letters in the name. 
+Applying the function on each element of $\mathbb{S}$ yields a set $\mathbb{V} = \{0,4\}$. $||\mathbb{V}|| = 2$, so there were two distinct elements in $\mathbb{S}$. In this example, the hash function we chose was bijective.
+However, this may not always be the case. In fact, it is practically impossible to create a hash function that is truly surjective for huge amounts of data \cite[p. 6]{Maurer}. 
+For smaller sets of data, however, we can create a hash function that is surjective. 
+The pok\'emon problem provides a good example of the benefits of a hash table.
 \\\\
-\indent Imagine that we are solving the twitter problem where we want to count the number of distinct hashtags on twitter on a given day. Our set $\mathbb{S}$ will now contain every hashtag that was made on a given day. We know that we want a hash function that is surjective, but this is an unrealistic, since we could have some $x \in \mathbb{S}$ and $y\in\mathbb{S}$ where $x \neq y$ but $h(x) = h(y)$. To model this issue, we can consider the following scenario:
+\indent The most beneficial aspect of the hash is that it has a 0\% error rate. 
+In other words, the cardinality of $\mathbb{V}$ will be exactly how many distinct elements are in $\mathbb{S}$, assuming the hash function is surjective. 
+We know that for very large $\mathbb{S}$, the hash table method is incredibly inefficient, but for the Pok\'emon problem, we are dealing with $\mathbb{S}$ small enough to apply the hash table. 
+In this particular case, 721 pok\'emon can be encountered \cite{Pokemon}, which means that the maximum size needed for our set $\mathbb{V}$ is 721. 
+Typically, a player will encounter in the neighborhood of 1000 wild pok\'emon a game, and with a total of 6 generations of games, we have a set $\mathbb{S}$ of size 6000. 
+The hashing function we created earlier will not be good enough here; instead we can create a new hashing function where we sum up the value of the name as before, then add the pok\'emon's unique id, and finally mod that value with 721. 
+The following Java code can be used to model our hash table:\\\\
+\begin{tabular}{c c} 
+\begin{BVerbatim}
+public int getHashValue(){
+    char[] array = nameOfPokemon.toCharArray();
+    int total = 0;
+    for(char c : array){
+	total += (int)c;
+    }
+    total += type;
+    total %= 721;
+    return total;
+}
+\end{BVerbatim}
+&
+\begin{BVerbatim}
+...
+for(Pokemon pm : S){
+    int hashValue = pm.getHashValue();
+    storeHashValue();
+}
+calculateAndPrintUniqueValues();
+\end{BVerbatim}
+\end{tabular}
+Running this code will give us a final answer of 458 unique encounters with wild pok\'emon. 
+In the case of the pok\'emon problem, a simple hash function sufficed, since the only collisions that were encountered were pok\'emon where the name was the same. 
+If we consider a larger data set, however, we may not be able to create a surjective hash function.
+\\\\
+\indent Imagine that we are solving the Twitter problem where we want to count the number of distinct hashtags on twitter on a given day. 
+Our set $\mathbb{S}$ will now contain every hashtag that was made on a given day. 
+We know that we want a hash function that is surjective, but this is an unrealistic, since we could have some $x \in \mathbb{S}$ and $y\in\mathbb{S}$ where $x \neq y$ but $h(x) = h(y)$. 
+To model this issue, we can consider the following scenario:
 \begin{quote}
-On October 30th, 2015, Mojang released a special Halloween cape to all players of the popular video game Minecraft. As a result, ``\#cape'' began trending on Twitter. On the same day, Target announced that all their \textit{Bob's Burgers} costumes would be on sale for the low price of \$12.95, and ``\#bob'' began trending on twitter.
+On October 30th, 2015, Mojang released a special Halloween cape to all players of the popular video game Minecraft. 
+As a result, ``\#cape'' began trending on Twitter.
+On the same day, Target announced that all their \textit{Bob's Burgers} costumes would be on sale for the low price of \$12.95, and ``\#bob'' began trending on twitter.
 \end{quote}
-Our hash function from earlier will not work in this case, since both ``\#bob'' and ``\#cape'' hash to the same value. On a larger scale, it is easy to see that we would need to either handle collisions or create a better hash function. Creating a way to handle collisions would not benefit us in this case, since the data is being processed in real time. We would not be able to tell if we were hashing a value we already have seen or hashing a new value that happens to hash to the same value as another element we have already seen. Since the collision policy would not help us, we need to come up with a better hashing function.
+Our hash function from earlier will not work in this case, since both ``\#bob'' and ``\#cape'' hash to the same value. 
+On a larger scale, such as the Facebook or Twitter problem, we would need to either handle collisions or create a better hash function. 
+Creating a way to handle collisions would not be beneficial, since the data is being processed in real time. 
+We would not be able to tell if we were hashing a value we already have seen or hashing a new value that happens to hash to the same value as another element we have already seen; as a result we would have no way to know which keys were different and which keys were the same when looking at $\mathbb{V}$ \cite[p. 6]{Maurer}. 
+Since the collision policy would not help us, we need to come up with a better hashing function. 
 \\\\
-\indent More complex hash function, such as SHA-2 (Secure Hash Algorithm 2) or MD5 (Message Digest 5) offer a solution to the problems at which we are looking. SHA-2 is used by the NSA to encrypt data, and has yet to produce any collisions when hashing values. However, this is not a viable solution to the count distinct problem either. The problem arises from the volume of the data being processed. In both the Twitter and Facebook problems, we are analyzing exabytes of data. The SHA-2 function outputs a 512 byte long integer for every input, which means that the resulting size of the set $\mathbb{V}$ would be in the worst case $512 \times ||\mathbb{S}||$. All of $\mathbb{V}$ would have to be held in memory, which means that analyzing 4 billion hashtags (which is a generously low estimate) could possibly result in $(4 \times 10^{13}) \times 512$ bytes of data being stored at one time, assuming every hashtag was 10 bytes long. MD5 outputs smaller sized integers (128 in this case), but the collision probability is much higher. The hash method is not a viable solution to the count distinct problem when we are dealing with a large volume of data. Hashing, however is used in the other solutions that we will discuss.
+\indent More complex hash functions, such as SHA-2 (Secure Hash Algorithm 2) or MD5 (Message Digest 5) offer a solution to the collision problem. SHA-2 is used by organizations such as the NSA to encrypt data, and has yet to produce any collisions when hashing values \cite[p. 301]{SHA-Algo}. However, this is not a viable solution to the count distinct problem either due to the volume of the data being processed. In both the Twitter and Facebook problems, we are analyzing exabytes of data. The SHA-2 function outputs a 512 byte long integer for every input, which means that the resulting size of the set $\mathbb{V}$ would be in the worst case $512 \times ||\mathbb{S}||$. All of $\mathbb{V}$ would have to be held in memory, which means that analyzing 50 million hashtags (which is a low estimate)\cite{Twitter} could possibly result in $(50 \times 10^{10}) \times 512$ bytes of data being stored at one time, assuming every hashtag was 10 bytes long. A hash table of this size could not be loaded all at once into main memory; it would have to be stored into secondary memory which would exponentially increase the amount of time required to read the data \cite[p. 209]{Whang}. MD5 outputs smaller sized integers (128 in this case), but the collision probability is much higher \cite[p. 22 - 23]{Break-MD5}. The hash method is not a viable solution to the count distinct problem when we are dealing with a large volume of data, but hash functions are still used in the other solutions to the count-distinct problem.
 \\\\
-\indent The most beneficial aspect of the hash is that it has a 0\% error rate. In other words, the cardinality of $\mathbb{V}$ will be exactly how many distinct elements are in $\mathbb{S}$, assuming the hash function is surjective. However, if we are looking for a \textit{good enough} estimate of the number of distinct elements in $\mathbb{S}$, we can use an algorithm called a Linear Probabilistic Counter. With the LPC, the user can specify how large they want the error to be. This method uses a data structure called a bit-map. Bit-maps are a matrix where either a 1 or 0 is stored in a cell, which allows for the map to be incredibly space efficient. The LPC also uses a hash, but it only needs to temporarily produce a position and then it can ``forget'' the value it just produced. The number of distinct elements is determined by the number of 1's in the bit-map.
+\indent The hash-table method provided a 0\% error, but was not efficient in handling large sets of data. However, if we are looking for a \textit{good enough} estimate (within the neighborhood of 1\% to 5\% error) of the number of distinct elements in $\mathbb{S}$, we can use an algorithm called a Linear Probabilistic Counter. With the LPC, the user can specify how large they want the error to be. This method uses a data structure called a bit-map. Bit-maps are a matrix where either a 1 or 0 is stored in a cell, which allows for the map to be incredibly space efficient. The LPC also uses a hash, but it only needs to temporarily produce a position and then it can ``forget'' the value it just produced, which in turn reduces the overhead memory needed to store the elements that was required by the hash table method \cite{Whang}. The number of distinct elements is determined by the number of 1's in the bit-map when the algorithm is finished.
 \\\\
-\indent The LPC produces an estimate of the number of elements in the 
+\indent In order to either increase or decrease the error, the user of the LPC algorithm can either increase or decrease the size of the bit-map that is held in main memory. The following equation gives us a relationship between the size of the bitmap and the error that will be produced:
+\[
+bias\left(\frac{\hat{n}}{n}\right) = \frac{e^{t} - t - 1}{2n},
+\]
+where $bias\left(\frac{\hat{n}}{n}\right)$ is the error. The value $t$ is the ratio of the number of distinct elements determined by the algorithm (denoted by $n$) to the size of the bitmap \cite{Whang}. If $t$ is close to 0, then the error will be very small; if $t$ is much greater than 1, the error will be very large. In other words, if the hash function being used produces a large amount of collisions, then the error will be high. Luckily, an algorithm such as SHA-2 will be okay to use, since the LPC never stores the hashed value in main memory. We can also calculate the number of distinct elements by 
+\[
+\hat{n} = -m \ln{(\Lambda_{n})},
+\]
+where $m$ is the size of the bit-map and $\Lambda_{n}$ is the ratio of the number of 0's in the bit map to the size of the bit map \cite[p. 212]{Whang}. 
+\\\\
+\indent The Facebook problem can be solved efficiently by using the LPC algorithm. We would have set $\mathbb{S}$ of size 20 million \cite{Facebook}, and we can choose an arbitrary sized bit map $\mathbb{V}$ of 10 million bits, or roughly 1.25 Mb, which lies on the upper limit of the efficiency of the LPC. If the memory required for the bit map increases beyond 1.25Mb, most operating systems will move the I/O operations to secondary memory, which defeats the purpose of the LPC algorithm \cite[p. 211]{Whang}; as a result, the Twitter problem would not be efficiently solved by this method, since the amount of hashtags created in a day far exceeds 20 million. In the case of the Facebook problem, we can apply the LPC algorithm analytically, rather than actually processing 20 million application installs.
+\\\\
+%%%%%%%%FINISH THIS SECTION%%%%%%%%%
+\indent We know that on a given day, Facebook users make 20 million app installs, and that there are currently about 7 million apps on Facebook \cite{Facebook}. 
+However, not all 7 million applications are installed every day; in fact, the amount of installs decays exponentially starting from the number one most installed application on Facebook, which is Spotify as of August 2015 \cite{Facebook-2}. We would expect that apps such as Spotify would dominate the market, whereas apps in the lower spectrum of the downloads would be negligible. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\\\\
+\indent The LPC and the hash table algorithms handled relatively small data sets well, but the Twitter problem deals with a data set of nearly 200,000,000 tweets a day \cite{Twitter-2}.
+As a result, the LPC would be too inefficient to process all the data, but the HyperLogLog algorithm allows for data to be processed more efficiently than the LPC or the hash table. 
+The HLL algorithm actually uses parts of the hash table and LPC algorithms; values are still hashed to a bit map held in memory. 
+The hash function hashes values to binary numbers, and the algorithm decides whether or not that value has already been seen the value before by analyzing the leading 0's in the binary number \cite[pp. 685, 689]{Heule}.
+In other words, the algorithm keeps a record of the first location of a 1 in a binary string, called $\rho$ \cite[pp. 130]{Flaj}.
+If the sequence of 0's is identical to another sequence of 0's, the probability that the original values were the same is very high, and the algorithm will ignore what it finds to be a duplicate value. 
+The amount of memory that the HLL algorithm requires per bitmap is expressed by
+\[
+\text{Memory Required}\, = \log_{2}{\left(\log_{2}{\left(M \right)}\right)},
+\]
+where $M$ is the size of the original set of data \cite[pp. 129]{Flaj}.
+Finally, the algorithm takes the harmonic average of all the totals of the separate bit maps, which allows the algorithm to increase in accuracy as the size of the original set grows \cite{Yousra}.
+\\\\
+\indent We can solve the Twitter problem with the HLL algorithm. 
+We will make the assumption that all 200,000,000 tweets made will have hashtags, which means we will have a set $\mathbb{S}$ of size 200,000,000, assuming every tweet made in a day contains a hashtag. 
+By the formula for above, we get that the total required memory per bit map will be
+\begin{align*}
+\text{Memory} &=\log_{2}{\left(\log_{2}{\left( 200,000,000\right)}\right)}\\
+&\approx  4.78531\text{b},
+\end{align*}
+The LPC algorithm would take at least ten times the amount of space just to hold the bit map in main memory.
+In addition to the memory efficiency of the HLL, the algorithm also has a relatively smaller error than the LPC, expressed by
+\[
+\text{Error}\ =\frac{\sqrt{3\log{(2)} - 1}}{\sqrt{m}}.
+\]
+Finally, the HyperLogLog finds a harmonic mean of the hashed values in the bit map, rather than a geometric mean, which increases the accuracy of the HLL even more. 
+\\\\
+To solve the Twitter problem, 
+
+\newpage
+\begin{thebibliography}{9}
+\bibitem{Facebook} Facebook Statistics. (2015, September 20). Retrieved October 30, 2015, from \url{http://www.statisticbrain.com/facebook-statistics/}
+\bibitem{Whang} Whang, Kyu-Young, Vander-Zanden, Brad T. \& Taylor, Howard M. (1990). A Linear-time Probabilistic Counting Algorithm for Database Applications. ACM Trans. Database Syst., 15, 208-229.
+\bibitem{Maurer} Maurer, W. D. \& Lewis, T. G. (1975). Hash Table Methods. ACM Comput. Surv., 7, 5-19.
+\bibitem{SHA-Algo} Chaves, Ricardo, Kuzmanov, Georgi, Sousa, Leonel \& Vassiliadis, Stamatis (2006). Improving SHA-2 Hardware Implementations. , 4249, 298-310.
+\bibitem{Break-MD5} Wang, Xiaoyun \& Yu, Hongbo (2005). How to Break MD5 and Other Hash Functions. , 3494, 19-35.
+\bibitem{Heule} Heule, S., Nunkesser, M., \& Hall, A. (2013). HyperLogLog in Practice: Algorithmic Engineering of a State of the Art Cardinality Estimation Algorithm. In \textit{Proceedings of the 16th International Conference on Extending Database Technology} (Vol. EDBT '13, pp. 683-692). New York, NY, Genoa: ACM.
+\bibitem{Twitter} \#numbers. (2011, March 14). Retrieved October 29, 2015, from \url{https://blog.twitter.com/2011/numbers}
+\bibitem{Pokemon} How many Pokemon are there altogether, before and after Omega Ruby and Alpha Sapphire? (2014, October 27). Retrieved October 29, 2015, from \url{http://pokemondb.net/pokebase/219332/pokemon-there-altogether-before-after-omega-alpha-sapphire}
+\bibitem{Facebook-2} Most popular Facebook apps 2015 | Statistic. (2015, August 1). Retrieved November 3, 2015, from \url{http://www.statista.com/statistics/276371/most-popular-facebook-apps-by-monthly-active-users/}
+\bibitem{Twitter-2} Twitter Statistics. (2015, September 15). Retrieved November 3, 2015, from \url{http://www.statisticbrain.com/twitter-statistics/}
+\bibitem{Yousra}Yousra Chabchoub, Georges H\'ebrail. \textit{Sliding HyperLogLog: Estimating cardinality in a data stream.} 2010. 
+\bibitem{Flaj} Flajolet, P., Fusy, \'E., Gandouet, O., \& Meunier, F. (n.d.). HyperLogLog: The Analysis of a Near-Optimal Cardinality Estimation Algorithm. 2007 \textit{Conference on Analysis of Algorithms, 07,} 127-143. Retrieved October 27, 2015, from \url{http://algo.inria.fr/flajolet/Publications/FlFuGaMe07.pdf}
+\end{thebibliography}
 \end{document}
