@@ -2,7 +2,7 @@ require 'hyperll'
 
 module Worker
 	def Worker.calculate(len)
-		mhll = Hyperll::HyperLogLog.new(4)
+		mhll = Hyperll::HyperLogLog.new(10)
 		File.open("twitter_data.txt","r") do |file|
 			file.each_line do |line|
 				mhll.offer line
