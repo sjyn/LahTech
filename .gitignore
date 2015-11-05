@@ -3,6 +3,7 @@
 /wim/twitter_problem/const.rb
 /wim/twitter_problem/tw_log.txt
 /wim/twitter_problem/twitter_data.txt
+/wim/fb_problem/const.rb
 
 ## Core latex/pdflatex auxiliary files:
 *.aux

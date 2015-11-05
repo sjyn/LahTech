@@ -1,9 +1,14 @@
 \documentclass{article}
 \usepackage{setspace}
+\usepackage{listings}
+\usepackage{float}
 \usepackage{amssymb,amsmath}
+\usepackage{wrapfig}
 \usepackage{url}
+\usepackage{graphicx}
 \usepackage{fancyvrb}
 \usepackage{mathtools}
+\usepackage{floatflt}
 \usepackage[square,sort,comma,numbers]{natbib}
 \usepackage[margin=1in]{geometry}
 \doublespacing
@@ -12,25 +17,23 @@
 \date{}
 \begin{document}
 \maketitle
-\indent Processing data efficiently has always been a goal of organizations that collect data; companies like Facebook and Google have been collecting and storing data for as long as they have existed. 
+\indent Processing data efficiently has always been a goal of organizations that collect data; companies like Facebook and Google have been collecting and storing data for as long as they have existed.
+One important statistic that companies can use is the number of distinct elements in a large set of data.
 The count-distinct problem poses the question of how many distinct elements are in a given set. 
-The three problems that we will analyze are
-\begin{enumerate}
-\item \underline{The Twitter Problem}: How many unique hashtags are created on any given day?
-\item \underline{The Facebook Problem}: How many unique Facebook app installs are made on any given day?
-\item \underline{The Pok\'emon Problem}: How many unique Pok\'emon encounters will a player face in a given play through of a game from each generation.
-\end{enumerate}
-Each of these problems can be solved by using one of three different solutions to the count distinct problem: the hash table, the linear probabilistic counter, and the hyperloglog algorithm.
-\\\\
-\indent The count-distinct problem has not always been a problem. 
-Before the internet was widely used by the population, storing data was expensive, and as a result most companies did not want to spend money on the hardware and space that would be required to store large amounts of data. 
-In addition, data was not transferred and gathered at a fast enough rate to warrant finding a way to count the data; even if companies wanted to count the data, the computers at the time were not powerful enough to perform the necessary calculations. 
-The problem of counting big data did not arise until the 1990's, when the internet began to facilitate the easy transfer and collection of data. 
-Today, more than 25 exabytes of data are created and stored a day. 
-The main factor that contributes most to the problem is that gathering and storing data is cheap, but analyzing it is not. The volume of the data leads to the count distinct problem that we will analyze \cite[pp. 1]{Yousra}.
+There are several algorithms that exist that can solve the count distinct problem; we will consider three of them:
+the hash table, the Linear Probabilistic Counter, and the HyperLogLog. 
+In order to analyze these algorithms, we will apply them to real world problems, namely (1) The Pok\'emon Problem, which poses the question ``How many unique Pok\'emon encounters will a player face in a given play through of a game from each generation?,'' (2) The Facebook Problem, which asks ``How many unique Facebook app installs are made on any given day?'', and (3) The Twitter Problem, where we will determine how many unique hashtags are created on any given day. 
+We can use the hash table, the Linear Probabilistic Counter, and the HyperLogLog to solve each problem, respectively.
+%\\\\
+%\indent The count-distinct problem has not always been a problem. 
+%Before the internet was widely used by the population, storing data was expensive, and as a result most companies did not want to spend money on the hardware and space that would be required to store large amounts of data. 
+%In addition, data was not transferred and gathered at a fast enough rate to warrant finding a way to count the data; even if companies wanted to count the data, the computers at the time were not powerful enough to perform the necessary calculations. 
+%The problem of counting big data did not arise until the 1990's, when the internet began to facilitate the easy transfer and collection of data. 
+%Today, more than 25 exabytes of data are created and stored a day. 
+%The main factor that contributes most to the problem is that gathering and storing data is cheap, but analyzing it is not. The volume of the data leads to the count distinct problem that we will analyze \cite[pp. 1]{Yousra}.
 \\\\
 \indent The first solution to the count distinct problem is called the \textit{Hash Table}. 
-A hash-table is a matrix that is stored in memory where each entry was uniquely obtained from another value. 
+A hash-table is a matrix that is stored in memory where each entry was uniquely obtained from another value, called a key. 
 The algorithm is as follows:
 \begin{center}
 Let $\mathbb{S}$ be a set of random elements. In order to count the number of distinct elements in $\mathbb{S}$,
@@ -99,53 +102,98 @@ Since the collision policy would not help us, we need to come up with a better h
 \\\\
 \indent More complex hash functions, such as SHA-2 (Secure Hash Algorithm 2) or MD5 (Message Digest 5) offer a solution to the collision problem. SHA-2 is used by organizations such as the NSA to encrypt data, and has yet to produce any collisions when hashing values \cite[p. 301]{SHA-Algo}. However, this is not a viable solution to the count distinct problem either due to the volume of the data being processed. In both the Twitter and Facebook problems, we are analyzing exabytes of data. The SHA-2 function outputs a 512 byte long integer for every input, which means that the resulting size of the set $\mathbb{V}$ would be in the worst case $512 \times ||\mathbb{S}||$. All of $\mathbb{V}$ would have to be held in memory, which means that analyzing 50 million hashtags (which is a low estimate)\cite{Twitter} could possibly result in $(50 \times 10^{10}) \times 512$ bytes of data being stored at one time, assuming every hashtag was 10 bytes long. A hash table of this size could not be loaded all at once into main memory; it would have to be stored into secondary memory which would exponentially increase the amount of time required to read the data \cite[p. 209]{Whang}. MD5 outputs smaller sized integers (128 in this case), but the collision probability is much higher \cite[p. 22 - 23]{Break-MD5}. The hash method is not a viable solution to the count distinct problem when we are dealing with a large volume of data, but hash functions are still used in the other solutions to the count-distinct problem.
 \\\\
-\indent The hash-table method provided a 0\% error, but was not efficient in handling large sets of data. However, if we are looking for a \textit{good enough} estimate (within the neighborhood of 1\% to 5\% error) of the number of distinct elements in $\mathbb{S}$, we can use an algorithm called a Linear Probabilistic Counter. With the LPC, the user can specify how large they want the error to be. This method uses a data structure called a bit-map. Bit-maps are a matrix where either a 1 or 0 is stored in a cell, which allows for the map to be incredibly space efficient. The LPC also uses a hash, but it only needs to temporarily produce a position and then it can ``forget'' the value it just produced, which in turn reduces the overhead memory needed to store the elements that was required by the hash table method \cite{Whang}. The number of distinct elements is determined by the number of 1's in the bit-map when the algorithm is finished.
+\indent The hash-table method provided a 0\% error, but was not efficient in handling large sets of data. However, if we are looking for a \textit{good enough} estimate (within the neighborhood of 1\% to 5\% error) of the number of distinct elements in $\mathbb{S}$, we can use an algorithm called a Linear Probabilistic Counter. With the Linear Probabilistic Counter, the user can specify how large they want the error to be. This method uses a data structure called a bitmap. bitmaps are a matrix where either a 1 or 0 is stored in a cell, which allows for the map to be incredibly space efficient. The Linear Probabilistic Counter also uses a hash, but it only needs to temporarily produce a position and then it can ``forget'' the value it just produced, which in turn reduces the overhead memory needed to store the elements that was required by the hash table method \cite{Whang}. The number of distinct elements is determined by the number of 1's in the bitmap when the algorithm is finished.
 \\\\
-\indent In order to either increase or decrease the error, the user of the LPC algorithm can either increase or decrease the size of the bit-map that is held in main memory. The following equation gives us a relationship between the size of the bitmap and the error that will be produced:
+\indent In order to either increase or decrease the error, the user of the Linear Probabilistic Counter algorithm can either increase or decrease the size of the bitmap that is held in main memory. The following equation gives us a relationship between the size of the bitmap and the error that will be produced:
 \[
 bias\left(\frac{\hat{n}}{n}\right) = \frac{e^{t} - t - 1}{2n},
 \]
-where $bias\left(\frac{\hat{n}}{n}\right)$ is the error. The value $t$ is the ratio of the number of distinct elements determined by the algorithm (denoted by $n$) to the size of the bitmap \cite{Whang}. If $t$ is close to 0, then the error will be very small; if $t$ is much greater than 1, the error will be very large. In other words, if the hash function being used produces a large amount of collisions, then the error will be high. Luckily, an algorithm such as SHA-2 will be okay to use, since the LPC never stores the hashed value in main memory. We can also calculate the number of distinct elements by 
+where $bias\left(\frac{\hat{n}}{n}\right)$ is the error. The value $t$ is the ratio of the number of distinct elements determined by the algorithm (denoted by $n$) to the size of the bitmap \cite{Whang}. If $t$ is close to 0, then the error will be very small; if $t$ is much greater than 1, the error will be very large. In other words, if the hash function being used produces a large amount of collisions, then the error will be high. Luckily, an algorithm such as SHA-2 will be okay to use, since the Linear Probabilistic Counter never stores the hashed value in main memory. We can also calculate the number of distinct elements by 
 \[
 \hat{n} = -m \ln{(\Lambda_{n})},
 \]
-where $m$ is the size of the bit-map and $\Lambda_{n}$ is the ratio of the number of 0's in the bit map to the size of the bit map \cite[p. 212]{Whang}. 
+where $m$ is the size of the bitmap and $\Lambda_{n}$ is the ratio of the number of 0's in the bitmap to the size of the bitmap \cite[p. 212]{Whang}. 
 \\\\
-\indent The Facebook problem can be solved efficiently by using the LPC algorithm. We would have set $\mathbb{S}$ of size 20 million \cite{Facebook}, and we can choose an arbitrary sized bit map $\mathbb{V}$ of 10 million bits, or roughly 1.25 Mb, which lies on the upper limit of the efficiency of the LPC. If the memory required for the bit map increases beyond 1.25Mb, most operating systems will move the I/O operations to secondary memory, which defeats the purpose of the LPC algorithm \cite[p. 211]{Whang}; as a result, the Twitter problem would not be efficiently solved by this method, since the amount of hashtags created in a day far exceeds 20 million. In the case of the Facebook problem, we can apply the LPC algorithm analytically, rather than actually processing 20 million application installs.
+\indent The Facebook problem can be solved efficiently by using the Linear Probabilistic Counter algorithm. We would have set $\mathbb{S}$ of size 20 million \cite{Facebook}, and we can choose an arbitrary sized bitmap $\mathbb{V}$ of 10 million bits, or roughly 1.25 Mb, which lies on the upper limit of the efficiency of the Linear Probabilistic Counter. If the memory required for the bitmap increases beyond 1.25Mb, most operating systems will move the I/O operations to secondary memory, which defeats the purpose of the Linear Probabilistic Counter algorithm \cite[p. 211]{Whang}; as a result, the Twitter problem would not be efficiently solved by this method, since the amount of hashtags created in a day far exceeds 20 million. In the case of the Facebook problem, we can apply the Linear Probabilistic Counter algorithm analytically, rather than actually processing 20 million application installs.
 \\\\
 %%%%%%%%FINISH THIS SECTION%%%%%%%%%
 \indent We know that on a given day, Facebook users make 20 million app installs, and that there are currently about 7 million apps on Facebook \cite{Facebook}. 
 However, not all 7 million applications are installed every day; in fact, the amount of installs decays exponentially starting from the number one most installed application on Facebook, which is Spotify as of August 2015 \cite{Facebook-2}. We would expect that apps such as Spotify would dominate the market, whereas apps in the lower spectrum of the downloads would be negligible. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \\\\
-\indent The LPC and the hash table algorithms handled relatively small data sets well, but the Twitter problem deals with a data set of nearly 200,000,000 tweets a day \cite{Twitter-2}.
-As a result, the LPC would be too inefficient to process all the data, but the HyperLogLog algorithm allows for data to be processed more efficiently than the LPC or the hash table. 
-The HLL algorithm actually uses parts of the hash table and LPC algorithms; values are still hashed to a bit map held in memory. 
+\indent The Linear Probabilistic Counter and the hash table algorithms handled relatively small data sets well, but the Twitter problem deals with a data set of nearly 200,000,000 tweets a day \cite{Twitter-2}.
+As a result, the Linear Probabilistic Counter would be too inefficient to process all the data, but the HyperLogLog algorithm allows for data to be processed more efficiently than the Linear Probabilistic Counter or the hash table. 
+The HyperLogLog algorithm actually uses parts of the hash table and Linear Probabilistic Counter algorithms; values are still hashed to a bitmap held in memory. 
 The hash function hashes values to binary numbers, and the algorithm decides whether or not that value has already been seen the value before by analyzing the leading 0's in the binary number \cite[pp. 685, 689]{Heule}.
 In other words, the algorithm keeps a record of the first location of a 1 in a binary string, called $\rho$ \cite[pp. 130]{Flaj}.
 If the sequence of 0's is identical to another sequence of 0's, the probability that the original values were the same is very high, and the algorithm will ignore what it finds to be a duplicate value. 
-The amount of memory that the HLL algorithm requires per bitmap is expressed by
+The amount of memory that the HyperLogLog algorithm requires per bitmap is expressed by
 \[
 \text{Memory Required}\, = \log_{2}{\left(\log_{2}{\left(M \right)}\right)},
 \]
 where $M$ is the size of the original set of data \cite[pp. 129]{Flaj}.
-Finally, the algorithm takes the harmonic average of all the totals of the separate bit maps, which allows the algorithm to increase in accuracy as the size of the original set grows \cite{Yousra}.
-\\\\
-\indent We can solve the Twitter problem with the HLL algorithm. 
-We will make the assumption that all 200,000,000 tweets made will have hashtags, which means we will have a set $\mathbb{S}$ of size 200,000,000, assuming every tweet made in a day contains a hashtag. 
-By the formula for above, we get that the total required memory per bit map will be
-\begin{align*}
-\text{Memory} &=\log_{2}{\left(\log_{2}{\left( 200,000,000\right)}\right)}\\
-&\approx  4.78531\text{b},
-\end{align*}
-The LPC algorithm would take at least ten times the amount of space just to hold the bit map in main memory.
-In addition to the memory efficiency of the HLL, the algorithm also has a relatively smaller error than the LPC, expressed by
+The error amount can be found by
 \[
-\text{Error}\ =\frac{\sqrt{3\log{(2)} - 1}}{\sqrt{m}}.
+\text{Error}\ = \frac{\sqrt{3\log{(2)} - 1}}{\sqrt{m}},
 \]
-Finally, the HyperLogLog finds a harmonic mean of the hashed values in the bit map, rather than a geometric mean, which increases the accuracy of the HLL even more. 
+where $m$ is the number of spaces in the bitmap.
+Finally, the algorithm takes the harmonic average of all the totals of the separate bitmaps, given by
+\[
+H = \frac{n}{\sum_{i=1}^{n}\frac{1}{x_{i}}},
+\] 
+which allows the algorithm to increase in accuracy as the size of the original set grows \cite{Yousra}.
 \\\\
-To solve the Twitter problem, 
+\indent We can solve the Twitter problem with the HyperLogLog algorithm.
+We will use the code in \textit{Figure 1} to aggregate a random sampling of the most recent 2000 tweets that contain a ``\#'' every two minutes for 24 hours.
+This will allow for a large random sample of tweets that will closely model the real problem that we are trying to solve. 
+We also need a hashing function that will produce a binary string of 1's and 0's given any key; luckily this hash function already exists. A murmur hash will produce a 32 bit binary string, which is exactly what we need.
+Finally, we actually need to implement the algorithm. 
+We will create a class to perform the calculation that is initialized with the amount of memory we are willing to spend on the bitmap for the HyperLogLog algorithm. 
+We know that the HyperLogLog can process nearly 1 billion elements with only 1.5 kilobytes of space to an accuracy of 2\% \cite{Flaj}.
+\begin{floatingfigure}[r]{8cm}
+
+\centering
+\includegraphics[scale=0.3]{twitter_problem/ruby_code_01}
+\caption{An infinite while loop can be useful}
+\end{floatingfigure}
+\noindent This is given by the equation we have for memory.
+Using a similar argument, we can come up with the amount of memory we will need. 
+If we want the error to be 1\%, then we can calculate the number of spaces required in the bitmap by using the equation we have for the error.
+\begin{align*}
+0.01 &= \frac{\sqrt{3\log{(2)} - 1}}{\sqrt{m}}\\
+0.01\,\sqrt{m} &= \sqrt{3\log{(2)} - 1}\\
+\sqrt{m}\, &= \frac{\sqrt{3\log{(2)} - 1}}{0.01}\\
+m &= \frac{\sqrt{3\log{(2)} - 1}}{0.01^{2}}\\
+m &\approx 10,794.4\ \text{spaces in the bitmap}.
+\end{align*}
+Now we can find the total memory required for our logarithm. If we let the program from \textit{Figure 1} run for 24 hours, at worst it will parse 1,440,000 hashtags.
+We can now calculate the memory required by
+\begin{align*}
+\text{Memory}\, &= \log_{2}{(\log_{2}{(1,440,000)})}\\
+&= 4.35457 \, \text{bytes per entry}.
+\end{align*}
+Multiplying this number by the total number of entires gives us a grand total of 47005 bytes, or 4.7005 kilobytes of required memory.
+\\\\
+\indent We now have all the necessary information to parse the data. We will implement the HyperLogLog in an object oriented manner; that is, we will create a Ruby class called HyperLogLog that we can initialize with the number of bytes per entry.
+We also need a method to calculate the unique elements, and we need a way to actually call this routine.
+\begin{center}
+\begin{tabular}{c c c}
+\includegraphics[scale=0.3]{twitter_problem/hll_init}
+&
+\includegraphics[scale=0.4]{twitter_problem/hll_count}
+&
+\includegraphics[scale=0.4]{twitter_problem/hll_imp}
+\\
+\textit{Initialization} & \textit{Counting} & \textit{Implementing}
+\end{tabular}
+\end{center}
+\noindent Note that we settled with 4 as the size of each entry in the bit-map. This value is close enough to 4.35 to safely say that the error will be just about 1\%.
+Finally, in our main program, we will loop infinitely (it will be up to us as to when to kill the process), and read in $\sim 2000$ tweets every two minutes. 
+After 24 hours, the HyperLogLog algorithm outputs 
+%%%%%%%%RESULTS GO HERE%%%%%%%%%%
+\\\\
+\indent 
+
 
 \newpage
 \begin{thebibliography}{9}

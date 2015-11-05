@@ -1,5 +1,7 @@
+#!/usr/bin/ruby
 require 'twitter'
 require_relative 'const.rb'
+require_relative 'hll.rb'
 
 def routine
 	tags = 0
@@ -29,7 +31,10 @@ def routine
 			file.puts str
 			puts str
 		end
-		sleep 60
+		Thread.new {
+			Worker.calculate tags
+		}
+		sleep 120
 	end
 end
 
