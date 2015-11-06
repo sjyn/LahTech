@@ -24,8 +24,7 @@ The count-distinct problem poses the question of how many distinct elements are 
 There are several algorithms that exist that can solve the count distinct problem; we will consider three of them:
 the hash table, the Linear Probabilistic Counter, and the HyperLogLog. 
 In order to analyze these algorithms, we will apply them to real world problems, namely (1) The Pok\'emon Problem, which poses the question ``How many unique Pok\'emon encounters will a player face in a given play through of a game from each generation?,'' (2) The Facebook Problem, which asks ``How many unique Facebook app installs are made on any given day?'', and (3) The Twitter Problem, where we will determine how many unique hashtags are created on any given day. 
-We can use the hash table, the Linear Probabilistic Counter, and the HyperLogLog to solve each problem, respectively.
-\\\\
+We can use the hash table, the Linear Probabilistic Counter, and the HyperLogLog to solve each problem, respectively.\\
 \indent The first solution to the count distinct problem is called a hash table. 
 A hash-table is a matrix that is stored in memory where each entry was uniquely obtained from another value, called a key. 
 The algorithm is as follows:
@@ -43,8 +42,7 @@ We can create a simple hash function where we map each letter to its correspondi
 Applying the function on each element of $\mathbb{S}$ yields a set $\mathbb{V} = \{0,4\}$. $||\mathbb{V}|| = 2$, so there were two distinct elements in $\mathbb{S}$. In this example, the hash function we chose was bijective.
 However, this may not always be the case. In fact, it is practically impossible to create a hash function that is truly surjective for huge amounts of data \cite[p. 6]{Maurer}. 
 For smaller sets of data, however, we can create a hash function that is surjective. 
-The pok\'emon problem provides a good example of the benefits of a hash table.
-\\\\
+The pok\'emon problem provides a good example of the benefits of a hash table.\\
 \indent The most beneficial aspect of the hash is that it has a 0\% error rate. 
 In other words, the cardinality of $\mathbb{V}$ will be exactly how many distinct elements are in $\mathbb{S}$, assuming the hash function is surjective. 
 We know that for very large $\mathbb{S}$, the hash table method is incredibly inefficient, but for the Pok\'emon problem, we are dealing with $\mathbb{S}$ small enough to apply the hash table. 
@@ -77,14 +75,14 @@ We would not be able to tell if we were hashing a value we already have seen or 
 Since the collision policy would not help us, we need to come up with a better hashing function.\\
 \indent More complex hash functions, such as SHA-2 (Secure Hash Algorithm 2) or MD5 (Message Digest 5) offer a solution to the collision problem. SHA-2 is used by organizations such as the NSA to encrypt data, and has yet to produce any collisions when hashing values \cite[p. 301]{SHA-Algo}. However, this is not a viable solution to the count distinct problem either due to the volume of the data being processed. In both the Twitter and Facebook problems, we are analyzing exabytes of data. The SHA-2 function outputs a 512 byte long integer for every input, which means that the resulting size of the set $\mathbb{V}$ would be in the worst case $512 \times ||\mathbb{S}||$. All of $\mathbb{V}$ would have to be held in memory, which means that analyzing 50 million hashtags (which is a low estimate)\cite{Twitter} could possibly result in $(50 \times 10^{10}) \times 512$ bytes of data being stored at one time, assuming every hashtag was 10 bytes long. A hash table of this size could not be loaded all at once into main memory; it would have to be stored into secondary memory which would exponentially increase the amount of time required to read the data \cite[p. 209]{Whang}. MD5 outputs smaller sized integers (128 in this case), but the collision probability is much higher \cite[p. 22 - 23]{Break-MD5}. The hash method is not a viable solution to the count distinct problem when we are dealing with a large volume of data, but hash functions are still used in the other solutions to the count-distinct problem.\\
 \indent The hash-table method provided a 0\% error, but was not efficient in handling large sets of data. However, if we are looking for a \textit{good enough} estimate (within the neighborhood of 1\% to 5\% error) of the number of distinct elements in $\mathbb{S}$, we can use an algorithm called a Linear Probabilistic Counter. With the Linear Probabilistic Counter, the user can specify how large they want the error to be. This method uses a data structure called a bitmap. bitmaps are a matrix where either a 1 or 0 is stored in a cell, which allows for the map to be incredibly space efficient. The Linear Probabilistic Counter also uses a hash, but it only needs to temporarily produce a position and then it can ``forget'' the value it just produced, which in turn reduces the overhead memory needed to store the elements that was required by the hash table method \cite{Whang}. The number of distinct elements is determined by the number of 1's in the bitmap when the algorithm is finished.\\
-\indent The LPC algorithm is divided into several steps. In the first step, the algorithm creates an arbitrarily sized bitmap in memory, and then hashes the values into the bitmap by determining the address in the bitmap at which the corresponding bit should be changed to a 1.
+\indent The Linear Probabilistic Counter algorithm is divided into several steps. In the first step, the algorithm creates an arbitrarily sized bitmap in memory, and then hashes the values into the bitmap by determining the address in the bitmap at which the corresponding bit should be changed to a 1.
 In the next step, the algorithm counts the number of 0's in the bitmap, and stores the result.
 Finally, the algorithm estimates the cardinality of the unique set by dividing the count of 0's by the size of the bitmap, and then plugging in the result to
 \[
 \hat{n} = -m \ln{(\Lambda_{n})},
 \]
 where $m$ is the size of the bitmap and $\Lambda_{n}$ is the ratio \cite{Whang}. 
-Figure 2 shows the Ruby implementation of the LPC algorithm.
+Figure 2 shows the Ruby implementation of the Linear Probabilistic Counter algorithm.
 \begin{floatingfigure}[R]{6cm}
 \begin{framed}
 \centering
@@ -92,10 +90,10 @@ Figure 2 shows the Ruby implementation of the LPC algorithm.
 \caption{Determining the cardinality}
 \end{framed}
 \end{floatingfigure}
-\noindent The LPC algorithm also allows us to specify the amount of error we are willing to tolerate.
+\noindent The Linear Probabilistic Counter algorithm also allows us to specify the amount of error we are willing to tolerate.
 This is accomplished by changing the size of the bitmap; if the bitmap is large, or close to the size of the original set $\mathbb{S}$, then the error will be small.
 Alternatively, if we decrease the size of the bitmap, we use less memory, but the error grows exponentially \cite{Hoff}.\\
-\indent We can use the LPC algorithm to solve the Facebook problem; unfortunately, we have no way of accessing the actual data we need, so we will have to do some guessing. 
+\indent We can use the Linear Probabilistic Counter algorithm to solve the Facebook problem; unfortunately, we have no way of accessing the actual data we need, so we will have to do some guessing. 
 We know that Facebook users make about 7,000,000 app installs a dat \cite{Facebook-2}.
 This means that the size of the set $\mathbb{S}$ will be 7,000,000.
 Now we need to make some guesses; we expect that the applications that are most installed will appear a lot in our set, and that the applications that are installed less will appear less in $\mathbb{S}$. 
@@ -131,8 +129,7 @@ which allows the algorithm to increase in accuracy as the size of the original s
 \indent We can solve the Twitter problem with the HyperLogLog algorithm.
 We will use the code in \textit{Figure 2} to aggregate a random sampling of the most recent 2000 tweets that contain a ``\#'' every two minutes for 24 hours.
 This will allow for a large random sample of tweets that will closely model the real problem that we are trying to solve. 
-We also need a hashing function that will produce a binary string of 1's and 0's given any key; luckily this hash function already exists. A murmur hash will produce a 32 bit binary string, which is exactly what we need.
-Finally, we actually need to implement the algorithm. 
+We also need a hashing function that will produce a binary string of 1's and 0's given any key; luckily this hash function already exists. 
 \begin{floatingfigure}[hr]{8cm}
 \centering
 \begin{framed}
@@ -140,6 +137,8 @@ Finally, we actually need to implement the algorithm.
 \caption{An infinite while loop can be useful}
 \end{framed}
 \end{floatingfigure}
+A murmur hash will produce a 32 bit binary string, which is exactly what we need.
+Finally, we actually need to implement the algorithm. 
 We will create a class to perform the calculation that is initialized with the amount of memory we are willing to spend on the bitmap for the HyperLogLog algorithm. 
 \noindent We know that the HyperLogLog can process nearly 1 billion elements with only 1.5 kilobytes of space to an accuracy of 2\% \cite{Flaj}.\clearpage
 This is given by the equation we have for memory.
@@ -179,7 +178,8 @@ After running the algorithm for 24 hours, we will have a\\
 %%%%%%%%RESULTS GO HERE%%%%%%%%%%
 \indent We have looked at three different approaches to the count distinct problem. 
 We used the HyperLogLog to solve only the Twitter problem, but we could have used the algorithm to solve all of the problems. 
-The count distinct problem 
+The count distinct problem is heavily applicable in the real world; companies are able to turn the numbers that are determined by algorithms such as the HyperLogLog to increase profits, target ads, and keep more data.
+Finding an efficient way to count large sets of data may never be competely accurate, but with algorithms like the HyperLogLog and the Linear Probabilistic counter, we can efficiently and with nearly 100\% accuracy solve the count distinct problem.
 
 
 \newpage
