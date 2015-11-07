@@ -25,6 +25,7 @@ There are several algorithms that exist that can solve the count distinct proble
 the hash table, the Linear Probabilistic Counter, and the HyperLogLog. 
 In order to analyze these algorithms, we will apply them to real world problems, namely (1) The Pok\'emon Problem, which poses the question ``How many unique Pok\'emon encounters will a player face in a given play through of a game from each generation?,'' (2) The Facebook Problem, which asks ``How many unique Facebook app installs are made on any given day?'', and (3) The Twitter Problem, where we will determine how many unique hashtags are created on any given day. 
 We can use the hash table, the Linear Probabilistic Counter, and the HyperLogLog to solve each problem, respectively.\\
+
 \indent The first solution to the count distinct problem is called a hash table. 
 A hash-table is a matrix that is stored in memory where each entry was uniquely obtained from another value, called a key. 
 The algorithm is as follows:
@@ -43,6 +44,7 @@ Applying the function on each element of $\mathbb{S}$ yields a set $\mathbb{V} =
 However, this may not always be the case. In fact, it is practically impossible to create a hash function that is truly surjective for huge amounts of data \cite[p. 6]{Maurer}. 
 For smaller sets of data, however, we can create a hash function that is surjective. 
 The pok\'emon problem provides a good example of the benefits of a hash table.\\
+
 \indent The most beneficial aspect of the hash is that it has a 0\% error rate. 
 In other words, the cardinality of $\mathbb{V}$ will be exactly how many distinct elements are in $\mathbb{S}$, assuming the hash function is surjective. 
 We know that for very large $\mathbb{S}$, the hash table method is incredibly inefficient, but for the Pok\'emon problem, we are dealing with $\mathbb{S}$ small enough to apply the hash table. 
@@ -59,6 +61,7 @@ The hashing function we created earlier will not be good enough here; instead we
 \noindent Running the code in \textit{Figure 1} will give us a final answer of 461 unique encounters with wild pok\'emon. 
 In the case of the pok\'emon problem, a simple hash function sufficed, since the only collisions that were encountered were pok\'emon where the name was the same. 
 If we consider a larger data set, however, we may not be able to create a surjective hash function.\\
+
 \indent Imagine that we are solving the Twitter problem where we want to count the number of distinct hashtags on twitter on a given day. 
 Our set $\mathbb{S}$ will now contain every hashtag that was made on a given day. 
 We know that we want a hash function that is surjective, but this is an unrealistic, since we could have some $x \in \mathbb{S}$ and $y\in\mathbb{S}$ where $x \neq y$ but $h(x) = h(y)$. 
@@ -73,11 +76,13 @@ On a larger scale, such as the Facebook or Twitter problem, we would need to eit
 Creating a way to handle collisions would not be beneficial, since the data is being processed in real time. 
 We would not be able to tell if we were hashing a value we already have seen or hashing a new value that happens to hash to the same value as another element we have already seen; as a result we would have no way to know which keys were different and which keys were the same when looking at $\mathbb{V}$ \cite[p. 6]{Maurer}. 
 Since the collision policy would not help us, we need to come up with a better hashing function.\\
+
 \indent More complex hash functions, such as SHA-2 (Secure Hash Algorithm 2) or MD5 (Message Digest 5) offer a solution to the collision problem. SHA-2 is used by organizations such as the NSA to encrypt data, and has yet to produce any collisions when hashing values \cite[p. 301]{SHA-Algo}. However, this is not a viable solution to the count distinct problem either due to the volume of the data being processed. In both the Twitter and Facebook problems, we are analyzing exabytes of data. The SHA-2 function outputs a 512 byte long integer for every input, which means that the resulting size of the set $\mathbb{V}$ would be in the worst case $512 \times ||\mathbb{S}||$. All of $\mathbb{V}$ would have to be held in memory, which means that analyzing 50 million hashtags (which is a low estimate)\cite{Twitter} could possibly result in $(50 \times 10^{10}) \times 512$ bytes of data being stored at one time, assuming every hashtag was 10 bytes long. A hash table of this size could not be loaded all at once into main memory; it would have to be stored into secondary memory which would exponentially increase the amount of time required to read the data \cite[p. 209]{Whang}. MD5 outputs smaller sized integers (128 in this case), but the collision probability is much higher \cite[p. 22 - 23]{Break-MD5}. The hash method is not a viable solution to the count distinct problem when we are dealing with a large volume of data, but hash functions are still used in the other solutions to the count-distinct problem.\\
+
 \indent The hash-table method provided a 0\% error, but was not efficient in handling large sets of data. However, if we are looking for a \textit{good enough} estimate (within the neighborhood of 1\% to 5\% error) of the number of distinct elements in $\mathbb{S}$, we can use an algorithm called a Linear Probabilistic Counter. With the Linear Probabilistic Counter, the user can specify how large they want the error to be. This method uses a data structure called a bitmap. bitmaps are a matrix where either a 1 or 0 is stored in a cell, which allows for the map to be incredibly space efficient. The Linear Probabilistic Counter also uses a hash, but it only needs to temporarily produce a position and then it can ``forget'' the value it just produced, which in turn reduces the overhead memory needed to store the elements that was required by the hash table method \cite{Whang}. The number of distinct elements is determined by the number of 1's in the bitmap when the algorithm is finished.\\
 \indent The Linear Probabilistic Counter algorithm is divided into several steps. In the first step, the algorithm creates an arbitrarily sized bitmap in memory, and then hashes the values into the bitmap by determining the address in the bitmap at which the corresponding bit should be changed to a 1.
 In the next step, the algorithm counts the number of 0's in the bitmap, and stores the result.
-Finally, the algorithm estimates the cardinality of the unique set by dividing the count of 0's by the size of the bitmap, and then plugging in the result to
+Finally, the algorithm estimates the cardinality of the unique set by dividing the count of 0's by the size of the bitmap, and then substituting in the result to
 \[
 \hat{n} = -m \ln{(\Lambda_{n})},
 \]
@@ -103,8 +108,13 @@ This means that we will need a bitmap relatively close in size to the original s
 In other words, we expect a lot of distinct elements in $\mathbb{S}$.\\
 \indent We can model the exponential function by choosing random numbers with a certain weight towards different numbers.
 We will let the each number correspond to a different application.
-For example, if we let 200 be the number for Spotify, we would expect a high appearance rate of 200 in $\mathbb{S}$.\\
-%%%Need to figure out how to do this
+For example, if we let 200 be the number for Spotify, we would expect a high appearance rate of 200 in $\mathbb{S}$.
+We can use an algorithm (courtesy of GitHub user Danieth5x) that will generate a pseudo-random sample based on a function, which will be an exponential function in our case.
+We can argue that it is not important as to which exponential function we choose, since the distribution will be more or less the same; in our case we will pick $e^{x}$.
+Running the pseudo-random generator produces a set $\mathbb{S}$ of size 7,000,000, and we can now apply the Linear Probabilistic Counter to the data set.
+For our purposes, we will use the hash function supplied by Ruby; the only change we need to make is to mod the result of the Ruby hash with the number of spaces in the bitmap, which ensures that we will never produce a  hashed value out of the bounds of our bitmap.
+Finally, running the algorithm tells us that the total number of unique application installs is \underline{RESULT GOES HERE}.\\
+
 \indent The Linear Probabilistic Counter and the hash table algorithms handled relatively small data sets well, but the Twitter problem deals with a data set of nearly 200,000,000 tweets a day \cite{Twitter-2}.
 As a result, the Linear Probabilistic Counter would be too inefficient to process all the data, but the HyperLogLog algorithm allows for data to be processed more efficiently than the Linear Probabilistic Counter or the hash table. 
 The HyperLogLog algorithm actually uses parts of the hash table and Linear Probabilistic Counter algorithms; values are still hashed to a bitmap held in memory. 
@@ -127,9 +137,15 @@ H = \frac{n}{\sum_{i=1}^{n}\frac{1}{x_{i}}},
 \] 
 which allows the algorithm to increase in accuracy as the size of the original set grows \cite{Yousra}.\\
 \indent We can solve the Twitter problem with the HyperLogLog algorithm.
-We will use the code in \textit{Figure 2} to aggregate a random sampling of the most recent 2000 tweets that contain a ``\#'' every two minutes for 24 hours.
-This will allow for a large random sample of tweets that will closely model the real problem that we are trying to solve. 
-We also need a hashing function that will produce a binary string of 1's and 0's given any key; luckily this hash function already exists. 
+We will use the code in \textit{Figure 3} to aggregate a random sampling of the most recent 2000 tweets that contain a ``\#'' every two minutes for 24 hours.
+This will allow for a large random sample of tweets that will closely model the real problem that we are trying to solve.
+We also need a hashing function that will produce a binary string of 1's and 0's given any key; luckily this hash function already exists.
+A murmur hash will produce a 32 bit binary string, which is exactly what we need.
+Finally, we actually need to implement the algorithm. 
+We will create a class to perform the calculation that is initialized with the amount of memory we are willing to spend on the bitmap for the HyperLogLog algorithm. 
+We know that the HyperLogLog can process nearly 1 billion elements with only 1.5 kilobytes of space to an accuracy of 2\% \cite{Flaj}.
+This is given by the equation we have for memory.
+Using a similar argument, we can determine the amount of memory we will need.
 \begin{floatingfigure}[hr]{8cm}
 \centering
 \begin{framed}
@@ -137,13 +153,7 @@ We also need a hashing function that will produce a binary string of 1's and 0's
 \caption{An infinite while loop can be useful}
 \end{framed}
 \end{floatingfigure}
-A murmur hash will produce a 32 bit binary string, which is exactly what we need.
-Finally, we actually need to implement the algorithm. 
-We will create a class to perform the calculation that is initialized with the amount of memory we are willing to spend on the bitmap for the HyperLogLog algorithm. 
-\noindent We know that the HyperLogLog can process nearly 1 billion elements with only 1.5 kilobytes of space to an accuracy of 2\% \cite{Flaj}.\clearpage
-This is given by the equation we have for memory.
-Using a similar argument, we can come up with the amount of memory we will need. 
-If we want the error to be 1\%, then we can calculate the number of spaces required in the bitmap by using the equation we have for the error.
+\noindent If we want the error to be 1\%, then we can calculate the number of spaces required in the bitmap by using the equation we have for the error.
 \begin{align*}
 0.01 &= \frac{\sqrt{3\log{(2)} - 1}}{\sqrt{m}}\\
 0.01\,\sqrt{m} &= \sqrt{3\log{(2)} - 1}\\
@@ -160,6 +170,7 @@ We can now calculate the memory required by
 Multiplying this number by the total number of entires gives us a grand total of 47005 bytes, or 4.7005 kilobytes of required memory.\\
 \indent We now have all the necessary information to parse the data. We will implement the HyperLogLog in an object oriented manner; that is, we will create a Ruby class called HyperLogLog that we can initialize with the number of bytes per entry.
 We also need a method to calculate the unique elements, and we need a way to actually call this routine.
+\clearpage
 \begin{center}
 \begin{tabular}{c c c}
 \includegraphics[scale=0.3]{twitter_problem/hll_init}
@@ -174,7 +185,17 @@ We also need a method to calculate the unique elements, and we need a way to act
 \noindent \\
 Note that we settled with 4 as the size of each entry in the bit-map. This value is close enough to 4.35 to safely say that the error will be just about 1\%.
 Finally, in our main program, we will loop infinitely (it will be up to us as to when to kill the process), and read in $\sim 2000$ tweets every two minutes. 
-After running the algorithm for 24 hours, we will have a\\ 
+After running the algorithm for 24 hours, we will have a set of data that represents the number of unique hashtags found (by using the HyperLogLog algorithm) as the number of tweets being analyzed increases.
+The data grows in a linear fashion; this is expected since we are gathering a random sample from all over the world, which means that at any given time, we expect to see more or less the same amount of unique hashtags.
+Plotting the data and applying a best fit line using Mathematica gives us
+\[
+Equation\ Goes\ Here.
+\]
+From this data, we can make an estimate that at 200,000,000 tweets, we will have
+\[
+Results\ From\ Plugging\ In\ 200,000,000,
+\]
+which means that we will have roughly \underline{INSERT RESULT HERE} unique hashtags by the HyperLogLog algorithm.\\ 
 %%%%%%%%RESULTS GO HERE%%%%%%%%%%
 \indent We have looked at three different approaches to the count distinct problem. 
 We used the HyperLogLog to solve only the Twitter problem, but we could have used the algorithm to solve all of the problems. 
@@ -184,18 +205,18 @@ Finding an efficient way to count large sets of data may never be competely accu
 
 \newpage
 \begin{thebibliography}{9}
-\bibitem{Hoff} Hoff, T. (2012, April 5). Big Data Counting: How to count a billion distinct objects using only 1.5KB of Memory - High Scalability -. Retrieved October 27, 2015, from \url{http://highscalability.com/blog/2012/4/5/big-data-counting-how-to-count-a-billion-distinct-objects-us.html}
-\bibitem{Facebook} Facebook Statistics. (2015, September 20). Retrieved October 30, 2015, from \url{http://www.statisticbrain.com/facebook-statistics/}
-\bibitem{Whang} Whang, Kyu-Young, Vander-Zanden, Brad T. \& Taylor, Howard M. (1990). A Linear-time Probabilistic Counting Algorithm for Database Applications. ACM Trans. Database Syst., 15, 208-229.
-\bibitem{Maurer} Maurer, W. D. \& Lewis, T. G. (1975). Hash Table Methods. ACM Comput. Surv., 7, 5-19.
-\bibitem{SHA-Algo} Chaves, Ricardo, Kuzmanov, Georgi, Sousa, Leonel \& Vassiliadis, Stamatis (2006). Improving SHA-2 Hardware Implementations. , 4249, 298-310.
-\bibitem{Break-MD5} Wang, Xiaoyun \& Yu, Hongbo (2005). How to Break MD5 and Other Hash Functions. , 3494, 19-35.
-\bibitem{Heule} Heule, S., Nunkesser, M., \& Hall, A. (2013). HyperLogLog in Practice: Algorithmic Engineering of a State of the Art Cardinality Estimation Algorithm. In \textit{Proceedings of the 16th International Conference on Extending Database Technology} (Vol. EDBT '13, pp. 683-692). New York, NY, Genoa: ACM.
 \bibitem{Twitter} \#numbers. (2011, March 14). Retrieved October 29, 2015, from \url{https://blog.twitter.com/2011/numbers}
+\bibitem{SHA-Algo} Chaves, Ricardo, Kuzmanov, Georgi, Sousa, Leonel \& Vassiliadis, Stamatis (2006). Improving SHA-2 Hardware Implementations. , 4249, 298-310.
+\bibitem{Facebook} Facebook Statistics. (2015, September 20). Retrieved October 30, 2015, from \url{http://www.statisticbrain.com/facebook-statistics/}
+\bibitem{Flaj} Flajolet, P., Fusy, \'E., Gandouet, O., \& Meunier, F. (n.d.). HyperLogLog: The Analysis of a Near-Optimal Cardinality Estimation Algorithm. 2007 \textit{Conference on Analysis of Algorithms, 07,} 127-143. Retrieved October 27, 2015, from \url{http://algo.inria.fr/flajolet/Publications/FlFuGaMe07.pdf}
+\bibitem{Heule} Heule, S., Nunkesser, M., \& Hall, A. (2013). HyperLogLog in Practice: Algorithmic Engineering of a State of the Art Cardinality Estimation Algorithm. In \textit{Proceedings of the 16th International Conference on Extending Database Technology} (Vol. EDBT '13, pp. 683-692). New York, NY, Genoa: ACM.
+\bibitem{Hoff} Hoff, T. (2012, April 5). Big Data Counting: How to count a billion distinct objects using only 1.5KB of Memory - High Scalability -. Retrieved October 27, 2015, from \url{http://highscalability.com/blog/2012/4/5/big-data-counting-how-to-count-a-billion-distinct-objects-us.html}
 \bibitem{Pokemon} How many Pokemon are there altogether, before and after Omega Ruby and Alpha Sapphire? (2014, October 27). Retrieved October 29, 2015, from \url{http://pokemondb.net/pokebase/219332/pokemon-there-altogether-before-after-omega-alpha-sapphire}
+\bibitem{Maurer} Maurer, W. D. \& Lewis, T. G. (1975). Hash Table Methods. ACM Comput. Surv., 7, 5-19.
 \bibitem{Facebook-2} Most popular Facebook apps 2015 | Statistic. (2015, August 1). Retrieved November 3, 2015, from \url{http://www.statista.com/statistics/276371/most-popular-facebook-apps-by-monthly-active-users/}
 \bibitem{Twitter-2} Twitter Statistics. (2015, September 15). Retrieved November 3, 2015, from \url{http://www.statisticbrain.com/twitter-statistics/}
+\bibitem{Break-MD5} Wang, Xiaoyun \& Yu, Hongbo (2005). How to Break MD5 and Other Hash Functions. , 3494, 19-35.
+\bibitem{Whang} Whang, Kyu-Young, Vander-Zanden, Brad T. \& Taylor, Howard M. (1990). A Linear-time Probabilistic Counting Algorithm for Database Applications. ACM Trans. Database Syst., 15, 208-229.
 \bibitem{Yousra}Yousra Chabchoub, Georges H\'ebrail. \textit{Sliding HyperLogLog: Estimating cardinality in a data stream.} 2010. 
-\bibitem{Flaj} Flajolet, P., Fusy, \'E., Gandouet, O., \& Meunier, F. (n.d.). HyperLogLog: The Analysis of a Near-Optimal Cardinality Estimation Algorithm. 2007 \textit{Conference on Analysis of Algorithms, 07,} 127-143. Retrieved October 27, 2015, from \url{http://algo.inria.fr/flajolet/Publications/FlFuGaMe07.pdf}
 \end{thebibliography}
 \end{document}

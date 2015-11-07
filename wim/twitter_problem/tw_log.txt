@@ -1,0 +1,1264 @@
+Gathered Sample at 2015-11-06 08:32:47 -0500
+	Current total number of tags: 993
+	Unique Elements: 702
+Gathered Sample at 2015-11-06 08:34:58 -0500
+	Current total number of tags: 1852
+	Unique Elements: 1220
+Gathered Sample at 2015-11-06 08:37:09 -0500
+	Current total number of tags: 2694
+	Unique Elements: 1752
+Gathered Sample at 2015-11-06 08:39:20 -0500
+	Current total number of tags: 3499
+	Unique Elements: 2266
+Gathered Sample at 2015-11-06 08:41:32 -0500
+	Current total number of tags: 4420
+	Unique Elements: 3042
+Gathered Sample at 2015-11-06 08:43:43 -0500
+	Current total number of tags: 5294
+	Unique Elements: 3399
+Gathered Sample at 2015-11-06 08:45:54 -0500
+	Current total number of tags: 6250
+	Unique Elements: 4040
+Gathered Sample at 2015-11-06 08:48:04 -0500
+	Current total number of tags: 7107
+	Unique Elements: 4392
+Gathered Sample at 2015-11-06 08:50:16 -0500
+	Current total number of tags: 7818
+	Unique Elements: 4780
+Gathered Sample at 2015-11-06 08:52:27 -0500
+	Current total number of tags: 8763
+	Unique Elements: 5222
+Gathered Sample at 2015-11-06 08:54:37 -0500
+	Current total number of tags: 9667
+	Unique Elements: 5640
+Gathered Sample at 2015-11-06 08:56:48 -0500
+	Current total number of tags: 10475
+	Unique Elements: 6115
+Gathered Sample at 2015-11-06 08:59:00 -0500
+	Current total number of tags: 11262
+	Unique Elements: 6503
+Gathered Sample at 2015-11-06 09:01:11 -0500
+	Current total number of tags: 12168
+	Unique Elements: 6931
+Gathered Sample at 2015-11-06 09:03:22 -0500
+	Current total number of tags: 13155
+	Unique Elements: 7287
+Gathered Sample at 2015-11-06 09:05:33 -0500
+	Current total number of tags: 14154
+	Unique Elements: 7789
+Gathered Sample at 2015-11-06 09:07:44 -0500
+	Current total number of tags: 15021
+	Unique Elements: 8122
+Gathered Sample at 2015-11-06 09:09:55 -0500
+	Current total number of tags: 15801
+	Unique Elements: 8393
+Gathered Sample at 2015-11-06 09:12:06 -0500
+	Current total number of tags: 16676
+	Unique Elements: 8829
+Gathered Sample at 2015-11-06 09:14:17 -0500
+	Current total number of tags: 17489
+	Unique Elements: 9189
+Gathered Sample at 2015-11-06 09:16:28 -0500
+	Current total number of tags: 18303
+	Unique Elements: 9745
+Gathered Sample at 2015-11-06 09:18:38 -0500
+	Current total number of tags: 19106
+	Unique Elements: 10119
+Gathered Sample at 2015-11-06 09:20:49 -0500
+	Current total number of tags: 20028
+	Unique Elements: 10467
+Gathered Sample at 2015-11-06 09:23:00 -0500
+	Current total number of tags: 20758
+	Unique Elements: 10796
+Gathered Sample at 2015-11-06 09:25:11 -0500
+	Current total number of tags: 21541
+	Unique Elements: 11167
+Gathered Sample at 2015-11-06 09:27:22 -0500
+	Current total number of tags: 22302
+	Unique Elements: 11559
+Gathered Sample at 2015-11-06 09:29:33 -0500
+	Current total number of tags: 23117
+	Unique Elements: 12021
+Gathered Sample at 2015-11-06 09:31:44 -0500
+	Current total number of tags: 23909
+	Unique Elements: 12399
+Gathered Sample at 2015-11-06 09:33:55 -0500
+	Current total number of tags: 24757
+	Unique Elements: 12711
+Gathered Sample at 2015-11-06 09:36:05 -0500
+	Current total number of tags: 25599
+	Unique Elements: 13062
+Gathered Sample at 2015-11-06 09:38:17 -0500
+	Current total number of tags: 26358
+	Unique Elements: 13391
+Gathered Sample at 2015-11-06 09:40:28 -0500
+	Current total number of tags: 27019
+	Unique Elements: 13645
+Gathered Sample at 2015-11-06 09:42:39 -0500
+	Current total number of tags: 27756
+	Unique Elements: 13806
+Gathered Sample at 2015-11-06 09:44:50 -0500
+	Current total number of tags: 28684
+	Unique Elements: 14064
+Gathered Sample at 2015-11-06 09:47:01 -0500
+	Current total number of tags: 29432
+	Unique Elements: 14358
+Gathered Sample at 2015-11-06 09:49:11 -0500
+	Current total number of tags: 30148
+	Unique Elements: 14627
+Gathered Sample at 2015-11-06 09:51:22 -0500
+	Current total number of tags: 30903
+	Unique Elements: 15049
+Gathered Sample at 2015-11-06 09:53:33 -0500
+	Current total number of tags: 31597
+	Unique Elements: 15445
+Gathered Sample at 2015-11-06 09:55:44 -0500
+	Current total number of tags: 32495
+	Unique Elements: 15894
+Gathered Sample at 2015-11-06 09:57:55 -0500
+	Current total number of tags: 33210
+	Unique Elements: 16111
+Gathered Sample at 2015-11-06 10:00:06 -0500
+	Current total number of tags: 33893
+	Unique Elements: 16346
+Gathered Sample at 2015-11-06 10:02:17 -0500
+	Current total number of tags: 34707
+	Unique Elements: 16813
+Gathered Sample at 2015-11-06 10:04:28 -0500
+	Current total number of tags: 35586
+	Unique Elements: 17138
+Gathered Sample at 2015-11-06 10:06:39 -0500
+	Current total number of tags: 36507
+	Unique Elements: 17515
+Gathered Sample at 2015-11-06 10:08:49 -0500
+	Current total number of tags: 37277
+	Unique Elements: 17724
+Gathered Sample at 2015-11-06 10:11:00 -0500
+	Current total number of tags: 38095
+	Unique Elements: 18128
+Gathered Sample at 2015-11-06 10:13:11 -0500
+	Current total number of tags: 38980
+	Unique Elements: 18390
+Gathered Sample at 2015-11-06 10:15:22 -0500
+	Current total number of tags: 39713
+	Unique Elements: 18708
+Gathered Sample at 2015-11-06 10:17:33 -0500
+	Current total number of tags: 40648
+	Unique Elements: 18970
+Gathered Sample at 2015-11-06 10:19:43 -0500
+	Current total number of tags: 41434
+	Unique Elements: 19126
+Gathered Sample at 2015-11-06 10:21:54 -0500
+	Current total number of tags: 42220
+	Unique Elements: 19217
+Gathered Sample at 2015-11-06 10:24:05 -0500
+	Current total number of tags: 43112
+	Unique Elements: 19335
+Gathered Sample at 2015-11-06 10:26:16 -0500
+	Current total number of tags: 43843
+	Unique Elements: 19709
+Gathered Sample at 2015-11-06 10:28:27 -0500
+	Current total number of tags: 44543
+	Unique Elements: 20079
+Gathered Sample at 2015-11-06 10:30:38 -0500
+	Current total number of tags: 45620
+	Unique Elements: 20277
+Gathered Sample at 2015-11-06 10:32:49 -0500
+	Current total number of tags: 46387
+	Unique Elements: 20601
+Gathered Sample at 2015-11-06 10:35:00 -0500
+	Current total number of tags: 47170
+	Unique Elements: 21101
+Gathered Sample at 2015-11-06 10:37:10 -0500
+	Current total number of tags: 47823
+	Unique Elements: 21289
+Gathered Sample at 2015-11-06 10:39:21 -0500
+	Current total number of tags: 48615
+	Unique Elements: 21420
+Gathered Sample at 2015-11-06 10:41:32 -0500
+	Current total number of tags: 49507
+	Unique Elements: 21739
+Gathered Sample at 2015-11-06 10:43:43 -0500
+	Current total number of tags: 50301
+	Unique Elements: 21989
+Gathered Sample at 2015-11-06 10:45:54 -0500
+	Current total number of tags: 51294
+	Unique Elements: 22131
+Gathered Sample at 2015-11-06 10:48:04 -0500
+	Current total number of tags: 52060
+	Unique Elements: 22245
+Gathered Sample at 2015-11-06 10:50:15 -0500
+	Current total number of tags: 52735
+	Unique Elements: 22366
+Gathered Sample at 2015-11-06 10:52:26 -0500
+	Current total number of tags: 53478
+	Unique Elements: 22781
+Gathered Sample at 2015-11-06 10:54:36 -0500
+	Current total number of tags: 54320
+	Unique Elements: 23039
+Gathered Sample at 2015-11-06 10:56:47 -0500
+	Current total number of tags: 55395
+	Unique Elements: 23283
+Gathered Sample at 2015-11-06 10:58:57 -0500
+	Current total number of tags: 56083
+	Unique Elements: 23444
+Gathered Sample at 2015-11-06 11:01:08 -0500
+	Current total number of tags: 57195
+	Unique Elements: 23712
+Gathered Sample at 2015-11-06 11:03:19 -0500
+	Current total number of tags: 57963
+	Unique Elements: 24145
+Gathered Sample at 2015-11-06 11:05:30 -0500
+	Current total number of tags: 58792
+	Unique Elements: 24453
+Gathered Sample at 2015-11-06 11:07:40 -0500
+	Current total number of tags: 59494
+	Unique Elements: 24666
+Gathered Sample at 2015-11-06 11:09:52 -0500
+	Current total number of tags: 60230
+	Unique Elements: 24946
+Gathered Sample at 2015-11-06 11:12:02 -0500
+	Current total number of tags: 60982
+	Unique Elements: 25030
+Gathered Sample at 2015-11-06 11:14:13 -0500
+	Current total number of tags: 61621
+	Unique Elements: 25334
+Gathered Sample at 2015-11-06 11:16:24 -0500
+	Current total number of tags: 62388
+	Unique Elements: 25647
+Gathered Sample at 2015-11-06 11:18:34 -0500
+	Current total number of tags: 63497
+	Unique Elements: 25722
+Gathered Sample at 2015-11-06 11:20:45 -0500
+	Current total number of tags: 64431
+	Unique Elements: 26051
+Gathered Sample at 2015-11-06 11:22:56 -0500
+	Current total number of tags: 65196
+	Unique Elements: 26245
+Gathered Sample at 2015-11-06 11:25:07 -0500
+	Current total number of tags: 65932
+	Unique Elements: 26554
+Gathered Sample at 2015-11-06 11:27:18 -0500
+	Current total number of tags: 66649
+	Unique Elements: 26808
+Gathered Sample at 2015-11-06 11:29:28 -0500
+	Current total number of tags: 67472
+	Unique Elements: 26957
+Gathered Sample at 2015-11-06 11:31:39 -0500
+	Current total number of tags: 68222
+	Unique Elements: 27195
+Gathered Sample at 2015-11-06 11:33:50 -0500
+	Current total number of tags: 68971
+	Unique Elements: 27226
+Gathered Sample at 2015-11-06 11:36:01 -0500
+	Current total number of tags: 69726
+	Unique Elements: 27630
+Gathered Sample at 2015-11-06 11:38:12 -0500
+	Current total number of tags: 70429
+	Unique Elements: 27749
+Gathered Sample at 2015-11-06 11:40:22 -0500
+	Current total number of tags: 71217
+	Unique Elements: 28097
+Gathered Sample at 2015-11-06 11:42:33 -0500
+	Current total number of tags: 71910
+	Unique Elements: 28365
+Gathered Sample at 2015-11-06 11:44:44 -0500
+	Current total number of tags: 72706
+	Unique Elements: 28502
+Gathered Sample at 2015-11-06 11:46:55 -0500
+	Current total number of tags: 73553
+	Unique Elements: 28804
+Gathered Sample at 2015-11-06 11:49:06 -0500
+	Current total number of tags: 74244
+	Unique Elements: 28953
+Gathered Sample at 2015-11-06 11:51:16 -0500
+	Current total number of tags: 74942
+	Unique Elements: 29065
+Gathered Sample at 2015-11-06 11:53:27 -0500
+	Current total number of tags: 75702
+	Unique Elements: 29280
+Gathered Sample at 2015-11-06 11:55:37 -0500
+	Current total number of tags: 76695
+	Unique Elements: 29390
+Gathered Sample at 2015-11-06 11:57:48 -0500
+	Current total number of tags: 77470
+	Unique Elements: 29796
+Gathered Sample at 2015-11-06 11:59:59 -0500
+	Current total number of tags: 78272
+	Unique Elements: 30018
+Gathered Sample at 2015-11-06 12:02:10 -0500
+	Current total number of tags: 79181
+	Unique Elements: 30533
+Gathered Sample at 2015-11-06 12:04:21 -0500
+	Current total number of tags: 79924
+	Unique Elements: 30609
+Gathered Sample at 2015-11-06 12:06:31 -0500
+	Current total number of tags: 80785
+	Unique Elements: 30927
+Gathered Sample at 2015-11-06 12:08:42 -0500
+	Current total number of tags: 81552
+	Unique Elements: 31250
+Gathered Sample at 2015-11-06 12:10:52 -0500
+	Current total number of tags: 82443
+	Unique Elements: 31434
+Gathered Sample at 2015-11-06 12:13:04 -0500
+	Current total number of tags: 83186
+	Unique Elements: 31717
+Gathered Sample at 2015-11-06 12:15:14 -0500
+	Current total number of tags: 83865
+	Unique Elements: 31800
+Gathered Sample at 2015-11-06 12:17:25 -0500
+	Current total number of tags: 84660
+	Unique Elements: 32165
+Gathered Sample at 2015-11-06 12:19:35 -0500
+	Current total number of tags: 85234
+	Unique Elements: 32425
+Gathered Sample at 2015-11-06 12:21:45 -0500
+	Current total number of tags: 85745
+	Unique Elements: 32491
+Gathered Sample at 2015-11-06 12:23:56 -0500
+	Current total number of tags: 86517
+	Unique Elements: 32776
+Gathered Sample at 2015-11-06 12:26:07 -0500
+	Current total number of tags: 87277
+	Unique Elements: 32880
+Gathered Sample at 2015-11-06 12:28:18 -0500
+	Current total number of tags: 88082
+	Unique Elements: 33399
+Gathered Sample at 2015-11-06 12:30:29 -0500
+	Current total number of tags: 88768
+	Unique Elements: 33684
+Gathered Sample at 2015-11-06 12:32:40 -0500
+	Current total number of tags: 89772
+	Unique Elements: 34008
+Gathered Sample at 2015-11-06 12:34:51 -0500
+	Current total number of tags: 90483
+	Unique Elements: 34383
+Gathered Sample at 2015-11-06 12:37:02 -0500
+	Current total number of tags: 91062
+	Unique Elements: 34696
+Gathered Sample at 2015-11-06 12:39:13 -0500
+	Current total number of tags: 91706
+	Unique Elements: 34721
+Gathered Sample at 2015-11-06 12:41:24 -0500
+	Current total number of tags: 92399
+	Unique Elements: 34796
+Gathered Sample at 2015-11-06 12:43:34 -0500
+	Current total number of tags: 93184
+	Unique Elements: 34928
+Gathered Sample at 2015-11-06 12:45:44 -0500
+	Current total number of tags: 94035
+	Unique Elements: 34978
+Gathered Sample at 2015-11-06 12:47:55 -0500
+	Current total number of tags: 94794
+	Unique Elements: 35491
+Gathered Sample at 2015-11-06 12:50:07 -0500
+	Current total number of tags: 95507
+	Unique Elements: 35838
+Gathered Sample at 2015-11-06 12:52:17 -0500
+	Current total number of tags: 96194
+	Unique Elements: 36136
+Gathered Sample at 2015-11-06 12:54:29 -0500
+	Current total number of tags: 96842
+	Unique Elements: 36373
+Gathered Sample at 2015-11-06 12:56:40 -0500
+	Current total number of tags: 97610
+	Unique Elements: 36616
+Gathered Sample at 2015-11-06 12:58:52 -0500
+	Current total number of tags: 98500
+	Unique Elements: 36669
+Gathered Sample at 2015-11-06 13:01:03 -0500
+	Current total number of tags: 99372
+	Unique Elements: 36690
+Gathered Sample at 2015-11-06 13:03:14 -0500
+	Current total number of tags: 100384
+	Unique Elements: 36981
+Gathered Sample at 2015-11-06 13:05:25 -0500
+	Current total number of tags: 101038
+	Unique Elements: 37216
+Gathered Sample at 2015-11-06 13:07:35 -0500
+	Current total number of tags: 101858
+	Unique Elements: 37502
+Gathered Sample at 2015-11-06 13:09:46 -0500
+	Current total number of tags: 102524
+	Unique Elements: 37692
+Gathered Sample at 2015-11-06 13:11:57 -0500
+	Current total number of tags: 103365
+	Unique Elements: 38123
+Gathered Sample at 2015-11-06 13:14:08 -0500
+	Current total number of tags: 104214
+	Unique Elements: 38319
+Gathered Sample at 2015-11-06 13:16:18 -0500
+	Current total number of tags: 105040
+	Unique Elements: 38422
+Gathered Sample at 2015-11-06 13:18:29 -0500
+	Current total number of tags: 105688
+	Unique Elements: 38612
+Gathered Sample at 2015-11-06 13:20:39 -0500
+	Current total number of tags: 106688
+	Unique Elements: 38960
+Gathered Sample at 2015-11-06 13:22:50 -0500
+	Current total number of tags: 107492
+	Unique Elements: 39130
+Gathered Sample at 2015-11-06 13:25:01 -0500
+	Current total number of tags: 108238
+	Unique Elements: 39362
+Gathered Sample at 2015-11-06 13:27:12 -0500
+	Current total number of tags: 108975
+	Unique Elements: 39790
+Gathered Sample at 2015-11-06 13:29:22 -0500
+	Current total number of tags: 109767
+	Unique Elements: 40023
+Gathered Sample at 2015-11-06 13:31:33 -0500
+	Current total number of tags: 110593
+	Unique Elements: 40298
+Gathered Sample at 2015-11-06 13:33:44 -0500
+	Current total number of tags: 111366
+	Unique Elements: 40784
+Gathered Sample at 2015-11-06 13:35:56 -0500
+	Current total number of tags: 112070
+	Unique Elements: 40946
+Gathered Sample at 2015-11-06 13:38:07 -0500
+	Current total number of tags: 112815
+	Unique Elements: 41016
+Gathered Sample at 2015-11-06 13:40:18 -0500
+	Current total number of tags: 113582
+	Unique Elements: 41076
+Gathered Sample at 2015-11-06 13:42:29 -0500
+	Current total number of tags: 114369
+	Unique Elements: 41511
+Gathered Sample at 2015-11-06 13:44:40 -0500
+	Current total number of tags: 115055
+	Unique Elements: 41581
+Gathered Sample at 2015-11-06 13:46:50 -0500
+	Current total number of tags: 115633
+	Unique Elements: 41590
+Gathered Sample at 2015-11-06 13:49:01 -0500
+	Current total number of tags: 116322
+	Unique Elements: 41845
+Gathered Sample at 2015-11-06 13:51:12 -0500
+	Current total number of tags: 116950
+	Unique Elements: 41936
+Gathered Sample at 2015-11-06 13:53:23 -0500
+	Current total number of tags: 117637
+	Unique Elements: 42082
+Gathered Sample at 2015-11-06 13:55:34 -0500
+	Current total number of tags: 118432
+	Unique Elements: 42364
+Gathered Sample at 2015-11-06 13:57:45 -0500
+	Current total number of tags: 119148
+	Unique Elements: 42755
+Gathered Sample at 2015-11-06 13:59:56 -0500
+	Current total number of tags: 119881
+	Unique Elements: 42978
+Gathered Sample at 2015-11-06 14:02:07 -0500
+	Current total number of tags: 120790
+	Unique Elements: 43300
+Gathered Sample at 2015-11-06 14:04:18 -0500
+	Current total number of tags: 121596
+	Unique Elements: 43388
+Gathered Sample at 2015-11-06 14:06:29 -0500
+	Current total number of tags: 122343
+	Unique Elements: 43623
+Gathered Sample at 2015-11-06 14:08:40 -0500
+	Current total number of tags: 122993
+	Unique Elements: 43845
+Gathered Sample at 2015-11-06 14:10:50 -0500
+	Current total number of tags: 123866
+	Unique Elements: 44080
+Gathered Sample at 2015-11-06 14:13:01 -0500
+	Current total number of tags: 124457
+	Unique Elements: 44312
+Gathered Sample at 2015-11-06 14:15:12 -0500
+	Current total number of tags: 125247
+	Unique Elements: 44544
+Gathered Sample at 2015-11-06 14:17:22 -0500
+	Current total number of tags: 126040
+	Unique Elements: 44636
+Gathered Sample at 2015-11-06 14:19:33 -0500
+	Current total number of tags: 126813
+	Unique Elements: 44734
+Gathered Sample at 2015-11-06 14:21:44 -0500
+	Current total number of tags: 127691
+	Unique Elements: 44879
+Gathered Sample at 2015-11-06 14:23:56 -0500
+	Current total number of tags: 128445
+	Unique Elements: 45422
+Gathered Sample at 2015-11-06 14:26:06 -0500
+	Current total number of tags: 129300
+	Unique Elements: 45677
+Gathered Sample at 2015-11-06 14:28:17 -0500
+	Current total number of tags: 130035
+	Unique Elements: 45790
+Gathered Sample at 2015-11-06 14:30:27 -0500
+	Current total number of tags: 130752
+	Unique Elements: 46074
+Gathered Sample at 2015-11-06 14:32:37 -0500
+	Current total number of tags: 131563
+	Unique Elements: 46228
+Gathered Sample at 2015-11-06 14:34:48 -0500
+	Current total number of tags: 132297
+	Unique Elements: 46405
+Gathered Sample at 2015-11-06 14:36:58 -0500
+	Current total number of tags: 133122
+	Unique Elements: 46678
+Gathered Sample at 2015-11-06 14:39:09 -0500
+	Current total number of tags: 133996
+	Unique Elements: 46995
+Gathered Sample at 2015-11-06 14:41:19 -0500
+	Current total number of tags: 135605
+	Unique Elements: 47550
+Gathered Sample at 2015-11-06 14:43:30 -0500
+	Current total number of tags: 136324
+	Unique Elements: 47850
+Gathered Sample at 2015-11-06 14:45:40 -0500
+	Current total number of tags: 137077
+	Unique Elements: 47938
+Gathered Sample at 2015-11-06 14:47:51 -0500
+	Current total number of tags: 137914
+	Unique Elements: 48004
+Gathered Sample at 2015-11-06 14:50:01 -0500
+	Current total number of tags: 138739
+	Unique Elements: 48171
+Gathered Sample at 2015-11-06 14:52:13 -0500
+	Current total number of tags: 139526
+	Unique Elements: 48385
+Gathered Sample at 2015-11-06 14:54:24 -0500
+	Current total number of tags: 140197
+	Unique Elements: 48717
+Gathered Sample at 2015-11-06 14:56:34 -0500
+	Current total number of tags: 141130
+	Unique Elements: 48970
+Gathered Sample at 2015-11-06 14:58:45 -0500
+	Current total number of tags: 141899
+	Unique Elements: 49496
+Gathered Sample at 2015-11-06 15:00:55 -0500
+	Current total number of tags: 142685
+	Unique Elements: 49979
+Gathered Sample at 2015-11-06 15:03:05 -0500
+	Current total number of tags: 143668
+	Unique Elements: 50489
+Gathered Sample at 2015-11-06 15:05:16 -0500
+	Current total number of tags: 144533
+	Unique Elements: 50632
+Gathered Sample at 2015-11-06 15:07:26 -0500
+	Current total number of tags: 145438
+	Unique Elements: 50952
+Gathered Sample at 2015-11-06 15:09:39 -0500
+	Current total number of tags: 146692
+	Unique Elements: 51317
+Gathered Sample at 2015-11-06 15:11:50 -0500
+	Current total number of tags: 147444
+	Unique Elements: 51477
+Gathered Sample at 2015-11-06 15:14:00 -0500
+	Current total number of tags: 148164
+	Unique Elements: 51604
+Gathered Sample at 2015-11-06 15:16:11 -0500
+	Current total number of tags: 148988
+	Unique Elements: 51628
+Gathered Sample at 2015-11-06 15:18:22 -0500
+	Current total number of tags: 149877
+	Unique Elements: 51836
+Gathered Sample at 2015-11-06 15:20:32 -0500
+	Current total number of tags: 150703
+	Unique Elements: 52212
+Gathered Sample at 2015-11-06 15:22:42 -0500
+	Current total number of tags: 151553
+	Unique Elements: 52508
+Gathered Sample at 2015-11-06 15:24:52 -0500
+	Current total number of tags: 152266
+	Unique Elements: 52508
+Gathered Sample at 2015-11-06 15:27:03 -0500
+	Current total number of tags: 153025
+	Unique Elements: 52679
+Gathered Sample at 2015-11-06 15:29:13 -0500
+	Current total number of tags: 153736
+	Unique Elements: 52980
+Gathered Sample at 2015-11-06 15:31:24 -0500
+	Current total number of tags: 154424
+	Unique Elements: 53578
+Gathered Sample at 2015-11-06 15:33:34 -0500
+	Current total number of tags: 155343
+	Unique Elements: 53929
+Gathered Sample at 2015-11-06 15:35:44 -0500
+	Current total number of tags: 156246
+	Unique Elements: 54110
+Gathered Sample at 2015-11-06 15:37:55 -0500
+	Current total number of tags: 157099
+	Unique Elements: 54212
+Gathered Sample at 2015-11-06 15:40:05 -0500
+	Current total number of tags: 157859
+	Unique Elements: 54456
+Gathered Sample at 2015-11-06 15:42:16 -0500
+	Current total number of tags: 158668
+	Unique Elements: 54517
+Gathered Sample at 2015-11-06 15:44:26 -0500
+	Current total number of tags: 159407
+	Unique Elements: 54556
+Gathered Sample at 2015-11-06 15:46:37 -0500
+	Current total number of tags: 160144
+	Unique Elements: 54834
+Gathered Sample at 2015-11-06 15:48:47 -0500
+	Current total number of tags: 160844
+	Unique Elements: 55471
+Gathered Sample at 2015-11-06 15:50:57 -0500
+	Current total number of tags: 161648
+	Unique Elements: 55945
+Gathered Sample at 2015-11-06 15:53:08 -0500
+	Current total number of tags: 162444
+	Unique Elements: 55961
+Gathered Sample at 2015-11-06 15:55:18 -0500
+	Current total number of tags: 163092
+	Unique Elements: 56270
+Gathered Sample at 2015-11-06 15:57:29 -0500
+	Current total number of tags: 163678
+	Unique Elements: 56467
+Gathered Sample at 2015-11-06 15:59:39 -0500
+	Current total number of tags: 164336
+	Unique Elements: 56525
+Gathered Sample at 2015-11-06 16:01:49 -0500
+	Current total number of tags: 165172
+	Unique Elements: 56624
+Gathered Sample at 2015-11-06 16:04:00 -0500
+	Current total number of tags: 165876
+	Unique Elements: 56624
+Gathered Sample at 2015-11-06 16:06:11 -0500
+	Current total number of tags: 166732
+	Unique Elements: 56691
+Gathered Sample at 2015-11-06 16:08:22 -0500
+	Current total number of tags: 167500
+	Unique Elements: 56774
+Gathered Sample at 2015-11-06 16:10:33 -0500
+	Current total number of tags: 168320
+	Unique Elements: 57024
+Gathered Sample at 2015-11-06 16:12:43 -0500
+	Current total number of tags: 169100
+	Unique Elements: 57159
+Gathered Sample at 2015-11-06 16:14:53 -0500
+	Current total number of tags: 169950
+	Unique Elements: 57413
+Gathered Sample at 2015-11-06 16:17:04 -0500
+	Current total number of tags: 170764
+	Unique Elements: 57532
+Gathered Sample at 2015-11-06 16:19:14 -0500
+	Current total number of tags: 171407
+	Unique Elements: 57771
+Gathered Sample at 2015-11-06 16:21:25 -0500
+	Current total number of tags: 172221
+	Unique Elements: 58399
+Gathered Sample at 2015-11-06 16:23:35 -0500
+	Current total number of tags: 172981
+	Unique Elements: 58412
+Gathered Sample at 2015-11-06 16:25:45 -0500
+	Current total number of tags: 173732
+	Unique Elements: 58550
+Gathered Sample at 2015-11-06 16:27:56 -0500
+	Current total number of tags: 174456
+	Unique Elements: 58563
+Gathered Sample at 2015-11-06 16:30:06 -0500
+	Current total number of tags: 175343
+	Unique Elements: 58588
+Gathered Sample at 2015-11-06 16:32:17 -0500
+	Current total number of tags: 176120
+	Unique Elements: 58792
+Gathered Sample at 2015-11-06 16:34:28 -0500
+	Current total number of tags: 177008
+	Unique Elements: 58873
+Gathered Sample at 2015-11-06 16:36:39 -0500
+	Current total number of tags: 177787
+	Unique Elements: 59007
+Gathered Sample at 2015-11-06 16:38:50 -0500
+	Current total number of tags: 178546
+	Unique Elements: 59140
+Gathered Sample at 2015-11-06 16:41:02 -0500
+	Current total number of tags: 179396
+	Unique Elements: 59207
+Gathered Sample at 2015-11-06 16:43:14 -0500
+	Current total number of tags: 180072
+	Unique Elements: 59417
+Gathered Sample at 2015-11-06 16:45:25 -0500
+	Current total number of tags: 180777
+	Unique Elements: 59655
+Gathered Sample at 2015-11-06 16:47:36 -0500
+	Current total number of tags: 181619
+	Unique Elements: 59752
+Gathered Sample at 2015-11-06 16:49:47 -0500
+	Current total number of tags: 182495
+	Unique Elements: 60362
+Gathered Sample at 2015-11-06 16:51:57 -0500
+	Current total number of tags: 183225
+	Unique Elements: 60494
+Gathered Sample at 2015-11-06 16:54:08 -0500
+	Current total number of tags: 183960
+	Unique Elements: 61158
+Gathered Sample at 2015-11-06 16:56:19 -0500
+	Current total number of tags: 184657
+	Unique Elements: 61459
+Gathered Sample at 2015-11-06 16:58:30 -0500
+	Current total number of tags: 185441
+	Unique Elements: 61537
+Gathered Sample at 2015-11-06 17:00:41 -0500
+	Current total number of tags: 186414
+	Unique Elements: 61675
+Gathered Sample at 2015-11-06 17:02:52 -0500
+	Current total number of tags: 187117
+	Unique Elements: 61972
+Gathered Sample at 2015-11-06 17:05:04 -0500
+	Current total number of tags: 187815
+	Unique Elements: 61972
+Gathered Sample at 2015-11-06 17:07:16 -0500
+	Current total number of tags: 188464
+	Unique Elements: 61972
+Gathered Sample at 2015-11-06 17:09:27 -0500
+	Current total number of tags: 189194
+	Unique Elements: 61982
+Gathered Sample at 2015-11-06 17:11:41 -0500
+	Current total number of tags: 190124
+	Unique Elements: 62052
+Gathered Sample at 2015-11-06 17:13:54 -0500
+	Current total number of tags: 190760
+	Unique Elements: 62132
+Gathered Sample at 2015-11-06 17:16:05 -0500
+	Current total number of tags: 191479
+	Unique Elements: 62162
+Gathered Sample at 2015-11-06 17:18:17 -0500
+	Current total number of tags: 192297
+	Unique Elements: 62422
+Gathered Sample at 2015-11-06 17:20:28 -0500
+	Current total number of tags: 193004
+	Unique Elements: 62543
+Gathered Sample at 2015-11-06 17:22:40 -0500
+	Current total number of tags: 193758
+	Unique Elements: 63012
+Gathered Sample at 2015-11-06 17:24:51 -0500
+	Current total number of tags: 194424
+	Unique Elements: 63624
+Gathered Sample at 2015-11-06 17:27:04 -0500
+	Current total number of tags: 195045
+	Unique Elements: 63855
+Gathered Sample at 2015-11-06 17:29:15 -0500
+	Current total number of tags: 195723
+	Unique Elements: 63981
+Gathered Sample at 2015-11-06 17:31:26 -0500
+	Current total number of tags: 196847
+	Unique Elements: 64330
+Gathered Sample at 2015-11-06 17:33:38 -0500
+	Current total number of tags: 197564
+	Unique Elements: 65000
+Gathered Sample at 2015-11-06 17:35:50 -0500
+	Current total number of tags: 198513
+	Unique Elements: 65307
+Gathered Sample at 2015-11-06 17:38:01 -0500
+	Current total number of tags: 199252
+	Unique Elements: 65351
+Gathered Sample at 2015-11-06 17:40:12 -0500
+	Current total number of tags: 199955
+	Unique Elements: 65362
+Gathered Sample at 2015-11-06 17:42:23 -0500
+	Current total number of tags: 200556
+	Unique Elements: 65362
+Gathered Sample at 2015-11-06 17:44:35 -0500
+	Current total number of tags: 201353
+	Unique Elements: 65645
+Gathered Sample at 2015-11-06 17:46:45 -0500
+	Current total number of tags: 201986
+	Unique Elements: 65668
+Gathered Sample at 2015-11-06 17:48:56 -0500
+	Current total number of tags: 202662
+	Unique Elements: 65890
+Gathered Sample at 2015-11-06 17:51:06 -0500
+	Current total number of tags: 203408
+	Unique Elements: 65935
+Gathered Sample at 2015-11-06 17:53:17 -0500
+	Current total number of tags: 204273
+	Unique Elements: 65935
+Gathered Sample at 2015-11-06 17:55:28 -0500
+	Current total number of tags: 204980
+	Unique Elements: 65946
+Gathered Sample at 2015-11-06 17:57:39 -0500
+	Current total number of tags: 205740
+	Unique Elements: 66104
+Gathered Sample at 2015-11-06 17:59:49 -0500
+	Current total number of tags: 206416
+	Unique Elements: 66240
+Gathered Sample at 2015-11-06 18:02:00 -0500
+	Current total number of tags: 207195
+	Unique Elements: 66433
+Gathered Sample at 2015-11-06 18:04:10 -0500
+	Current total number of tags: 207918
+	Unique Elements: 66570
+Gathered Sample at 2015-11-06 18:06:21 -0500
+	Current total number of tags: 208748
+	Unique Elements: 66668
+Gathered Sample at 2015-11-06 18:08:32 -0500
+	Current total number of tags: 209454
+	Unique Elements: 66719
+Gathered Sample at 2015-11-06 18:10:42 -0500
+	Current total number of tags: 210327
+	Unique Elements: 66877
+Gathered Sample at 2015-11-06 18:12:53 -0500
+	Current total number of tags: 211017
+	Unique Elements: 66877
+Gathered Sample at 2015-11-06 18:15:04 -0500
+	Current total number of tags: 211641
+	Unique Elements: 67208
+Gathered Sample at 2015-11-06 18:17:15 -0500
+	Current total number of tags: 212416
+	Unique Elements: 67543
+Gathered Sample at 2015-11-06 18:19:26 -0500
+	Current total number of tags: 213117
+	Unique Elements: 67994
+Gathered Sample at 2015-11-06 18:21:37 -0500
+	Current total number of tags: 213829
+	Unique Elements: 68090
+Gathered Sample at 2015-11-06 18:23:48 -0500
+	Current total number of tags: 214538
+	Unique Elements: 68113
+Gathered Sample at 2015-11-06 18:26:02 -0500
+	Current total number of tags: 215191
+	Unique Elements: 68305
+Gathered Sample at 2015-11-06 18:28:14 -0500
+	Current total number of tags: 215800
+	Unique Elements: 68402
+Gathered Sample at 2015-11-06 18:30:27 -0500
+	Current total number of tags: 216530
+	Unique Elements: 68450
+Gathered Sample at 2015-11-06 18:32:39 -0500
+	Current total number of tags: 217393
+	Unique Elements: 68450
+Gathered Sample at 2015-11-06 18:34:50 -0500
+	Current total number of tags: 218065
+	Unique Elements: 68572
+Gathered Sample at 2015-11-06 18:37:01 -0500
+	Current total number of tags: 218756
+	Unique Elements: 68572
+Gathered Sample at 2015-11-06 18:39:12 -0500
+	Current total number of tags: 219361
+	Unique Elements: 68655
+Gathered Sample at 2015-11-06 18:41:23 -0500
+	Current total number of tags: 220053
+	Unique Elements: 68900
+Request Timeout at 2015-11-06 18:43:43 -0500.
+Gathered Sample at 2015-11-06 18:45:54 -0500
+	Current total number of tags: 220851
+	Unique Elements: 68900
+Gathered Sample at 2015-11-06 18:48:05 -0500
+	Current total number of tags: 221652
+	Unique Elements: 69035
+Gathered Sample at 2015-11-06 18:50:15 -0500
+	Current total number of tags: 222402
+	Unique Elements: 69504
+Gathered Sample at 2015-11-06 18:52:26 -0500
+	Current total number of tags: 223013
+	Unique Elements: 69604
+Gathered Sample at 2015-11-06 18:54:37 -0500
+	Current total number of tags: 223819
+	Unique Elements: 69855
+Gathered Sample at 2015-11-06 18:56:47 -0500
+	Current total number of tags: 224567
+	Unique Elements: 69880
+Gathered Sample at 2015-11-06 18:58:58 -0500
+	Current total number of tags: 225287
+	Unique Elements: 70363
+Gathered Sample at 2015-11-06 19:01:09 -0500
+	Current total number of tags: 226158
+	Unique Elements: 70970
+Gathered Sample at 2015-11-06 19:03:20 -0500
+	Current total number of tags: 226842
+	Unique Elements: 70970
+Gathered Sample at 2015-11-06 19:05:32 -0500
+	Current total number of tags: 227528
+	Unique Elements: 71399
+Gathered Sample at 2015-11-06 19:07:42 -0500
+	Current total number of tags: 228217
+	Unique Elements: 71399
+Gathered Sample at 2015-11-06 19:09:53 -0500
+	Current total number of tags: 228944
+	Unique Elements: 71549
+Gathered Sample at 2015-11-06 19:12:04 -0500
+	Current total number of tags: 229537
+	Unique Elements: 71761
+Gathered Sample at 2015-11-06 19:14:14 -0500
+	Current total number of tags: 230137
+	Unique Elements: 72062
+Gathered Sample at 2015-11-06 19:16:25 -0500
+	Current total number of tags: 230953
+	Unique Elements: 72925
+Gathered Sample at 2015-11-06 19:18:35 -0500
+	Current total number of tags: 231618
+	Unique Elements: 72925
+Gathered Sample at 2015-11-06 19:20:46 -0500
+	Current total number of tags: 232376
+	Unique Elements: 72952
+Gathered Sample at 2015-11-06 19:22:57 -0500
+	Current total number of tags: 232978
+	Unique Elements: 73102
+Gathered Sample at 2015-11-06 19:25:07 -0500
+	Current total number of tags: 233573
+	Unique Elements: 73512
+Gathered Sample at 2015-11-06 19:27:18 -0500
+	Current total number of tags: 234251
+	Unique Elements: 73990
+Gathered Sample at 2015-11-06 19:29:28 -0500
+	Current total number of tags: 234922
+	Unique Elements: 74075
+Gathered Sample at 2015-11-06 19:31:39 -0500
+	Current total number of tags: 235611
+	Unique Elements: 74104
+Gathered Sample at 2015-11-06 19:33:50 -0500
+	Current total number of tags: 236243
+	Unique Elements: 74310
+Gathered Sample at 2015-11-06 19:36:01 -0500
+	Current total number of tags: 236896
+	Unique Elements: 74337
+Gathered Sample at 2015-11-06 19:38:11 -0500
+	Current total number of tags: 237605
+	Unique Elements: 74624
+Gathered Sample at 2015-11-06 19:40:22 -0500
+	Current total number of tags: 238300
+	Unique Elements: 74739
+Gathered Sample at 2015-11-06 19:42:32 -0500
+	Current total number of tags: 239094
+	Unique Elements: 75219
+Gathered Sample at 2015-11-06 19:44:42 -0500
+	Current total number of tags: 239878
+	Unique Elements: 75219
+Gathered Sample at 2015-11-06 19:46:53 -0500
+	Current total number of tags: 240597
+	Unique Elements: 75527
+Gathered Sample at 2015-11-06 19:49:04 -0500
+	Current total number of tags: 241275
+	Unique Elements: 75527
+Gathered Sample at 2015-11-06 19:51:14 -0500
+	Current total number of tags: 242166
+	Unique Elements: 75845
+Gathered Sample at 2015-11-06 19:53:25 -0500
+	Current total number of tags: 242802
+	Unique Elements: 75845
+Gathered Sample at 2015-11-06 19:55:36 -0500
+	Current total number of tags: 243616
+	Unique Elements: 75890
+Gathered Sample at 2015-11-06 19:57:46 -0500
+	Current total number of tags: 244267
+	Unique Elements: 76390
+Gathered Sample at 2015-11-06 19:59:57 -0500
+	Current total number of tags: 244840
+	Unique Elements: 76594
+Gathered Sample at 2015-11-06 20:02:08 -0500
+	Current total number of tags: 245612
+	Unique Elements: 77248
+Gathered Sample at 2015-11-06 20:04:18 -0500
+	Current total number of tags: 246322
+	Unique Elements: 77651
+Gathered Sample at 2015-11-06 20:06:29 -0500
+	Current total number of tags: 246917
+	Unique Elements: 77651
+Gathered Sample at 2015-11-06 20:08:39 -0500
+	Current total number of tags: 247693
+	Unique Elements: 77964
+Gathered Sample at 2015-11-06 20:10:50 -0500
+	Current total number of tags: 248550
+	Unique Elements: 78502
+Gathered Sample at 2015-11-06 20:13:00 -0500
+	Current total number of tags: 249179
+	Unique Elements: 78502
+Gathered Sample at 2015-11-06 20:15:10 -0500
+	Current total number of tags: 249850
+	Unique Elements: 78630
+Gathered Sample at 2015-11-06 20:17:22 -0500
+	Current total number of tags: 250580
+	Unique Elements: 79224
+Gathered Sample at 2015-11-06 20:19:32 -0500
+	Current total number of tags: 251221
+	Unique Elements: 79713
+Gathered Sample at 2015-11-06 20:21:43 -0500
+	Current total number of tags: 252010
+	Unique Elements: 80243
+Gathered Sample at 2015-11-06 20:23:53 -0500
+	Current total number of tags: 252769
+	Unique Elements: 80460
+Gathered Sample at 2015-11-06 20:26:04 -0500
+	Current total number of tags: 253374
+	Unique Elements: 80460
+Gathered Sample at 2015-11-06 20:28:14 -0500
+	Current total number of tags: 254026
+	Unique Elements: 80460
+Gathered Sample at 2015-11-06 20:30:25 -0500
+	Current total number of tags: 254702
+	Unique Elements: 80695
+Gathered Sample at 2015-11-06 20:32:35 -0500
+	Current total number of tags: 255501
+	Unique Elements: 81033
+Gathered Sample at 2015-11-06 20:34:45 -0500
+	Current total number of tags: 256170
+	Unique Elements: 81220
+Gathered Sample at 2015-11-06 20:36:55 -0500
+	Current total number of tags: 256821
+	Unique Elements: 81245
+Gathered Sample at 2015-11-06 20:39:06 -0500
+	Current total number of tags: 257447
+	Unique Elements: 81485
+Gathered Sample at 2015-11-06 20:41:17 -0500
+	Current total number of tags: 257996
+	Unique Elements: 81554
+Gathered Sample at 2015-11-06 20:43:27 -0500
+	Current total number of tags: 258606
+	Unique Elements: 81588
+Gathered Sample at 2015-11-06 20:45:38 -0500
+	Current total number of tags: 259538
+	Unique Elements: 81588
+Gathered Sample at 2015-11-06 20:47:48 -0500
+	Current total number of tags: 260233
+	Unique Elements: 82064
+Gathered Sample at 2015-11-06 20:49:58 -0500
+	Current total number of tags: 260922
+	Unique Elements: 82064
+Gathered Sample at 2015-11-06 20:52:09 -0500
+	Current total number of tags: 261556
+	Unique Elements: 82090
+Gathered Sample at 2015-11-06 20:54:19 -0500
+	Current total number of tags: 262184
+	Unique Elements: 82090
+Gathered Sample at 2015-11-06 20:56:30 -0500
+	Current total number of tags: 262829
+	Unique Elements: 82090
+Gathered Sample at 2015-11-06 20:58:40 -0500
+	Current total number of tags: 263465
+	Unique Elements: 82300
+Gathered Sample at 2015-11-06 21:00:51 -0500
+	Current total number of tags: 264269
+	Unique Elements: 82370
+Gathered Sample at 2015-11-06 21:03:01 -0500
+	Current total number of tags: 265091
+	Unique Elements: 82440
+Gathered Sample at 2015-11-06 21:05:12 -0500
+	Current total number of tags: 265765
+	Unique Elements: 82510
+Gathered Sample at 2015-11-06 21:07:23 -0500
+	Current total number of tags: 266445
+	Unique Elements: 82744
+Gathered Sample at 2015-11-06 21:09:33 -0500
+	Current total number of tags: 267122
+	Unique Elements: 82939
+Gathered Sample at 2015-11-06 21:11:44 -0500
+	Current total number of tags: 267853
+	Unique Elements: 83011
+Gathered Sample at 2015-11-06 21:13:55 -0500
+	Current total number of tags: 268509
+	Unique Elements: 83261
+Gathered Sample at 2015-11-06 21:16:05 -0500
+	Current total number of tags: 269469
+	Unique Elements: 83431
+Gathered Sample at 2015-11-06 21:18:16 -0500
+	Current total number of tags: 270191
+	Unique Elements: 83847
+Gathered Sample at 2015-11-06 21:20:26 -0500
+	Current total number of tags: 270871
+	Unique Elements: 83847
+Gathered Sample at 2015-11-06 21:22:36 -0500
+	Current total number of tags: 271651
+	Unique Elements: 84020
+Gathered Sample at 2015-11-06 21:24:47 -0500
+	Current total number of tags: 272232
+	Unique Elements: 84130
+Gathered Sample at 2015-11-06 21:26:57 -0500
+	Current total number of tags: 272788
+	Unique Elements: 84130
+Gathered Sample at 2015-11-06 21:29:08 -0500
+	Current total number of tags: 273456
+	Unique Elements: 84130
+Gathered Sample at 2015-11-06 21:31:19 -0500
+	Current total number of tags: 274286
+	Unique Elements: 84166
+Gathered Sample at 2015-11-06 21:33:30 -0500
+	Current total number of tags: 274878
+	Unique Elements: 84511
+Gathered Sample at 2015-11-06 21:35:40 -0500
+	Current total number of tags: 275768
+	Unique Elements: 84590
+Gathered Sample at 2015-11-06 21:37:50 -0500
+	Current total number of tags: 276437
+	Unique Elements: 85130
+Gathered Sample at 2015-11-06 21:40:01 -0500
+	Current total number of tags: 277017
+	Unique Elements: 85166
+Gathered Sample at 2015-11-06 21:42:13 -0500
+	Current total number of tags: 277639
+	Unique Elements: 85241
+Gathered Sample at 2015-11-06 21:44:25 -0500
+	Current total number of tags: 278230
+	Unique Elements: 85723
+Gathered Sample at 2015-11-06 21:46:36 -0500
+	Current total number of tags: 278954
+	Unique Elements: 86056
+Gathered Sample at 2015-11-06 21:48:47 -0500
+	Current total number of tags: 279502
+	Unique Elements: 86056
+Gathered Sample at 2015-11-06 21:50:57 -0500
+	Current total number of tags: 280098
+	Unique Elements: 86056
+Gathered Sample at 2015-11-06 21:53:08 -0500
+	Current total number of tags: 280666
+	Unique Elements: 86210
+Gathered Sample at 2015-11-06 21:55:18 -0500
+	Current total number of tags: 281372
+	Unique Elements: 86239
+Gathered Sample at 2015-11-06 21:57:29 -0500
+	Current total number of tags: 281935
+	Unique Elements: 86858
+Gathered Sample at 2015-11-06 21:59:39 -0500
+	Current total number of tags: 282715
+	Unique Elements: 86975
+Gathered Sample at 2015-11-06 22:01:49 -0500
+	Current total number of tags: 283469
+	Unique Elements: 87132
+Gathered Sample at 2015-11-06 22:04:01 -0500
+	Current total number of tags: 284115
+	Unique Elements: 87349
+Gathered Sample at 2015-11-06 22:06:11 -0500
+	Current total number of tags: 284661
+	Unique Elements: 87418
+Gathered Sample at 2015-11-06 22:08:22 -0500
+	Current total number of tags: 285262
+	Unique Elements: 87869
+Gathered Sample at 2015-11-06 22:10:32 -0500
+	Current total number of tags: 285906
+	Unique Elements: 88029
+Gathered Sample at 2015-11-06 22:12:43 -0500
+	Current total number of tags: 286522
+	Unique Elements: 88029
+Gathered Sample at 2015-11-06 22:14:53 -0500
+	Current total number of tags: 287157
+	Unique Elements: 88029
+Gathered Sample at 2015-11-06 22:17:04 -0500
+	Current total number of tags: 287821
+	Unique Elements: 88190
+Gathered Sample at 2015-11-06 22:19:14 -0500
+	Current total number of tags: 288368
+	Unique Elements: 88190
+Gathered Sample at 2015-11-06 22:21:24 -0500
+	Current total number of tags: 288940
+	Unique Elements: 88190
+Gathered Sample at 2015-11-06 22:23:34 -0500
+	Current total number of tags: 289609
+	Unique Elements: 88493
+Gathered Sample at 2015-11-06 22:25:45 -0500
+	Current total number of tags: 290401
+	Unique Elements: 88493
+Gathered Sample at 2015-11-06 22:27:57 -0500
+	Current total number of tags: 291045
+	Unique Elements: 88685
+Gathered Sample at 2015-11-06 22:30:08 -0500
+	Current total number of tags: 291664
+	Unique Elements: 88746
+Gathered Sample at 2015-11-06 22:32:20 -0500
+	Current total number of tags: 292297
+	Unique Elements: 89032
+Gathered Sample at 2015-11-06 22:34:30 -0500
+	Current total number of tags: 292909
+	Unique Elements: 89109
+Gathered Sample at 2015-11-06 22:36:40 -0500
+	Current total number of tags: 293657
+	Unique Elements: 89563
+Gathered Sample at 2015-11-06 22:38:51 -0500
+	Current total number of tags: 294256
+	Unique Elements: 89563
+Gathered Sample at 2015-11-06 22:41:02 -0500
+	Current total number of tags: 294948
+	Unique Elements: 89563
+Gathered Sample at 2015-11-06 22:43:13 -0500
+	Current total number of tags: 295538
+	Unique Elements: 89707
+Gathered Sample at 2015-11-06 22:45:23 -0500
+	Current total number of tags: 296139
+	Unique Elements: 89958
+Gathered Sample at 2015-11-06 22:47:34 -0500
+	Current total number of tags: 296822
+	Unique Elements: 89958
+Gathered Sample at 2015-11-06 22:49:45 -0500
+	Current total number of tags: 297473
+	Unique Elements: 89958
+Gathered Sample at 2015-11-06 22:51:55 -0500
+	Current total number of tags: 298088
+	Unique Elements: 90104
+Gathered Sample at 2015-11-06 22:54:05 -0500
+	Current total number of tags: 298830
+	Unique Elements: 90104
+Gathered Sample at 2015-11-06 22:56:16 -0500
+	Current total number of tags: 299447
+	Unique Elements: 90781
+Gathered Sample at 2015-11-06 22:58:26 -0500
+	Current total number of tags: 300065
+	Unique Elements: 91037
+Gathered Sample at 2015-11-06 23:00:36 -0500
+	Current total number of tags: 300989
+	Unique Elements: 91037
+Gathered Sample at 2015-11-06 23:02:47 -0500
+	Current total number of tags: 301673
+	Unique Elements: 91338
+Gathered Sample at 2015-11-06 23:04:57 -0500
+	Current total number of tags: 302273
+	Unique Elements: 91338
+Gathered Sample at 2015-11-06 23:07:07 -0500
+	Current total number of tags: 302941
+	Unique Elements: 91859
+Gathered Sample at 2015-11-06 23:09:17 -0500
+	Current total number of tags: 303538
+	Unique Elements: 91859
+Gathered Sample at 2015-11-06 23:11:28 -0500
+	Current total number of tags: 304187
+	Unique Elements: 91979
+Gathered Sample at 2015-11-06 23:13:38 -0500
+	Current total number of tags: 305073
+	Unique Elements: 92086
+Gathered Sample at 2015-11-06 23:15:48 -0500
+	Current total number of tags: 305855
+	Unique Elements: 92526
+Gathered Sample at 2015-11-06 23:17:58 -0500
+	Current total number of tags: 306703
+	Unique Elements: 92615
+Gathered Sample at 2015-11-06 23:20:08 -0500
+	Current total number of tags: 307430
+	Unique Elements: 92615
+Gathered Sample at 2015-11-06 23:22:18 -0500
+	Current total number of tags: 308010
+	Unique Elements: 92882
+Gathered Sample at 2015-11-06 23:24:28 -0500
+	Current total number of tags: 308678
+	Unique Elements: 93340
+Gathered Sample at 2015-11-06 23:26:38 -0500
+	Current total number of tags: 309475
+	Unique Elements: 93565
+Gathered Sample at 2015-11-06 23:28:49 -0500
+	Current total number of tags: 310041
+	Unique Elements: 93929
+Gathered Sample at 2015-11-06 23:30:58 -0500
+	Current total number of tags: 310591
+	Unique Elements: 93929
+Gathered Sample at 2015-11-06 23:33:09 -0500
+	Current total number of tags: 311258
+	Unique Elements: 93929
+Gathered Sample at 2015-11-06 23:35:19 -0500
+	Current total number of tags: 311952
+	Unique Elements: 94135
+Gathered Sample at 2015-11-06 23:37:30 -0500
+	Current total number of tags: 312496
+	Unique Elements: 94318
+Gathered Sample at 2015-11-06 23:39:40 -0500
+	Current total number of tags: 313166
+	Unique Elements: 94804
+Gathered Sample at 2015-11-06 23:41:50 -0500
+	Current total number of tags: 313908
+	Unique Elements: 94990
+Gathered Sample at 2015-11-06 23:44:00 -0500
+	Current total number of tags: 314497
+	Unique Elements: 95224
+Gathered Sample at 2015-11-06 23:46:11 -0500
+	Current total number of tags: 315193
+	Unique Elements: 95411
+Gathered Sample at 2015-11-06 23:48:21 -0500
+	Current total number of tags: 315835
+	Unique Elements: 95458
+Gathered Sample at 2015-11-06 23:50:31 -0500
+	Current total number of tags: 316525
+	Unique Elements: 95894
