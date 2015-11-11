@@ -982,8 +982,8 @@ u_{x}(0,t) = u_{x}(L,t) = 0\\
 u(x,0) = g(x)
 \end{cases}\\
 &\\
-u(x,t) = \sum_{n=1}^{\infty}e^{-k\left(\frac{n\pi}{L}\right)^{2}t}\sin{\left(\frac{n\pi x}{L}\right)}
-& u(x,t) = \frac{a_{0}}{2} + \sum_{n=1}^{\infty}e^{-k\left(\frac{n\pi}{L}\right)^{2}t}\cos{\left(\frac{n\pi x}{L}\right)}\\
+u(x,t) = \sum_{n=1}^{\infty}b_{n}e^{-k\left(\frac{n\pi}{L}\right)^{2}t}\sin{\left(\frac{n\pi x}{L}\right)}
+& u(x,t) = \frac{a_{0}}{2} + \sum_{n=1}^{\infty}a_{n}e^{-k\left(\frac{n\pi}{L}\right)^{2}t}\cos{\left(\frac{n\pi x}{L}\right)}\\
 &\\
 \begin{cases}
 u_{t} - ku_{xx} = 0\\
@@ -997,8 +997,8 @@ u_{x}(0,t) = u(L,t) = 0\\
 u(x,0) = k(x)
 \end{cases}\\
 &\\
-u(x,t) =  \sum_{n=1}^{\infty}e^{-k\left(\left[n + \frac{1}{2}\right]\frac{\pi}{L}\right)^{2}t}\sin{\left(\left[n + \frac{1}{2}\right]\frac{\pi x}{L}\right)}
-& u(x,t) =  \sum_{n=1}^{\infty}e^{-k\left(\left[n + \frac{1}{2}\right]\frac{\pi}{L}\right)^{2}t}\cos{\left(\left[n + \frac{1}{2}\right]\frac{\pi x}{L}\right)}
+u(x,t) =  \sum_{n=1}^{\infty}a_{n}e^{-k\left(\left[n + \frac{1}{2}\right]\frac{\pi}{L}\right)^{2}t}\sin{\left(\left[n + \frac{1}{2}\right]\frac{\pi x}{L}\right)}
+& u(x,t) =  \sum_{n=1}^{\infty}a_{n}e^{-k\left(\left[n + \frac{1}{2}\right]\frac{\pi}{L}\right)^{2}t}\cos{\left(\left[n + \frac{1}{2}\right]\frac{\pi x}{L}\right)}
 \end{array}
 \]
 \noindent\\
@@ -1181,4 +1181,78 @@ Substituting back in gives us a final answer of
 &= \cos{x}e^{-kt},
 \end{align*}
 and we are done.
+
+
+\newpage
+\indent Now we will move on to the Cauchy wave equation. We will be presented with a similar problem: a wave equation on an unbounded domain. Consider the following problem:
+\noindent \\\\
+\noindent \textbf{\textit{Ex:}} Solve the following PDE
+\[
+\begin{cases}
+u_{tt} - c^{2}u_{xx} = 0\\
+u(x,0) = \sin{x}\\
+u_{t}(x,0) = \cos{x}
+\end{cases}
+\]
+\indent \textbf{\textit{Solution:}} Just as with the heat equation, we have a formal solution for the homogeneous wave equation. We will do the derivation, but I will tell you that the formal solution is
+\[
+u(x,t) = \frac{1}{2}\left[f(x+ct) + f(x-ct)\right] + \frac{1}{2c}\int_{x-ct}^{x+ct}g(s)\mathop{ds}.
+\]
+Now let's derive the formal solution. We want a solution in the form of
+\[
+u(x,t) = F(x+ct) + G(x-ct).
+\]
+Now we can say that $u_{t} = cF'(x+ct) - cG'(x-ct)$, and $u_{t}(x,0) = cF'(x) - cG'(x)$. This means
+\begin{align*}
+F(x) + G(x) &= f(x)\\
+F(x) - G(x) &= \frac{1}{c}\int_{0}^{x}g(s)\mathop{ds} + c_{1}.
+\end{align*}
+Solving the system yields
+\begin{align*}
+u(x,t) &= \frac{1}{2} f(x+ct) + \frac{1}{2c}\int_{0}^{x+ct}g(s)\mathop{ds} + \frac{c_{1}}{2} + \frac{1}{2}f(x-ct) -\frac{1}{2c}\int_{0}^{x-ct}g(s)\mathop{ds} - \frac{c_{1}}{2}\\
+&= \frac{1}{2}\left[f(x+ct) + f(x-ct)\right] + \frac{1}{2c}\int_{x-ct}^{x+ct}g(s)\mathop{ds},
+\end{align*}
+and that is the derivation. This problem is simply plugging into the formal solution. We have the following:
+\begin{align*}
+u(x,t) &= \frac{1}{2}\left[\sin{(x+ct)} + \sin{(x-ct)}\right] + \frac{1}{2c}\int_{x-ct}^{x+ct}\cos{(s)}\mathop{ds}\\
+&= \frac{\sin{(x+ct)} + \sin{(x-ct)}}{2} + \frac{\cos{(x)}\sin{(ct)}}{c}\\
+&=  \frac{\cos{(x)}\sin{(ct)}}{c} + \cos{(ct)}\sin{(x)},
+\end{align*}
+and we are done.
+
+
+\newpage
+\indent So far, we have only dealt with homogeneous Cauchy problems. We will now look at the case where we have a non-homogeneous problem. The first variation of this problem is the \textit{half-line} problem. In this problem, we will have a bound on our equation, and we will generalize the solution so that we are dealing with an unbounded Cauchy problem. Let's look at an example.
+\noindent\\\\ \textbf{\textit{Ex:}} Solve the following PDE
+\[
+\begin{cases}
+u_{t} - ku_{xx} = 0\\
+u(x,0) = \phi(x)\\
+u(0,t) = 0
+\end{cases}
+\]
+\indent \textbf{\textit{Solution:}} We have both an initial condition and a boundary condition here. This problem is saying that at $x=0$, there is an impassable boundary. This forces our domain to be $[0,\infty)$. To solve a Cauchy problem, however, we want a domain of $(-\infty,\infty)$. We can force this domain by extending our initial condition, $\phi(x)$, over the boundary. We have the following rule:
+\[
+\phi_{0}(x) =
+\begin{cases}
+\phi(x)\quad\quad x>0\\
+-\phi(-x)\ x<0.
+\end{cases}
+\]
+Now we are dealing with the system
+\[
+\begin{cases}
+u_{t} - ku_{xx} = 0\\
+u(x,0) = \phi_{0}(x),
+\end{cases}
+\]
+which we can solve using the formal solution to the heat equation. Recall that
+\[
+u(x,t) = \frac{1}{\sqrt{4k\pi t}}\int_{-\infty}^{\infty}e^{-\frac{(x-y)^{2}}{4kt}}\phi_{0}(y)\mathop{dy}.
+\]
+Substituting into the equation gives us
+\begin{align*}
+u(x,t) &= \frac{1}{\sqrt{4k\pi t}}\left[\int_{0}^{\infty}e^{-\frac{(x-y)^{2}}{4kt}}\phi(y)\mathop{dy} + \int_{-\infty}^{0}e^{-\frac{(x-y)^{2}}{4kt}}(-\phi(-y))\mathop{dy} \right]\\
+&= \frac{1}{\sqrt{4k\pi t}}
+\end{align*}
 \end{document}

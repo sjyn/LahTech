@@ -1,0 +1,106 @@
+\documentclass{beamer}
+\mode<presentation>
+\usetheme{boxes}
+\usepackage{amsmath}
+\AtBeginSection[]{
+\begin{frame}<beamer>
+\frametitle{Summary}
+\tableofcontents[currentsection]
+\end{frame}
+}
+\title{The Count Distinct Problem}
+\author{Steven Rosendahl}
+
+\begin{document}
+\begin{frame}
+\titlepage
+\end{frame}
+
+\section{The Problem}
+\begin{frame}{The Question}
+\pause
+\begin{itemize}
+\item What is the problem?
+\pause
+\item Image we have a set called $\mathbb{V}$ that contains a billion elements of the same type.
+\pause
+\item How many \textit{unique} elements are in $\mathbb{V}$?
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Questions}
+\begin{enumerate}
+\pause
+\item \underline{Pok\'emon Problem:} How many unique Pok\'emon will a player encounter in a given playthrough of all the games?
+\pause
+\item \underline{Facebook Problem:} How many unique application installs are made a day on Facebook?
+\pause
+\item \underline{Twitter Problem:} How many unique hashtags are made a day on Twitter?
+\pause
+\end{enumerate}
+We will use $\mathbb{S}$ to represent the set of all the data, and $\mathbb{V}$ to represent the set of unique elements. 
+\end{frame}
+
+\section{The Hash Table}
+\begin{frame}{Hashing}
+\begin{itemize}
+\pause
+\item What is \textit{hashing}?
+\pause
+\item Applying a function $h(x)$ to every element in $\mathbb{S}$, and storing the result in $\mathbb{V}$.
+\pause
+\item Ideally, $h(x)$ is
+\begin{enumerate}
+\pause 
+\item Onto (surjective)
+\pause
+\item One-to-one (injective)
+\end{enumerate}
+\pause
+\item We can ignore the duplicate values in $\mathbb{V}$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Solving the Pok\'emon Problem}
+\begin{itemize}
+\pause
+\item How can we solve the Pok\'emon Problem using a hash?
+\pause
+\item Create a hash function that turns a given Pok\'emon into a numerical value
+\pause
+\item Store the result in $\mathbb{V}$ if it is not already there.
+\pause
+\item The hash function:
+\begin{enumerate}
+\item Sum up the ASCII value of each character in a Pok\'emon's name. Call this $n$.
+\pause
+\item Add $n$ to the Pok\'emon's corresponding National Pok\'edex number. Call this $m$.
+\pause
+\item Find $m\ mod\ 721$.
+\pause
+\end{enumerate}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Problems With The Hash Table}
+\begin{itemize}
+\pause
+\item Memory Intensive
+\begin{itemize}
+\item Pok\'emon problem only dealt with a set $\mathbb{S}$ of size 6000
+\pause
+\item Twitter Problem deals with $\mathbb{S}$ of size 200,000,000.
+\pause
+\item Collisions and collision policies also add to the amount of memory required.
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\section{The HyperLogLog}
+\begin{frame}{The Algorithm}
+\begin{enumerate}
+\pause
+\item Create a 
+\end{enumerate}
+\end{frame}
+\end{document}

@@ -179,7 +179,7 @@ We also need a method to calculate the unique elements, and we need a way to act
 &
 \includegraphics[scale=0.4]{twitter_problem/hll_imp}
 \\
-\textit{Initialization} & \textit{Counting} & \textit{Implementing}
+Initialization & Counting & Implementing
 \end{tabular}
 \end{center}
 \noindent \\
@@ -189,14 +189,14 @@ After running the algorithm for 24 hours, we will have a set of data that repres
 The data grows in a linear fashion; this is expected since we are gathering a random sample from all over the world, which means that at any given time, we expect to see more or less the same amount of unique hashtags.
 Plotting the data and applying a best fit line using Mathematica gives us
 \[
-Equation\ Goes\ Here.
+f(x) = 0.284356 x + 7,361.39.
 \]
 From this data, we can make an estimate that at 200,000,000 tweets, we will have
-\[
-Results\ From\ Plugging\ In\ 200,000,000,
-\]
-which means that we will have roughly \underline{INSERT RESULT HERE} unique hashtags by the HyperLogLog algorithm.\\ 
-%%%%%%%%RESULTS GO HERE%%%%%%%%%%
+\begin{align*}
+f(200,000,000) &= 0.284356(200,000,000) + 7,361.39\\
+&= 56,878,500,
+\end{align*}
+which means that we will have roughly 56 million unique hashtags by the HyperLogLog algorithm.\\ 
 \indent We have looked at three different approaches to the count distinct problem. 
 We used the HyperLogLog to solve only the Twitter problem, but we could have used the algorithm to solve all of the problems. 
 The count distinct problem is heavily applicable in the real world; companies are able to turn the numbers that are determined by algorithms such as the HyperLogLog to increase profits, target ads, and keep more data.

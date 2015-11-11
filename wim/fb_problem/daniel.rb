@@ -28,7 +28,7 @@ class Distribution
 
         (0...types).each do |c|
             self.distribution[c] = self.distribution[c].fdiv(sum_of_distribution)
-            puts self.distribution[c]
+            # puts self.distribution[c]
         end
 
         # Normalize distribution and
@@ -54,9 +54,9 @@ class Distribution
     end
 end
 
-f = lambda do |x|
-  x ** 2
-end
+# f = lambda do |x|
+#   x ** 2
+# end
 
-distribution = Distribution.new(1000, f, 1, 100)
-p distribution.count(100000)
+# distribution = Distribution.new(1000, f, 1, 100)
+# p distribution.count(100000)
