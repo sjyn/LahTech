@@ -58,7 +58,8 @@ The hashing function we created earlier will not be good enough here; instead we
 \caption{Hashing Pok\'emon based on name and type}
 \end{framed}
 \end{floatingfigure}
-\noindent Running the code in \textit{Figure 1} will give us a final answer of 461 unique encounters with wild pok\'emon. 
+\noindent In order to come up with a set $\mathbb{S}$, we can randomly populate an array with 6000 pok\'emon; we are assuming that a player has an equal chance to run into any pok\'emon, and that they can encounter all pok\'emon more than once.
+Running the code in \textit{Figure 1} gives us a final answer of 461 unique encounters with wild pok\'emon. 
 In the case of the pok\'emon problem, a simple hash function sufficed, since the only collisions that were encountered were pok\'emon where the name was the same. 
 If we consider a larger data set, however, we may not be able to create a surjective hash function.\\
 
@@ -70,7 +71,7 @@ To model this issue, we can consider the following scenario:
 On October 30th, 2015, Mojang released a special Halloween cape to all players of the popular video game Minecraft. 
 As a result, ``\#cape'' began trending on Twitter.
 On the same day, Target announced that all their \textit{Bob's Burgers} costumes would be on sale for the low price of \$12.95, and ``\#bob'' began trending on twitter.
-\end{quote}  \clearpage
+\end{quote}
 Our hash function from earlier will not work in this case, since both ``\#bob'' and ``\#cape'' hash to the same value. 
 On a larger scale, such as the Facebook or Twitter problem, we would need to either handle collisions or create a better hash function. 
 Creating a way to handle collisions would not be beneficial, since the data is being processed in real time. 

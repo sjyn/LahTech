@@ -3,10 +3,6 @@ require_relative 'daniel.rb'
 def count(m, s)
 	bitmap = Array.new(m)
 	i = 0
-	# while i < m do
-	# 	bitmap[i] = 0
-	# 	i += 1
-	# end
 	for i in 0..m do
 		bitmap[i] = 0
 	end
@@ -20,10 +16,7 @@ def count(m, s)
 			zeros += 1.0
 		end
 	end
-	# puts "zeros: #{zeros}"
-	# puts "m: #{m}"
 	lamb = (zeros / m)
-	# puts "lambda: #{lamb}"
 	cardinality = (-1 * m) * Math.log(lamb)
 end
 
