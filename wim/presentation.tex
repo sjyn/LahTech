@@ -100,7 +100,71 @@ We will use $\mathbb{S}$ to represent the set of all the data, and $\mathbb{V}$ 
 \begin{frame}{The Algorithm}
 \begin{enumerate}
 \pause
-\item Create a 
+\item Create a bitmap in memory. We will call this $\mathbb{V}$.
+\pause
+\item For each value $s$ is $\mathbb{S}$, hash $s$ to a binary number.
+\pause
+%\item
+\begin{itemize}
+\item We will use a \textit{Murmur Hash} to do this.
+\end{itemize}
+\pause
+\item Analyze the first sequence of 0's in the binary value, and store the number of leading 0's into the bitmap.
+\begin{itemize}
+\item If the sequence of 0's has been seen before, there is a high probability that the term is a duplicate
+\end{itemize}
+\pause
+\item Take the harmonic average of all the totals in the bitmap.
 \end{enumerate}
+\end{frame}
+
+\begin{frame}{The Math}
+\pause
+\begin{itemize}
+\item How much memory is required?
+\pause
+\[
+\text{Memory Required} = \log_{2}{(\log_{2}{(M)})}
+\]
+\pause
+\item $M$ is the size of the original set of data ($\mathbb{S}$).
+\pause
+\item What is the predicted error?
+\pause
+\[
+\text{Error} = \frac{\sqrt{3\log{(2)} - 1}}{m}
+\]
+\pause
+\item $m$ is the number of spaces in the bitmap ($\mathbb{V}$).
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Solving the Twitter Problem}
+\pause
+\begin{itemize}
+\item How can we process count 200,000,000 hashtags on an average computer?
+\pause
+\item We can lower the sample size and apply a best fit line to the data.
+\begin{enumerate}
+\pause
+\item For 24 hours, gather 2000 tweets containing ``\#'' every 2 minutes.
+\pause
+\item Using the HyperLogLog, determine the unique number of total hashtags every time a new sample is gathered.
+\end{enumerate}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Results}
+\pause
+\begin{figure}
+\includegraphics[scale=0.5]{twitter_problem/resultspng}
+\caption{$0.284356 x + 7361.39$}
+\end{figure}
+\pause
+\begin{itemize}
+\item Plugging in 200,000,000 gives us
+\pause
+\item $5.68785\times10^7$ unique hashtags.
+\end{itemize}
 \end{frame}
 \end{document}

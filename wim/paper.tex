@@ -113,7 +113,7 @@ We can use an algorithm (courtesy of GitHub user Danieth5x) that will generate a
 We can argue that it is not important as to which exponential function we choose, since the distribution will be more or less the same; in our case we will pick $e^{x}$.
 Running the pseudo-random generator produces a set $\mathbb{S}$ of size 7,000,000, and we can now apply the Linear Probabilistic Counter to the data set.
 For our purposes, we will use the hash function supplied by Ruby; the only change we need to make is to mod the result of the Ruby hash with the number of spaces in the bitmap, which ensures that we will never produce a  hashed value out of the bounds of our bitmap.
-Finally, running the algorithm tells us that the total number of unique application installs is \underline{RESULT GOES HERE}.\\
+Finally, running the algorithm tells us that the total number of unique application installs is 3216.\\
 
 \indent The Linear Probabilistic Counter and the hash table algorithms handled relatively small data sets well, but the Twitter problem deals with a data set of nearly 200,000,000 tweets a day \cite{Twitter-2}.
 As a result, the Linear Probabilistic Counter would be too inefficient to process all the data, but the HyperLogLog algorithm allows for data to be processed more efficiently than the Linear Probabilistic Counter or the hash table. 
