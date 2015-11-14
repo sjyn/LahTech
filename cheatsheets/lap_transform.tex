@@ -1,0 +1,60 @@
+\documentclass{article}
+\usepackage{amssymb,amsmath}
+\usepackage{ mathrsfs }
+\usepackage{mathtools}
+\usepackage{array}
+\topmargin=-0.3in
+\textheight=9.2in
+\textwidth=168mm
+\oddsidemargin=-0.2in
+\evensidemargin=-0.2in
+\newcommand{\Lagr}{\mathscr{L}}
+\title{Laplace Transforms}
+\date{}
+\begin{document}
+\maketitle
+\[
+\Lagr[f(t)] = \int_{0}^{\infty}e^{-st}f(t)\mathop{dt}
+\qquad\qquad
+\Lagr^{-1}[F(s)] = 2i\pi\lim_{\tau\to\infty}\int_{\gamma - i\tau}^{\gamma + i\tau}e^{st}F(s)\mathop{ds}
+\]
+\begin{center}
+\vspace{1cm}
+\begin{tabular}{c c}
+$f(t) = \Lagr^{-1}[F(s)]$\qquad\qquad\qquad & \qquad\qquad\qquad$F(s) = \Lagr[f(t)]$\\
+\hline \\
+$1$ & $\frac{1}{s}$\\
+\\
+$e^{at}$ & $\frac{1}{s-a}$\\
+\\
+$t^{n}$ & $\frac{n!}{s^{n+1}}$\\
+\\
+$\sin{(at)}$ & $\frac{a}{s^{2} + a^{2}}$\\
+\\
+$\cos{(at)}$ & $\frac{s}{s^{2} + a^{2}}$\\
+\\
+$\sinh{(at)}$ & $\frac{a}{s^{2} - a^{2}}$\\
+\\
+$\cosh{(at)}$ & $\frac{s}{s^{2} - a^{2}}$\\
+\\
+$e^{at}\sin{(bt)}$ & $\frac{b}{(s-a)^{2}+b^{2}}$\\
+\\
+$e^{at}\cos{(bt)}$ & $\frac{s-a}{(s-a)^{2}+b^{2}}$\\
+\\
+$t^{n}e^{at}$ & $\frac{n!}{(s-a)^{n+1}}$\\
+\\
+$f'(t)$ & $sF(s) - f(0)$\\
+\\
+$f''(t)$ & $s^{2}F(s)-sf(0) - f'(0)$\\
+\\
+$\int_{0}^{t}f(t-\tau)g(\tau)\mathop{d\tau}$ & $F(s)G(s)$\\
+\\
+$\delta(t-c) =
+\begin{cases}
+\infty,\quad (t-c)=0\\
+0,\quad\ (t-c)\neq 0
+\end{cases}
+$ & $e^{-cs}$
+\end{tabular}
+\end{center}
+\end{document}

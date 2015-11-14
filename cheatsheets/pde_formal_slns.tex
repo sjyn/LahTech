@@ -1,0 +1,243 @@
+\documentclass{article}
+\usepackage{amssymb,amsmath}
+\usepackage{mathtools}
+\usepackage{array}
+\topmargin=-0.3in
+\textheight=9.2in
+\textwidth=168mm
+\oddsidemargin=-0.2in
+\evensidemargin=-0.2in
+\title{Formal Solutions To PDE's}
+\date{}
+\begin{document}
+\maketitle
+\section{Homogeneous Solutions}
+\hrule
+\noindent\\
+%%%HEAT EQUATION%%%
+\subsection{The Heat Equation}
+\subsubsection*{Dirichlet}
+\begin{gather*}
+\begin{cases}
+u_{t} - ku_{xx} = 0\\
+u(0,t) = u(\ell,t) = 0\\
+u(x,0) = f(x)
+\end{cases}\\
+u(x,t) = \sum_{n=1}^{\infty}b_{n}e^{-k\left(\frac{n\pi}{\ell}\right)^{2}t}\sin{\left(\frac{n\pi x}{\ell}\right)}\\
+b_{n} = \frac{2}{\ell}\int_{0}^{\ell}f(x)\sin{\left(\frac{n\pi x}{\ell}\right)}\mathop{dx}
+\end{gather*}
+
+\subsubsection*{Neumann}
+\begin{gather*}
+\begin{cases}
+u_{t} - ku_{xx} = 0\\
+u_{x}(0,t) = u_{x}(\ell,t) = 0\\
+u(x,0) = f(x)
+\end{cases}\\
+u(x,t) = \frac{a_{0}}{2} + \sum_{n=1}^{\infty}a_{n}e^{-k\left(\frac{n\pi}{\ell}\right)^{2}t}\cos{\left(\frac{n\pi x}{\ell}\right)}\\
+a_{n} = \frac{2}{\ell}\int_{0}^{\ell}f(x)\cos{\left(\frac{n\pi x}{\ell}\right)}\mathop{dx}\\
+a_{0} = \frac{2}{\ell}\int_{0}^{\ell}f(x)\mathop{dx}\\
+\end{gather*}
+
+\subsubsection*{Robin}
+\begin{minipage}{0.5\textwidth}
+\begin{gather*}
+\begin{cases}
+u_{t} - ku_{xx} = 0\\
+u(0,t) = u_{x}(\ell,t) = 0\\
+u(x,0) = f(x)
+\end{cases}\\
+u(x,t) = \sum_{n=1}^{\infty}a_{n}e^{-k\left(\left[n + \frac{1}{2}\right]\frac{\pi}{\ell}\right)^{2}t}\sin{\left(\left[n + \frac{1}{2}\right]\frac{\pi}{\ell}\right)}\\
+a_{n} = \frac{2}{\ell}\int_{0}^{\ell}f(x)\sin{\left(\left[n + \frac{1}{2}\right]\frac{\pi}{\ell}\right)}\mathop{dx}\\
+\end{gather*}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\begin{gather*}
+\begin{cases}
+u_{t} - ku_{xx} = 0\\
+u_{x}(0,t) = u(\ell,t) = 0\\
+u(x,0) = f(x)
+\end{cases}\\
+u(x,t) = \sum_{n=1}^{\infty}a_{n}e^{-k\left(\left[n + \frac{1}{2}\right]\frac{\pi}{\ell}\right)^{2}t}\cos{\left(\left[n + \frac{1}{2}\right]\frac{\pi}{\ell}\right)}\\
+a_{n} = \frac{2}{\ell}\int_{0}^{\ell}f(x)\cos{\left(\left[n + \frac{1}{2}\right]\frac{\pi}{\ell}\right)}\mathop{dx}\\
+\end{gather*}
+\end{minipage}
+
+
+%%%WAVE EQUATION%%%
+\subsection{The Wave Equation}
+\subsubsection*{Dirichlet}
+\begin{gather*}
+\begin{cases}
+u_{tt} - c^{2}u_{xx} = 0\\
+u(0,t) = u(\ell,t) = 0\\
+u(x,0) = f(x),\ u_{t}(x,0) = g(x)
+\end{cases}\\
+u(x,t) = \sum_{n=1}^{\infty}\left[a_{n}\cos{\left(\frac{n\pi c t}{\ell}\right)} + b_{n}\sin{\left(\frac{n\pi c t}{\ell}\right)}\right]\sin{\left(\frac{n\pi x}{\ell}\right)}\\
+a_{n} = \frac{2}{\ell}\int_{0}^{\ell}f(x)\sin{\left(\frac{n\pi x}{\ell}\right)}\mathop{dx}\\
+b_{n} = \frac{2}{n\pi c}\int_{0}^{\ell}g(x)\sin{\left(\frac{n\pi x}{\ell}\right)}\mathop{dx}\\
+\end{gather*}
+
+\subsubsection*{Neumann}
+\begin{gather*}
+\begin{cases}
+u_{tt} - c^{2}u_{xx} = 0\\
+u_{x}(0,t) = u_{x}(\ell,t) = 0\\
+u(x,0) = f(x),\ u_{t}(x,0) = g(x)
+\end{cases}\\
+u(x,t) = \frac{a_{0}}{2} + \frac{b_{0}}{2}t +\sum_{n=1}^{\infty}\left[a_{n}\cos{\left(\frac{n\pi c t}{\ell}\right)} + b_{n}\sin{\left(\frac{n\pi c t}{\ell}\right)}\right]\cos{\left(\frac{n\pi x}{\ell}\right)}\\
+a_{n} = \frac{2}{\ell}\int_{0}^{\ell}f(x)\cos{\left(\frac{n\pi x}{\ell}\right)}\mathop{dx}\qquad\qquad
+a_{0} = \frac{2}{\ell}\int_{0}^{\ell}f(x)\mathop{dx}\\
+b_{n} = \frac{2}{n\pi c}\int_{0}^{\ell}g(x)\cos{\left(\frac{n\pi x}{\ell}\right)}\mathop{dx}\qquad\qquad
+b_{0} = \frac{2}{n\pi c}\int_{0}^{\ell}g(x)\mathop{dx}\\
+\end{gather*}
+
+\subsubsection*{Robin}
+\begin{gather*}
+\begin{cases}
+u_{tt} - c^{2}u_{xx} = 0\\
+u(0,t) = u_{x}(\ell,t) = 0\\
+u(x,0) = f(x),\ u_{t}(x,0) = g(x)
+\end{cases}\\
+u(x,t) = a_{0} + b_{0}t +\sum_{n=1}^{\infty}\left[a_{n}\cos{\left(\left[n + \frac{1}{2}\right]\frac{\pi t}{\ell}\right)} + b_{n}\sin{\left(\left[n + \frac{1}{2}\right]\frac{\pi t}{\ell}\right)}\right]\sin{\left(\left[n + \frac{1}{2}\right]\frac{\pi x}{\ell}\right)}\\
+a_{n} = \frac{2}{\ell}\int_{0}^{\ell}f(x)\sin{\left(\left[n + \frac{1}{2}\right]\frac{\pi x}{\ell}\right)}\mathop{dx}\qquad\qquad
+a_{0} = \frac{2}{\ell}\int_{0}^{\ell}f(x)\mathop{dx}\\
+b_{n} = \frac{2}{n\pi c}\int_{0}^{\ell}g(x)\sin{\left(\left[n + \frac{1}{2}\right]\frac{\pi x}{\ell}\right)}\mathop{dx}\qquad\qquad
+b_{0} = \frac{2}{n\pi c}\int_{0}^{\ell}g(x)\mathop{dx}\\
+\end{gather*}
+\begin{gather*}
+\begin{cases}
+u_{tt} - c^{2}u_{xx} = 0\\
+u_{x}(0,t) = u(\ell,t) = 0\\
+u(x,0) = f(x),\ u_{t}(x,0) = g(x)
+\end{cases}\\
+u(x,t) = a_{0} + b_{0}t +\sum_{n=1}^{\infty}\left[a_{n}\cos{\left(\left[n + \frac{1}{2}\right]\frac{\pi t}{\ell}\right)} + b_{n}\sin{\left(\left[n + \frac{1}{2}\right]\frac{\pi t}{\ell}\right)}\right]\cos{\left(\left[n + \frac{1}{2}\right]\frac{\pi x}{\ell}\right)}\\
+a_{n} = \frac{2}{\ell}\int_{0}^{\ell}f(x)\cos{\left(\left[n + \frac{1}{2}\right]\frac{\pi x}{\ell}\right)}\mathop{dx}\qquad\qquad
+a_{0} = \frac{2}{\ell}\int_{0}^{\ell}f(x)\mathop{dx}\\
+b_{n} = \frac{2}{n\pi c}\int_{0}^{\ell}g(x)\cos{\left(\left[n + \frac{1}{2}\right]\frac{\pi x}{\ell}\right)}\mathop{dx}\qquad\qquad
+b_{0} = \frac{2}{n\pi c}\int_{0}^{\ell}g(x)\mathop{dx}\\
+\end{gather*}
+
+%%%LAPLACE EQUATION%%%
+\subsection{Laplace Equation}
+\subsubsection*{Rectangular Region}
+\paragraph{Dirichlet}
+\begin{gather*}
+\begin{cases}
+u_{xx} + u_{yy} = 0\\
+u(0,y) = u(\ell,y) = 0
+\end{cases}\\
+u(x,y) = a_{0} + b_{0}y + \sum_{n=1}^{\infty}\left[a_{n}\sinh{\left(\frac{n\pi y}{\ell}\right)} + b_{n}\cosh{\left(\frac{n\pi y}{\ell}\right)}\right]\sin{\left(\frac{n\pi x}{\ell}\right)}
+\end{gather*}
+
+\paragraph{Neumann}
+\begin{gather*}
+\begin{cases}
+u_{xx} + u_{yy} = 0\\
+u_{x}(0,y) = u_{x}(\ell,y) = 0
+\end{cases}\\
+u(x,y) = a_{0} + b_{0}y + \sum_{n=1}^{\infty}\left[a_{n}\sinh{\left(\frac{n\pi y}{\ell}\right)} + b_{n}\cosh{\left(\frac{n\pi y}{\ell}\right)}\right]\cos{\left(\frac{n\pi x}{\ell}\right)}
+\end{gather*}
+
+\paragraph{Robin}
+\begin{gather*}
+\begin{cases}
+u_{xx} + u_{yy} = 0\\
+u(0,y) = u_{x}(\ell,y) = 0
+\end{cases}\\
+u(x,y) = \sum_{n=1}^{\infty}\left[a_{n}\sinh{\left(\left[n + \frac{1}{2}\right]\frac{\pi y}{\ell}\right)} + b_{n}\cosh{\left(\left[n + \frac{1}{2}\right]\frac{\pi y}{\ell}\right)}\right]\sin{\left(\left[n + \frac{1}{2}\right]\frac{\pi x}{\ell}\right)}
+\end{gather*}
+\begin{gather*}
+\begin{cases}
+u_{xx} + u_{yy} = 0\\
+u_{x}(0,y) = u(\ell,y) = 0
+\end{cases}\\
+u(x,y) = \sum_{n=1}^{\infty}\left[a_{n}\sinh{\left(\left[n + \frac{1}{2}\right]\frac{\pi y}{\ell}\right)} + b_{n}\cosh{\left(\left[n + \frac{1}{2}\right]\frac{\pi y}{\ell}\right)}\right]\cos{\left(\left[n + \frac{1}{2}\right]\frac{\pi x}{\ell}\right)}
+\end{gather*}
+
+\subsubsection*{Circular Region}
+\begin{gather*}
+\begin{cases}
+u_{rr} + \frac{1}{r}u_{r} + \frac{1}{r^{2}}u_{\theta\theta} = 0\\
+u(h,\theta)  = f(\theta)
+\end{cases}\\
+u(r,\theta) = \frac{a_{0}}{2} + \sum_{n=1}^{\infty}a_{n}\frac{r^{n}}{a^{n}}\cos{(n\theta)} + b_{n}\frac{r^{n}}{a^{n}}\sin{(n\theta)}
+\end{gather*}
+\newpage
+
+
+
+
+\section{Non-Homogeneous Solutions}
+\hrule
+\noindent\\
+%%%HEAT EQUATION%%%
+\subsection{The Heat Equation}
+\begin{minipage}{0.5\textwidth}
+\subsubsection*{Dirichlet}
+\begin{gather*}
+\begin{cases}
+u_{t} - ku_{xx} = h(x,t)\\
+u(0,t) = u(\ell,t) = 0\\
+u(x,0) = f(x)
+\end{cases}\\
+u(x,t) = \sum_{n=1}^{\infty}b_{n}(t)\sin{\left(\frac{n\pi x}{\ell}\right)}
+\end{gather*}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\subsubsection*{Neumann}
+\begin{gather*}
+\begin{cases}
+u_{t} - ku_{xx} = h(x,t)\\
+u_{x}(0,t) = u_{x}(\ell,t) = 0\\
+u(x,0) = f(x)
+\end{cases}\\
+u(x,t) = \sum_{n=1}^{\infty}a_{n}(t)\cos{\left(\frac{n\pi x}{\ell}\right)}
+\end{gather*}
+\end{minipage}
+%%%WAVE EQUATION%%%
+\subsection{The Wave Equation}
+
+
+
+\newpage
+\section{Cauchy Problems}
+\hrule
+\noindent\\
+%%%HEAT EQUATION%%%
+\subsection{The Heat Equation}
+\subsubsection*{Homogeneous}
+\begin{gather*}
+\begin{cases}
+u_{t} - k u_{xx} = 0\\
+u(x,0) = f(x)
+\end{cases}\\
+u(x,t) = \frac{1}{\sqrt{4k\pi t}}\int_{-\infty}^{\infty}e^{\frac{-(x-y)^{2}}{4kt}}f(y)\mathop{dy}
+\end{gather*}
+\subsubsection*{Non-Homogeneous}
+\begin{gather*}
+\begin{cases}
+u_{t} - k u_{xx} = h(x,t)\\
+u(x,0) = f(x)
+\end{cases}\\
+u(x,t) = \frac{1}{\sqrt{4k\pi t}}\int_{-\infty}^{\infty}e^{\frac{-(x-y)^{2}}{4kt}}f(y)\mathop{dy} + \int_{0}^{t}\int_{-\infty}^{\infty}\frac{1}{\sqrt{4k\pi(t-s)}}e^{\frac{-(x-y)^{2}}{4k(t -s)}}h(y,s)\mathop{dy}\mathop{ds}
+\end{gather*}
+%%%WAVE EQUATION%%%
+\subsection{The Wave Equation}
+\subsubsection*{Homogeneous}
+\begin{gather*}
+\begin{cases}
+u_{tt} - c^{2}u_{xx} = 0\\
+u(x,0) = f(x),\ u_{t}(x,0) = g(x)
+\end{cases}\\
+u(x,t) = \frac{1}{2}\left[f(x+ct) + f(x-ct)\right] + \frac{1}{2c}\int_{x-ct}^{x+ct}g(s)\mathop{ds}
+\end{gather*}
+\subsubsection*{Non-Homogeneous}
+\begin{gather*}
+\begin{cases}
+u_{tt} - c^{2}u_{xx} = h(x,t)\\
+u(x,0) = f(x),\ u_{t}(x,0) = g(x)
+\end{cases}\\
+u(x,t) = \frac{1}{2}\left[f(x+ct) + f(x-ct)\right] + \frac{1}{2c}\int_{x-ct}^{x+ct}g(s)\mathop{ds} + \frac{1}{2c}\int_{0}^{t}\int_{x-c(t-s)}^{x+c(t-s)}h(y,s)\mathop{dy}\mathop{ds}
+\end{gather*}
+\end{document}
