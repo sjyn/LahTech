@@ -181,7 +181,9 @@ u_{t} - ku_{xx} = h(x,t)\\
 u(0,t) = u(\ell,t) = 0\\
 u(x,0) = f(x)
 \end{cases}\\
-u(x,t) = \sum_{n=1}^{\infty}b_{n}(t)\sin{\left(\frac{n\pi x}{\ell}\right)}
+u(x,t) = \sum_{n=1}^{\infty}b_{n}(t)\sin{\left(\frac{n\pi x}{\ell}\right)}\\
+%b_{n}(t) = \frac{2}{\ell}\int_{0}^{\ell}h(x,t)\sin{\left(\frac{n\pi x}{\ell}\right)}\mathop{dx}\\
+\sum_{n=1}^{\infty}\left[b_{n}^{'}(t)+k\left(\frac{n\pi}{\ell}\right)^{2}b_{n}(t)\right]\sin{\left(\frac{n\pi x}{\ell}\right)} = h(x,t)
 \end{gather*}
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
@@ -192,11 +194,53 @@ u_{t} - ku_{xx} = h(x,t)\\
 u_{x}(0,t) = u_{x}(\ell,t) = 0\\
 u(x,0) = f(x)
 \end{cases}\\
-u(x,t) = \sum_{n=1}^{\infty}a_{n}(t)\cos{\left(\frac{n\pi x}{\ell}\right)}
+u(x,t) = \frac{a_{0}(t)}{2} + \sum_{n=1}^{\infty}a_{n}(t)\cos{\left(\frac{n\pi x}{\ell}\right)}\\
+\frac{a_{0}'(t)}{2} + \sum_{n=1}^{\infty}\left[a_{n}'(t) + k\left(\frac{n\pi}{\ell}\right)^{2}a_{n}\right]\cos{\left(\frac{n\pi x}{\ell}\right)} = h(x,t)
 \end{gather*}
 \end{minipage}
 %%%WAVE EQUATION%%%
 \subsection{The Wave Equation}
+\begin{minipage}{0.5\textwidth}
+\subsubsection*{Dirichlet}
+\begin{gather*}
+\begin{cases}
+u_{tt} - c^{2}u_{xx} = h(x,t)\\
+u(0,t) = u(\ell,t) = 0\\
+u(x,t) = f(x),\ u_{t}(x,0) = g(x) 
+\end{cases}\\
+u(x,t) = \sum_{n=1}^{\infty}b_{n}(t)\sin{\left(\frac{n\pi x}{\ell}\right)}\\
+\sum_{n=1}^{\infty}\left[b_{n}''(t) + \left(\frac{n\pi}{\ell}\right)^{2}b_{n}(t)\right]\sin{\left(\frac{n\pi x}{\ell}\right)} = h(x,t)
+\end{gather*}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\subsubsection*{Neumann}
+\begin{gather*}
+\begin{cases}
+u_{tt} - c^{2}u_{xx} = h(x,t)\\
+u_{x}(0,t) = u_{x}(\ell,t) = 0\\
+u(x,t) = f(x),\ u_{t}(x,0) = g(x) 
+\end{cases}\\
+u(x,t) = \frac{b_{0}(t)}{2} + \sum_{n=1}^{\infty}b_{n}(t)\cos{\left(\frac{n\pi x}{\ell}\right)}\\
+\frac{b_{0}''(t)}{2} + \sum_{n=1}^{\infty}\left[b_{n}''(t) + \left(\frac{n\pi}{\ell}\right)^{2}b_{n}(t)\right]\cos{\left(\frac{n\pi x}{\ell}\right)} = h(x,t)
+\end{gather*}
+\end{minipage}
+
+\subsection{Non-Homogeneous Boundaries}
+\begin{gather*}
+\begin{cases}
+u_{t} - ku_{xx} = h(x,t)\\
+u(0,t) = L(t),\ u(\ell,t) = R(t)\\
+u(x,0) = f(x)
+\end{cases}
+\hspace{2cm}
+\begin{cases}
+u_{t} - ku_{xx} = h(x,t)\\
+u(0,t) = L(t),\ u(\ell,t) = R(t)\\
+u(x,0) = f(x)
+\end{cases}\\
+\delta(x,t) = L + \frac{x}{\ell}(R - L)\\
+\gamma(x,t) = u(x,t) - \delta(x,t)
+\end{gather*}
 
 
 
