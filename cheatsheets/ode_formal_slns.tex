@@ -56,4 +56,34 @@ If \autoref{eqn1} has a real repeated root, $r$, then
 \]
 where $c_1$ and $c_2$ are determined by the initial conditions.
 
+\section{Nonhomogeneous}
+
+Suppose we have the following differential equation.
+\begin{equation}\label{eqn2}
+	ay'' + by' +cy = f(x)
+\end{equation}
+
+We begin by finding the solution to the homogeneous equation,
+\[
+	ay'' + by' +cy = 0.
+\]
+Call this solution the general solution or $y_g$.
+Note, do \textbf{NOT} apply any initial conditions for this solution.
+
+We now have a table for $f(x)$ and the form of the particular solution.
+\[
+\begin{array}{|c|c|}
+\hline
+f & y_p\\\hline
+x & Ax+B\\\hline
+x^2 & Ax+B+C\\\hline
+e^x & Ae^x\\\hline
+\cos(n\pi x) \text{ or } \sin(n\pi x) & A\cos(n\pi x) + B\sin(n\pi x)\\\hline
+x\cos(n\pi x) \text{ or } \sin(n\pi x) & (Ax+B)\cos(n\pi x) + (Cx +D)\sin(n\pi x)\\\hline
+\end{array}
+\]
+To find the $A,B,C,D$, plug $y_p$ back into \autoref{eqn2}, and match terms with $f(x)$.
+The solution to \autoref{eqn2} is $y=y_g+y_p$.
+Now apply your initial conditions to determine your as of now undetermined coefficients.
+
 \end{document}
