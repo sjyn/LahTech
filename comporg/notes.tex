@@ -2,6 +2,7 @@
 \usepackage{amssymb,amsmath}
 \usepackage{mathtools}
 \usepackage{graphicx}
+\usepackage{multicol}
 \topmargin=-0.3in
 \textheight=9.2in
 \textwidth=168mm
@@ -9,9 +10,41 @@
 \evensidemargin=-0.2in
 
 \begin{document}
-\section*{14 Oct 2014}
+\section*{16 Nov 2015}
 \hrule
 \noindent\\
-
-
+\subsection*{Chapter 5: Memory}
+\begin{multicols}{2}
+5 classic components of a computer
+\begin{itemize}
+\item Datapath
+\item Control
+\item Memory
+\item Input
+\item Output
+\end{itemize}
+Memory is composed of Cache, Main Memory, and Secondary Memory\\
+\begin{itemize}
+\item Cache memory is composed of Flip-Flops
+\item Cache is physically larger than RAM memory (main memory)
+\item RAM has one transistor and one capacitor; cache has two AND gates
+\end{itemize}
+Memory Types\\
+\textbf{RAM}
+\begin{itemize}
+\item Main Memory
+\item \textbf{DRAM}: High density, low power, cheap, slow
+\item \textbf{SDRAM}: Faster than DRAM
+\item \textbf{DDR RAM}: Twice the amount of data in a single bus clock cycle
+\item \textbf{SRAM}: Does not refresh and stays as long as there is power.
+\begin{itemize}
+\item Three levels
+\item More complex: 6 - 8 transistors
+\item Fast: very close to the CPU
+\item Used for cache memory
+\end{itemize}
+\end{itemize}
+Larger capacity memory is usually slower\\\\
+Performance
+\end{multicols}
 \end{document}
