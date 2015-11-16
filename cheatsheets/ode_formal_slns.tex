@@ -2,6 +2,7 @@
 \usepackage{amssymb,amsmath}
 \usepackage{mathtools}
 \usepackage{array}
+\usepackage{hyperref}
 \topmargin=-0.3in
 \textheight=9.2in
 \textwidth=168mm
@@ -16,12 +17,43 @@
 
 \subsection{First Order}
 
-We have the following system
+We have the following differential equation
 \[
-	\begin{cases}
-	y'+ay=0\\
-	y(0)=\alpha
-	\end{cases}
+	y'+ay=0.
 \]
+Then
+\[
+	y=c e^{-at},
+\]
+where $c$ is determined by the initial condition.
+
+\subsection{Second Order}
+
+We have the following differential equation
+\begin{equation}
+	y''+ay'+by=0. \label{eqn1}
+\end{equation}
+Then we solve the following equation for $r$,
+\[
+	r^2+ar+b=0.
+\]
+
+If $r=\alpha\pm i\beta$, then the general solution is
+\[
+	y=c_1 e^{\alpha x}\cos(\beta x)+c_2 e^{\alpha x}\sin(\beta x)
+\]
+where $c_1$ and $c_2$ are determined by the initial conditions.
+
+If \autoref{eqn1} has two real solutions, $r_1$ and $r_2$, then
+\[
+	y=c_1e^{r_1 x}+c_2 e^{r_2x}
+\]
+where $c_1$ and $c_2$ are determined by the initial conditions.
+
+If \autoref{eqn1} has a real repeated root, $r$, then
+\[
+	y=c_1e^{rx}+c_2xe^{rx}
+\]
+where $c_1$ and $c_2$ are determined by the initial conditions.
 
 \end{document}
