@@ -78,6 +78,11 @@ We will use $\mathbb{S}$ to represent the set of all the data, and $\mathbb{V}$ 
 \pause
 \item Find $m\ mod\ 721$.
 \pause
+\item Results:
+\begin{itemize}
+\pause
+\item On average: 461 unique encounters
+\end{itemize}
 \end{enumerate}
 \end{itemize}
 \end{frame}
@@ -104,7 +109,6 @@ We will use $\mathbb{S}$ to represent the set of all the data, and $\mathbb{V}$ 
 \pause
 \item For each value $s$ is $\mathbb{S}$, hash $s$ to a binary number.
 \pause
-%\item
 \begin{itemize}
 \item We will use a \textit{Murmur Hash} to do this.
 \end{itemize}
@@ -128,6 +132,13 @@ We will use $\mathbb{S}$ to represent the set of all the data, and $\mathbb{V}$ 
 \]
 \pause
 \item $M$ is the size of the original set of data ($\mathbb{S}$).
+\pause
+\item For the Twitter Problem:
+\pause
+\begin{align*}
+\text{Memory Required} &\approx \log_{2}{(\log_{2}{(200,000,000 \times 10)})}\\
+&\approx 4.94 kb
+\end{align*}
 \pause
 \item What is the predicted error?
 \pause

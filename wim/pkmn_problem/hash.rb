@@ -16,7 +16,6 @@ def main
 		while pokee == nil do
 			pokee = pokee = pkmn_list.sample
 		end
-		puts "pokee is #{pokee}"
 		array.push pokee
 	end
 	array.each do |pokemon|
