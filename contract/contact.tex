@@ -1,0 +1,92 @@
+\documentclass{article}
+\usepackage{amssymb,amsmath}
+\usepackage{multicol}
+\topmargin=-0.3in
+\textheight=9.2in
+\textwidth=168mm
+\oddsidemargin=-0.2in
+\evensidemargin=-0.2in
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{\textbackslash newline}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\title{Independent Contractor Agreement}
+\date{}
+\author{}
+\begin{document}
+%\maketitle
+\begin{center}
+{\huge Independent Contractor Agreement}
+\end{center}
+\vspace{1cm}
+\noindent\\
+\indent The following contract is a specification of the requirements for the first release (v1.0.0) of the WhensIt application. By signing this contract, both parties agree to uphold the responsibilities mentioned in the following sections.
+\section{Specification of Features Qualifying for First Release}
+\indent The following features must be implemented by the software developer in full in order to qualify the application for release:
+\begin{multicols}{2}
+\begin{enumerate}
+\item The application will compile and run on any sever supporting the Meteor.js 1.2.0.2 framework.
+\item The application will run in all Android 4.4.x+ , iOS 8+ , Macintosh OS X 10.7+, and Windows 7+ systems.
+\item The application will have a working login screen that allows users to 1) create an account, or 2) log in with an existing account.
+\item The application will present the user with a main page that includes the following features:
+\begin{itemize}
+\item The user's chosen profile picture, or the default profile picture,
+\item The user's chosen name,
+\item The user's current score,
+\item A localized map, powered by Google Maps, that will display nearby events and exhibits.
+\end{itemize}
+\item The application will provide an interface to the quiz portion of the application. Quizzes will be structured as follows:
+\begin{itemize}
+\item Quizzes will be composed of Questions that will be created by the owner(s) of the application.
+\item Questions will contain four answers, one of which \textit{must} be the correct answer.
+\item Upon choosing an answer, the user will be notified of the correctness of their answer through either a sound, a color change, or an in-app alert.
+\item Quizzes will continue until the user has answered all Questions in the Quiz.
+\item Upon finishing a Quiz, a user will be notified of their total score, the Questions that were answered incorrectly, and the Questions that were answered correctly.
+\item Users will be able to retake Quizzes as many times as they wish.
+\end{itemize}
+\item Users will have the ability to delete their account. Upon deletion, \textit{all} of the user's corresponding data will be deleted from the database.
+\item The application will make the distinction between Events and Exhibits, which is as follows:
+\begin{itemize}
+\item Events will be time sensitive; Events will only be accessible during specific times. These times will be determined by the owner(s) of the application.
+\item Exhibits will be at all times until the owner(s) of the application determine that the Exhibit should be removed.
+\item Events and Exhibits will be accessible through both a \textit{unique} three character code and a QR code that will be available for the user to scan.
+\end{itemize}
+\item The application will provide an administrator interface, to which \textit{only} the owner(s) of the application will have access, unless the owner(s) decide to provide administrator privileges to another user. The administrator interface will allow the user to access and edit all items in the database with the exception of the database representation of a User.
+\item All API keys \textit{must} remain under control of \textit{only} the owner(s) of the application. API Keys that need to remain secret are as follows:
+\begin{itemize}
+\item Parse Application Key
+\item Parse Client Key
+\item Parse Javascript Key
+\item Parse REST API Key
+\item Parse Master Key
+\item Google Developers Application ID
+\item Google Maps Javascript API Key
+\end{itemize}
+\item The application will follow the stylistic guidelines as agreed upon by the contractor and the developer.
+\end{enumerate}
+\end{multicols}
+\vspace{1cm}
+\section{Agreement of Ownership}
+\noindent\\
+\indent Upon completion of the application, ownership of the finished application will be transferred to the contractor who may then defer temporary ownership to the developer when necessary.
+Ownership includes the rights to the database, all the code as permitted by the licensing agreement and this contract, and the ability to make and request changes to the code and the end product.
+The code must remain open source and licensed under the No License license, which states that the code may not be modified and then distributed by anyone other than the owner.
+The No License license permits private use of the code for non-proprietary purposes.\\
+\indent At the time when the developer leaves the project, the developer agrees to transfer ownership of the repository, ownership of the database, all application keys, and all releases of the application to whomever the owner appoints.
+\vspace{1cm}
+\section{Agreement of Payment}
+\noindent\\
+\indent Upon completion of the features mentioned in \textbf{\textit{Specification of Features Qualifying for First Release}}, the contractor agrees to pay a one time flat fee of \underline{\hspace{1em}\$1,200.00\hspace{1em}} for the finished product version, v1.0.0.
+For any work done after the release of v1.0.0, the contractor agrees to pay an hourly rate of \underline{\hspace{1em}\$10.00 per hour\hspace{1em}} for every hour of work put towards the development of the new release.
+The developer agrees to only charge for work done \textit{specifically} for the new release of the application and will provide proof of work through commits to the repository where the application code is located.
+
+\vspace{4cm}
+\underline{\hspace{15em}} \hspace{4em} \underline{\hspace{15em}}\\
+
+\hspace{1em}Developer\hspace{15em}Contractor\\
+
+\underline{\hspace{15em}}\\
+
+\hspace{1em}Date
+\end{document}
