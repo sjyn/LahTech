@@ -1,0 +1,111 @@
+\documentclass{article}
+\usepackage{amssymb,amsmath}
+\usepackage{mathtools}
+\usepackage{array}
+\topmargin=-0.3in
+\textheight=9.2in
+\textwidth=168mm
+\oddsidemargin=-0.2in
+\evensidemargin=-0.2in
+
+\newcommand{\dy}{\mathop{dy}}
+\newcommand{\dx}{\mathop{dx}}
+\newcommand{\ddxx}{\mathop{dx^{2}}}
+\newcommand{\ddyy}{\mathop{d^{2}y}}
+\newcommand{\dydx}{\frac{\dy}{\dx}}
+\newcommand{\ptl}{\partial}
+\newcommand{\Wr}{\mathcal{W}}
+\newcommand{\Interval}{\mathcal{I}}
+
+\title{Methods For Solving ODE's}
+\date{}
+\begin{document}
+\maketitle
+\section{First Order Equations}
+\hrule
+\noindent\\\\
+\begin{minipage}[t]{0.5\textwidth}
+\subsection{Separable Equations}
+\begin{gather*}
+\frac{\dy}{\dx} = g(x)h(y)\\
+\frac{\dy}{h(y)} = g(x)\dx\\
+\int \frac{\dy}{h(y)} = \int g(x)\dx\\
+\end{gather*}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\subsection{The Integrating Factor}
+\begin{gather*}
+\dydx + \rho(x)y(x) = q(x)\\
+\dydx e^{-\int \rho(x)\dx} + \rho(x)y(x)e^{-\int \rho(x)\dx} = q(x)e^{-\int \rho(x)\dx}\\
+\frac{d}{\dx}\left(y(x)e^{-\int \rho(x)\dx}\right) = q(x)e^{-\int \rho(x)\dx}\\
+\int\frac{d}{\dx}\left(y(x)e^{-\int \rho(x)\dx}\right) = \int q(x)e^{-\int \rho(x)\dx}
+\end{gather*}
+\end{minipage}
+\subsection{Exact Differential Equations}
+\begin{gather*}
+M(x,y)\dx + N(x,y)\dy = 0\\
+\frac{\ptl M}{\ptl y} = \frac{\ptl N}{\ptl x} \implies 
+\begin{cases}
+M = \frac{\ptl F}{\ptl x}\\
+N = \frac{\ptl F}{\ptl y}
+\end{cases}\\
+F(x,y) = \int \frac{\ptl F}{\ptl x}\dx\\
+\text{A function $g(y)$ will be left over; use $N$ to solve for it by $N = \frac{\ptl F}{\ptl y}$}
+\end{gather*}
+\newpage
+
+
+\section{Second Order Equations}
+\hrule
+\noindent\\\\
+\subsection{The Wronskian and Linear Independence}
+\begin{enumerate}
+\item If $\Wr(x,y)(x_{0})$ for some $x_{0}$ in an interval $\Interval$ is \textit{\textbf{not}} equal to 0, then the two functions are linearly independent.
+\item If $f(x)$ and $g(x)$ are linearly dependent on $\Interval$, the $\Wr(f,g)(x) = 0$ for all $x$ in $\Interval$.
+\item If $f$ and $g$ are functions of the same variable, then 
+\[
+\Wr(f,g)(x) = \left|
+\begin{array}{c c}
+f(x) & g(x)\\
+f'(x) & g'(x)
+\end{array}
+\right|.
+\]
+\item Given that $y_{1}$ and $y_{2}$ are two solutions to $y'' + p(x)y' + q(x)y = 0$,
+\[
+\Wr(y_{1},y_{2})(x) = ce^{-\int p(x)\dx}.
+\]
+\end{enumerate}
+\subsection{Algebraic Methods}
+\subsubsection*{Homogeneous}
+\[
+ay'' + by' + cy = 0\qquad\qquad\text{becomes}\qquad\qquad ar^{2} + br + c = 0
+\]
+\indent The roots of $r$ determine the formal solution to the ODE\\\\
+\begin{minipage}[t]{0.3\textwidth}
+\underline{Two distinct roots in $\mathbb{R}$}
+\begin{gather*}
+y_{1}(x) = e^{r_{1}x}\\
+y_{2}(x) = e^{r_{2}x}\\
+y(x) = c_{1}e^{r_{1}x} + c_{2}e^{r_{2}x}
+\end{gather*}
+\end{minipage}
+\begin{minipage}[t]{0.3\textwidth}
+\underline{Two identical roots in $\mathbb{R}$}
+\begin{gather*}
+y_{1}(x) = e^{rx}\\
+y_{2}(x) = xe^{rx}\\ 
+y(x) = c_{1}e^{rx} + c_{2}xe^{rx}
+\end{gather*}
+\end{minipage}
+\begin{minipage}[t]{0.3\textwidth}
+\underline{Two conjugate roots in $\mathbb{C}$}
+\begin{gather*}
+r_{1} = \alpha + i\beta\\
+r_{2} = \alpha - i\beta\\
+y(x) = e^{\alpha x}(c_{1}\cos{(\beta x)} - c_{2}\sin{(\beta x)})
+\end{gather*}
+\end{minipage}
+\subsection{The Method of Undetermined Coefficients}
+Given $y'' + p(x)y' + q(x)y = g(x)$, we know that $y(x)$ is the sum of the homogeneous solution and the non-homogeneous solution of the ODE.
+\end{document}
