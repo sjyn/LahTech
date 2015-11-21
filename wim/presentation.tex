@@ -75,12 +75,12 @@ We will use $\mathbb{S}$ to represent the set of all the data, and $\mathbb{V}$ 
 \item Add $n$ to the Pok\'emon's corresponding National Pok\'edex number. Call this $m$.
 \pause
 \item Find $m\ mod\ 721$.
-\pause
-\item Results:
-\begin{itemize}
-\pause
-\item On average: 461 unique encounters
-\end{itemize}
+%\pause
+%\item Results:
+%\begin{itemize}
+%\pause
+%\item On average: 461 unique encounters
+%\end{itemize}
 \end{enumerate}
 \end{itemize}
 \end{frame}
@@ -98,6 +98,8 @@ hash_table.each do |val|
 end
 puts "The total number of unique encounters is #{total}"
 \end{lstlisting}
+\pause
+On average: 461 unique encounters
 \end{frame}
 
 \begin{frame}{Problems With The Hash Table}
@@ -149,7 +151,11 @@ puts "The total number of unique encounters is #{total}"
 \text{Memory Required} &\approx \log_{2}{(\log_{2}{(200,000,000 \times 10)})}\\
 &\approx 4.94 kb
 \end{align*}
-\pause
+\end{itemize}
+\end{frame}
+
+\begin{frame}{The Math}
+\begin{itemize}
 \item What is the predicted error?
 \pause
 \[
@@ -189,7 +195,7 @@ puts str
 
 \begin{frame}{Results}
 \begin{figure}
-\includegraphics[scale=0.7]{twitter_problem/resultspng}
+\includegraphics[scale=0.5]{twitter_problem/resultspng}
 \caption{$0.284356 x + 7361.39$}
 \end{figure}
 \pause
