@@ -1,6 +1,6 @@
 \documentclass{beamer}
 \mode<presentation>
-\usetheme{boxes}
+\usetheme{default}
 
 \usepackage{amsmath}
 \usepackage{listings}
@@ -61,6 +61,7 @@ We will use $\mathbb{S}$ to represent the set of all the data, and $\mathbb{V}$ 
 \end{frame}
 
 \begin{frame}{Solving the Pok\'emon Problem}
+\vspace{-2cm}
 \begin{itemize}
 \item How can we solve the Pok\'emon Problem using a hash?
 \pause
@@ -75,17 +76,12 @@ We will use $\mathbb{S}$ to represent the set of all the data, and $\mathbb{V}$ 
 \item Add $n$ to the Pok\'emon's corresponding National Pok\'edex number. Call this $m$.
 \pause
 \item Find $m\ mod\ 721$.
-%\pause
-%\item Results:
-%\begin{itemize}
-%\pause
-%\item On average: 461 unique encounters
-%\end{itemize}
 \end{enumerate}
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{Implementation}
+\vspace{-2cm}
 \begin{lstlisting}[basicstyle=\small]
 array.each do |pokemon|
      hash_table[pokemon.hash] = pokemon.hash
@@ -116,7 +112,7 @@ On average: 461 unique encounters
 \end{frame}
 
 \section{The HyperLogLog}
-\begin{frame}{The Algorithm}
+\begin{frame}{The HyperLogLog Algorithm}
 \begin{enumerate}
 \item Create a bitmap in memory. We will call this $\mathbb{V}$.
 \pause
@@ -194,6 +190,7 @@ puts str
 \end{frame}
 
 \begin{frame}{Results}
+\vspace{-2cm}
 \begin{figure}
 \includegraphics[scale=0.5]{twitter_problem/resultspng}
 \caption{$0.284356 x + 7361.39$}
