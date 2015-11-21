@@ -1,0 +1,61 @@
+\documentclass{article}
+\usepackage{amssymb,amsmath}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{array}
+\topmargin=-0.3in
+\textheight=9.2in
+\textwidth=168mm
+\oddsidemargin=-0.2in
+\evensidemargin=-0.2in
+
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\CC}{\mathbb{C}}
+
+\newcommand{\Proof}{\textit{\textbf{Proof: }}}
+\newcommand{\scc}{\begin{cases*}}
+\newcommand{\ecc}{\end{cases*}}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+\newtheorem{axiom}{Axiom}
+\newtheorem{proof}{Proof}
+
+\title{Proofs}
+\date{}
+\begin{document}
+\maketitle
+\hrule
+\noindent\\\\
+\begin{axiom}
+The number $0.99999... = 1.00000...$.
+\end{axiom}
+\begin{theorem}
+There is no bijection between the natural numbers $\NN$ and the set $(0,1)$.
+\end{theorem}
+\noindent
+\indent \Proof Suppose $|\NN| = |(0,1)|$. 
+Let $f : \NN \to (0,1)$ be a bijection. 
+We will let $a_{i} = f(i)$ and $a_{ij}$ be the $j^{\text{th}}$ decimal value of $a_{i}$. 
+We can construct the bijection by
+\begin{alignat*}{3}
+a_{1} &= .a_{11}a_{12}a_{13}a_{14}\dots\ &&= f(a_{1})\\
+a_{2} &= .a_{21}a_{22}a_{23}a_{24}\dots &&= f(a_{2})\\
+a_{3} &= .a_{31}a_{32}a_{33}a_{34}\dots &&= f(a_{3})\\
+a_{4} &= .a_{41}a_{42}a_{43}a_{44}\dots &&= f(a_{4})\\
+\dots
+\end{alignat*}
+Now we can take an element $b \in (0,1)$ such that $b_{i}$ is the $i^{\text{th}}$ digit of $b$. 
+We want to construct the digits of $b$ such that each space along the $a_{ii}$ diagonal is not equal to a digit in $b$. We can express this by
+\[
+b_{i} = 
+\scc
+n,\qquad a_{i} \neq n\\
+n+1,\ a_{i} = n\\
+8,\qquad\ a_{i} = 9
+\ecc
+\]
+\end{document}
