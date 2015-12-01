@@ -1,0 +1,170 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb}
+\usepackage{cancel}
+\topmargin=-0.3in
+\textheight=9.2in
+\textwidth=168mm
+\oddsidemargin=-0.2in
+\evensidemargin=-0.2in
+\pagenumbering{gobble}
+
+\def\labelitemi{-}
+\newcommand{\SLN}{\indent\textit{\textbf{Solution: }}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\QQ}{\mathbb{Q}}
+
+\begin{document}
+\noindent Steven Rosendahl\\
+Proofs Exam 3
+\vspace{1cm}
+\begin{enumerate}
+%%%QUESTION 1%%%
+\item Prove that for all positive integers $N$,
+\[
+\sum_{k=1}^{n}\frac{1}{(k+2)(k+3)} = \frac{n}{3n + 9}
+\]
+\begin{quote}
+\SLN
+\noindent We first need to show a base case. If we let $n = 1$, we have
+\begin{align*}
+\sum_{k=1}^{1}\frac{1}{(k+2)(k+3)} &= \frac{1}{3(1) + 9}\\
+\frac{1}{(1 + 2)(1 + 3)} &= \frac{1}{12}\\
+\frac{1}{12} &= \frac{1}{12}.
+\end{align*}
+\noindent Now we can form our induction hypothesis, given by
+\[\sum_{k=1}^{n}\frac{1}{(k+2)(k+3)} = \frac{n}{3n + 9}.\]
+\noindent Now we need to prove:
+\begin{align*}
+&\ \sum_{k=1}^{n + 1}\frac{1}{(k+2)(k+3)} = \frac{n + 1}{3(n + 1) + 9}\\
+\therefore&\ \sum_{k = 1}^{n}\frac{1}{(k+2)(k+3)} + \sum_{k = n}^{n+1}\frac{1}{(k+2)(k+3)} = \frac{n + 1}{3n + 3 + 9}\\
+\therefore&\ \frac{n}{3n + 9} + \frac{1}{(n + 1 + 2)(n + 1 + 3)} = \frac{n + 1}{3n + 12} \quad\text{By the induction hypothesis}\\
+\therefore&\ \frac{n}{3n + 9} + \frac{1}{(n+3)(n+4)} = \frac{n + 1}{3n + 12}\\
+\therefore&\ \frac{n}{3(n + 3)} + \frac{1}{(n+3)(n+4)} = \frac{n + 1}{3n + 12}\\
+\therefore&\ \frac{(n)(n+4) + 3}{3(n+3)(n+4)} = \frac{n + 1}{3n + 12}\\
+\therefore&\ \frac{n^{2} + 4n + 3}{3(n+3)(n+4)} = \frac{n + 1}{3n + 12}\\
+\therefore&\ \frac{(n+1)(n+3)}{3(n+3)(n+4)} = \frac{n + 1}{3n + 12}\\
+\therefore&\ \frac{n+1}{3(n+4)} = \frac{n + 1}{3n + 12}\\
+\therefore&\ \frac{n+1}{3n + 12} = \frac{n + 1}{3n + 12}.
+\end{align*}
+$\triangle$
+\end{quote}
+\newpage
+%%%QUESTION 2%%%
+\item Let $R$ be a relation on $\{1,2,3,4,5,6\}$ be defined by $xRy$ if and only if $x + y \leq 8$. Determine which of the following properties $R$ has: reflexive, symmetric, transitive. Give a proof for each property it satisfies, and give a counterexample for each of those properties it does not have.
+\begin{quote}
+\textit{\textbf{Reflexive: }} Let $x \in \{1,2,3,4,5,6\}$. 
+Then $xRx$ means that $x + x \leq 8$. 
+However $6 + 6 = 12 \nleq 8$. Therefore, $R$ is not reflexive.\\\\
+\textit{\textbf{Symmetric: }} Let $x,y \in \{1,2,3,4,5,6\}$ such that $xRy$.
+Then $x + y \leq 8$.
+Since addition is commutative, $x + y = y + x$.
+Then $x + y = y + x \leq 8$.
+Therefore $yRx$, which means $R$ is symmetric.\\\\
+\textit{\textbf{Transitive: }} Let $a,b,c \in  \{1,2,3,4,5,6\}$ such that $aRb$ and $bRc$.
+Then $a + b \leq 8$, and $b + c \leq 8$.
+However, if we let $a = 5$, $b = 2$, and $c = 6$, then $aRb$, since $5 + 2 = 7 \leq 8$, and $bRc$,
+since $2 + 6 = 8 \leq 8$, but $a\cancel{R}c$, since $5 + 6 \nleq 8$.
+\end{quote}
+$\triangle$
+%%%QUESTION 3%%%
+\item Assume relation $R$ on $A = \{1, 2, 3, 4\}$ is an equivalence relation where 
+\[R = \{(1, 1), (2, 2), (\ \ ,\ \ ), (4, 4), (1, 2), (2, 4), (\ \ ,\ \ ), (\ \ ,\ \ ), (4, 2), (4, 1)\}.\]
+Note that $R$ has exactly 3 blank entries.
+\begin{enumerate}
+\item Fill in the 3 missing entries of $R$.
+\begin{quote}
+\[R = \{(1, 1), (2, 2), (3, 3), (4, 4), (1, 2), (2, 4), (2, 1), (1, 4), (4, 2), (4, 1)\}.\]
+\end{quote}
+\item Clearly write all of the equivalence classes of $R$.
+\begin{quote}
+\begin{align*}
+[1] &= [2] = [3] = \{1, 2, 4\}\\
+[3] &= \{3\}
+\end{align*}
+\end{quote}
+\item Write the partition associated with $R$.
+\begin{quote}
+\[P = \{[1],[3]\} = \{[2],[3]\} = \{[4],[3]\}\]
+\end{quote}
+\end{enumerate}
+%%%QUESTION 4%%%
+\item  Let $R$ be a relation from $A=\{1,2,3,4,5\}$ to $B=\{a,b,c,d\}$ given by 
+\[R=\{(1,d),(2,c),(3,a),(4,d),(5,b)\}.\]
+\begin{enumerate}
+\item Why is $R$ a function from $A$ to $B$?
+\begin{quote}
+$R$ is a function since every element in $A$ maps to an element in $B$, and no one element
+in $A$ maps to two elements in $B$ at the same time.
+\end{quote}
+\item Is $R$ an injection from $A$ to $B$? Why?
+\begin{quote}
+$R$ is not an injection since both 1 and 4 map to $d$.
+\end{quote}
+\item Is $R$ a surjection from $A$ to $B$? Why?
+\begin{quote}
+$R$ is a surjection since every value in the codomain $B$ has a pre-image in $A$.
+\end{quote}
+\end{enumerate}
+%%%QUESTION 5%%%
+\newpage
+\item
+\begin{enumerate}
+\item Show that the function $f:\ZZ \to \ZZ$ defined by $f(x)=2x+1$ is an injection.
+\begin{quote}
+\SLN Let $x,y \in \ZZ$ such that $f(x) = f(y)$.
+Then $2x + 1 = 2y + 1$, or $2x = 2y$.
+Therefore, $x = y$, which means $f$ is injective.
+\end{quote}
+$\triangle$
+\item Show that the function $g:\RR \to \RR$ defined by $g(x) = 7x - 1$ is an surjection.
+\begin{quote}
+\SLN Let $y \in \RR$. Then $y = 7x - 1$, or $x = \frac{y + 1}{7}$.
+We know this is in $\RR$ since it is either in $\QQ, \ZZ,\ \text{or}\  \RR$.
+Substituting $x$ into $f$ gives us
+\begin{align*}
+f\left(\frac{y + 1}{7}\right) &= 7\left(\frac{y + 1}{7}\right) - 1\\
+&= y + 1 - 1\\
+&= y
+\end{align*}
+Therefore, $f$ is surjective.
+\end{quote}
+$\triangle$
+\end{enumerate}
+%%%QUESTION 6%%%
+\item Let $f: \RR - \{1\} \to \RR - \{3\}$ be defined by $f(x) = \frac{3x}{x - 1}$.
+\begin{enumerate}
+\item Show $f(x)$ is a bijection.
+\begin{quote}
+\textit{\textbf{Injection: }} Let $x,y \in \RR - \{1\}$ such that $f(x) = f(y)$.
+Then
+\begin{align*}
+\frac{3x}{x - 1} &= \frac{3y}{y - 1}\\
+(3x)(y - 1) &= (3y)(x - 1)\\
+3xy - 3x &= 3xy - 3y\\
+-3x &= -3y\\
+x &= y.
+\end{align*}
+Therefore, $f$ is an injection.\\\\
+\textit{\textbf{Surjection: }} Let $y \in \RR - \{3\}$.
+Then $y = \frac{3x}{x - 1}$, or $x = -\frac{y}{3-y}$, which is an element of $\RR - \{3\}$.
+Substituting back into $f$ gives us
+\begin{align*}
+f\left(-\frac{y}{3-y}\right) &= \frac{3\left(-\frac{y}{3-y}\right)}{\left(-\frac{y}{3-y}\right) - 1}\\
+&= \frac{-3y}{-y-(3-y)}\\
+&= \frac{-3y}{-y - 3 + y}\\
+&= \frac{-3y}{-3}\\
+&= y.
+\end{align*}
+Therefore $f$ is a surjection.
+\end{quote}
+Therefore $f$ is a bijection.\\
+$\triangle$
+\item Find the inverse of $f(x)$.
+\begin{quote}
+Since $f$ is a bijection, it's inverse is the function that makes $f$ surjective. Therefore
+\[f^{-1}(x) = -\frac{x}{3 - x}.\]
+\end{quote}
+\end{enumerate}
+\end{enumerate}
+\end{document}

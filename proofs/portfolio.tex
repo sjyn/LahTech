@@ -1,0 +1,207 @@
+\documentclass{article}
+\usepackage{amssymb,amsmath}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{array}
+\topmargin=-0.3in
+\textheight=9.2in
+\textwidth=168mm
+\oddsidemargin=-0.2in
+\evensidemargin=-0.2in
+
+\newcommand{\Proof}{\textit{\textbf{Proof: }}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+
+\begin{document}
+\begin{enumerate}
+\item
+\begin{enumerate}
+%%%QUESTION 1%%%
+\item Let $a,b$ and $c$ be natural numbers with $a$ odd.
+Prove that if $a|(b -c)$ and $a|(b+c)$, then $a|b$ and $a|c$.
+\begin{quote}
+\indent \Proof Let $a|(b-c)$ and $a|(b + c)$.
+Then $b-c = ax$ and $b + c = ay$ for some $x,y\in \NN$.
+We have that $b = ax + c$.
+Then 
+\begin{gather*}
+ax + c + c = ay\\
+ax + 2c = ay\\
+2c = ay - ax\\
+2c = a(y-x).
+\end{gather*}
+Since $a$ is odd, $y-x$ must be even since $2c$ is even.
+Then $2 | (y-x)$, and we have $c = a\frac{y-x}{2}$, or $c = az$ for $z\in\NN$.
+Therefore $a | c$.
+If we let $c = b-ax$, we have
+\begin{gather*}
+b + b - ax = ay\\
+2b - ax = ay\\
+2b = ay + ax\\
+2b = a(y + x)
+\end{gather*}
+Since $2b$ is even and $a$ is odd, $y-x$ must be even, or $2 | (y+x)$.
+Therefore $b = a\frac{y+x}{2}$, or $b = aj$ for $j\in\NN$.
+Therefore $a | b$.
+\end{quote}
+$\triangle$
+\item Using a truth table, show that $\neg(P\wedge Q)$ and $(\neg P \vee \neg Q)$ are logically equivalent.\\
+\begin{quote}
+\begin{center}
+\begin{tabular}{c | c | c | c}
+$P$ & $Q$ & $\neg(P\wedge Q)$ & $(\neg P \vee \neg Q)$\\
+\hline
+0 & 0 & 1 & 1\\
+0 & 1 & 1 & 1\\
+1 & 0 & 1 & 1\\
+1 & 1 & 0 & 0
+\end{tabular}
+\end{center}
+\end{quote}
+\end{enumerate}
+\newpage
+%%%QUESTION 2%%%
+\item
+\begin{enumerate}
+\item Establish the following identity using induction.
+\[
+\sum_{i = 1}^{n}i^{3} = \left(\frac{n(n+1)}{2}\right)^{2}
+\]
+\begin{quote}
+\Proof \\
+\textit{\textbf{Base Case: }} $n = 1$
+\begin{align*}
+\sum_{i = 1}^{1}i^{3} &= \left(\frac{1(1+1)}{2}\right)^{2}\\
+1 ^{3} &= \left(\frac{2}{2}\right)^{2}\\
+1 &= 1
+\end{align*}
+\textit{\textbf{Assume: }} $$\sum_{i = 1}^{n}i^{3} = \left(\frac{n(n+1)}{2}\right)^{2}$$
+\textit{\textbf{Prove: }}  
+\begin{align*}
+\sum_{i = 1}^{n + 1}i^{3} &= \left(\frac{(n + 1)(n+2)}{2}\right)^{2}\\
+\sum_{i = 1}^{n}i^{3} + \sum_{i = n}^{n + 1}i^{3} &= \left(\frac{(n + 1)(n+2)}{2}\right)^{2}\\
+\left(\frac{n(n+1)}{2}\right)^{2} + (n + 1)^{3} &= \left(\frac{(n + 1)(n+2)}{2}\right)^{2}\ \text{By Induction Hypothesis}\\
+n^{2}(n+1)^{2} + 4(n+1)^{3} &= (n+1)^{2}(n+2)^{2}\\
+(n+1)^{2}(n^{2} + 4n + 4) &= (n+1)^{2}(n+2)^{2}\\
+(n+2)^{2} &= (n+2)^{2}
+\end{align*}
+\end{quote}
+$\triangle$
+\item Prove that if $n^{3}$ is odd, then $n$ is odd.
+\begin{quote}
+\Proof Assume that if $n$ is even, then $n^{3}$ is even.
+Then $n = 2k$ for $k\in \ZZ$, which mean that $n^{3} = (2k)^{3}$.
+$(2k)^{3} = 2(2^{2}k^{3})$ where $(2^{2}k^{3}) \in \ZZ$. Therefore $n^{3}$ is even.
+\end{quote}
+$\triangle$
+\end{enumerate}
+\newpage
+%%%QUESTION 3%%%
+\item
+\begin{enumerate}
+\item Using the definition, prove that $f: \QQ \to \QQ$ given by $f(x) = 3x+2$ is bijective.
+\begin{quote}
+\Proof Let $x,y \in \QQ$ such that $f(x) = f(y)$. Then
+\begin{align*}
+3x + 2 &= 3y + 2\\
+3x &= 3y\\
+x &= y
+\end{align*}
+Therefore $f$ is injective.\\
+Let $y\in \QQ$ such that $y = \frac{x-2}{3}$. Then
+\begin{align*}
+f(y) &= 3\left(\frac{x-2}{3}\right) + 2\\
+&= x - 2 + 2\\
+&= x
+\end{align*}
+Therefore $f$ is surjective.\\
+Therefore $f$ is bijective.
+\end{quote}
+$\triangle$
+\item Define a relation on $\NN \times \NN$ by $(a,b) \sim (c,d)$ if $a + d = b + c$. 
+Prove that $\sim$ is an equivalence relation.
+\begin{quote}
+\textbf{\textit{Symmetric:}} Let $(a,b) \sim (c,d)$. Then
+\begin{align*}
+a + d &= b + c\\
+-b - c &= -a - d\\
+(-1)(b + c) &= (-1)(a + d)\\
+b + c &= a + d
+\end{align*}
+Therefore $(c,d) \sim (a,b)$, and $\sim$ is symmetric.\\\\
+\textbf{\textit{Reflexive:}} Let $(a,b) \in\NN\times\NN$. 
+If $(a,b) \sim (a,b)$, then $a + b = a + b$.
+Therefore $(a,b) \sim (a,b)$, and $\sim$ is reflexive.\\\\
+\textbf{\textit{Transitive:}} Let $(a,b) \sim (c,d)$ and $(c,d) \sim (e,f)$.
+Then $a + d = b + c$ and $c + f = d + e$. 
+Solving for $c$ yields $c = d + e - f$, and substituting gives us $a + d = b + d + e - f$.
+Then $a + f = e + b$, and $(a,b) \sim (e,f)$.
+Therefore, $\sim$ is transitive.\\\\
+Therefore $\sim$ is an equivalence relation.
+\end{quote}
+$\triangle$
+\end{enumerate}
+%%%QUESTION 4%%%
+\newpage
+\item
+\begin{enumerate}
+\item Let $\mathcal{X}$ be a finite set with cardinality $n$.
+Prove that the power set, $\mathcal{P}(\mathcal{X})$, has cardinality $2^{n}$.
+\begin{quote}
+\Proof\\
+\textit{\textbf{Base Case:}} A set of size 1.\\
+Let $\mathcal{X}$ be the set $\{x\}$.
+Then $\mathcal{P}(\mathcal{X})$ is $\{\emptyset,\{x\}\}$, which has a cardinality of $2^{||\mathcal{X}||}$, or $2 ^{1}$.\\\\
+\textit{\textbf{Assume:}} $||\mathcal{P}(\{x_{0}, x_{1}, x_{2}, \ldots, x_{n}\})|| = 2^{||\mathcal{X}||}$. \\\\
+\textit{\textbf{Prove:}} $||\mathcal{P}(\{x_{0}, x_{1}, x_{2}, \ldots,x_{n}, x_{n+1}\})|| = 2^{||\mathcal{X}|| + 1}$.\\
+We know that $\mathcal{P}$ is the set of all subsets of $\mathcal{X}$. 
+If we count the number of subsets of $\{x_{0}, x_{1}, x_{2},\ldots,x_{n},x_{n+1}\}$, we know that the subset will either contain $x_{n+1}$, or it will not contain $x_{n+1}$.
+If the subset $\gamma$ does not contain $x_{n+1}$, then $\gamma \subseteq \{x_{0},x_{1},x_{2},\ldots,x_{n}\}$, and there are $2^{||\mathcal{X}||}$ $\gamma$ by the induction hypothesis.
+If the subset $\lambda$ contains $x_{n+1}$, then it is the result of some set $\gamma \cup \lambda$.
+Since $\gamma \subseteq\{x_{0},x_{1},x_{2},\ldots,x_{n}\}$, we only need $\gamma \cup \{x_{n+1}\}$ to account for all possible sets.
+Therefore $||\mathcal{P}(\gamma \cup \{x_{n+1}\})||$ is $||\mathcal{P}(\gamma)|| \cdot ||\mathcal{P}(\{x_{n+1}\})||$, or $2^{||\mathcal{X}||} \cdot 2^{||\{x_{n+1}\}||}$.
+This is equivalent to $2^{||\mathcal{X}||}\cdot2^{1}$, or $2^{||\mathcal{X}|| + 1}$.
+\end{quote}
+$\triangle$
+\item Let $n \geq 2$ be an integer.
+Prove that $a \equiv b(\text{mod}\ n)$ if $n|(b-a)$ is an equivalence relation on $\ZZ$.
+\begin{quote}
+\Proof Let $n \geq 2$ and $n | (b - a)$.
+Therefore $b - a  = nk,\ k\in\ZZ$.
+Then $b - a \equiv 0\ mod\ n$.
+It follows that $b \equiv a$, and since $mod\ n$ is an equivalence relation, $a \equiv b$ by symmetry.
+\end{quote}
+$\triangle$
+\item Let $A$ and $B$ be sets.
+Prove that $\overline{A \cup B} = \overline{A} \cap \overline{B}$.
+\begin{quote}
+\Proof\\ 
+{$\overline{A \cup B} \subseteq \overline{A} \cap \overline{B}$:} 
+Let $x\in\overline{A \cup B}$.
+Then $x \notin A$ or $B$.
+Since $x \notin A$, $x \in \overline{A}$.
+Since $x \notin B$, $x \in \overline{B}$.
+Therefore $x \in \overline{A}$ and $x\in\overline{B}$, or $x \in \overline{A} \cap \overline{B}$.\\\\
+{$\overline{A \cup B} \supseteq \overline{A} \cap \overline{B}$:} 
+Let $x\in\overline{A} \cap \overline{B}$.
+Then $x \notin A$ and $x \notin B$.
+Therefore $x \notin A \cup B$, or $x \in \overline{A \cup B}$.
+\end{quote}
+$\triangle$
+\item Prove that $\sqrt{5}$ is irrational.
+\begin{quote}
+\Proof Assume $\sqrt{5}$ is rational.
+Then $\sqrt{5} = \frac{p}{q}$ for some $p,q \in \ZZ$ with $q \neq 0$, and $p$ and $q$ have opposite parity.
+It follows that $5 = \frac{p^{2}}{q^{2}}$, or $5q^{2} = p^{2}$.
+If $q$ is odd, then $p$ must be even.
+However, an odd number squared and multiplied by an odd number is odd, which means that $5q^{2}\in\{2k+1|k\in\ZZ\}$. 
+This implies that $p^{2}$ is odd, but $p$ is even, so $p^{2}$ is even.
+Therefore by contradiction, $\sqrt{5}$ must be irrational.
+\end{quote}
+$\triangle$
+\end{enumerate}
+\end{enumerate}
+\end{document}
