@@ -82,19 +82,23 @@ $P$ & $Q$ & $\neg(P\wedge Q)$ & $(\neg P \vee \neg Q)$\\
 \end{align*}
 \textit{\textbf{Assume: }} $$\sum_{i = 1}^{n}i^{3} = \left(\frac{n(n+1)}{2}\right)^{2}$$
 \textit{\textbf{Prove: }}  
+\[
+\sum_{i = 1}^{n + 1}i^{3} = \left(\frac{(n + 1)(n+2)}{2}\right)^{2}
+\]
 \begin{align*}
-\sum_{i = 1}^{n + 1}i^{3} &= \left(\frac{(n + 1)(n+2)}{2}\right)^{2}\\
-\sum_{i = 1}^{n}i^{3} + \sum_{i = n}^{n + 1}i^{3} &= \left(\frac{(n + 1)(n+2)}{2}\right)^{2}\\
-\left(\frac{n(n+1)}{2}\right)^{2} + (n + 1)^{3} &= \left(\frac{(n + 1)(n+2)}{2}\right)^{2}\ \text{By Induction Hypothesis}\\
-n^{2}(n+1)^{2} + 4(n+1)^{3} &= (n+1)^{2}(n+2)^{2}\\
-(n+1)^{2}(n^{2} + 4n + 4) &= (n+1)^{2}(n+2)^{2}\\
-(n+2)^{2} &= (n+2)^{2}
+\therefore \sum_{i = 1}^{n}i^{3} + \sum_{i = n + 1}^{n + 1}i^{3} &= \left(\frac{n(n+1)}{2}\right)^{2} + (n + 1)^{3}\ \ \text{By the Induction Hypothesis}\\
+&= \frac{n^{2}(n+1)^{2}}{4} + (n+1)^{3}\\
+&= \frac{n^{2}(n+1)^{2}}{4} + \frac{4(n+1)^{3}}{4}\\
+&= \frac{n^{2}(n+1)^{2} + 4(n+1)^{3}}{4}\\
+&= \frac{(n+1)^{2}(n^{2} + 4n + 4)}{4}\\
+&= \frac{(n+1)^{2}(n+2)^{2}}{2^{2}}\\
+&= \left(\frac{(n+1)(n+2)}{2}\right)^{2}
 \end{align*}
 \end{quote}
 $\triangle$
 \item Prove that if $n^{3}$ is odd, then $n$ is odd.
 \begin{quote}
-\Proof Assume that if $n$ is even, then $n^{3}$ is even.
+\Proof Assume the contrapositive: if $n$ is even, then $n^{3}$ is even.
 Then $n = 2k$ for $k\in \ZZ$, which mean that $n^{3} = (2k)^{3}$.
 $(2k)^{3} = 2(2^{2}k^{3})$ where $(2^{2}k^{3}) \in \ZZ$. Therefore $n^{3}$ is even.
 \end{quote}
@@ -169,12 +173,33 @@ This is equivalent to $2^{||\mathcal{X}||}\cdot2^{1}$, or $2^{||\mathcal{X}|| + 
 \end{quote}
 $\triangle$
 \item Let $n \geq 2$ be an integer.
-Prove that $a \equiv b(\text{mod}\ n)$ if $n|(b-a)$ is an equivalence relation on $\ZZ$.
+Prove that $a \equiv b(\text{mod}\ n)$ is an equivalence relation on $\ZZ$.
 \begin{quote}
-\Proof Let $n \geq 2$ and $n | (b - a)$.
-Therefore $b - a  = nk,\ k\in\ZZ$.
-Then $b - a \equiv 0\ mod\ n$.
-It follows that $b \equiv a$, and since $mod\ n$ is an equivalence relation, $a \equiv b$ by symmetry.
+Let $R$ be the relation $a\equiv b\ mod\ n$.\\
+\textit{\textbf{Symmetric:}} Let $aRb$.
+Then $a \equiv b(\text{mod}\ n)$, or $a - b = nk$ for $k\in\ZZ$.
+It follows that
+\begin{align*}
+a &= nk + b\\
+-nk &= b-a\\
+nj &= b-a,\in\ZZ\\
+\end{align*}
+Therefore $b \equiv a\ mod\ n$, and $R$ is symmetric.\\\\
+\textit{\textbf{Reflexive:}} Let $aRa$.
+Then $a \equiv a\ mod\ n$.
+It follows that $n|(a-a)$, or $n|0$.
+Since $n \geq 2$, $n|0$, and $R$ is reflexive.\\\\
+\textit{\textbf{Transitive:}} Let $aRb$ and $bRc$.
+Then $a\equiv b\ mod\ n$ and $b\equiv c\ mod\ n$.
+By definition, $a-b = nk,\ k\in\ZZ$ and $b - c = nj,\ j\in\ZZ$.
+Then $a-b = a-nj-c = nk$.
+It follows that $a-c = nk + nj$, or $a-c = n(k + j)$.
+Therefore $a\equiv b\ mod\ n$, and $R$ is transitive\\\\
+Therefore $R$ is an equivalence relation.
+%\Proof Let $n \geq 2$ and $n | (b - a)$.
+%Therefore $b - a  = nk,\ k\in\ZZ$.
+%Then $b - a \equiv 0\ mod\ n$.
+%It follows that $b \equiv a$, and since $mod\ n$ is an equivalence relation, $a \equiv b$ by symmetry.
 \end{quote}
 $\triangle$
 \item Let $A$ and $B$ be sets.
@@ -195,15 +220,16 @@ Therefore $x \notin A \cup B$, or $x \in \overline{A \cup B}$.
 $\triangle$
 \item Prove that $\sqrt{5}$ is irrational.
 \begin{quote}
-\Proof Assume $\sqrt{5}$ is rational.
-Then $\sqrt{5} = \frac{p}{q}$ for some $p,q \in \ZZ$ with $q \neq 0$, and $p$ and $q$ have opposite parity.
-It follows that $5 = \frac{p^{2}}{q^{2}}$, or $5q^{2} = p^{2}$.
-If $q$ is odd, then $p$ must be even.
-However, an odd number squared and multiplied by an odd number is odd, which means that $5q^{2}\in\{2k+1|k\in\ZZ\}$. 
-This implies that $p^{2}$ is odd, but $p$ is even, so $p^{2}$ is even.
-Therefore by contradiction, $\sqrt{5}$ must be irrational.
+\Proof Let $p$ be a prime number, and assume that $\sqrt{p}$ is rational.
+Then $\sqrt{p} = \frac{n}{m}$ for $n,m \in \NN$.
+It follows that $n^{2} p = m^{2}$.
+We know that there are two factors of $p$, namely 1 and $p$, and that a squared number will have an even number of prime factors, since it has double the prime factors as its root.
+Then $n^{2}p$ will have an odd number of prime factors, since its prime factors are the prime factors of $n^{2}$ and the number $p$.
+Since $n^{2}p = m^{2}$, $m^{2}$ must also have an odd number of prime factors.
+However, $m^{2}$ has an even number of prime factors.
+Therefore, by contradiction, the root of a prime number is irrational.
+Therefore, since 5 is prime, $\sqrt{5}$ is irrational. $\triangle$
 \end{quote}
-$\triangle$
 \end{enumerate}
 \end{enumerate}
 \end{document}
