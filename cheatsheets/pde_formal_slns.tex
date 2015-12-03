@@ -165,7 +165,9 @@ u(x,y) = \sum_{n=1}^{\infty}\left[b_{n}\sinh{\left(\left[n + \frac{1}{2}\right]\
 u_{rr} + \frac{1}{r}u_{r} + \frac{1}{r^{2}}u_{\theta\theta} = 0\\
 u(h,\theta)  = f(\theta)
 \end{cases}\\
-u(r,\theta) = \frac{a_{0}}{2} + \sum_{n=1}^{\infty}a_{n}\frac{r^{n}}{a^{n}}\cos{(n\theta)} + b_{n}\frac{r^{n}}{a^{n}}\sin{(n\theta)}
+u(r,\theta) = \frac{a_{0}}{2} + \sum_{n=1}^{\infty}a_{n}\frac{r^{n}}{a^{n}}\cos{(n\theta)} + b_{n}\frac{r^{n}}{a^{n}}\sin{(n\theta)}\\
+a^{n}a_{n} = \int_{-\pi}^{\pi}f(\theta)\cos{(n\theta)}\mathop{d\theta}\\
+a^{n}b_{n} = \int_{-\pi}^{\pi}f(\theta)\sin{(n\theta)}\mathop{d\theta}
 \end{gather*}
 \newpage
 
