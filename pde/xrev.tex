@@ -2,6 +2,10 @@
 \usepackage{amssymb,amsmath}
 \usepackage{mathtools}
 \usepackage{array}
+\usepackage{color}
+\usepackage{graphicx}
+\pagecolor{black}
+\color{white}
 \topmargin=-0.3in
 \textheight=9.2in
 \textwidth=168mm
@@ -103,6 +107,22 @@ b_{n} &= \frac{\frac{1}{\pi}\int_{0}^{1}0\dx}{n\pi}\\
 u(x,t) = \frac{4}{\pi^{2}}\sum_{k=0}^{\infty}\frac{(-1)^{k}}{(2k+1)^{2}}\cos{(2k\pi t + \pi t)}\sin{(2k\pi t + \pi t)}
 \]
 \eeq
-\item
+
+
+\newpage
+\item Solve the following partial differential equation.
+\[
+\begin{cases*}
+u_{t} - u_{xx} = 0\\
+u(x,0) = 0\\
+u(0,t) = A\cos{t},\ u(1,t) = 0
+\end{cases*}
+\]
+\begin{align*}
+\delta(x,t) &= A\cos{t} - xA\cos{t}\\
+\gamma(x,t) &= u(x,t) - \delta(x,t)\\
+&= u - A\cos{t} + xA\cos{t}\\
+\gamma_{t}(x,t) &= u_{t} + A\sin{t} - xA\sin{t}
+\end{align*}
 \end{enumerate}
 \end{document}
