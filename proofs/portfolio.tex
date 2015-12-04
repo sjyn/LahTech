@@ -28,7 +28,7 @@ Prove that if $a|(b -c)$ and $a|(b+c)$, then $a|b$ and $a|c$.
 \indent \Proof Let $a|(b-c)$ and $a|(b + c)$.
 Then $b-c = ax$ and $b + c = ay$ for some $x,y\in \NN$.
 We have that $b = ax + c$.
-Then 
+Then
 \begin{gather*}
 ax + c + c = ay\\
 ax + 2c = ay\\
@@ -81,7 +81,7 @@ $P$ & $Q$ & $\neg(P\wedge Q)$ & $(\neg P \vee \neg Q)$\\
 1 &= 1
 \end{align*}
 \textit{\textbf{Assume: }} $$\sum_{i = 1}^{n}i^{3} = \left(\frac{n(n+1)}{2}\right)^{2}$$
-\textit{\textbf{Prove: }}  
+\textit{\textbf{Prove: }}
 \[
 \sum_{i = 1}^{n + 1}i^{3} = \left(\frac{(n + 1)(n+2)}{2}\right)^{2}
 \]
@@ -127,7 +127,7 @@ Therefore $f$ is surjective.\\
 Therefore $f$ is bijective.
 \end{quote}
 $\triangle$
-\item Define a relation on $\NN \times \NN$ by $(a,b) \sim (c,d)$ if $a + d = b + c$. 
+\item Define a relation on $\NN \times \NN$ by $(a,b) \sim (c,d)$ if $a + d = b + c$.
 Prove that $\sim$ is an equivalence relation.
 \begin{quote}
 \textbf{\textit{Symmetric:}} Let $(a,b) \sim (c,d)$. Then
@@ -138,11 +138,11 @@ a + d &= b + c\\
 b + c &= a + d
 \end{align*}
 Therefore $(c,d) \sim (a,b)$, and $\sim$ is symmetric.\\\\
-\textbf{\textit{Reflexive:}} Let $(a,b) \in\NN\times\NN$. 
+\textbf{\textit{Reflexive:}} Let $(a,b) \in\NN\times\NN$.
 If $(a,b) \sim (a,b)$, then $a + b = a + b$.
 Therefore $(a,b) \sim (a,b)$, and $\sim$ is reflexive.\\\\
 \textbf{\textit{Transitive:}} Let $(a,b) \sim (c,d)$ and $(c,d) \sim (e,f)$.
-Then $a + d = b + c$ and $c + f = d + e$. 
+Then $a + d = b + c$ and $c + f = d + e$.
 Solving for $c$ yields $c = d + e - f$, and substituting gives us $a + d = b + d + e - f$.
 Then $a + f = e + b$, and $(a,b) \sim (e,f)$.
 Therefore, $\sim$ is transitive.\\\\
@@ -163,7 +163,7 @@ Let $\mathcal{X}$ be the set $\{x\}$.
 Then $\mathcal{P}(\mathcal{X})$ is $\{\emptyset,\{x\}\}$, which has a cardinality of $2^{||\mathcal{X}||}$, or $2 ^{1}$.\\\\
 \textit{\textbf{Assume:}} $||\mathcal{P}(\{x_{0}, x_{1}, x_{2}, \ldots, x_{n}\})|| = 2^{||\mathcal{X}||}$. \\\\
 \textit{\textbf{Prove:}} $||\mathcal{P}(\{x_{0}, x_{1}, x_{2}, \ldots,x_{n}, x_{n+1}\})|| = 2^{||\mathcal{X}|| + 1}$.\\
-We know that $\mathcal{P}$ is the set of all subsets of $\mathcal{X}$. 
+We know that $\mathcal{P}$ is the set of all subsets of $\mathcal{X}$.
 If we count the number of subsets of $\{x_{0}, x_{1}, x_{2},\ldots,x_{n},x_{n+1}\}$, we know that the subset will either contain $x_{n+1}$, or it will not contain $x_{n+1}$.
 If the subset $\gamma$ does not contain $x_{n+1}$, then $\gamma \subseteq \{x_{0},x_{1},x_{2},\ldots,x_{n}\}$, and there are $2^{||\mathcal{X}||}$ $\gamma$ by the induction hypothesis.
 If the subset $\lambda$ contains $x_{n+1}$, then it is the result of some set $\gamma \cup \lambda$.
@@ -205,14 +205,14 @@ $\triangle$
 \item Let $A$ and $B$ be sets.
 Prove that $\overline{A \cup B} = \overline{A} \cap \overline{B}$.
 \begin{quote}
-\Proof\\ 
-{$\overline{A \cup B} \subseteq \overline{A} \cap \overline{B}$:} 
+\Proof\\
+{$\overline{A \cup B} \subseteq \overline{A} \cap \overline{B}$:}
 Let $x\in\overline{A \cup B}$.
 Then $x \notin A$ or $B$.
 Since $x \notin A$, $x \in \overline{A}$.
 Since $x \notin B$, $x \in \overline{B}$.
 Therefore $x \in \overline{A}$ and $x\in\overline{B}$, or $x \in \overline{A} \cap \overline{B}$.\\\\
-{$\overline{A \cup B} \supseteq \overline{A} \cap \overline{B}$:} 
+{$\overline{A \cup B} \supseteq \overline{A} \cap \overline{B}$:}
 Let $x\in\overline{A} \cap \overline{B}$.
 Then $x \notin A$ and $x \notin B$.
 Therefore $x \notin A \cup B$, or $x \in \overline{A \cup B}$.
@@ -228,7 +228,7 @@ Then $n^{2}p$ will have an odd number of prime factors, since its prime factors 
 Since $n^{2}p = m^{2}$, $m^{2}$ must also have an odd number of prime factors.
 However, $m^{2}$ has an even number of prime factors.
 Therefore, by contradiction, the root of a prime number is irrational.
-Therefore, since 5 is prime, $\sqrt{5}$ is irrational. $\triangle$
+Since 5 is prime, $\sqrt{5}$ is irrational. $\triangle$
 \end{quote}
 \end{enumerate}
 \end{enumerate}
