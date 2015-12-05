@@ -1,8 +1,11 @@
 /notebooks/*
 /geogebra/*
 /wim/twitter_problem/const.rb
+/wim/twitter_problem/twitter_data.txt
 /wim/fb_problem/const.rb
 /wim/ignore/*
+/comporg/final_review_slides.pdf
+/comporg/final_review_questions.pdf
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
