@@ -1,4 +1,4 @@
-## Custom Ignores
+# Custom Ignores
 /notebooks/*
 /geogebra/*
 /wim/twitter_problem/const.rb
@@ -9,7 +9,7 @@
 /comporg/final_review_slides.pdf
 /comporg/final_review_questions.pdf
 
-## Core latex/pdflatex auxiliary files:
+# Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
 *.log
@@ -18,7 +18,7 @@
 *.out
 *.toc
 
-## Intermediate documents:
+# Intermediate documents:
 *.dvi
 *-converted-to.*
 # these rules might exclude image files for figures etc.
@@ -26,7 +26,7 @@
 # *.eps
 # *.pdf
 
-## Bibliography auxiliary files (bibtex/biblatex/biber):
+# Bibliography auxiliary files (bibtex/biblatex/biber):
 *.bbl
 *.bcf
 *.blg
@@ -35,14 +35,14 @@
 *.brf
 *.run.xml
 
-## Build tool auxiliary files:
+# Build tool auxiliary files:
 *.fdb_latexmk
 *.synctex
 *.synctex.gz
 *.synctex.gz(busy)
 *.pdfsync
 
-## Auxiliary and intermediate files from other packages:
+# Auxiliary and intermediate files from other packages:
 
 
 # algorithms
