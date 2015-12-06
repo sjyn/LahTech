@@ -1,0 +1,51 @@
+\documentclass{article}
+\usepackage{amssymb,amsmath}
+\usepackage{ mathrsfs }
+\usepackage{mathtools}
+\usepackage{array}
+\topmargin=-0.3in
+\textheight=9.2in
+\textwidth=168mm
+\oddsidemargin=-0.2in
+\evensidemargin=-0.2in
+
+\newcommand{\Fouri}{\mathscr{F}}
+\newcommand{\Fouris}{\mathscr{F}_{s}}
+\newcommand{\Fouric}{\mathscr{F}_{c}}
+\newcommand{\dx}{\mathop{dx}}
+
+\title{Fourier Transforms}
+\date{}
+\begin{document}
+\maketitle
+\begin{gather*}
+\Fouri[f(x)] = \frac{1}{2\pi}\int_{-\infty}^{\infty}e^{-i\omega x}f(x)\dx\\
+\Fouris[f(x)] = \frac{2}{\pi}\int_{0}^{\infty}\sin{(\omega x)}f(x)\dx
+\qquad\qquad
+\Fouric[f(x)] = \frac{2}{\pi}\int_{0}^{\infty}\cos{(\omega x)}f(x)\dx\\
+\Fouris^{-1}[F(\omega)] = \int_{0}^{\infty}\sin{(\omega x)}F(\omega)\dx
+\qquad\qquad
+\Fouric^{-1}[F(\omega)] = \int_{0}^{\infty}\cos{(\omega x)}F(\omega)\dx
+\end{gather*}
+\begin{center}
+\vspace{1cm}
+\begin{tabular}{c c c c}
+$f(x)\qquad$ & $\Fouri[f(x)]\qquad$ & $\Fouris[f(x)]\qquad$ & $\Fouric[f(x)]\qquad$\\
+\hline
+\\
+$u_{x}(x,t)$ & & $-\omega\Fouric[u(x,t)]$ & $-\frac{2}{\pi}u(0,t) + \omega\Fouris[u(x,t)]$\\
+\\
+$u_{xx}(x,t)$ & & $\frac{2\omega u(0,t)}{\pi} + \omega^{2}\Fouris[u(x,t)]$ & $-\frac{2}{\pi}u_{x}(0,t) - \omega^{2}\Fouric[u(x,t)]$\\
+\\
+$u_{t}(x,t)$ & & $\frac{d}{\mathop{dt}} \Fouris[u(x,t)]$ & $\frac{d}{\mathop{dt}} \Fouric[u(x,t)]$\\
+\\
+$u_{tt}(x,t)$ & & $\frac{d^{2}}{\mathop{dt^{2}}} \Fouris[u(x,t)]$ & $\frac{d^{2}}{\mathop{dt^{2}}} \Fouric[u(x,t)]$\\
+\\
+$e^{-a|x|}$ & $\sqrt{\frac{2}{\pi}}\left[\frac{a}{a^{2} + \omega^{2}}\right]$ & & \\
+\\
+$e^{-\frac{x^{2}}{2}}$ & $e^{-\frac{\omega^{2}}{2}}$ & & \\
+\\
+$\delta(x)$ & 1 & & \\
+\end{tabular}
+\end{center}
+\end{document}

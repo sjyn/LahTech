@@ -4,6 +4,9 @@
 \usepackage{graphicx}
 \usepackage{multicol}
 \usepackage{array}
+\usepackage{titling}
+
+\setlength{\droptitle}{-10em}
 \topmargin=-0.3in
 \textheight=9.2in
 \textwidth=168mm
@@ -37,6 +40,10 @@
 \int_{a}^{b}\sin{(x)}\sin{(nx)}\mathop{dx} =\left[\frac{-n\sin{(x)}\cos{(nx)} + \cos{(x)}\sin{(nx)}}{n^{2} - 1}\right]\Bigg|_{a}^{b}\\
 %
 \int_{a}^{b}\cos{(x)}\sin{(nx)}\mathop{dx} =\left[\frac{n\cos{(x)}\cos{(nx)} + \sin{(x)}\sin{(nx)}}{1 - n^{2}}\right]\Bigg|_{a}^{b}\\
+%
+\int_{a}^{b}\sin^{2}{(x)}\mathop{dx} = \frac{b - a + \cos{(a)}\sin{(a)} - \cos{(b)}\sin{(b)}}{2}\\
+%
+\int_{a}^{b}\cos^{2}{(x)}\mathop{dx} = \frac{b - a - \cos{(a)}\sin{(a)} + \cos{(b)}\sin{(b)}}{2}\\
 %
 \int_{0}^{\infty}e^{\alpha x^{2}}\sin{(\beta x)}\mathop{dx} = 0\\
 %
