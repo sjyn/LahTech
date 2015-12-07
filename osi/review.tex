@@ -17,6 +17,7 @@ Process Number & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15
 }
 
 \newcommand{\bc}{\cellcolor{blue!60}}
+\newcommand{\gc}{\cellcolor{black!50}}
 \newcommand{\blackc}{\cellcolor{black!}}
 
 \newcommand{\blackrow}{
@@ -25,10 +26,39 @@ Process Number & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15
 }
 
 \newcommand{\Example}{\textit{\textbf{Example: }}}
-\title{Processor Scheduling}
-\date{} 
+\title{Exam Review}
+\date{}
 \begin{document}
 \maketitle
+\section{Memory Management}
+\Example Given the following dynamic partitioning scheme, determine which blocks will be used for memory allocation when three memory requests are made for 40M, 20M, and 10M.
+The gray shaded blocks are already occupied.
+Use the following policies
+\begin{enumerate}
+\item First Fit
+\item Best Fit
+\item Next Fit (Assume the most recently added block is at the beginning of memory)
+\item Worst Fit
+\end{enumerate}
+\vspace{0.2cm}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\gc &   &\gc &   &\gc &   &\gc &   &\gc &   &\gc & \\
+\gc &   &\gc &   &\gc &   &\gc &   &\gc &   &\gc & \\
+\hline
+20M & 20M & 40M & 60M & 20M & 10M & 60M & 40M & 20M & 30M & 40M & 40M\\
+\hline
+\gc &\bc &\gc &  &\gc &\bc &\gc &\bc &\gc &   &\gc & \\
+\gc &\bc &\gc &  &\gc &\bc &\gc &\bc &\gc &   &\gc & \\
+\hline
+
+\end{tabular}
+\end{center}
+
+
+
+\section{Processor Scheduling}
 \Example Determine the processor scheduling times of the following policies:
 \begin{enumerate}
 \item First Come First Serve
