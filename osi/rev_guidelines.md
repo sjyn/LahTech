@@ -13,27 +13,27 @@
 ## Question 3
 * Virtual Memory (Chapter 8)
 * Virtual and physical addresses
-* Lecture 8, Exercise Q2
+* Lecture 8.1, Exercise Q2
 
 ## Question 4
 * Virtual Memory (Chapter 8)
 * Memory management policies
 * FIFO, Fixed Allocation LRU, Clock, Optimal, Window LRU
-* Lecture 8, Exercise Q1
+* Lecture 8.2, Exercise Q1
 
 ## Question 5
 * Uniprocessor Scheduling (Chapter 9)
 * Short Term Scheduling
 * FCFS, Round Robin (q = 1, q = 4)
 * Normalized Turnaround Time
-* Lecture 9, Exercise Q6
+* Lecture 9.1, Exercise Q6
 
 ## Question 6
 * Uniprocessor Scheduling (Chapter 9)
 * Short Term Scheduling
 * SPN, SRT, HRRT, Feedback (q = 1, 2<sup>i</sup>)
 * Normalized Turnaround Time
-* Lecture 9, Exercise Q6
+* Lecture 9.2, Exercise Q6
 
 ## Question 7
 * Multiprocessor Scheduling (Chapter 10)
