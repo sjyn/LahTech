@@ -3,7 +3,9 @@
 \usepackage{mathtools}
 \usepackage[table]{xcolor}
 \usepackage{array}
+\usepackage{multicol}
 \usepackage{hyperref}
+\usepackage{arydshln}
 \topmargin=-0.3in
 \textheight=9.2in
 \textwidth=168mm
@@ -18,7 +20,10 @@ Process Number & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15
 
 \newcommand{\bc}{\cellcolor{blue!60}}
 \newcommand{\gc}{\cellcolor{black!50}}
+\newcommand{\wc}{\cellcolor{white!}}
 \newcommand{\blackc}{\cellcolor{black!}}
+
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
 \newcommand{\blackrow}{
 \blackc & \blackc & \blackc & \blackc & \blackc & \blackc & \blackc & \blackc & \blackc & \blackc & \blackc & \blackc & \blackc & \blackc & \blackc & \blackc & \blackc & \blackc & \blackc & \blackc & \blackc\\
@@ -30,31 +35,221 @@ Process Number & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15
 \date{}
 \begin{document}
 \maketitle
-\section{Memory Management}
-\Example Given the following dynamic partitioning scheme, determine which blocks will be used for memory allocation when three memory requests are made for 40M, 20M, and 10M.
-The gray shaded blocks are already occupied.
-Use the following policies
+
+\newcommand{\specialcell}[2][c]{%
+  \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+
+
+\section{Memory Partitioning}
+
+\indent The following diagram shows a partition of memory.
+If three separate requests for memory of 40M, 20M, and 10M are made, determine
+the spots in memory where the requests will each be placed, and indicate the
+beginning address of the request based on the following policies:
 \begin{enumerate}
 \item First Fit
 \item Best Fit
-\item Next Fit (Assume the most recently added block is at the beginning of memory)
+\item Next Fit
 \item Worst Fit
 \end{enumerate}
-\vspace{0.2cm}
-\begin{center}
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
-\hline
-\gc &   &\gc &   &\gc &   &\gc &   &\gc &   &\gc & \\
-\gc &   &\gc &   &\gc &   &\gc &   &\gc &   &\gc & \\
-\hline
-20M & 20M & 40M & 60M & 20M & 10M & 60M & 40M & 20M & 30M & 40M & 40M\\
-\hline
-\gc &\bc &\gc &  &\gc &\bc &\gc &\bc &\gc &   &\gc & \\
-\gc &\bc &\gc &  &\gc &\bc &\gc &\bc &\gc &   &\gc & \\
-\hline
+The grey blocks represent already filled spaces in memory.
 
+\vspace{0.5cm}
+\begin{center}
+\begin{tabular}{|C{1cm} C{1cm} C{1cm} C{1cm} C{1cm} C{1cm} C{1cm} C{1cm} C{1cm} C{1cm} C{1cm} C{1cm}|}
+\hline
+20 & 20 & 40 & 60 & 20 & 10 & 60 & 40 & 20 & 30 & 40 & 40\\
+\hline
+\gc & \wc & \gc & \wc & \gc & \wc & \gc & \wc & \gc & \wc & \gc & \wc\\
+\gc & \wc & \gc & \wc & \gc & \wc & \gc & \wc & \gc & \wc & \gc & \wc\\
+\hline
+\blackc & \blackc & \blackc & \blackc & \blackc & \blackc & \blackc & \blackc & \blackc & \blackc & \blackc & \blackc\\
+\gc & \wc & \gc & \wc & \gc & \wc & \gc & \wc & \gc & \wc & \gc & \wc\\
+\gc & \wc & \gc & \wc & \gc & \wc & \gc & \wc & \gc & \wc & \gc & \wc\\
+\hline
+\blackc & \blackc & \blackc & \blackc & \blackc & \blackc & \blackc & \blackc & \blackc & \blackc & \blackc & \blackc\\
+\gc & \wc & \gc & \wc & \gc & \wc & \gc & \wc & \gc & \wc & \gc & \wc\\
+\gc & \wc & \gc & \wc & \gc & \wc & \gc & \wc & \gc & \wc & \gc & \wc\\
+\hline
+\blackc & \blackc & \blackc & \blackc & \blackc & \blackc & \blackc & \blackc & \blackc & \blackc & \blackc & \blackc\\
+\gc & \wc & \gc & \wc & \gc & \wc & \gc & \wc & \gc & \wc & \gc & \wc\\
+\gc & \wc & \gc & \wc & \gc & \wc & \gc & \wc & \gc & \wc & \gc & \wc\\
+\hline
+\blackc & \blackc & \blackc & \blackc & \blackc & \blackc & \blackc & \blackc & \blackc & \blackc & \blackc & \blackc\\
+\gc & \wc & \gc & \wc & \gc & \wc & \gc & \wc & \gc & \wc & \gc & \wc\\
+\gc & \wc & \gc & \wc & \gc & \wc & \gc & \wc & \gc & \wc & \gc & \wc\\
+\hline
 \end{tabular}
 \end{center}
+\newpage
+
+
+\section{Memory Allocation}
+
+\indent A 1Mb block of memory is allocated using the buddy method.
+Show the resulting partitions in the following diagram if they recieve the
+following memory requests:
+\[
+A = 70K\qquad\qquad B=35K\qquad\qquad C=80K\qquad\qquad D=60K
+\]
+The memory is requested/released as follows:
+\begin{multicols}{2}
+\begin{enumerate}
+\item Request A
+\item Request B
+\item Request C
+\item Return A
+\item Request D
+\item Return B
+\item Return D
+\item Return C
+\end{enumerate}
+\end{multicols}
+
+\vspace{0.5cm}
+\begin{center}
+\begin{tabular}{|c c c c c c c c c c c c c c c c|c|}
+\hline
+\multicolumn{16}{|c|}{1024} & Initial\\
+\hline
+\multicolumn{2}{|c|}{A} & \multicolumn{2}{|c|}{128} & \multicolumn{4}{|c|}{256} & \multicolumn{8}{|c|}{512} & Request A\\
+\hline
+\multicolumn{2}{|c|}{A} & \multicolumn{1}{|c|}{B} & \multicolumn{1}{|c|}{64} & \multicolumn{4}{|c|}{256} & \multicolumn{8}{|c|}{512} & Request B\\
+\hline
+\multicolumn{2}{|c|}{A} & \multicolumn{1}{|c|}{B} & \multicolumn{1}{|c|}{64} & \multicolumn{2}{|c|}{C} & \multicolumn{2}{|c|}{128} & \multicolumn{8}{|c|}{512} & Request C\\
+\hline
+\multicolumn{2}{|c|}{128} & \multicolumn{1}{|c|}{B} & \multicolumn{1}{|c|}{64} & \multicolumn{2}{|c|}{C} & \multicolumn{2}{|c|}{128} & \multicolumn{8}{|c|}{512} & Return A\\
+\hline
+\multicolumn{1}{|c|}{D} & \multicolumn{1}{|c|}{64} & \multicolumn{1}{|c|}{B} & \multicolumn{1}{|c|}{64} & \multicolumn{2}{|c|}{C} & \multicolumn{2}{|c|}{128} & \multicolumn{8}{|c|}{512} & Request D\\
+\hline
+\multicolumn{1}{|c|}{D} & \multicolumn{1}{|c|}{64} & \multicolumn{2}{|c|}{128} & \multicolumn{2}{|c|}{C} & \multicolumn{2}{|c|}{128} & \multicolumn{8}{|c|}{512} & Return B\\
+\hline
+\multicolumn{4}{|c|}{256} & \multicolumn{2}{|c|}{C} & \multicolumn{2}{|c|}{128} & \multicolumn{8}{|c|}{512} & Return D\\
+\hline
+\multicolumn{16}{|c|}{1024} & Return C\\
+\hline
+\end{tabular}
+\end{center}
+\newpage
+
+
+
+\section{Paging I}
+Given the following table, determine which physical address, if any, the following virtual address would correspond.
+\[
+1103\qquad\qquad\qquad 2325\qquad\qquad\qquad 5544
+\]
+
+\vspace{0.5cm}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+VPN & Valid Bit & Reference Bit & Modify Bit & PFN\\
+\hline
+0 & 1 & 1 & 0 & 4\\
+\hline
+1 & 1 & 1 & 1 & 7\\
+\hline
+2 & 0 & 0 & 0 & -\\
+\hline
+3 & 1 & 0 & 0 & 2\\
+\hline
+4 & 0 & 0 & 0 & -\\
+\hline
+5 & 1 & 0 & 1 & 0\\
+\hline
+\end{tabular}
+\end{center}
+\begin{minipage}[t]{0.3\textwidth}
+\begin{align*}
+1103 &= (1 * 1024) + 79\\
+&\implies\text{ PFN: 7}\\
+\text{Address} &= (7 * 1024) + 79\\
+&= 7247
+\end{align*}
+\end{minipage}
+\begin{minipage}[t]{0.3\textwidth}
+\begin{align*}
+2325 &= (2 * 1024) + 277\\
+&\implies\text{ PFN: -}\\
+&\implies\text{PAGE FAULT}
+\end{align*}
+\end{minipage}
+\begin{minipage}[t]{0.3\textwidth}
+\begin{align*}
+5544 &= (5 * 1024) + 424\\
+&\implies\text{ PFN: 0}\\
+\text{Address} &= (0 * 1024) + 424\\
+&= 79
+\end{align*}
+\end{minipage}
+\newpage
+
+
+
+\section{Paging II}
+Given the following table, assume there is a page fault at 4.
+Determine which page will be replaced using the following policies:
+\begin{enumerate}
+\item FIFO
+\item LRU
+\item Clock
+\item Optimal (Assume the remaning sequence is 4, 0, 0, 0, 2, 4, 2, 1, 0, 3, 2)
+\end{enumerate}
+
+\vspace{0.5cm}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+VPN & Time Loaded & Reference Time & R-Bit & M-Bit\\
+\hline
+2 & 60 & 161 & 0 & 1\\
+\hline
+1 & 130 & 160 & 1 & 0\\
+\hline
+0 & 26 & 162 & 1 & 0\\
+\hline
+3 & 20 & 163 & 1 & 1\\
+\hline
+\end{tabular}
+
+\vspace{0.5cm}
+\begin{tabular}{|l|c c c c c c c c c c|}
+\hline
+VPN & 3 & 0 & 2 & 1 & $\cdots$ & 1 & 2 & 0 & 3 & 4\\
+\hline
+VPN In Memory & \specialcell[t]{3} & \specialcell[t]{3\\ 0} & \specialcell[t]{3\\ 0\\ 2} & \specialcell[t]{3\\ 0\\ 2\\ 1} & \specialcell{$\cdots$}& \specialcell[t]{3\\ 0\\ 2\\ 1} & \specialcell[t]{3\\ 0\\ 2\\ 1} & \specialcell[t]{3\\ 0\\ 2\\ 1} & \specialcell[t]{3\\ 0\\ 2\\ 1} & \specialcell[t]{4\\ 0\\ 2\\ 1}\\
+\hline
+Time & 20 & 26 & 60 & 130 & $\cdots$ & 160 & 161 & 162 & 163 & 164\\
+\hline
+\multicolumn{11}{c}{\blackc}\\
+\hline
+VPN & 3 & 0 & 2 & 1 & $\cdots$ & 1 & 2 & 0 & 3 & 4\\
+\hline
+VPN In Memory & \specialcell[t]{3} & \specialcell[t]{3\\ 0} & \specialcell[t]{3\\ 0\\ 2} & \specialcell[t]{3\\ 0\\ 2\\ 1} & \specialcell{$\cdots$}& \specialcell[t]{3\\ 0\\ 2\\ 1} & \specialcell[t]{3\\ 0\\ 2\\ 1} & \specialcell[t]{3\\ 0\\ 2\\ 1} & \specialcell[t]{3\\ 0\\ 2\\ 1} & \specialcell[t]{3\\ 0\\ 2\\ 4}\\
+\hline
+Time & 20 & 26 & 60 & 130 & $\cdots$ & 160 & 161 & 162 & 163 & 164\\
+\hline
+\multicolumn{11}{c}{\blackc}\\
+\hline
+VPN & 3 & 0 & 2 & 1 & $\cdots$ & 1 & 2 & 0 & 3 & 4\\
+\hline
+VPN In Memory & \specialcell[t]{3} & \specialcell[t]{3\\ 0} & \specialcell[t]{3\\ 0\\ 2} & \specialcell[t]{3\\ 0\\ 2\\ 1} & \specialcell{$\cdots$}& \specialcell[t]{3\\ 0\\ 2\\ 1} & \specialcell[t]{3\\ 0\\ 2\\ 1} & \specialcell[t]{3\\ 0\\ 2\\ 1} & \specialcell[t]{3\\ 0\\ 2\\ 1} & \specialcell[t]{3\\ 0\\ 4*\\ 1*}\\
+\hline
+Time & 20 & 26 & 60 & 130 & $\cdots$ & 160 & 161 & 162 & 163 & 164\\
+\hline
+\multicolumn{11}{c}{\blackc}\\
+\hline
+VPN & 1 & 2 & 0 & 3 & 4 & \multicolumn{5}{c|}{0 0 0 2 4 2 1 0 3 2 $\dots$}\\
+\hline
+VPN In Memory & \specialcell[t]{3\\ 0\\ 2\\ 1} & \specialcell[t]{3\\ 0\\ 2\\ 1} & \specialcell[t]{3\\ 0\\ 2\\ 1} & \specialcell[t]{3\\ 0\\ 2\\ 1} & \specialcell[t]{4\\ 0\\ 2\\ 1} & \multicolumn{5}{c|}{}\\
+\hline
+Time & 160 & 161 & 162 & 163 & 164 & \multicolumn{5}{c|}{$\dots$}\\
+\hline
+\end{tabular}
+\end{center}
+\newpage
+
 
 
 
@@ -80,7 +275,7 @@ Process Number & Arrival Time & Service Time\\
 \hline
 \end{tabular}
 
-\vspace{1cm}
+\vspace{0.5cm}
 
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 \generateHeader
@@ -141,7 +336,7 @@ Process Name & Arrival Time & Service Time\\
 \hline
 \end{tabular}
 
-\vspace{1cm}
+\vspace{0.5cm}
 
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 \generateHeader
@@ -203,15 +398,15 @@ Process Name & Arrival Time & Service Time\\
 \newpage
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 \generateHeader
-1	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&\\
+1	&\bc&\bc&\bc&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&\\
 \hline
-2	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&\\
+2	&	&	&	&\bc&\bc&\bc&\bc&\bc&	&	&	&	&	&	&	&	&	&	&	&\\
 \hline
-3	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&\\
+3	&	&	&	&	&	&	&	&	&\bc&\bc&	&	&	&	&	&	&	&	&	&\\
 \hline
-4	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&\\
+4	&	&	&	&	&	&	&	&	&	&	&\bc&\bc&\bc&\bc&\bc&	&	&	&	&\\
 \hline
-5	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&\\
+5	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&\bc&\bc&\bc&\bc&\bc\\
 \hline
 \blackrow
 1	&\bc	&	&\bc	&	&	&	&\bc	&	&	&	&	&	&	&	&	&	&	&	&	&\\
@@ -237,6 +432,165 @@ Process Name & Arrival Time & Service Time\\
 \hline
 \end{tabular}
 \end{center}
+\newpage
+
+
+\section{Multiprocessor Scheduling I}
+Determine the runtimes of the following processes based on the Fixed Priority
+($A\to B \to C$), and Earliest Deadline policies.
+
+\vspace{0.5cm}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Process & Arrival Time & Execution Time & Ending Deadline\\
+\hline
+$A_{1}$ & 0 & 10 & 20\\
+$A_{2}$ & 20 & 10 & 40\\
+$A_{3}$ & 40 & 10 & 60\\
+$A_{4}$ & 60 & 10 & 80\\
+$A_{5}$ & 80 & 10 & 100\\
+\hline
+$B_{1}$ & 0 & 10 & 50\\
+$B_{2}$ & 50 & 10 & 100\\
+\hline
+$C_{1}$ & 0 & 15 & 50\\
+$C_{2}$ & 50 & 15 & 100\\
+\hline
+\end{tabular}
+
+\vspace{0.5cm}
+\begin{tabular}{c|c:c:c:c:c:c:c:c:c:c:c:c:c:c:c:c:c:c:c:c:}
+&  & 10 & & 20 & & 30 & & 40 & & 50 & & 60 & & 70 & & 80 & & 90 & & 100\\
+\hline
+FP & $A_{1}$ & $A_{1}$ & $B_{1}$ & $B_{1}$ & $A_{2}$ & $A_{2}$ & $C_{1}$ & $C_{1}$ & $A_{3}$ & $A_{3}$ & $B_{2}$ & $B_{2}$ & $A_{4}$ & $A_{4}$ & $C_{2}$ & $C_{2}$ & $A_{5}$ & $A_{5}$ & $C_{2}$ & \\
+\hline
+ED & $A_{1}$ & $A_{1}$ & $B_{1}$ & $B_{1}$ & $A_{2}$ & $A_{2}$ & $C_{1}$ & $C_{1}$ & $C_{1}$ & $A_{3}$ & $A_{3}$ & $B_{2}$ & $B_{2}$ & $A_{4}$ & $A_{4}$ & $C_{2}$ & $C_{2}$ & $C_{2}$ & $A_{4}$ & $A_{4}$\\
+\hline
+\end{tabular}
+\end{center}
+\newpage
+
+
+
+\section{Multiprocessor Scheduling II}
+Display the result of the following periodic tasks under the Earliest Starting Deadline,
+First Come First Serve, and Earliest Starting Deadline with Unenforced Idle Times policies.
+
+\vspace{0.5cm}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Process & Arrival Time & Execution Time & Starting Deadline\\
+\hline
+A & 10 & 20 & 100\\
+B & 20 & 20 & 20\\
+C & 40 & 20 & 60\\
+D & 50 & 20 & 80\\
+E & 60 & 20 & 70\\
+\hline
+\end{tabular}
+
+\vspace{0.5cm}
+\scalebox{0.8}{
+\begin{tabular}{c|c:c:c:c:c:c:c:c:c:c:c:c:c:c:c:c:c:c:c:c:c:c:c:c:}
+& 5 & 10 & 15 & 20 & 25 & 30 & 35 & 40 & 45 & 50 & 55 & 60 & 65 & 70 & 75 & 80 & 85 & 90 & 95 & 100 & 105 & 110 & 115 & 120\\
+\hline
+ESD & & A & A & A & A & & C & C & C & C & E & E & E & E & D & D & D & D & & & & & &\\
+\hline
+ESDU & & & & & B & B & B & B & C & C & C & C & E & E & E & E & D & D & D & D & A & A & A & A\\
+\hline
+FCFS & & & A & A & A & A & & C & C & C & C & D & D & D & D & & & & & & & & &\\
+\hline
+\end{tabular}
+}
+\end{center}
+\newpage
+
+
+
+\section{I/O Operations}
+Perform a FIFO, SSTF, SCAN, and C-SCAN on the following sequence of disk track requests
+in order to calculate the average seek length:
+\begin{center}
+27, 129, 110, 186, 147, 41, 10, 64, 120
+\end{center}
+Assume that the disk starts at address 100, and the head is moving in the direction
+of decreasing track number.
+
+\vspace{0.5cm}
+\begin{minipage}[t]{0.25\textwidth}
+FIFO:\\\\
+\begin{tabular}{c|c}
+& 100\\
+\hline
+27 & 73\\
+129 & 102\\
+110 & 19\\
+186 & 76\\
+147 & 39\\
+41 & 106\\
+10 & 31\\
+64 & 54\\
+120 & 56\\
+\hline
+Average: & 61.8
+\end{tabular}
+\end{minipage}
+\begin{minipage}[t]{0.25\textwidth}
+SSTF:\\\\
+\begin{tabular}{c|c}
+& 100\\
+\hline
+110 & 10\\
+120 & 10\\
+129 & 9\\
+147 & 18\\
+186 & 39\\
+64 & 122\\
+41 & 23\\
+27 & 14\\
+10 & 17\\
+\hline
+Average: & 29.1
+\end{tabular}
+\end{minipage}
+\begin{minipage}[t]{0.25\textwidth}
+SCAN:\\\\
+\begin{tabular}{c|c}
+& 100\\
+\hline
+64 & 36\\
+41 & 23\\
+27 & 14\\
+10 & 17\\
+110 & 100\\
+120 & 10\\
+129 & 9\\
+147 & 18\\
+186 & 39\\
+\hline
+Average: & 29.6
+\end{tabular}
+\end{minipage}
+\begin{minipage}[t]{0.25\textwidth}
+C-SCAN:\\\\
+\begin{tabular}{c|c}
+& 100\\
+\hline
+64 & 36\\
+41 & 23\\
+27 & 14\\
+10 & 17\\
+186 & 176\\
+147 & 39\\
+129 & 18\\
+120 & 9\\
+110 & 10\\
+\hline
+Average: & 38
+\end{tabular}
+\end{minipage}
 \end{document}
 
 
