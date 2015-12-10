@@ -254,61 +254,7 @@ Time & 160 & 161 & 162 & 163 & 164 & \multicolumn{5}{c|}{$\dots$}\\
 
 
 \section{Processor Scheduling}
-\Example Determine the processor scheduling times of the following policies:
-\begin{enumerate}
-\item First Come First Serve
-\item Round Robin (q = 1)
-\item Round Robin (q = 4)
-\end{enumerate}
-\begin{center}
-\begin{tabular}{|c|c|c|}
-\hline
-Process Number & Arrival Time & Service Time\\
-\hline
-1 & 0 & 6\\
-\hline
-2 & 1 & 2\\
-\hline
-3 & 4 & 5\\
-\hline
-4 & 5 & 7\\
-\hline
-\end{tabular}
-
-\vspace{0.5cm}
-
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
-\generateHeader
-1	&\bc	&\bc	&\bc	&\bc	&\bc	&\bc	&	&	&	&	&	&	&	&	&	&	&	&	&	&\\
-\hline
-2	&	&	&	&	&	&	&\bc &\bc &	&	&	&	&	&	&	&	&	&	&	&\\
-\hline
-3 	& 	& 	&	&	&	&	&	&	&\bc &\bc &\bc & \bc &\bc &	&	&	&	&	&	&\\
-\hline
-4	&	&	&	&	&	&	&	&	&	&	&	&	&	&\bc &\bc &\bc &\bc	&\bc	&\bc	&\bc\\
-\hline
-\blackrow
-1	&\bc	&	&\bc	&	&\bc	&	&	&\bc	&	&	&\bc	&	&	&\bc	&	&	&	&	&	&\\
-\hline
-2	&	&\bc	&	&\bc	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&\\
-\hline
-3	&	&	&	&	&	&\bc	&	&	&\bc	&	&	&\bc	&	&	&\bc	&	&\bc	&	&	&\\
-\hline
-4	&	&	&	&	&	&	&\bc	&	&	&\bc	&	&	&\bc	&	&	&\bc	&	&\bc	&\bc	&\bc\\
-\hline
-\blackrow
-1	&\bc	&\bc	&\bc	&\bc	&	&	&	&	&	&	&\bc	&\bc	&	&	&	&	&	&	&	&\\
-\hline
-2	&	&	&	&	&\bc	&\bc	&	&	&	&	&	&	&	&	&	&	&	&	&	&\\
-\hline
-3	&	&	&	&	&	&	&\bc	&\bc	&\bc	&\bc	&	&	&	&	&	&	&\bc	&	&	&\\
-\hline
-4	&	&	&	&	&	&	&	&	&	&	&	&	&\bc	&\bc	&\bc	&\bc	&	&\bc	&\bc	&\bc\\
-\hline
-\end{tabular}
-\end{center}
-\newpage
-
+Determine the processor scheduling times of the following policies.
 \begin{enumerate}
 \item First Come First Serve
 \item Round Robin (q = 1)
