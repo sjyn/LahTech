@@ -591,6 +591,37 @@ C-SCAN:\\\\
 Average: & 38
 \end{tabular}
 \end{minipage}
+\newpage
+
+
+
+\section{UNIX Inodes}
+Consider a UNIX file system represented by inodes.
+Assume that there are 12 direct block pointers and a singly, doubly, and triply
+indirect pointer in each inode.
+Further, assume that the system block size is and the disk sector size are both
+8 Kb.
+If the disk block pointer is 32 bits, with 8 bits to identify the physical disk
+and 24 bits to identify the physical block, then
+\begin{enumerate}
+\item What is the max file size supported by the system?\\\\
+Since there are 12 block pointers in the inode, and each block is 8 Kb, we have
+12 * 8 Kb, or 96 Kb, directly addressable.
+The indirect pointer points to an entire block of pointers.
+Since each block is 8 Kb, and each pointer is 32 bits, there are 1024 pointers
+in the block; each pointer points to an 8 Kb block.
+This means the single pointers take up 1024 * 8 Kb, or 8192 Kb.
+The double pointer points to a pointer that points to a block.
+There are 1024 of those, so we have 1024 * 1024 * 8 Kb, or 8,388,608 Kb.
+The triple pointer will yield 1024 * 1024 * 1024 * 3 Kb, or 8,589,934,592 Kb.
+This yields a total size of 8,598,331,488 Kb.
+\item What is the max file system partition supported by the system?\\\\
+There are 24 bits assigned to idetify the physical block, so the max file system
+partition supported is $2^{24} * 8$, or 134,217,728 Kb.
+\item How many disk accesses are required to access the byte in position 13,423,956?\\\\
+The location in question is located in the third pointer, so it would take 4 disk
+accesses to access the location.
+\end{enumerate}
 \end{document}
 
 
