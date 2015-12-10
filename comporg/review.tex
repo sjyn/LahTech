@@ -15,7 +15,11 @@
 
 \newcommand{\sqr}{$\square \qquad|$ & $\square \qquad|$ & $>\qquad|$ & $\square\qquad|$ & $\square\ \qquad$ }
 
+\title{Computer Organization Exam Review}
+\date{}
+
 \begin{document}
+\maketitle
 \begin{enumerate}
 \item $CPU\ Time = \frac{Clock\ Cycles}{Clock\ Rate}$
 \item $CPU\ Time = Instructions \times \frac{Cycles}{Instruction} \times \frac{Seconds}{Cycle}$
@@ -126,8 +130,10 @@ We can find the CPI for the pipelined design as follows:
 CPI &= (0.25)(1) + (0.1)(1) + (0.11)\left(\frac{1 + 2}{2}\right) + (0.02)(2) + (0.52)(1)\\
 &= 1.075\ \text{cycles per instruction}
 \end{align*}
-\item What are the average instruction times for each designs?
-\indent I don't know.
+\item What are the average instruction times for each designs?\\
+The single cycle datapath's instruction time is determined by the longest instruction time, which is the 600ps load word.
+The multicycle and pipelined datapath are dependant on the longest clock cycle in the longest instruction, which is 200ps.
+We then tak that and multiply it by the CPI, which yields 824ps for the multicycle datapath, and 215ps for the pipelined datapath.
 \end{enumerate}
 \item Assume an instruction cache miss rate for a program is 2\% and a data cache miss rate is 4\%.
 If the processor has a CPI of 2 without any memory stalls and the miss penalty of 100 cycles for all misses, determine how much faster a processor with a perfect cache that never misses would be.
@@ -194,5 +200,46 @@ This setup yields
 \text{Miss} = 1 + (10)\left(\frac{16}{4}\right) + (16)(1) = 57.
 \]
 \end{enumerate}
+\item For the following diagram, explain what happens in each block for the instruction $lw\ \$t3, 100(\$t2)$.
+\begin{center}
+\includegraphics[scale=0.5]{review_01}
+\end{center}
+\begin{itemize}
+\item \underline{Instruction Fetch:} The machine gathers the next instruction as determined by the program counter.
+The PC increments by 4 every cycle, assuming the program does not encouter any exceptions or errors.
+\item \underline{Instruction Decode:} In this step, the instruction is interpreted by the machine to be the load word instruction.
+\item \underline{Register Read:} The appropriate registers are parsed, and the address is decoded.
+\item \underline{ALU Operation:} The ALU adds the offest to the base address, and requests the contents of that location in memory.
+\item \underline {Register Write:} The machine now writes the contents of memory that have been fetched to the $\$t3$ register.
+\item \underline {Instruction Fetch:} The PC is incremented by 4, and the process continues for the next instruction.
+\end{itemize}
+% \item A compiler designer is trying to decide between two code sequences for a particular machine.
+% Based on the hardware implementation, we have the following:
+% \begin{center}
+% \begin{tabular}{|l|c|c|c|}
+% \hline
+% Class & A & B & C\\
+% \hline
+% CPI & 1 & 2 & 3\\
+% \hline
+% \end{tabular}
+% \end{center}
+% The first code sequence has 5 instructions:
+% 2 of A, 1 of B, and 2 of C.
+% The second code sequence has 6 instruction:
+% 4 of A, 1 of B, and 1 of C.
+% \begin{enumerate}
+% \item What is the CPI for each sequence?\\
+% The CPI for the first sequence is
+% \[
+% 2 * 1 + 1 * 2 + 2 * 3 = 10.
+% \]
+% The CPI for the second sequence is
+% \[
+% 4 * 1 + 1 * 2 + 1 * 3 = 9.
+% \]
+% \item Which sequence is faster, and by how much?
+%
+% \end{enumerate}
 \end{enumerate}
 \end{document}

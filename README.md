@@ -7,3 +7,15 @@ In this folder are several overview sheets that are very helpful for jumping str
 
 ### comporg
 I had to take a computer architecture class, and I needed to review. What better way than typesetting all the test reviews in LaTex?
+
+### osi
+This repository focuses on my operating systems class. We covered mostly processor scheduling, so that's what the review focuses on.
+
+### pde
+Partial Differential Equations.
+
+### proofs
+This was a simple introductory course to proofs. I have a take home test and a final review there.
+
+### wim
+I had to take a writing intensive course. There is a final paper and some ruby scripts as well.
