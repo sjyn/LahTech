@@ -9,6 +9,8 @@
 /comporg/final_review_slides.pdf
 /comporg/final_review_questions.pdf
 
+# updater.sh
+
 *.docx
 
 # Core latex/pdflatex auxiliary files:
