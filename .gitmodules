@@ -1,0 +1,3 @@
+[submodule "linear-algebra-notes"]
+	path = linear-algebra-notes
+	url = https://github.com/matt-mccarthy/linear-algebra-notes.git
