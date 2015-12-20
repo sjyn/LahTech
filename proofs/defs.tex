@@ -1,0 +1,149 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{array}
+\usepackage{amssymb}
+\topmargin=-0.3in
+\textheight=9.2in
+\textwidth=168mm
+\oddsidemargin=-0.2in
+\evensidemargin=-0.2in
+
+\newcommand{\deff}[1]{\textbf{\textit{\underline{#1}}}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\PS}{\mathcal{P}}
+\newcommand{\US}{\mathcal{U}}
+\newcommand{\rel}{\mathcal{R}}
+
+\newcommand{\seta}{\mathbb{A}}
+\newcommand{\setb}{\mathbb{B}}
+\newcommand{\setc}{\mathbb{C}}
+\newcommand{\setd}{\mathbb{D}}
+
+\title{Proofs Definitions}
+\date{}
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item \deff{Set:} A set is a collection of objects.
+The items in a set are called elements.
+\item \deff{The Empty Set:} The empty set, given by $\emptyset$, is the set with
+no elements.
+\item \deff{Subset:} Let $\seta$ and $\setb$ be sets. Then $\seta\subset\setb$ if
+$\forall x\in\seta$, $x\in\setb$.
+\item \deff{Power Set:} Let $\seta$ be a set. Then the Power Set of $\seta$,
+noted as $\PS(\seta)$, is the set of all subsets of $\seta$.
+\item \deff{The Universal Set:} The universal set $\US$ is the set of which all
+sets are subsets.
+\item \deff{Intersection:} Let $\seta$ and $\setb$ be sets. The intersection of
+$\seta$ and $\setb$, given by $\seta\cap\setb$ is
+$\{x|x\in\seta\land x\in\setb\}$.
+\item \deff{Union:} Let $\seta$ and $\setb$ be sets. The union of
+$\seta$ and $\setb$, given by $\seta\cup\setb$ is
+$\{x|x\in\seta\lor x\in\setb\}$.
+\item \deff{Trivial Intersection (Disjoint):} Let $\seta$ and $\setb$ be sets. If $\seta$
+and $\setb$ have a trivial intersection, then $\seta\cap\setb = \emptyset$.
+\item \deff{Set Difference:} Let $\seta$ and $\setb$ be sets. The set difference
+of $\seta$ and $\setb$, noted as $\seta - \setb$, is
+$\{x|x\in\seta\land x\notin\setb\}$.
+\item \deff{Cartesian Product:} Let $\seta$ and $\setb$ be sets. Then the product
+of $\seta$ and $\setb$, given by $\seta\times\setb$, is
+$\{(a,b)|a\in\seta\land b\in\setb\}$.
+\item \deff{Well Ordered:} A set $\seta$ is well ordered if for every non-empty
+set $\setb\subset\seta$, $\setb$ has a least element.
+\item \deff{Compliment:} The compliment of a set $\seta$ in regards to $\US$ is
+the set difference of $\US$ and $\seta$.
+\item \deff{Negation:} The negation of a statement $\rho$, given by $\neg\rho$,
+is the statement that has the opposite truth values of $\rho$.
+\item \deff{Disjunction:} The disjunction of statements $\rho$ and $\varphi$ is
+the statement where either $\rho$ and $\varphi$ is true, or both are true, given
+by $\rho\lor\varphi$.
+\item \deff{Conjunction:} The conjunction of statements $\rho$ and $\varphi$ is
+the statement where $\rho$ and $\varphi$ are both true, given by $\rho\land\varphi$.
+\item \deff{Implication:} The implication of $\rho$ and $\varphi$, noted as
+$\rho\implies\varphi$, is the statement where if $\rho$ then $\varphi$ is true.
+\begin{center}
+\begin{tabular}{c|c|c|c|c}
+$\rho$ & $\varphi$ & $\rho\land\varphi$ & $\rho\lor\varphi$ & $\rho\implies\varphi$\\
+\hline
+0 & 0 & 0 & 0 & 1\\
+0 & 1 & 0 & 1 & 1\\
+1 & 0 & 0 & 1 & 0\\
+1 & 1 & 1 & 1 & 1
+\end{tabular}
+\end{center}
+\item \deff{Logically Equivalent:} Two statements $\rho$ and $\varphi$ are
+logically equivalent, noted by $\rho\equiv\varphi$, if they have the same truth
+values.
+\item \deff{Tautology:} A statement $\rho$ is a tautology if it is true for all
+possible truth values.
+\item \deff{Contradiction:} A statement $\rho$ is a contradiction if it is false
+for all possible truth values.
+\item \deff{Universal Quantifier:} The universal quantifier, $\forall$, is a
+quantifier that asserts that a given statement $\rho$ holds for all elements in
+the specified domain.
+\item \deff{Existential Quantifier:} The existential quantifier, $\exists$, is a
+quantifier that assets that a given statement $\rho$ holds for at least one
+element in the specified domain.
+\item \deff{Axiom:} An axiom is a statement that is accepted as true without
+proof.
+\item \deff{Theorem:} A theorem is a statement that is proved to be true.
+\item \deff{Lemma:} A lemma is a statement that serves as an intermediate step
+in a proof.
+\item \deff{Corollary:} A corollary is a statement that follows from an eariler
+result.
+\item \deff{Vacuous Statement:} A vacuous statement is a statement in which the
+assumption is always false. The statement is always true.
+\item \deff{Division:} Let $a,b\in\RR$. To say $a$ divides $b$, noted as $a|b$,
+implies that $b=ax$ for some $x\in\ZZ$.
+\item \deff{Induction:} For all $n\in\NN$, let $\rho(n)$ be a statement. If
+$\rho_{0}$ is true and $\rho(n)\implies\rho(n + 1)$, then $\rho(n)$ is true for
+all $n$.
+\item \deff{Strong Induction:} For all $n\in\NN$, let $\rho(n)$ be a statement.
+If $\rho_{0}$ is true and $\rho(i)\implies\rho(n+1)$ for all $i\in\NN$, then
+$\rho(n)$ is true for all $n\in\NN$.
+\item \deff{Relation:} A relation $\rel$ from set $\seta$ to set $\setb$ is a
+subset of $\seta\times\setb$. Set $\seta$ is related to set $\setb$, noted as
+$\seta\rel\setb$ if $(a,b)\in\rel$ for $a\in\seta$ and $b\in\setb$.
+\item \deff{Inverse Relation:} Given a relation $\rel$ from $\seta$ to $\setb$,
+$\rel$ inverse, noted as $\rel^{-1}$ or $\rel^{\text{opp}}$, is
+$\{(b,a)|(a,b)\in\rel\}$.
+\item \deff{Reflixivity:} A relation $\rel$ is reflexive on a set $\seta$ if
+$a\rel a$ for all $a\in\seta$.
+\item \deff{Symmetry:} A relation $\rel$ is symmetric on a set $\seta$ if
+$a\rel\eta\implies\eta\rel a$ for all $a,\eta\in\rel$.
+\item \deff{Transitivity:} A relation $\rel$ is transitive on a set $\seta$ if
+$a\rel\eta$ and $\eta\rel\delta\implies a\rel\delta$ for $a,\eta,\delta\in\seta$.
+\item \deff{Equivalence Relation:} A relation $\rel$ is an equivalence relation
+if it is reflexive, symmetric, and transitive.
+\item \deff{Equivalence Class:} Let $\seta$ be a non-empty set with elements
+$a$ and $\eta$. The equivalence class of $a$, noted as $[a]$, is
+$\{\eta|\eta\rel a\}$.
+\item \deff{Partition:} Let $\seta$ be a non-empty set. A patition of $\seta$,
+given by $\mathbb{P}$, is a set of subsets of $\seta$ where
+$\cup_{i\in\mathbb{I}}\seta = \mathbb{P}$ and $\seta_{i}\cap\seta_{j}\neq\emptyset$
+for all $i\neq j$.
+\item \deff{Function:} A function $f$ from $\seta\to\setb$ is a relation from
+$\seta\to\setb$ where if $(a,b)$ and $(a,c)$ are in $f$, then $b=c$, and
+$\forall x\in\seta,\exists y\in\setb$ such that $(x,y)\in f$.
+\item \deff{Image:} The image of a function $f:\seta\to\setb$ is
+$\{f(a)|a\in\seta\}$.
+\item \deff{Preimage:} Let $f$ be a function such that $f:\seta\to\setb$ and
+$\setd\subset\setb$. Then the preimage of $\setd$, noted as $f^{-1}(\setd)$, is
+$\{a\in\seta|f(a)\in\setd\}$.
+\item \deff{Injection:} A function $f:\seta\to\setb$ is injective if
+$f(a) = f(b)\implies a = b$ for all $a,b\in\seta$.
+\item \deff{Surjection:} A function $f:\seta\to\setb$ is surjective if
+$\forall b\in\setb, \exists a\in\seta$ such that $f(a) = b$.
+\item \deff{Bijection:} A function $f:\seta\to\setb$ is bijective if it is
+injective and surjective.
+\item \deff{Composition:} Let $f:\seta\to\setb$ and $g:\setb\to\setd$ be
+functions. Then the composition of $g$ and $f$, given by $g\circ f$, is
+defined as $(g\circ f)(a) = g(f(a))$. 
+\end{enumerate}
+\end{document}
