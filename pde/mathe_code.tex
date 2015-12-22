@@ -1,0 +1,41 @@
+\section{Mathematica and Partial Differential Equations}
+\hrule
+\noindent \\\\
+We will briefly talk about solving PDE's in Mathematica in this section. We can solve PDE's with
+the tools available to solve ODE's. Let's consider an example equation:\\\\
+
+\noindent \textbf{\textit{Ex:}} Solve the following PDE
+\[
+u_{t} + 2u_{x} = 0
+\]
+\indent \textbf{\textit{Solution:}} We can define both $u_{x}$ and $u_{t}$ in Mathematica by using
+the D command.
+\begin{minted}{mathematica}
+ In[1]:= ClearAll["Global"];
+         pde = D[u[x,t], t] + 2 D[u[x,t], x] == 0;
+\end{minted}
+Here, we have assigned our PDE to the Mathematica variable pde. Note that we never gave a definition
+to the function $u(x,t)$. It's not necessary; Mathematica understands what we mean. To solve the
+equation, we will use the DSolve command, just as we would with an ODE.
+\begin{minted}{mathematica}
+ In[2]:= solution = DSolve[pde, u[x,t], {x,t}]
+Out[2]:= {{u[x,t] -> C[1][(1/2)(2t-x)]}}
+\end{minted}
+Mathematica represents the arbitrary function that we get when solving with C[1].
+If we want to assign the solution for later use, we can create a new function and assign it to the
+solution that we just found.
+\begin{minted}{mathematica}
+ In[3]:= f[x_,t_] := u[x,t] /. solution[[1]];
+\end{minted}
+The line above assigns u[x,t] to the function f[x,t]. We can also apply an initial condition by
+providing DSolve with a list of equations rather than just the PDE.
+\begin{minted}{mathematica}
+ In[4]:= solution = DSolve[{pde, u[0,t] == Sin[t]},u[x,t],{x,t}]
+Out[4]:= {{u[x,t] -> Sin[(1/2)(2t-x)]}}
+\end{minted}
+Here we have provided an initial condition of $\sin{t}$. Again, we could assign the result of Out[4] to
+a function that we could use later. It may benefit us, for example, to plot the result.
+\begin{minted}{mathematica}
+ In[5]:= Plot3D[u[x,t]/.solution,{x,-4,4},{t,-4,4}];
+\end{minted}
+We've supressed the output here, but the result would be the graph of the function in the 3D plane.

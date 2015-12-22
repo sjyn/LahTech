@@ -1,0 +1,28 @@
+%% AMS-LaTeX Created with the Wolfram Language for Students - Personal Use Only : www.wolfram.com
+
+\documentclass{article}
+\usepackage{amsmath, amssymb, graphics, setspace}
+
+\newcommand{\mathsym}[1]{{}}
+\newcommand{\unicode}[1]{{}}
+
+\newcounter{mathematicapage}
+\begin{document}
+
+\begin{doublespace}
+\noindent\(\pmb{\text{pde} = D[u[x,t],t] +2D[u[x,t],x] == 0;}\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(\pmb{\text{solution} = \text{DSolve}[\text{pde},u[x,t],\{x,t\}]}\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(\left\{\left\{u[x,t]\to C[1]\left[\frac{1}{2} (2 t-x)\right]\right\}\right\}\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(\pmb{f[\text{x$\_$},\text{t$\_$}]\text{:=}u[x,t]\text{/.}\text{solution}[[1]];}\)
+\end{doublespace}
+
+\end{document}

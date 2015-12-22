@@ -1,0 +1,85 @@
+\section{First Order Partial Differential Equations}
+\hrule
+\noindent\\\\
+\noindent\textbf{\textit{Ex:}} Solve the following PDE
+\[
+u_{x} + u_{y} + u = x + y
+\]
+\indent \textbf{\textit{Solution:}} In this case, we have a non-zero term on the
+right hand side of the equation. We will use substitution to solve this. For the
+time being, we will let $T$ be $x + y$. To find our $S$, we can use a similar
+method to the one that we used above. We know that the coefficients on the
+$u_{x}$ and $u_{y}$ are $1$ in this case. Now we have:
+\begin{align*}
+\frac{dy}{dx} &= 1\\
+dy &= dx\\
+\int dy &= \int dx\\
+x &= y + c\\
+x - y &= c
+\end{align*}
+\noindent Now we can say that $S = x - y$; however, we need to check our choice
+for $T$ to make sure this substitution will not just yield a trivial solution.
+We can do this by Next we have to actually use the substitution. We need to
+determine whether the coefficient matrix, or the Jacobian, of our substitutions
+has a determinant of zero. If it does, then we need to choose a different $T$.
+\[
+\left|
+\begin{array}{c c}
+1 & 1\\
+1 & -1
+\end{array}
+\right| = 2 \neq 0.
+\]
+Our choices of variables will work here, so now we need to express $u_{x}$ and
+$u_{y}$ in terms of $S$ and $T$. The following equations come from the chain
+rule; when the $S$ and $T$ terms are differentiated, we get $u_{S}$ and $u_{T}$
+left behind.
+\begin{alignat*}{3}
+u_{x} &= u_{S}\frac{\partial S}{\partial x} + u_{T}\frac{\partial T}{\partial x}
+\qquad\qquad &&u_{y} = u_{S}\frac{\partial S}{\partial y} + u_{T}\frac{\partial T}{\partial y}\\
+u_{x} &= -u_{S} + u_{T}  \qquad\qquad &&u_{y} = u_{S} + u_{T}
+\end{alignat*}
+\noindent We can now plug in our values into the original equation. Note that we
+didn't do anything with $u$; it gets left alone. In addition, if we needed
+$u_{xx}$ or $u_{yy}$, we can just differentiate again. Plugging in yields:
+\begin{gather*}
+(-u_{S} + u_{T}) + (u_{S} + u_{t}) + u = T\\
+2u_{T} + u = T
+\end{gather*}
+\noindent This is just a first order ODE. Since it's not homogeneous, we need to
+solve for the general solution, and then the particular solution. Let's start
+with the general.
+\begin{gather*}
+2y^{'} + y = 0\\
+2r + 1 = 0\\
+r = -\frac{1}{2}\\
+y = ce^{\left(-\frac{1}{2}\right)x}
+\end{gather*}
+\noindent In this case, we know that our $x$ is really $T$. So we finally have
+$y = ce^{\left(-\frac{1}{2}\right)T}$. We will back substitute soon, but let's
+find the particular solution before we do that.
+\noindent Recall from ODE that we have several cases for the particular
+solution. In our case, we have a linear equation on the right hand side of our
+ODE. This lets us say:
+\begin{gather*}
+y = AT + B\\
+y^{'} = A\\
+\end{gather*}
+\noindent Now we can substitute again into our non-homogeneous ODE as follows:
+\[
+2y^{'} + y = T \equiv 2A + AT + B = T
+\]
+\noindent And we have that $A = 1$, and $B = -2$. Now we have a final solution of:
+\begin{gather*}
+y = ce^{\left(-\frac{1}{2}\right)T} + T - 2\\
+y = ce^{\left(-\frac{1}{2}\right)(x+y)} + (x + y) - 2
+\end{gather*}
+\noindent We aren't quite done yet, as we have a solution to an ODE, not a PDE.
+It isn't too difficult to switch back; The $c$ is really the only difference. In
+our ODE, the $c$ is a constant term, but to our PDE, the $c$ is a function. The
+$c$ now becomes $f(s)$. We will go ahead and back substitute, which will give us
+$f(y-x)$. Now we have our final solution:
+\[
+u(x,y) = f(y-x)e^{\left(-\frac{1}{2}\right)(x+y)} + (x + y) - 2
+\]
+\noindent And we are done.

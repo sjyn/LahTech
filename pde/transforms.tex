@@ -1,0 +1,179 @@
+\section{Transforms}
+\hrule
+\noindent \\\\
+\indent Much like when we solve ODE's, we can use transforms to solve PDE's. When we use a Laplace
+transform to solve an ODE, we are transforming the ODE into an algebraic equation that is much
+easier to solve. When we transform a PDE, we get an ODE that we can solve using techniques that
+we already know. In this section, we will look at two transforms: the Laplace Transform and the
+Fourier Transform.\\
+\subsection{The Laplace Transform}
+\indent Let's begin by looking at an exaple use of a Laplace Transform to solve an ODE.\\\\
+\noindent \textbf{\textit{Ex:}} Solve the following ODE using a Laplace Transform.
+\[
+\begin{cases*}
+y'' - 5y' + 6y = 0\\
+y(0) = 2\\
+y'(0) = 2
+\end{cases*}
+\]
+\indent \textbf{\textit{Solution:}} We should begin by recalling the definition of the Laplace operator:
+\[
+\Lap[f(t)] =\int_{0}^{\infty}f(t)e^{-st}dt
+\]
+We also know that the Laplace transforms of a derivative and a second derivative:
+\[
+\Lap[f'(t)] = s\Lap[f(t)] - f(0)\qquad\qquad \Lap[f''(t)] = s^{2}\Lap[f(t)]-sf(0)-f'(0)
+\]
+This is really all the information we need. Applying the transform to both sides of the equation yields
+\begin{gather*}
+\Lap[y'' - 5y' + 6y ] = \Lap[0]\\
+s^{2}\gamma(s)-sy(0)-y'(0) - s\gamma(s)-y(0) = 0\\
+s^{2}\gamma(s)-2s-2-s\gamma(s)-2 = 0\\
+s^{2}\gamma(s)-s\gamma(s)-2s-4 = 0\\
+\gamma(s) = \frac{2s - 8}{s^{2} -5s + 6}\\
+\gamma(s) = \frac{4}{s-2}-\frac{2}{s-3}
+\end{gather*}
+We now need to transform our equation back to its ODE form; we do in fact have an inverse Laplace
+operator, but it involves complex variables. If we consult a table of transforms, we will see that
+$\gamma(s)$ becomes
+\[
+y(t) = 4e^{2t} +- 2e^{3t}
+\]
+And we are done.
+\newpage
+
+
+\indent Now we want to apply the Laplace transform to a PDE. The idea is the same, but our PDE involves
+two variables: usually $x$, representative of position and $t$, representative of time. The Laplace
+transform \textit{only} transforms with respect to our $t$ variable. Let's take a look at an
+example:\\\\
+\noindent \textbf{\textit{Ex:}} Solve the following PDE using a Laplace Transform.
+\[
+\begin{cases*}
+u_{x} + u_{t} = x\\
+u(0,t) = 0\\
+u(x,0) = 0
+\end{cases*}
+\]
+\indent \textbf{\textit{Solution:}} In this problem we are dealing with a first order PDE. Much
+like an ODE, we simply need to determine what the Laplace transforms of $u_{x}$ and $u_{t}$ are.
+We will let $\Lap[u(x,t)] = \Upsilon(x,s)$. Let's begin with $u_{t}(x,t)$.
+\begin{align*}
+\Lap[u_{t}] &= \int_{0}^{\infty}e^{-st}u_{t}(x,t)dt\\
+&= e^{-st}u(x,t)\bigg|_{0}^{\infty} + s\int_{0}^{\infty}e^{-st}u(x,t)dt\\
+&= s\Upsilon(x,s)-u(x,0)
+\end{align*}
+In a similar fashion, we could find $\Lap[u_{tt}(x,t)]$. We won't derive it here, but it ends up
+looking very similar to our second derivative transform for our ODE:
+\[
+\Lap[u_{tt}(x,t)] = s^{2}\Upsilon(x,s)-su(x,0)-u_{t}(x,0)
+\]
+We also need to determine the transform for $u_{x}(x,t)$. Recall that the Laplace transform only
+deals with the time variable, so our transforms for both $u_{x}(x,t)$ and $u_{xx}(x,t)$ become
+$\Upsilon_{x}(x,s)$ and $\Upsilon_{xx}(x,s)$, respectivly. We now have all the information we need
+to continue. Applying our transform yields
+\begin{gather*}
+\Lap[u_{x} + u_{t}] = \Lap[x]\\
+\Upsilon'(x,s) + s\Upsilon(x,s)-u(x,0) = \frac{x}{s}\\
+\Upsilon'(x,s) + s\Upsilon(x,s) =\frac{x}{s}
+\end{gather*}
+This is just a first order ODE. The only thing we are missing now is the initial condition, which
+we can determine by transforming the initial condition on the PDE. In this case, $u(0,t) = 0$, so
+the initial condition is still 0 after applying the transform. Now we have
+\[
+\begin{cases*}
+\Upsilon'(x,s) + s\Upsilon(x,s) =\frac{x}{s}\\
+\Upsilon(0,s) = 0
+\end{cases*}
+\]
+We can solve this ODE by using the integrating factor method. The integrating factor in this case
+is
+\begin{align*}
+\rho &= e^{\int s\mathop{dx}}\\
+&= e^{sx}
+\end{align*}
+Our ODE now becomes
+\[
+\frac{d}{dx}(e^{sx}\Upsilon(x,t)) = \frac{e^{xs}x}{s}
+\]
+Integration, simplification, and applying our initial condition yields
+\[
+\Upsilon(x,t) = \frac{x}{s^{2}}-\frac{1}{s^{3}} + \frac{e^{-sx}}{s^{3}}
+\]
+Again, we won't dive into the complexity of the inverse Laplace transform here, but if we do take
+the inverse, we get
+\[
+u(x,t) = xt - \frac{t^{2}}{2} - H(t-x)\frac{(t-x)^{2}}{2}
+\]
+The function $H(t-x)$ is the Heavyside Step Function, and is defined as
+\[
+H(x) =
+\begin{cases*}
+0,\quad x<0\\
+1,\quad x\geq 0
+\end{cases*}
+\]
+And we are done.
+\newpage
+
+
+
+\subsection{The Fourier Transform}
+\indent The Fourier transform also allows us to take a PDE and transform it into an ODE. In this case,
+however, we will be transforming with respect to the position variable. There are several variations to
+the Fourier transform; we will look at the regular Fourier transform, the Fourier Sine transform, and the
+Fourier Cosine transform.
+\subsubsection{The Full Fourier Transfrom}
+The Fourier transform of a function $f(x)$ is given by
+\[
+\Four[f(x)] = \frac{1}{2\pi}\int_{-\infty}^{\infty}e^{-i\omega x}f(x)\mathop{dx}
+\]
+Just like the Laplace transform, we will need to determine the Fourier transform for the derivatives
+of functions as well. Recall that with the Laplace transfrom, $\Lap[u_{x}]$ became $\Upsilon_{x}$.
+Using the same argument, we know that
+\begin{gather*}
+\Four[u_{t}(x,t)] = \Lambda_{t}(\omega,t)\\
+\Four[u_{tt}(x,t)] = \Lambda_{tt}(\omega,t)
+\end{gather*}
+When we apply the Fourier transfrom to our $x$ derivatives, we get
+\begin{gather*}
+\Four[u_{x}(x,t)] = i\omega\Lambda(\omega,t)\\
+\Four[u_{xx}(x,t)] = -\omega\Lambda(\omega,t)
+\end{gather*}
+Let's consider the following example:\\\\
+\noindent \textbf{\textit{Ex:}} Solve the following PDE using a Fourier Transform.
+\[
+\begin{cases*}
+2u_{x} + 3u_{t} = 0\\
+u(x,0) = 3
+\end{cases*}
+\]
+\indent \textbf{\textit{Solution:}} We are again dealing with a first order PDE here. We will
+begin by taking the Fourier transform of both sides of the PDE. The Fourier transform of 0 is
+still 0, so we get
+\begin{gather*}
+\Four[2u_{x} + 3u_{t}] = \Four[0]\\
+2i\omega\Lambda(\omega,t) + 3\Lambda_{t}(\omega,t) = 0
+\end{gather*}
+This is just a first order ODE with respect to $t$. We also need to transform our inital condition.
+Doing so yields
+\[
+\Four[3] = 3\delta(\omega)
+\]
+The delta function is defined as the derivative of the Heavyside Step Function. We now have an
+ODE represented by
+\[
+\begin{cases*}
+2i\omega\Lambda(\omega,t) + 3\Lambda_{t}(\omega,t) = 0\\
+\Lambda(\omega,0) = 3\delta(\omega)
+\end{cases*}
+\]
+Solving this ODE and applying the initial condition yields
+\[
+\Lambda(\omega,t) = 3\delta(\omega)e^{-\frac{2}{3}i\omega t}
+\]
+From this step, we would transform the equation back to the $x,t$ coordinate system. We won't do that
+here, so we are done.
+\newpage
+
+\subsubsection{The Fourier Sine Transform}

@@ -1,0 +1,79 @@
+\section{Classification of Partial Differential Equations}
+\hrule
+\noindent\\\\
+\indent We mentioned earlier the topic of classification of PDE's. Since we only
+have this and Fourier Series to talk about, we will go ahead and knock out
+classification. There's some information that we need to go ahead and review
+here. This will be explained in the problem, but it's handy to have it for
+reference:
+\begin{align*}
+b^{2} - ac < 0 &\implies \text{Elliptic with complex roots}\\
+b^{2} - ac = 0 &\implies \text{Parabolic with the same root twice}\\
+b^{2} - ac > 0 &\implies \text{Hyperbolic with two distinct real roots}
+\end{align*}
+\noindent Another helpful piece of information is what's known as the
+\textit{classical trinity} of PDEs.
+\begin{align*}
+u_{t} - ku_{xx} &= 0 \qquad \text{The heat equation (parabolic)}\\
+u_{tt} - c^{2}u_{xx} &= 0 \qquad \text{The wave equation (hyperbolic)}\\
+u_{xx} + u_{yy} &= 0 \qquad \text{The Laplace equation (elliptic)}
+\end{align*}
+Let's go ahead and look at an example.\\\\
+\indent \textbf{Ex. }Classify the following PDE:
+\[yu_{xx} + u_{yy} = 0\]
+\indent \textbf{\textit{Solution:}} The first thing we need to identify are the
+coefficients on the $u_{xx}$, $u_{yy}$, and $u_{xy}$ or $u_{yx}$ terms. Note
+that the $u_{xy}$ and $u_{yx}$ are interchangeable. We will assign these
+coefficients to $a$, $b$, and $c$ corresponding to $u_{xx}$, $u_{xy}$, and
+$u_{yy}$, respectively. Looking at the PDE, we can see that
+\[
+a = y \qquad b = 0 \qquad c = 1
+\]
+\noindent Now we look at $b^{2} - ac$. We are really dealing with
+$b = \frac{b_{0}}{2}$. In other words, we need to divide our $b$ value by $2$.
+In the case of the first problem, we are dealing with $b = 0$. Now we can
+classify our PDE as follows:
+\[
+b^{2} - ac = 0 - y < 0 \implies \text{Elliptic}
+\]
+Note that we assume $y > 0$. So our PDE is elliptic. Now we need to make it look
+like it's corresponding equation from the classical trinity. In this case we
+have an Elliptic equation, so we want to make it look like Laplace's equation.
+We need to find values for $u_{xx}$ and $u_{yy}$, and then substitute those into
+the equation. This is similar to how we solved the first order PDE's; let's look
+at our characteristic equation:
+\begin{gather*}
+am^{2} + bm + c = 0\\
+ym^{2} + 1 = 0\\
+m = \pm \frac{i}{\sqrt{y}}
+\end{gather*}
+\noindent So, now we have two solutions, and they are both imaginary as expected.
+Next we need to find values for $S$ and $T$ that we can substitute into the
+equation. We will do both of them at the same time here. Notice that we will
+drop the $i$:
+\begin{gather*}
+\frac{dy}{dx} = \frac{1}{\sqrt{y}} \qquad\qquad\qquad \frac{dy}{dx} = -\frac{1}{\sqrt{y}}\\
+\int\frac{dy}{dx} =\int\frac{1}{\sqrt{y}} \qquad\qquad\qquad \int\frac{dy}{dx} = -\int\frac{1}{\sqrt{y}}\\
+S = \frac{2}{3}y^{\left(\frac{3}{2}\right)} - x \qquad\qquad\qquad T = \frac{2}{3}y^{\left(\frac{3}{2}\right)} + x
+\end{gather*}
+\noindent Now we can substitute into our equation. Unfortunately, we will need
+to take the partial derivative twice in order to get the substitutions we need.
+Let's start with $u_{xx}$.
+\begin{align*}
+u_{x} &= u_{S}\frac{\partial S}{\partial x} + u_{T}\frac{\partial T}{\partial x}\\
+&= -u_{S} + u_{T}\\
+u_{xx} &= \frac{\partial}{\partial x}(-u_{S} + u_{T})\\
+&= u_{SS} + u_{TT}
+\end{align*}
+\noindent We will skip the math for finding $u_{yy}$, which would give us
+\[
+u_{yy} = yu_{SS} + yu_{TT}
+\]
+\noindent Now we plug everything in. Remember that we were under the assumption
+that $y > 0$:
+\begin{gather*}
+y(u_{SS} + u_{TT}) + yu_{SS} + yu_{TT} = 0\\
+2yu_{SS} + 2yu_{TT} = 0\\
+u_{SS} + u_{TT} = 0
+\end{gather*}
+\noindent And we are finished.
