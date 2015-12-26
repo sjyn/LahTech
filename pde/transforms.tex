@@ -176,4 +176,42 @@ From this step, we would transform the equation back to the $x,t$ coordinate sys
 here, so we are done.
 \newpage
 
-\subsubsection{The Fourier Sine Transform}
+\subsubsection{The Fourier Sine and Cosine Transform}
+Much like the Fourier series, the Fourier transform can also be split into a sine and cosine
+transform. The rules for the transformation still hold; we are still only concerned with the
+position variable $x$. The transform for the positional derivatives do change however. We have
+the following:
+\[
+\Four_{s}[f(x)] = \frac{2}{\pi}\int_{0}^{\infty}\sin{(\omega x)}f(x)\mathop{dx}
+\qquad\qquad\qquad
+\Four_{c}[f(x)] = \frac{2}{\pi}\int_{0}^{\infty}\cos{(\omega x)}f(x)\mathop{dx}
+\]
+Applying these definitions to our positional derivatives yields
+\begin{alignat*}{3}
+&\Four_{s}[u_{x}(x,t)] = -\omega\Four_{c}[u(x,t)] \qquad\qquad\qquad\qquad\qquad
+&&\Four_{c}[u_{x}(x,t)] = -\frac{2}{\pi}u(0,t)+\omega\Four_{s}[u(x,t)]\\
+&\Four_{s}[u_{xx}(x,t)] = \frac{2\omega u(0,t)}{\pi} + \omega^{2}\Four_{s}[u(x,t)]
+&&\Four_{c}[u_{xx}(x,t)] = -\frac{2}{\pi}u_{x}(0,t)-\omega^{2}\Four_{c}[u(x,t)]
+\end{alignat*}
+Notice that with the transform of the first derivative, we end up with the opposite transform of the
+original function. Let's look at an example.
+
+\noindent \textbf{\textit{Ex:}} Solve the following PDE using a Fourier Transform.
+\[
+% \begin{cases*}
+2u_{x} + 3u_{t} = 0
+% u(0,t) = 3
+% \end{cases*}
+\]
+\indent \textbf{\textit{Solution:}} We will start with the sine transform. Applying the sine transform to
+both sides of the equation yields
+\begin{gather*}
+2\Four_{s}[u_{x}] + 3\Four_{s}[u_{t}] = \Four_{s}[0]\\
+-2\omega\Lambda(\omega,t) + 3\Lambda_{t}(\omega,t) = 0\\
+-2\omega\Lambda + 3\Lambda' = 0
+\end{gather*}
+This is a first order ODE that we can easily solve. We get a final solution of
+\[
+\Lambda(\omega,t) = f(t)e^{-\frac{2}{3}\omega}
+\]
+And we are done.

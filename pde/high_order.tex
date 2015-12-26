@@ -1,0 +1,187 @@
+\section{High Order Partial Differential Equations}
+\hrule
+\noindent \\\\
+This section is concerned with high order PDE's. We will be focusing on PDE's that are still linear,
+but contain third, fourth, and higher derivatives. Before we continue, we will need to discuss Green's
+theorem.
+
+\subsection{Green's Theorem}
+Green's theorem stems from the harmonic function that we know as Laplace's equation. We have seen the
+operator $\nabla$, which by definition means
+\[
+\nabla f = <f_{x},f_{y},f_{z}>
+\]
+When we dealt with Laplace's equation, we saw the operator used as
+\[
+\nabla^{2}u = u_{xx} + u_{yy} = 0
+\]
+We ignored the $u_{zz}$ term because we were only concerned with the 2D plane. Green's function provides
+a universal solution to harmonic equations in higher orders than the Laplace equation which we are used to
+dealing with. Before we continue, we need to discuss Green's Identities.
+\subsubsection{Green's First Identity}
+Green's first identity is represented by the equation
+\[
+\int_{D}\nabla\phi\cdot\nabla\psi\mathop{dV} + \int_{D}\phi\nabla^{2}\psi\mathop{dV} =
+\int_{C}\phi\nabla\psi\cdot\mathbf{n}\mathop{dS}
+\]
+This result follows from the \textit{Divergence Theorem} and the product rule for partial derivatives.
+We have $D$, which is the closed surface over which we are integrating, and two function $\phi$ and
+$\psi$. Green's first identity provides us with a way to relate $n$ integrals to $n - 1$ integrals of the
+same function (it can be extended to show that the identity works for $n$ and $n-1$ integrals).
+% We can consider the Neumann style problem as an application of Green's first identity. If we let
+% $\psi = 1$, Green's first identity becomes
+% \[
+% \iint_{\partial D}\frac{\partial\phi}{\partial n}\mathop{dS} = \iiint_{D}\nabla^{2}\phi\mathop{dx}
+% \]
+\subsubsection{Green's Second Identity}
+We can derive Green's second identity from the first identity realtively simply. We simply need to
+interchange $\psi$ and $\phi$, then subtract across. This yields
+% G = \phi
+% u = \psi
+% dA = dV
+\[
+\int_{D} \psi\nabla^{2}\phi\mathop{dV} - \int_{D}\phi\nabla^{2}\psi\mathop{dV} =
+\int_{C}\psi\nabla\phi\cdot\mathbf{n}\mathop{dS} - \int_{C}\phi\nabla\psi\cdot\mathbf{n}\mathop{dS}
+\]
+Again, this identity relates an $n$ dimensional surface integral to an $n-1$ dimesional surface integral
+of the same functions.
+\subsubsection{The Delta Function}
+In addition to Green's identities, we also need to discuss the delta function, $\delta(x)$. We have
+seen this function before (recall $\Four[1]$). Looking at the function in depth, we have the following
+definition:
+\[
+\delta(x)=
+\begin{cases*}
+0,\quad x\neq0\\
+\infty\quad x=0
+\end{cases*}
+\]
+We also have the following properties of the delta function:
+\begin{gather*}
+\int_{-\infty}^{\infty}\delta(x)\mathop{dx} = 1\\
+\int_{-\infty}^{\infty}f(x)\delta(x-a)\mathop{dx} = f(a)
+\end{gather*}
+The second property, called the sifting property, is of particular interest, as we will see soon.
+The delta function can also be extended to the 2D case:
+\[
+\delta(x,y) =
+\begin{cases*}
+0,\qquad(x,y)\neq0\\
+\infty,\qquad(x,y)=0
+\end{cases*}
+\]
+The sifting property from the 1D case becomes
+\[
+\iint f(x,y)\delta(x-a,y-b)\mathop{dA} = f(a,b)
+\]
+where $A$ is a surface over which we are integrating.
+\subsubsection{Green's Functions}
+Finally, we need to discuss the notion of a Green's Function. A Green Function is formally defined
+as
+\[
+G(x,s) = \mathcal{L}^{-1}\delta(x-s)
+\]
+For some linear differential operator $\mathcal{L}$. If we take a function $f(x)$ and multiply and
+integrate, we get the following identity:
+\[
+u(x) = \int G(x,s)f(s)\mathop{ds}
+\]
+Green's Functions can be used to solve many different types of equations;
+For any general ODE, we require two constraints to be fulfilled:
+\begin{enumerate}
+\item A solution to the ODE exists, and
+\item the solutions are linearly independant.
+\end{enumerate}
+Recall that we can check for linear independance of solution via the Wronskian, $\mathcal{W}$.
+We can derive a Green's Function for a differential equation by
+\[
+G(x,s) =
+\begin{cases*}
+\frac{y_{1}(s)y_{2}(x)}{\mathcal{W}(y_{1},y_{2})(s)},\qquad a\leq s\leq x\leq b\\
+\frac{y_{1}(x)y_{2}(s)}{\mathcal{W}(y_{1},y_{2})(s)},\qquad a\leq x\leq s\leq b
+\end{cases*}
+\]
+which yields the solution
+\[
+y(x) = \int_{a}^{b}G(x,s)f(s)\mathop{ds}
+\]
+Let's consider an example.\\
+
+\noindent\textbf{\textit{Ex:}} Solve the following Boundary Value Problem:
+\[
+\begin{cases*}
+y''(x) = x^{2}\\
+y(0) = 0\\
+y(1) = 0
+\end{cases*}
+\]
+\indent\textbf{\textit{Solution:}} To solve this problem, we need to first find the Green Function
+associated with the problem. Let's consider the homogeneous ODE $y'' = 0$. This has the solution
+\[
+y(x) = c_{1} + c_{2}x
+\]
+We can take any arbitrary $c$ as long as our choice does not yield a trivial solution and it satisfies
+the boundary conditions. Let's consider
+\[
+y_{1}(x) = x\qquad\qquad\text{and}\qquad\qquad y_{2}(x) = 1 - x
+\]
+We can see that this choice satisfies the boundary conditions, and that
+\[
+\left|
+\begin{array}{c c}
+0 & 1\\
+1 & 1
+\end{array}\right|
+= -1 \neq 0
+\]
+which implies that the choice we made is linearly independant. We can now derive a Green's function
+for our ODE as follows:
+\begin{align*}
+G(x,s) &=
+\begin{cases*}
+\frac{s(1-x)}{-1}\\
+\frac{x(1-s)}{-1}
+\end{cases*}\\
+&=
+\begin{cases*}
+x-s\\
+s-x
+\end{cases*}
+\end{align*}
+We are bounded by $[0,1]$ in this case, so we really have
+\[
+G(x,s) =
+\begin{cases*}
+x-s,\qquad 0\leq s\leq x\\
+s-x,\qquad x\leq s\leq 1
+\end{cases*}
+\]
+We said earlier that the solution $y(x)$ can be found by
+\begin{align*}
+y(x) &= \int_{a}^{b}G(x,s)f(s)\mathop{ds}\\
+&= \int_{0}^{x}(x-s)s^{2}\mathop{ds} + \int_{x}^{1}(s-x)(s^{2})\mathop{ds}\\
+&= \frac{1}{12}(x^{x} - x)
+\end{align*}
+And we are done.
+\newpage
+
+Green's Functions are useful for more than ODE's. We want to extend the idea to PDE's, which can
+be doe simply enough. Before we continue, we will mention Poisson's Equation, which is a
+generalized form of Laplace's Equation:
+\[
+\nabla^{2}\psi = -4\pi\rho
+\]
+If we take $\rho = 0$, we get back Laplace's Equation. Let's consider the following example:\\
+
+
+\noindent\textbf{\textit{Ex:}} Solve the Poisson equation
+\[
+\begin{cases*}
+\nabla^{2}u = -f(x,y)\qquad \text{on }\Omega = \{(x,y)|0<x<\pi,0<y<\pi\}\\
+u = 0,\qquad\qquad\qquad\text{on } \partial\Omega
+\end{cases*}
+\]
+\indent\textbf{\textit{Solution:}} We know the formal solution to this PDE:
+\[
+u(x,y) = \sum_{n=1}^{\infty}b_{n}(y)\sin{(nx)}
+\]
