@@ -1,0 +1,92 @@
+\documentclass{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{minted}
+
+\topmargin=-0.3in
+\textheight=9.2in
+\textwidth=168mm
+\oddsidemargin=-0.2in
+\evensidemargin=-0.2in
+
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\QQ}{\mathbb{Q}}
+
+\pagenumbering{gobble}
+
+\title{3.0 Is Not An Integer}
+\date{}
+\begin{document}
+\maketitle
+\newpage
+
+In the following document, we will show that 3.0 is not an integer, or $3.0 \notin \ZZ$. This result
+stems from the fundametal idea, which we will prove, that $0.\overline{99} = 1.0$. The notation
+$0.\overline{99}$ is a symbolic way to represent $0.99999...$ where the $9$ repeats \textbf{infinitely}.
+It is clear that we can accept $0.\overline{99}$ as being an element of the real numbers $\RR$ and not an
+element of the set of integers $\ZZ$ or rationals $\QQ$. We will now show that $0.\overline{99} = 1.0$.\\
+
+\noindent\textbf{\textit{Theorem:}} $0.\overline{99} = 1.0$.\\\\
+\indent\textbf{\textit{Proof:}} We can represent the number $0.\overline{99}$ as a geometric series
+represented as
+\begin{align*}
+0.\overline{99} &= \frac{9}{10} + \frac{9}{100} + \frac{9}{1000} + \frac{9}{10000} + \cdots\\
+&= \frac{9}{10} + \left(\frac{9}{10}\right)\left(\frac{1}{10}\right) +
+\left(\frac{9}{10}\right)\left(\frac{1}{100}\right) +
+\left(\frac{9}{10}\right)\left(\frac{1}{1000}\right) + \cdots\\
+&= \frac{9}{10} + \left(\frac{9}{10}\right)\left(\frac{1}{10}\right)^{1} +
+\left(\frac{9}{10}\right)\left(\frac{1}{10}\right)^{2} +
+\left(\frac{9}{10}\right)\left(\frac{1}{10}\right)^{3} + \cdots\\
+&= \sum_{n=1}^{\infty}\left(\frac{9}{10}\right)\left(\frac{1}{10}\right)^{n-1}.
+\end{align*}
+The general form for a geometric series is given by
+\[
+\sum_{n=1}^{\infty}ar^{n-1},
+\]
+Which leads us to assign the common ratio $r = \frac{1}{10}$ and $a = \frac{9}{10}$. By definition,
+a geometric series converges to $\frac{a}{1 - r}$ if $|r| < 1$. This leads us to
+\begin{align*}
+0.\overline{99} &= \frac{\frac{9}{10}}{1 - \frac{1}{10}}\\
+&= \frac{9}{10 -1}\\
+&= \frac{9}{9}\\
+&= 1.
+\end{align*}
+$\triangle$
+\noindent\\
+
+Now we can extend our argument to the original claim, that $3.0\notin\ZZ$.\\
+\noindent\textbf{\textit{Theorem:}} $3.0\notin\ZZ$.\\\\
+\indent\textbf{\textit{Proof:}} Assume that $3.0\in\ZZ$. Then $2.0 + 1 \in\ZZ$. We know as a fundamental
+truth that if $x\in\RR$ and $y\notin\ZZ$, then $x + y\notin\ZZ$. We have already shown that
+$1 = 0.\overline{99}$, so it follows that $2.0 + 1 = 2.0 + 0.\overline{99}$. $0.\overline{99}$ is not an
+integer, and therefore $3.0 = 2.0 + 0.\overline{99}\notin\ZZ$.\\
+$\triangle$
+\newpage
+
+Before we conclude, it should also be noted that from a practical standpoint, 3.0 cannot be considered
+an integer. In this day and age, the study of programming is becoming a more and more necessary
+skill for people to learn. Programming languages such as Java, C++, Ruby, and countless other
+languages that are widely used would never assert that $3.0\in\ZZ$. For example, consider the following
+Ruby code:
+\begin{minted}{ruby}
+def main
+    if 3.0 == 3 then
+        puts "3.0 = 3"
+    else
+        puts "3.0 != 3"
+end
+\end{minted}
+This code will execute the else block of code. In the following Java code, the compiler would
+automatically cast the value 3.0 to 3, since it was explicitly declared as an integer value:
+\begin{minted}{java}
+public class ThreePointOh {
+    public static void main(String[] args){
+        int tpo = 3.0;
+        System.out.println(tpo); //Outputs 3, not 3.0
+    }
+}
+\end{minted}
+It is simply not practical to continue under the assumption that $3.0\in\ZZ$.
+\end{document}
