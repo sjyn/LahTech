@@ -1,0 +1,124 @@
+\documentclass{hw}
+
+%page 7: 7,9,10,14,16,17,21,23
+
+\begin{document}
+\makeheader{1}
+\begin{enumerate}
+\item
+Let $A$ be the point with coordinates $(1, 0, 2)$, let $B$ be the point with coordinates $(−3, 3, 1)$, and
+let $C$ be the point with coordinates $(2, 1, 5)$.
+\begin{enumerate}
+\item Describe the vectors $\vv{AB}$ and $\vv{BA}$.
+\begin{quote}
+$\vv{AB}$ will be the vector from $(1,0,2)$ to $(−3, 3, 1)$, which is the same as the vector $(-4,3,-1)$.
+\end{quote}
+\item Describe the vectors $\vv{AC},\vv{BC}$, and $\vv{AC} + \vv{CB}$.
+\begin{quote}
+$\vv{AC}$ will be the vector from $(1,0,2)$ to $(2,1,5)$, which is the same as the vector $(1,1,3)$.\\
+$\vv{BC}$ will be the vector from $(-3,3,1)$ to $(2,1,5)$, which is the same as the vector $(5,-2,4)$.\\
+$\vv{CB} = (1,2,-4)$, so $\vv{AC} + \vv{CB} = (2,3,-1)$.
+\end{quote}
+\item Explain with pictures why $\vv{AC} + \vv{CB} = \vv{AB}$.
+\vspace{3cm}
+\end{enumerate}
+\item If $(-12,9,z)+(x,7,-3) = (2,y,5)$, what are $x,y$, and $z$?
+\begin{alignat*}{4}
+& -12 + x = 2\qquad\qquad && 9 + 7 = y\qquad\qquad &&& z-3= 5\\
+& x = 14 && y = 16 &&& z = 8
+\end{alignat*}
+\item What is the length of the vector $<3,1>$?
+\begin{quote}
+The length of the vector is $\sqrt{3^{2} + 1^{2}}$, or $\sqrt{10}$.
+\end{quote}
+\item Find the displacement vectors from $P_{1}$ to $P_{2}$, and sketch $P_{1}, P_{2}$, and
+$\vv{P_{1}P_{2}}$.\\\\
+\begin{minipage}{0.25\textwidth}
+(a) $P_{1}(1,0,2)$, $P_{2}(2,1,7)$
+$$\vv{P_{1}P_{2}} = (1,1,5)$$
+\end{minipage}
+\begin{minipage}{0.25\textwidth}
+(b) $P_{1}(1,6,−1),P_{2}(0,4,2)$
+$$\vv{P_{1}P_{2}} = (-1,-2,3)$$
+\end{minipage}
+\begin{minipage}{0.25\textwidth}
+(c) $P_{1} (0,4,2), P_{2} (1,6,−1)$
+$$\vv{P_{1}P_{2}} = (1,2,-3)$$
+\end{minipage}
+\begin{minipage}{0.25\textwidth}
+(d) $P_{1}(3,1), P_{2}(2,−1)$
+$$\vv{P_{1}P_{2}} = (-1,-2)$$
+\end{minipage}
+
+\vspace{3cm}
+\item If $A$ is the point in $\RR^{3}$ with coordinates $(2,5,-6)$ and the displacement
+vector from $A$ to $B$ is $(12,-3,7)$, what are the coordinates of $B$?
+\begin{quote}
+The vector $\vv{AB} = (12,-3,7) = (x_{B} - 2, y_{B} - 5, z_{B} + 6)$. Setting up a system of
+equations yields
+\begin{alignat*}{4}
+& 12 = x_{B} - 2\qquad\qquad && -3 = y_{B} - 5 \qquad\qquad &&& 7 = z_{B} + 6\\
+& x_{B} = 14 && y_{B} = 2 &&& z_{B} = 1
+\end{alignat*}
+Therefore $B = (14,2,1)$.
+\end{quote}
+\newpage
+\item Suppose that you and your friend are in New York talking on cellular phones. You inform each other
+of your own displacement vectors from the Empire State Building to your current position. Explain how
+you can use this information to determine the displacement vector from you to your friend.
+\begin{quote}
+The Empire State Building acts as the origin. If you know your point ($A$) and your friend's point, ($B$),
+you can calculate the displacement vector $\vv{AB}$, which will provide you with the displacement vector
+from you to your friend by $\vv{AB} = (x_{b} - x_{a}, y_{b} - y_{a})$.
+\end{quote}
+\item
+\begin{enumerate}
+\item Let $\vv{a} = (2,0)$ and $\vv{b} = (1,1)$. For $0\leq s\leq 1$ and $0\leq t\leq 1$, consider the
+vector $\vv{x} = s\vv{a} + t\vv{b}$. Explain why the vector $\vv{x}$ lies in the parallelogram
+determined by $\vv{a}$ and $\vv{b}$.
+\begin{quote}
+For $\vv{x}$ to be in the parallelogram $\vv{a}\vv{b}$, $\vv{x}$ cannot be greater than $(3,1)$ and
+cannot be less than $(0,0)$. $\vv{x}$ is defined as
+\begin{align*}
+\vv{x} &= s\vv{a} + t\vv{b}\\
+&= (2s,0) + (t,t)\\
+&= (2s + t, t),
+\end{align*}
+which at $s = 0$ and $t = 0$ still lies within the bound, and at $s = 1$ and $t=1$ still lies within
+the bound.
+\end{quote}
+\item Now suppose that $\vv{a} = (2,2,1)$ and $\vv{b} = (0,3,2)$. Describe the set of vectors
+$\{\vv{x} = s\vv{a} + t\vv{b} | 0\leq s\leq 1, 0\leq t\leq 1\}$.
+\begin{quote}
+The set of vectors will be in the form of
+\[
+(2s, 2s+3t, s+2t)
+\]
+\end{quote}
+\end{enumerate}
+\item A flea falls onto marked graph paper at the point $(3,2)$. She begins moving from that point with
+velocity vector $\vv{v} = (−1, −2)$ (i.e., she moves 1 graph paper unit per minute in the negative
+x-direction and 2 graph paper units per minute in the negative y-direction).
+\begin{enumerate}
+\item What is the speed of the flea?
+\begin{align*}
+\text{speed} &= \sqrt{1 + 4}\\
+&= \sqrt{5}
+\end{align*}
+\item Where is the flea after 3 minutes?
+\begin{quote}
+The flea's position can be expressed as $f(t) = (3-t,2-2t)$. Plugging in 3 for $t$ yields $(0,4)$.
+\end{quote}
+\item How long does it take the flea to get to the point $(-4,-12)$?
+\begin{quote}
+We have the equation $f(t) = (3-t,2-2t)$. We setting it equal to $(-4,-12)$ and solving for $t$ yields
+$t = 7$.
+\end{quote}
+\item Does the flea reach the point $(−13, −27)$? Why or why not?
+\begin{quote}
+Using the equation above, we can solve again for $t$. Doing so yields $t=16$ and $t=14.5$, which is
+impossible. Therefore the flea does not reach that point.
+\end{quote}
+\end{enumerate}
+\end{enumerate}
+\end{document}
