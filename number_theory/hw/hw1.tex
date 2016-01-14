@@ -1,5 +1,7 @@
 \documentclass{hw}
 
+\usepackage{cancel}
+
 \begin{document}
 \makeheader{1}
 
@@ -94,5 +96,37 @@ dividing both sides by $m$ gives us $b = na$. Therefore $a|b$.
 $\triangle$
 
 \item Suppose $a,b\in\ZZ$ with $b\neq 0$ and $a|b$. Prove that $|a| \leq |b|$.
+\begin{quote}
+Since $a|b$, we have that $b=an$ for some $n\in\ZZ$. We first need to show that $n \neq 0$.
+Since $b\neq 0$, $an\neq 0$. Therefore both $a$ and $n$ must not be equal to 0. If we apply
+the absolute value to $b$, we have that $|b| = |an|$. We know that $|an| = |a||n|$. Since
+$n\neq 0$, $|n| \geq 1$. We also know that $|a| \geq 1$, since $a\neq 0$. Therefore
+$|a||n| \geq |a|$, or $|an| \geq |a|$. Since $|b| = |an|$, we have that $|a|\leq|b|$.
+\end{quote}
+$\triangle$
+
+\item Suppose that $a,b,c,d\in\ZZ$ are such that $a|b$ and $c|d$. Does $a+c$ necessarily
+divide $b+d$?
+\begin{quote}
+Assume $a+c$ divides $b+d$. Let $a=1$ and $c=-1$. Both 1 and -1 divide all elements of $\ZZ$, but
+$1 + -1 = 0$, and 0 does not divide anything. Therefore by counterexample it does not.
+\end{quote}
+$\triangle$
+
+\item Suppose that $b\in\ZZ$.
+\begin{enumerate}
+\item If $4|b^{2}$, prove that $2|b$.
+\begin{quote}
+Assume that $4|b^{2}$ but $2\cancel{|}b$. Then $b = 2n + r$ for some $n$ and $r$ in $\ZZ$. We know
+that $r\neq 0$, and that $0 < r < 2$. Therefore $r = 1$. If we square both sides, we get
+\begin{align*}
+b^{2} &= (2n+1)^{2}\\
+&= 4n^{2}+4n+1\\
+&= 4(n^{2} + n) + 1.
+\end{align*}
+Therefore $4\cancel{|}b$, since it has a remainder of 1.
+\end{quote}
+
+\end{enumerate}
 \end{enumerate}
 \end{document}
