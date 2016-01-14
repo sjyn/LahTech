@@ -1,0 +1,98 @@
+\documentclass{hw}
+
+\begin{document}
+\makeheader{1}
+
+\begin{enumerate}
+\item What are the possible remainders when a perfect square is divided by 3 or by 6?
+\begin{quote}
+Let $k\in\ZZ$ such that $a = k^{2}$. By the division algorithm, we have that
+\[
+k = 3q_{1} + r_{1} \qquad\text{and}\qquad k = 6q_{2} + r_{2}.
+\]
+\underline{case $k = 3q_{1} + r_{1}$}: Squaring $k$ yields
+\[
+k^{2} = 9q_{1}^{2} + 6q_{1}r_{1} + r_{1}^{2}.
+\]
+Since $k^{2} = a$, we have that
+\begin{align*}
+a &= 3(3q_{1}^{2} + 2q_{1}r_{1}) + r_{1}^{2}\\
+&= 3q_{0} + r_{0},\text{ where } q_{0} = (3q_{1}^{2} + 2q_{1}r_{1})\text{ and } r_{0} = r_{1}^{2}.
+\end{align*}
+We know by the division algorithm that $r_{0}\in\{ 0,1,2\}$. If we let $r_{0} = 0$ or $r_{0} = 1$, then
+$r_{1}^{2} < 4$ and still in $\{ 0,1,2\}$. Therefore, 0 and 1 are possible remainders. If we let
+$r_{0} = 2$, then $r_{1}^{2} = 4$, which is not less than 4. However, we have that
+\begin{align*}
+a &= 3q_{0} + 2^{2}\\
+&= 3q_{0} + 4\\
+&= 3q_{0} + 3 + 1\\
+&= 3(q_{0} + 1) + 1,
+\end{align*}
+Which implies that 1 is a valid remainder. Therefore, 0 and 1 are the only valid remainders.\\
+
+\underline{case $k = 6q_{2} + r_{2}$}:
+If we square $k$, then we have
+\[
+k^{2} = 36q_{2}^{2} + 12q_{2}r_{2} + r_{2}^{2}.
+\]
+Since $a = k^{2}$, we have that
+\begin{align*}
+a &= 36q_{2}^{2} + 12q_{2}r_{2} + r_{2}^{2}\\
+&= 6(6q_{2}^{2} + 2q_{2}r_{2}) + r_{2}^{2}\\
+&= 6q_{0} + r_{0},\text{ where } q_{0} = 6q_{2}^{2} + 2q_{2}r_{2} \text{ and } r_{0} = r_{2}^{2}.
+\end{align*}
+We know that for $r_{0} = 0,1,\text{ and }2$, $r_{2}^{2} \leq 6$, so they are valid remainders. For
+$r_{0} = 3,4,\text{ and } 5$, we have
+\end{quote}
+\begin{minipage}{0.3\textwidth}
+\underline{$r_{0} = 3$}
+\begin{align*}
+a &= 6q_{0} + 9\\
+&= 6q_{0} + 6 + 3\\
+&= 6(q_{0} + 1) + 3
+\end{align*}
+$\therefore$ 3 is a valid remainder.
+\end{minipage}
+\begin{minipage}{0.3\textwidth}
+\underline{$r_{0} = 4$}
+\begin{align*}
+a &= 6q_{0} + 16\\
+&= 6q_{0} + 12 + 4\\
+&= 6(q_{0} + 2) + 4
+\end{align*}
+$\therefore$ 4 is a valid remainder.
+\end{minipage}
+\begin{minipage}{0.3\textwidth}
+\underline{$r_{0} = 5$}
+\begin{align*}
+a &= 6q_{0} + 25\\
+&= 6q_{0} + 24 + 1\\
+&= 6(q_{0} + 4) + 1
+\end{align*}
+$\therefore$ 1 is a valid remainder.
+\end{minipage}
+\begin{quote}
+Therefore, the valid remainders are $\{ 0, 1, 2, 3, 4\}$.
+\end{quote}
+$\triangle$
+
+\item Suppose $a,b,c,d\in\ZZ$ are such that $a|b$ and $c|d$. Prove that $ac|bd$.
+\begin{quote}
+Since $a|b$, we have that $b = an$ for some $n\in\ZZ$. We also have that $c|d$, so $d=cm$ for some
+$m\in\ZZ$. The product $bd = (an)(cm)$, which, after rearranging, yields $bd = (nm)(ac)$. We know that
+$nm\in\ZZ$, so we let $j = nm$. Then $bd = jac$, so $ac|bd$.\\
+\end{quote}
+$\triangle$
+
+\item Suppose $a,b,m\in\ZZ$ and $m\neq 0$. Prove that $a|b$ if and only if $ma|mb$.
+\begin{quote}
+Suppose $a|b$. Then $b = na$ for some $n\in\ZZ$. Multiplying both sides of the equation yields
+$mb = mna$; therefore $ma|mb$.\\
+Suppose $ma|mb$, and $m\neq 0$. Then $mb = mna$ for some $n\in\ZZ$. We know that $\frac{m}{m} = 1$, so
+dividing both sides by $m$ gives us $b = na$. Therefore $a|b$.
+\end{quote}
+$\triangle$
+
+\item Suppose $a,b\in\ZZ$ with $b\neq 0$ and $a|b$. Prove that $|a| \leq |b|$.
+\end{enumerate}
+\end{document}
