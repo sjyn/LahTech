@@ -3,42 +3,44 @@
 
 \RequirePackage{setspace}
 \RequirePackage{luacode}
-
-\usepackage{lineno}
+\RequirePackage{lineno}
 \usepackage[margin=1in]{geometry}
 
+\newcommand{\inlinetitle}{\vspace{-1.5cm}{\let\newpage\relax\maketitle}\vspace{-1.5cm}}
+
 \doublespacing
-\linenumbers
+% \linenumbers
 
 \begin{luacode}
 	function printWordCount()
-		local exitcode = os.execute("detex paper_one.tex | wc -w > count.txt")
+		local exitcode = os.execute("detex ".."\jobname".." | wc -w > count.txt")
 		if exitcode == 0 then
 			local file = io.open("count.txt")
 			if file ~= nil then
 				tex.print(""..file:read())
+				os.remove("count.txt")
 			end
 		end
 	end
 \end{luacode}
 
-\newcommand{\standardhead}[1]{%
+\newcommand{\standardhead}{%
 	\noindent Group B\\
 	\noindent Word Count: \directlua{printWordCount()} \\
 	\noindent Meeting Time: MW 1500\\
 	\noindent \today
 }
 
-\newcommand{\drafth}[1]{%
+\newcommand{\drafth}{%
 	\begin{flushright}
 		\noindent 5793\\
-		\standardhead{#1}
+		\standardhead{}
 	\end{flushright}
 }
 
-\newcommand{\finalh}[1]{%
+\newcommand{\finalh}{%
 	\begin{flushright}
 		\noindent Steven Rosendahl 00885793\\
-		\standardhead{#1}
+		\standardhead{}
 	\end{flushright}
 }
