@@ -10,6 +10,10 @@
 /comporg/final_review_questions.pdf
 /emilee/*
 /tats/*
+/writing_in_ethics/emily_paper_one.pdf
+
+# ignore R residual files
+*.Rapp.history
 
 # updater.sh
 

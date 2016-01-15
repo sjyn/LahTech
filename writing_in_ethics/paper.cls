@@ -4,12 +4,13 @@
 \RequirePackage{setspace}
 \RequirePackage{luacode}
 \RequirePackage{lineno}
-\usepackage[margin=1in]{geometry}
+\RequirePackage[margin=1in]{geometry}
+\RequirePackage{hyperref}
+\RequirePackage[backend=bibtex,style=mla,showmedium=false]{biblatex}
 
 \newcommand{\inlinetitle}{\vspace{-1.5cm}{\let\newpage\relax\maketitle}\vspace{-1.5cm}}
 
 \doublespacing
-% \linenumbers
 
 \begin{luacode}
 	function printWordCount()
