@@ -1,0 +1,50 @@
+\section{Bessel Functions}
+\hrule
+\noindent\\
+
+The 2D heat equation provided us a way to describe heat flow through a 2D surface, such as a thin rod.
+Now imagine that we have a surface that is shaped like a large cylinder. We've now moved into 3D space,
+and as such we will have to come up with a way to describe the heat transfer through the cylinder. Let's
+start by recalling Laplace's equation,
+\[
+\nabla^{2}u = 0,
+\]
+which described a vector composed of the all the partial derivatives of $u$. We will need to keep this
+equation in mind as we concern ourselves with the 3D heat equation.\\
+
+Our end goal will be to come up with a formal solution for the equation
+\[
+u_{t} = k^{2}(u_{xx} + u_{yy}).
+\]
+This is, of course, the heat equation expanded to a cylinder. Recall that when we dealt with Laplace's
+equation on a disk, we moved into polar coordinates. The 3D heat equation contains the laplacian in it,
+represented as
+\[
+u_{xx} + u_{yy}.
+\]
+Moving into polar coordinates will allow us to have rectangular bounds on our function. Transforming our
+heat equation yields
+\[
+u_{t} = k^{2}(u_{rr} + {1 \over r}u_{r} + {1\over r^{2}}u_{\theta\theta}).
+\]
+We now have a rectangular bound, which allows us to use the familiar separation of variables technique to
+solve the PDE. In this case, we want to separate the spacial variables ($r,\theta$) from the time variable
+($t$). We have a general solution of
+\[
+u = V(r,\theta)T(t) = 0.
+\]
+Setting them equal to a common value yields
+\[
+{T \over k^{2}T} = {V_{rr} + {1\over r}V_{r} + {1\over r^{2}}V_{\theta\theta} \over V} = -\lambda^{2}.
+\]
+As expected, we are left with 2 ODEs. The first ODE, concerning $T$, will be left alone for now.
+The remaining ODE can be solved by using separation of variables again. Doing so yields
+\begin{gather*}
+V = R(r)\nu(\theta)\\
+\begin{cases}
+\eta^{''} + \gamma\eta = 0\\
+r^{2}R'' + rR' + (k^{2}r^{2} - \gamma^{2})R = 0
+\end{cases}.
+\end{gather*}
+Again, we will leave the $\eta$ function for later, and instead turn our attention to the equation
+concerning $R$. This leads us to our discussion of Bessel Functions.\\

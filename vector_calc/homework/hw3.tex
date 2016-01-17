@@ -1,0 +1,65 @@
+\documentclass{hw}
+\begin{document}
+\makeheader{3}
+
+\begin{enumerate}
+\item Compute $a\cdot b$, $||a||$ and $||b||$ where $\vv{a} = 4i -3j + k$ and $\vv{b}=i+j+k$.
+\begin{quote}
+\begin{align*}
+a\cdot b &= 4 - 3 + 1\\
+&= 2\\
+||a|| &= \sqrt{16+9+1}\\
+&= \sqrt{26}\\
+||b|| &= \sqrt{1+1+1}\\
+&= \sqrt{3}
+\end{align*}
+\end{quote}
+
+\item Find the angle between $\vv{a} = \sqrt{3}\ i + j$ and $\vv{a} = -\sqrt{3}\ i + j$.
+\begin{align*}
+\theta &= \arccos{\left({a\cdot b \over ||a||\ ||b||}\right)}\\
+&= \arccos{\left({-2\over 4}\right)}\\
+&= \arccos{\left(-{1\over 2}\right)}\\
+&= {2\pi \over 3}
+\end{align*}
+
+\item Find the angle between $\vv{a} = i + j$ and $\vv{b} = i + j + k$.
+\begin{align*}
+\theta &= \arccos{\left({a\cdot b \over ||a||\ ||b||}\right)}\\
+&= \arccos{\left({2 \over \sqrt{6}}\right)}
+\end{align*}
+
+\item Find the angle between $\vv{a} = (1,-2,3)$ and $\vv{b} = (3,-6,-5)$.
+\begin{align*}
+\theta &= \arccos{\left({a\cdot b \over ||a||\ ||b||}\right)}\\
+&= \arccos{(0)}\\
+&= {\pi \over 2}
+\end{align*}
+
+\item Calculate $proj_{a}b$ where $\vv{a} = i + j$ and $\vv{b} = 2i + 3j - k$.
+\begin{align*}
+proj_{a}b &= {a\cdot b \over ||a||^{2}}\vv{a}\\
+&= {4\over 2}(i + j)\\
+&= 2i + 2j
+\end{align*}
+
+\item Calculate $proj_{a}b$ where $\vv{a} = i + j + 2k$ and $\vv{b} = 2i - 4j + k$.
+\begin{align*}
+proj_{a}b &= {a\cdot b \over ||a||^{2}}\vv{a}\\
+&= {0\over 4}(i+j+2k)\\
+&= 0
+\end{align*}
+
+\item Give a vector of length 3 that points in the same direction as the vector $i + j - k$.
+\begin{quote}
+The length is just a scalar value multiplied by the vector. Therefore we have the unit vector $i + j - k$,
+with length 3 will be
+\[3i + 3j - 3k.\]
+\end{quote}
+
+\item Is there ever a case where $proj_{a}b = proj_{b}a$?
+\begin{quote}
+
+\end{quote}
+\end{enumerate}
+\end{document}
