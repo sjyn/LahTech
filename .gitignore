@@ -1,21 +1,24 @@
-# Custom Ignores
-/wim/twitter_problem/const.rb
-/wim/twitter_problem/twitter_data.txt
-/wim/twitter_problem/results.nb
-/wim/fb_problem/const.rb
-/wim/ignore/*
-/comporg/final_review_slides.pdf
-/comporg/final_review_questions.pdf
+# Custom Directories
+/writing_in_mathematics/twitter_problem/const.rb
+/writing_in_mathematics/twitter_problem/twitter_data.txt
+/writing_in_mathematics/twitter_problem/results.nb
+/writing_in_mathematics/fb_problem/const.rb
+/writing_in_mathematics/ignore/*
+
+/computer_organization/final_review_slides.pdf
+/computer_organization/final_review_questions.pdf
+
 /tats/*
+
 /writing_in_ethics/emily_paper_one.pdf
-/math_modeling/excel/*
+
 
 # ignore R residual files
 *.Rapp.history
 
-# updater.sh
-
+# Microsoft Files
 *.docx
+*.xlsx
 
 # Core latex/pdflatex auxiliary files:
 *.aux
