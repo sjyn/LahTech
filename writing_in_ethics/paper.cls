@@ -1,12 +1,19 @@
 \ProvidesClass{paper}
-\LoadClass{article}
+
+\LoadClass[12pt]{article}
 
 \RequirePackage{setspace}
 \RequirePackage{luacode}
 \RequirePackage{lineno}
+\RequirePackage{fontspec}
 \RequirePackage[margin=1in]{geometry}
 \RequirePackage{hyperref}
 \RequirePackage[backend=bibtex,style=mla,showmedium=false]{biblatex}
+
+\date{}
+\author{}
+
+\setmainfont{Times New Roman}
 
 \newcommand{\inlinetitle}{\vspace{-1.5cm}{\let\newpage\relax\maketitle}\vspace{-1.5cm}}
 
