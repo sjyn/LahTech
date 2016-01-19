@@ -158,7 +158,12 @@ Therefore $gcd(1485,1745) = gcd(5,0) = 5$.
 only if $a|b$.
 \begin{quote}
 Assume that $gcd(a,b) = a$. Then $a$ is a divisor of both $a$ and $b$ by the definition of the $gcd$.
-Therefore $a|b$.
+Therefore $a|b$.\\
+Assume that $a|b$. We know that $a|a$, so $a$ is the greatest integer that divides $a$. Since $a|b$, we
+know that $a$ is also a factor of $b$. If $a < b$, then $a$ is the largest integer that divides both $a$
+and $b$. Therefore $gcd(a,b) = a$. If $a = b$, then $a$ is still the greatest common factor between
+$a$ and $b$. Therefore $gcd(a,b) = a$.
 \end{quote}
+$\triangle$
 \end{enumerate}
 \end{document}
