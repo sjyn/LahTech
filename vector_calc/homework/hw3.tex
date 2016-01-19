@@ -57,9 +57,62 @@ with length 3 will be
 \[3i + 3j - 3k.\]
 \end{quote}
 
-\item Is there ever a case where $proj_{a}b = proj_{b}a$?
+\item Is there ever a case where $proj_{a}b = proj_{b}a$? If so, under what conditions?
 \begin{quote}
+If we use the explicit formulas equal to each other, we have
+\begin{align*}
+\left({a\cdot b \over a\cdot a}\right)\vv{a} &= \left({a\cdot b \over b\cdot b}\right)\vv{b}\\
+{||a|| \over ||b||}\vv{a} &= \vv{b}
+\end{align*}
+Therefore, the projections are equal only when $\vv{a} = \vv{b}$.
+\end{quote}
 
+\item Prove part 1 of Proposition 3.4.
+\begin{quote}
+We need to show that $||k\vv{a}|| = |k|\ ||\vv{a}||$. Then
+\begin{align*}
+||k\vv{a}|| &= ||(ka_{1},ka_{2},\dots,ka_{n})||\\
+&= \sqrt{k^{2}a_{1}^{2} + k^{2}a_{2}^{2} + \cdots + k^{2}a_{n}^{2}}\\
+&= \sqrt{k^{2}(a_{1}^{2} + a_{2}^{2} + \cdots + a_{n}^{2})}\\
+&= \sqrt{k^{2}}\ \sqrt{a_{1}^{2} + a_{2}^{2} + \cdots + a_{n}^{2}}\\
+&= |k|\ ||\vv{a}||.
+\end{align*}
+$\triangle$
+\end{quote}
+
+\item In physics, when a constant force acts on an object as the object is displaced, the work done by
+the force is the product of the length of the displacement and the component of the force in the
+direction of the displacement. Figure 1.48 depicts an object acted upon by a constant force $F$, which
+displaces it from the point $P$ to the point $Q$. Let $\theta$ denote the angle between $F$ and the
+direction of
+displacement.
+\begin{enumerate}
+\item Show that the work done by $F$ is determined by the formula $F\cdot\vv{PQ}$.
+\begin{quote}
+We can determine the $x$ component of $F$ as $||F||\cos{\theta}$. Then the work can be computed as
+$||F||\ ||\vv{PQ}||\cos{\theta}$, which is $F\cdot\vv{PQ}$ by definition.
+\end{quote}
+\item Find the work done by the (constant) force $F = i + 5j + 2k$ in moving a particle from the point
+$(1, -1, 1)$ to the point $(2, 0, -1)$.
+\begin{quote}
+We need to find the dot product $(1,5,2)\cdot(1,1,-2)$, which is equal to $2$. Therefore, the work done
+is 2 units.
+\end{quote}
+\end{enumerate}
+
+\item Using vectors, prove that the diagonals of a parallelogram are perpendicular if and only if the
+parallelogram is a rhombus. (Note: A rhombus is a parallelogram whose four sides all have the same
+length).
+\begin{quote}
+We need to show that the vectors $\vv{ab}$ and $\vv{ba}$ have a dot product of 0. We know that the
+lengths of $\vv{a}$ and $\vv{b}$ are equal, and that $\vv{ab} = (a_{1} - b_{1}, a_{2} - b_{2})$ and
+$\vv{ba} = (b_{1} + a_{1}, b_{2} + a_{2})$. Therefore
+\begin{align*}
+\vv{ab}\cdot\vv{ba} &= (a_{1} - b_{1})(b_{1} + a_{1}) + (a_{2} - b_{2})(b_{2} + a_{2})\\
+&= a_{1}^{2}+a_{2}^{2}-b_{1}^{2}-b_{2}^{2}\\
+&= b_{1}^{2}+b_{2}^{2}-b_{1}^{2}-b_{2}^{2},\text{ Since the lengths are equal,}\\
+&= 0
+\end{align*}
 \end{quote}
 \end{enumerate}
 \end{document}
