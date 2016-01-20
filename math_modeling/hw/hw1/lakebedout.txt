@@ -1,0 +1,8 @@
+
+Call:
+lm(formula = data[, 3] ~ data[, 2] + data[, 1])
+
+Coefficients:
+(Intercept)    data[, 2]    data[, 1]  
+   8.554271    -0.004802    -0.007480  
+

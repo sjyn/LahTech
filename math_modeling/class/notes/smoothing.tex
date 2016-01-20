@@ -1,0 +1,17 @@
+\documentclass{hw}
+
+\begin{document}
+\section{Exponential Smoothing}
+\begin{itemize}
+\item Used to predict future data trends: For example, weather forecasting
+\[
+S_{i} = \alpha x_{i} + (1-\alpha)S_{i-1},
+\]
+Where $\alpha$ and $1-\alpha$ remove the outlying data. $x_{i}$ is the actual data. This is a
+recurrence relation, which can be represented by
+\begin{align*}
+S_{i} = \alpha(x_{i}+(1-\alpha)x_{i-1} + (1-\alpha)^{2}x_{i-2} + \dots)\\
+\end{align*}
+As the terms increase, the $1-\alpha$ term begins to decrease.
+\end{itemize}
+\end{document}
