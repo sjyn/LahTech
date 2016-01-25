@@ -46,8 +46,65 @@ $\triangle$
 \item Use your answer to the previous problem, along with the Euclidian Algorithm, to determine
 $gcd(1092,1155,2002)$ (It's possible that you'll need a calculator to do the arithmetic on this
 problem).
-\begin{quote}
+\begin{align*}
+1155 &= 1(1092) + 63\\
+1092 &= 17(63) + 21\\
+63 &= 3(21) + 0\\
+\therefore\gcd{1155}{1092} &= \gcd{21}{0} = 21\\
+2002 &= 95(21) + 7\\
+21 &= 3(7) + 0\\
+\therefore\gcd{21}{2002} &= \gcd{7}{0} = 7
+\end{align*}
 
+\item Let $a_{1},a_{2},\dots,a_{n} \in \NN$ and consider the two following definitions:
+\begin{itemize}
+\item We say that $a_{1},a_{2},\dots,a_{n}$ are relatively prime if
+$gcd(a_{1},a_{2},\dots,a_{n}) = 1$.
+\item We say that $a_{1},a_{2},\dots,a_{n}$ are pairwise relatively prime if
+$gcd(a_{i},a_{j}) = 1$ for all $i\neq j$.
+\end{itemize}
+\begin{enumerate}
+\item If $a_{1}, a_{2},\dots,a_{n}$ are pairwise relatively prime can we conclude that
+$a_{1}, a_{2},\dots,a_{n}$ are relatively prime? Either prove your answer or give a counterexample.
+\begin{quote}
+Let $(a_{n}) = (a_{1},a_{2},\dots,a_{n})$, and assume $(a_{n})$ is pairwise relatively prime.
+Then for any $i,j \leq n$ we have that $\gcd{a_{i},a_{j}} = 1$. This means that if we take any
+to distinct elements in $(a_{n})$, they will have no common factors except for 1. As a result, the
+greatest common factor is 1, or $gcd((a_{n})) = 1$, which is the definition of begin relatively
+prime.
 \end{quote}
+$\triangle$
+\item If $a_{1}, a_{2},\dots,a_{n}$ are relatively prime can we conclude that $a_{1},
+a_{2},\dots,a_{n}$ are pairwise relatively prime? Either prove your answer or give a
+counterexample.
+\begin{quote}
+Consider $(a_{n}) = (2,3,4)$. We know that $gcd((a_{n})) = 1$, but $gcd(2,4)\neq 1$.
+Therefore, we can conclude that $(a_{n})$ being relatively prime does not necessarily
+mean that $(a_{n})$ is pairwise relatively prime.
+\end{quote}
+$\triangle$
+\end{enumerate}
+
+\item Suppose that $a | c$ and $b | c$. Do we necessarily have that $ab | c$? Either prove your
+answer or give a counterexample.
+\begin{quote}
+Let $a,b = 4$ and $c = 8$. We know that $4|8$, but $(4\cdot4)\cancel{|}8$. Therefore $ab$ does
+not divide $c$.
+\end{quote}
+$\triangle$
+
+\item If $a|c$ and $b|c$ prove that $\lcm{a}{b}|c$. Conclude that if $a$ and $b$ are relatively
+prime, then $ab|c$.
+\begin{quote}
+We know that since $a|c$ and $b|c$, $c$ is a common factor of both $a$ and $b$. If we assume
+that $c$ is the smallest common factor of both $a$ and $b$, then $c = \lcm{a}{b}$, and $c|c$.
+Otherwise, let $\delta = \lcm{a}{b}$. Then, by the definition of the $lcm$, we know that
+$\delta$ is a common factor of $a$ and $b$, and that $\delta < c$. Since both $c$ and $\delta$
+are common factors of $a$ and $b$, it follows that $\delta|c$.\\
+
+Since $a$ and $b$ are relatively prime, $\gcd{a}{b} = 1$. We also know that $ab =
+\lcm{a}{b}\gcd{a}{b}$, which means that $ab = \lcm{a}{b}$. Therefore, $ab|c$.
+\end{quote}
+$\triangle$
 \end{enumerate}
 \end{document}
