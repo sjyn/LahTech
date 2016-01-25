@@ -1,0 +1,53 @@
+\documentclass{hw}
+
+\begin{document}
+\makeheader{2}
+
+\begin{enumerate}
+\item Calculate $gcd(5, 7)$ and find two pairs of integers $(u, v)$ such that $gcd(5, 7) = 5u + 7v$.
+\begin{quote}
+By the definition of the $gcd$, we have that $gcd(5,7) = 1$.
+\begin{gather*}
+5(3) + 7(-2) = 1\\
+5(10) + 7(-7) = 1
+\end{gather*}
+\end{quote}
+
+\item Show that $c|a$ and $c|b$ if and only if $c | gcd(a,b)$.
+\begin{quote}
+
+Assume $c|a$ and $c|b$. Then $c$ is a common factor of $a$ and $b$. We know that $gcd(a,b)$ is also
+a common factor of both $a$ and $b$. Since both $gcd(a,b)$ and $c$ are common factors of $a$ and
+$b$, then they must also be common factors of each other. Therefore, $c|gcd(a,b)$.\\
+
+Let $d = gcb(a,b)$, and assume that $c|d$. Then $d = cn$ for some $n\in\ZZ$. By the definition of
+$gcd$, we know that $d|a$. Therefore, $cn|a$, which means that $a = cnm$ for some $m\in\ZZ$. Then
+$a = cj$, where $j = nm\in\ZZ$. Therefore $c|a$. We also know that $d|b$ by the definition of
+$gcd$. By the same argument, we know that $c|b$ as well. Therefore $c|b$ and $c|a$.
+\end{quote}
+$\triangle$
+
+\item Suppose $a_{1},a_{2},\dots,a_{n}$ are integers not all equal to 0. We define
+$gcd(a_{1},a_{2},...,a_{n})$ to be the largest integer which divides $a_{k}$ for all $1 \leq k \leq
+n$. Prove that $gcd(a_{1},a_{2},\dots,a_{n}) = gcd(gcd(a_{1},a_{2}),a_{3},...,a_{n})$.
+\begin{quote}
+Let $gcd(a_{1},a_{2},\dots,a_{n}) = d$ and $gcd(gcd(a_{1},a_{2}),a_{3},\dots,a_{n}) = \alpha$. We
+know that, by the definition of $gcd$, that $d|a_{k}$ for $1 \leq k \leq n$. We know that $d|a_{1}$
+and $d|a_{2}$, so it must also divide $gcd(a_{1},a_{2})$. Therefore, $d|gcd(gcd(a_{1},a_{2})
+,a_{3},\dots,a_{n})$, so $d|\alpha$. We also know that $\alpha|gcd(a_{1},a_{2})$, and that
+$\alpha|a_{k}$ for $2 < k \leq n$. Since $\alpha$ divides $gcd(a_{1},a_{2})$, it must divide
+$a_{1}$ and $a_{2}$. Therefore $\alpha|a_{k}$ for $1 \leq k \leq n$, so
+$\alpha|gcd(a_{1},a_{2},\dots,a_{n})$, or $\alpha|d$. We know that if $d|\alpha$ and
+$\alpha|d$, then $|d| = |\alpha|$. In this case, both $\alpha$ and $d$ are positive,
+so we know that $\alpha = d$.
+\end{quote}
+$\triangle$
+
+\item Use your answer to the previous problem, along with the Euclidian Algorithm, to determine
+$gcd(1092,1155,2002)$ (It's possible that you'll need a calculator to do the arithmetic on this
+problem).
+\begin{quote}
+
+\end{quote}
+\end{enumerate}
+\end{document}

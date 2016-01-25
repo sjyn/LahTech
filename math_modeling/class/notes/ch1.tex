@@ -1,0 +1,78 @@
+\documentclass{hw}
+
+\begin{document}
+\section{Modeling Free Fall}
+\noindent\\
+
+\begin{enumerate}
+\item Measure the height of the object above ground
+\item Record time in seconds that it takes for object to hit the ground
+\item Determine the quantitative relationship between the height and the time (a mathematical
+model)
+\end{enumerate}
+Galileo makes some assumptions before experimenting:
+\begin{enumerate}
+\item $F = ma$: we already know the mathematical expression for force
+\item Gravity is the only force acting on the object
+\item Acceleration due to gravity is -32${m\over s^{2}}$.
+\begin{gather*}
+mg = my''\\
+g = y''\\
+\iint g = \iint y''\\
+-16t^{2} = y + Ct + D\\
+y = -16t^{2} + v_{0}t + y_{0}
+\end{gather*}
+\end{enumerate}
+Galileo assumed that gravity was the only force, but what if air resistance is added? We know that
+air resistance acts opposite to the velocity. We now have
+\begin{gather*}
+\kappa v - 32m = mv'\\
+v' = 32 - \kappa_{0} v
+\end{gather*}
+
+\section{Discreet Modeling}
+\noindent\\
+
+We can now consider a discreet case for modeling.
+\subsection{Credit Card Balancing}
+We can work with the equation
+\[
+B_{1} = B_{0} - P
+\]
+as a simple model for a credit card balance. We will eventually find that this model is very
+simplistic, and we will need to expand on it later. We have a recurrence relation where
+\begin{gather*}
+B_{2} = B_{1} - P\\
+B_{3} = B_{2} - P\\
+\cdots
+\end{gather*}
+Substituting into the recurrence relation tells us that
+\[
+B_{n} = B_{0} - nP.
+\]
+We can reform the model to help use come up with a better representation of the situation.
+In the real world, credit cards often come with interest rates. Taking this into account
+gives us
+\[
+B_{\text{new}} = (1+r)B_{\text{old}} - P.
+\]
+We again have a recurrence relation. We will let $s = (1+r)$:
+\begin{align*}
+B_{1} &= sB_{0} - P\\
+B_{2} &= sB_{1} - P = s^{2}B_{0}-p(1+s)\\
+B_{3} &= sB_{2} - P = s^{3}B_{0}-p(1+s+s^{2})\\
+B_{4} &= sB_{3} - P = s^{4}B_{0}-p(1+s+s^{2}+s^{3})\\
+\cdots
+\end{align*}
+We can derive a general solution of the form
+\begin{align*}
+B_{n} &= s^{n}B_{0}-p(1 + s + s^{2} + s^{3} + \cdots + s^{n-1})\\
+&= (1+r)^{n}B_{0}-p\left({(1+r)^{n} - 1\over r}\right)
+\end{align*}
+\subsubsection{Solving With Excel}
+We can use Excel to represent the model. We will consider the case where $r=1.5\%$ with an initial
+balance of $\$1000$, and $\$10$ per month on payments. In the A1 cell, we want to have
+\begin{minted}{text}
+=(1.015)^A1 * 1000 - 10*((1.015)^A1-1)/0.015
+\end{minted}
+\end{document}
