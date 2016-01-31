@@ -1,5 +1,7 @@
 \documentclass{hw}
 
+\usepackage{minted}
+
 \begin{document}
 \section{Modeling Free Fall}
 \noindent\\
@@ -73,6 +75,62 @@ B_{n} &= s^{n}B_{0}-p(1 + s + s^{2} + s^{3} + \cdots + s^{n-1})\\
 We can use Excel to represent the model. We will consider the case where $r=1.5\%$ with an initial
 balance of $\$1000$, and $\$10$ per month on payments. In the A1 cell, we want to have
 \begin{minted}{text}
-=(1.015)^A1 * 1000 - 10*((1.015)^A1-1)/0.015
+=(1.015)^$A1 * 1000 - 10*((1.015)^$A1-1)/0.015
 \end{minted}
+
+
+\section{Modeling Ordinary Differential Equation}
+Consider the following system of ODE's
+\[
+\left[
+\begin{array}{c}
+Q_{1}^\prime\\
+Q_{2}^\prime\\
+Q_{3}^\prime
+\end{array}
+\right]
+\]
+We will use arbitrary values for the coefficient matrix. We want to solve the system using
+eigenvalues:
+\[
+\left[
+\begin{array}{c c c}
+5-\lambda & 4 & 2\\
+4 & 5-\lambda & 2\\
+2 & 2 & 2-\lambda
+\end{array}
+\right]
+= 0
+\]
+We want to take the determinant of the matrix, but first we can do some row reductions:
+\[
+\left[
+\begin{array}{c c c}
+1-\lambda & 0 & 0\\
+4 & 9-\lambda & 2\\
+2 & 4 & 2-\lambda
+\end{array}
+\right]
+\]
+Taking that determinant gives us
+\[
+\lambda = 1 \qquad\qquad\text{and}\qquad\qquad \lambda = 10.
+\]
+
+\subsection{Modeling War}
+We will model the Nazi party and the Soviet Union military forces. We want to model the rate
+at which Soviet Tanks reduce as Nazi anti-tank guns decrease.
+\begin{gather*}
+\frac{dx}{dt} = -ay\\
+\frac{dy}{dt} = -bx
+\end{gather*}
+In this system, $x'$ represents the rate at which the Soviet tanks decreased, and $y'$ represents
+the rate at which German anti-tank guns decrease. We will consider the battle of Kursk, during
+which the number of Soviet tanks decreased by $50\%$ in the first hour. In this model, $a$ is
+referred to as the anti-tank kill rate, where $b$ is the tank kill rate. We can use separation
+of variables yields
+\begin{gather*}
+{ay^2\over2}+{ay_{0}^{2}\over2} = {bx^2\over2}+{bx_{0}^{2}\over2}\\
+ay^{2}-bx^{2}=C
+\end{gather*}
 \end{document}

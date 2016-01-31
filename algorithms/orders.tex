@@ -1,0 +1,50 @@
+\documentclass{hw}
+
+\begin{document}
+\makeheader{2}
+
+\begin{enumerate}
+\item Order these functions from slowest to fastest order of growth, indicating which are the same order.
+Logarithms are all base 2.
+\begin{center}
+\begin{tabular}{l l}
+$5n^3-n^2+n$ & $O(n^3)$\\
+6 & $O(1)$\\
+$2^{n-1}$ & $O(2^{n})$\\
+$log(log(n))$ & $O(log(n))$\\
+$2^{n}$ & $O(2^n)$\\
+$3^{n}$ & $O(3^n)$\\
+$(log(n))^2$ & $O(n\ log(n))$\\
+$n\ log(n)$ & $O(n\ log(n))$
+\end{tabular}
+\end{center}
+\[
+6 \leq log(log(n)) \leq (log(n))^{2} \leq n\ log(n) \leq 5n^3-n^2+n \leq 2^{n-1}\text{ and } 2^n \leq
+3^{n}
+\]
+
+\item Find two constants $c$, $c'$ such that, for large enough $n$, we have
+\[ c\ log(n) \leq log(2n^2) \leq c'\ log(n) \]
+\begin{quote}
+We can simplify the middle term so that the $n$ is linear for each $log$.
+\begin{gather*}
+c\ log(n) \leq 2log(2n) \leq c'\ log(n)\\
+c\ log(n) \leq 2(log(n) + log(2)) \leq c'\ log(n)\\
+c\ log(n) \leq 2 + 2log(n) \leq c'\ log(n)
+\end{gather*}
+If we let $c = 1$ and $c' = 4$, then for large enough $n$, the inequality will hold.
+\end{quote}
+
+\item How large must $n$ be to have $n > 13\sqrt{n}\ $?
+\begin{quote}
+We can solve the inequality for $n$.
+\begin{gather*}
+n > 13\sqrt{n}\\
+n - 13\sqrt{n} > 0\\
+\sqrt{n}\ (\sqrt{n} - 13) > 0
+\end{gather*}
+We know that $n > 0$ is not a valid, since $n = 1$ breaks the inequality. However, we also have that
+$\sqrt{n} - 13 > 0$, which tells us that $n$ must be greater than $13^2$.
+\end{quote}
+\end{enumerate}
+\end{document}

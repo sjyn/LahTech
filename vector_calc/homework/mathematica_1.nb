@@ -1,0 +1,199 @@
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"hypox", "[", 
+    RowBox[{"a_", ",", "b_"}], "]"}], ":=", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"a", "-", "b"}], ")"}], 
+     RowBox[{"Cos", "[", "t", "]"}]}], "+", 
+    RowBox[{"b", " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"a", "-", "b"}], ")"}], "/", 
+         RowBox[{"(", "b", ")"}]}], ")"}], "t"}], "]"}]}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"hypoy", "[", 
+    RowBox[{"a_", ",", "b_"}], "]"}], ":=", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"a", "-", "b"}], ")"}], 
+     RowBox[{"Sin", "[", "t", "]"}]}], "-", 
+    RowBox[{"b", " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"a", "-", "b"}], ")"}], "/", 
+         RowBox[{"(", "b", ")"}]}], ")"}], "t"}], "]"}]}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"epix", "[", 
+    RowBox[{"a_", ",", "b_"}], "]"}], ":=", "  ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"a", "+", "b"}], ")"}], 
+     RowBox[{"Cos", "[", "t", "]"}]}], "-", 
+    RowBox[{"b", " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"a", "+", "b"}], ")"}], "/", 
+         RowBox[{"(", "b", ")"}]}], ")"}], "t"}], "]"}]}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"epiy", "[", 
+    RowBox[{"a_", ",", "b_"}], "]"}], ":=", "  ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"a", "+", "b"}], ")"}], 
+     RowBox[{"Sin", "[", "t", "]"}]}], "-", 
+    RowBox[{"b", " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"a", "+", "b"}], ")"}], "/", 
+         RowBox[{"(", "b", ")"}]}], ")"}], "t"}], "]"}]}]}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.662977915774559*^9, 3.66297799429217*^9}, {
+  3.6629780330176153`*^9, 3.662978097096148*^9}, {3.662978142336697*^9, 
+  3.662978227046488*^9}, {3.662978360580645*^9, 3.662978369283136*^9}, {
+  3.662978437410441*^9, 3.662978441594206*^9}, {3.662978519531794*^9, 
+  3.662978526648923*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+    "path", " ", "=", " ", 
+     "\"\<~/Documents/LahTech/vector_calc/homework/\>\""}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{
+      RowBox[{"path", " ", "<>", " ", "\"\<parap_h_83.png\>\""}], ",", 
+      RowBox[{"ParametricPlot", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"hypox", "[", 
+           RowBox[{"8", ",", "3"}], "]"}], ",", 
+          RowBox[{"hypoy", "[", 
+           RowBox[{"8", ",", "3"}], "]"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"t", ",", "0", ",", 
+          RowBox[{"10", "\[Pi]"}]}], "}"}]}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{
+      RowBox[{"path", " ", "<>", " ", "\"\<parap_h_87.png\>\""}], ",", 
+      RowBox[{"ParametricPlot", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"hypox", "[", 
+           RowBox[{"8", ",", "7"}], "]"}], ",", 
+          RowBox[{"hypoy", "[", 
+           RowBox[{"8", ",", "7"}], "]"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"t", ",", "0", ",", 
+          RowBox[{"10", "\[Pi]"}]}], "}"}]}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{
+      RowBox[{"path", " ", "<>", " ", "\"\<parap_h_247.png\>\""}], ",", 
+      RowBox[{"ParametricPlot", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"hypox", "[", 
+           RowBox[{"24", ",", "7"}], "]"}], ",", 
+          RowBox[{"hypoy", "[", 
+           RowBox[{"24", ",", "7"}], "]"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"t", ",", "0", ",", 
+          RowBox[{"10", "\[Pi]"}]}], "}"}]}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{
+      RowBox[{"path", " ", "<>", " ", "\"\<parap_e_83.png\>\""}], ",", 
+      RowBox[{"ParametricPlot", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"epix", "[", 
+           RowBox[{"8", ",", "3"}], "]"}], ",", 
+          RowBox[{"epiy", "[", 
+           RowBox[{"8", ",", "3"}], "]"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"t", ",", "0", ",", 
+          RowBox[{"10", "\[Pi]"}]}], "}"}]}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{
+      RowBox[{"path", " ", "<>", " ", "\"\<parap_e_87.png\>\""}], ",", 
+      RowBox[{"ParametricPlot", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"epix", "[", 
+           RowBox[{"8", ",", "7"}], "]"}], ",", 
+          RowBox[{"epiy", "[", 
+           RowBox[{"8", ",", "7"}], "]"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"t", ",", "0", ",", 
+          RowBox[{"10", "\[Pi]"}]}], "}"}]}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{
+      RowBox[{"path", " ", "<>", " ", "\"\<parap_e_247.png\>\""}], ",", 
+      RowBox[{"ParametricPlot", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"epix", "[", 
+           RowBox[{"24", ",", "7"}], "]"}], ",", 
+          RowBox[{"epiy", "[", 
+           RowBox[{"24", ",", "7"}], "]"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"t", ",", "0", ",", 
+          RowBox[{"10", "\[Pi]"}]}], "}"}]}], "]"}]}], "]"}], 
+    ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.662978250936347*^9, 3.662978304235997*^9}, {
+  3.6629783732534113`*^9, 3.6629783918507853`*^9}, {3.662978529805697*^9, 
+  3.662978531656721*^9}, {3.662978638072468*^9, 3.6629786913582897`*^9}, {
+  3.662978733240068*^9, 3.662978877492673*^9}, {3.662980286668056*^9, 
+  3.662980300937583*^9}, {3.6629803337654448`*^9, 3.662980338489274*^9}, {
+  3.6629804053818197`*^9, 3.662980471911828*^9}, {3.662980586977252*^9, 
+  3.662980659500699*^9}}]
+},
+WindowSize->{1276, 755},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.2 for Mac OS X x86 (32-bit, 64-bit Kernel) (July 29, \
+2015)",
+StyleDefinitions->"Default.nb"
+]
+
