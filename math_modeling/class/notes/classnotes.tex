@@ -133,4 +133,33 @@ of variables yields
 {ay^2\over2}+{ay_{0}^{2}\over2} = {bx^2\over2}+{bx_{0}^{2}\over2}\\
 ay^{2}-bx^{2}=C
 \end{gather*}
+
+\section{Agents}
+A Schelling Model is used to model things like segregation. Consider the following example:
+\begin{center}
+\begin{tabular}{c c c c c c}
+x1 & x2 &    &    &    &    \\
+x3 & o1 &    & o2 &    &    \\
+x4 & x5 & o3 & o4 & o5 &    \\
+x6 & o6 &    &    & x7 & x8 \\
+   & o7 & o8 & x9 & x10 & x11 \\
+   &    & o9 & o10 & o11 & \\
+\end{tabular}
+\end{center}
+We can consider the case where, in the first iteration, all the members of the grid who do not have
+three directly adjacent neighbors leave the area. In addition, x's want to be with other x's, and
+o's want to be with other o's.
+\begin{center}
+\begin{tabular}{c c c c c c}
+   &    &    &    &    &    \\
+x3 & x6 &    & o1 & o2 &    \\
+x4 & x5 & o3 & o4 &    &    \\
+   & o6 & x2 & x1 & x7 & x8 \\
+o11& o7 & o8 & x9 & x10 & x11 \\
+   &    & o5 & o9 & o10 & \\
+\end{tabular}
+\end{center}
+We can see that as the system changes, there will be a mass exodus of both types. In the first table,
+there was only 1 agent with no neighbors of the opposite type. By the second iteration, there are now 6
+agents with no neighbors of the opposite type.
 \end{document}
