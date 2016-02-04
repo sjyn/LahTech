@@ -1,0 +1,79 @@
+% 1, 2a, 2c, 2f, 2h, 2i and 2k
+\documentclass{hw}
+
+\begin{document}
+\makeheader{}
+
+\begin{enumerate}
+\item One famous example of how different models must be used to solve different problems in the same
+system is grocery store checkout queues. If you are a customer deciding which queue to enter, how would
+you model the problem? What exact question would your model address? What entities and processes would
+be in the model? Now, if instead you are a store manager deciding on how to operate the queues for the
+next hour or so, what questions would you model address and what would it look like? Finally, if you
+are a store designer and the question is how to design the checkout area so that 100 customers can
+check out per hour with the fewest employees, what things would you model?
+\begin{quote}
+\underline{Customer:} The customer needs to take in to consideration how many queues are open,
+how many people are currently in the queue, and how fast the queues are moving. They should also consider
+how many items they have, since some lanes may be restricted to a certain amount of items. The question
+that needs to be answered in this case is ``Which queue should I enter?"\\\\
+\underline{Manager:} The manager also needs to consider how many people are in each queue, and how
+quickly the queues are moving. They may also consider the number of people that are not in the queue
+yet, since those people will eventually join the queue. Ultimately, the manager is trying to answer
+``Are the queues moving slowly, and if so how can I fix them?".\\\\
+\underline{Designer:} The designer needs to take in to account the number of expected patrons of the store
+on a day to day, and maybe even hour to hour basis. They also need to consider the number of employees
+that the store can afford, since that will affect the number of lanes that can be open at a given time.
+\end{quote}
+
+\item For the following questions, what should be in a model? what kinds of things should be represented,
+what variables should those things have to represent their essential characteristics, and what processes
+that change things should be in the model? Should the model be agent-based? If the question is not clear
+enough to decide, then reformulate the question to produce one that is sufficiently clear.
+\begin{enumerate}
+\item How closely together should a farmer plant the trees in a fruit orchard?
+\begin{quote}
+This model should be agent based where the trees are the agent. If the farmer plants the trees too closely
+together, then they will not be able to evenly absorb the nutrients. If they are too far apart, then the
+farmer loses land that he could use to plant more trees.
+\end{quote}
+\item Should a new road have one, two, or three lanes in each direction?
+\begin{quote}
+This problem is not an agent-model. In this case, the amount of regular traffic in the area would need
+to be taken in to account. There may also be the issue of cost for using more asphalt, as well as
+the amount of space for the road.
+\end{quote}
+\item How many trees per year should a timber company harvest?
+\begin{quote}
+This is an agent-model where the trees are the agents. The timber company should consider the impact that
+removing too many trees would have on the area; if they remove too many trees, then they will destroy the
+environment around the area.
+\end{quote}
+\item To maximize profit, how many flights per day should Saxon Airlines schedule between Frankfurt and
+Leipzig?
+\begin{quote}
+This is an agent-model where the flights are the agents. The airline company needs to consider how many
+flights are taken between the two cities, and how much each flight costs them versus how much profit they
+turn from each flight.
+\end{quote}
+\item To minimize system wide delays and risk of accidents, how many flights per day should the EAA allow
+between Frankfurt and Leipzig?
+\begin{quote}
+This is not an agent-model. The EAA needs to consider the amount of risk associated with high numbers
+of flights.
+\end{quote}
+\item Any other problems or questions from your studies, research, or experience in general, that might
+be the basis of a model or agent-based model.
+\begin{quote}
+A common model that is not agent-based is modeling heat flow through a surface. In 3D space, this can be
+modeled with a PDE that looks like
+\[
+u_{t} = c^{2}\nabla^{2}u.
+\]
+This formula assumes an infinite length pipe, but in the real world, this does not exist. If we cut off
+the ends of the pipe, we are now dealing with a much more complex system. The heat no longer flows
+only through the cylinder, but also through the top and bottoms of the pipe.
+\end{quote}
+\end{enumerate}
+\end{enumerate}
+\end{document}

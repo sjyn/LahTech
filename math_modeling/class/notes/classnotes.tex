@@ -162,4 +162,15 @@ o11& o7 & o8 & x9 & x10 & x11 \\
 We can see that as the system changes, there will be a mass exodus of both types. In the first table,
 there was only 1 agent with no neighbors of the opposite type. By the second iteration, there are now 6
 agents with no neighbors of the opposite type.
+
+\section{The Game of Life}
+The game of life is a mathematical model created by John Conway. The rules are as follows:
+\begin{enumerate}
+\item \underline{Birth Rule:} If at time $t$ a cell is dead (empty) and the cell has 3 live neighbors
+in any direction, then at time $t+1$ the cell becomes alive.
+\item \underline{Death Rule:} If at time $t$ a live cell has 0 and 1 neighbors it dies of isolation,
+and if a live cell has 4 or more neighbors, it dies of overcrowding.
+\item \underline{Survival Rule:} If at time $t$ a live cell has 2 or 3 live neighbors, then at time
+$t+1$, the cell is still alive.
+\end{enumerate}
 \end{document}
