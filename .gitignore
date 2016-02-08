@@ -12,6 +12,8 @@
 
 /writing_in_ethics/emily_paper_one.pdf
 
+# OS X Files
+*.DS_Store
 
 # ignore R residual files
 *.Rapp.history

@@ -26,7 +26,7 @@ end
 
 to search
   ifelse time-since-last-found <= 20
-  [right (random 181) - 90]
+  [right (random 181) - 45]
   [right (random 21) - 10]
   fd 1
   ifelse pcolor = brown [
@@ -126,9 +126,9 @@ SLIDER
 122
 radius
 radius
-5
+1
 30
-9
+3
 1
 1
 NIL
@@ -142,7 +142,7 @@ CHOOSER
 hunters
 hunters
 1 2
-0
+1
 
 SLIDER
 12
@@ -153,7 +153,7 @@ mushrooms-per-cluster
 mushrooms-per-cluster
 5
 40
-20
+10
 1
 1
 NIL

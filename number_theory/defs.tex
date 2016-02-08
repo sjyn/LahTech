@@ -1,0 +1,58 @@
+\documentclass{hw}
+\title{Theorems and Definitions}
+\date{}
+\author{}
+
+\newcommand{\Define}[1]{\item\underline{#1}:}
+\newcommand{\prm}{p}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\Define{Prime Number} A positive $n\in\ZZ$ such that $n>1$ is prime if its only
+divisors are 1 and $n$.
+
+\Define{Fundamental Theorem of Arithmetic} Suppose $n\in\ZZ > 1$. Then
+\begin{enumerate}
+\item $\exists\alpha_{1},\alpha_{2},\dots,\alpha_{n}\in\NN$ and primes $\prm_{1},
+\prm_{2},\dots,\prm_{n}$ such that $n=\prm_{1}^{\alpha_{1}}\prm_{2}^{\alpha_{2}}
+\dots\prm_{n}^{\alpha_{n}}$, or $n=\prod_{i=1}^{n}\prm_{i}^{\alpha_{i}}$.
+\item The expression $\prod_{i=1}^{n}\prm_{i}^{\alpha_{i}}$ is unique up to
+permutation of the primes.
+
+\Define{Lemma} Suppose $\prm$ is prime and $a,b\in\ZZ$.
+\begin{enumerate}
+\item If $\prm\nmid a$, then $\prm$ and $a$ are relatively prime.
+\item If $\prm\mid ab$, then $\prm\mid a$ xor $\prm\mid b$.
+\end{enumerate}
+
+\Define{Corollary} If $\prm$ is prime and divides $a_{1},a_{2},\dots,a_{n}$, then
+$p|a_{i}$ for some $i\in\{ 1,2,\dots,n \}$.
+
+\Define{Corollary} If $m$ is not a perfect square, then $\sqrt{m}\notin\QQ$.
+\end{enumerate}
+
+\Define{Exact Division} If $\prm^{\alpha}\mid n$ and $\prm^{\alpha+1}\nmid n$, then
+$\prm^{\alpha}$ exactly divides $n$, noted as $\prm^{\alpha}||n$.
+
+\Define{Theorem} Suppose $a_{1},a_{2},\dots,a_{k}$ are pairwise relatively prime
+and are greater than 0. If $a_{1}a_{2}\dots a_{k} = x^{m}$ for some $x\in\NN$ and
+$m\geq2$, then $\exists x_{i}\in\NN$ such that $a_{i} = x_{i}^{m}$ for all $i$.
+
+\Define{Theorem} There are infinitely many primes.
+
+\Define{Prime Number Theorem} Let $\pi(x)$ denote the number of primes such that
+$\prm_{i}\leq x$. We have that
+\begin{enumerate}
+\item $\lim_{x\to\infty}\pi(x)=\infty$
+\item $\pi(x) < x$ for $x\geq2$.
+\end{enumerate}
+We can also define the logarithmic integral as
+$\mathcal{L}_{i}(x)=\int_{2}^{x}{1\over\log{t}}\mathop{dt}$. Then
+\[
+\lim_{x\to\infty}{\mathcal{L}_{i}\over\pi(x)}=
+\lim_{x\to\infty}{{x\over\log{x}}\over\pi(x)} = 1
+\]
+\end{enumerate}
+\end{document}

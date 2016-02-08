@@ -1,56 +1,47 @@
-turtles-own [
-  time-since-last-found
-]
+patches-own [live-neighbors]
+
 
 to setup
-  ca
-  ;; Place the grass
-  ask patches [
-    set pcolor green - 2
-  ]
-  ;; Setup the mushrooms
-  ask n-of clusters patches [
-    ask n-of mushrooms-per-cluster patches in-radius radius [
-      set pcolor brown
+  clear-all
+  ask patches
+  ;; create approximately 10% alive patches
+    [
+      set pcolor blue - 3 ;; dark blue cells are dead
+      if random 100 < density
+      [ set pcolor green ] ;; green cells are alive
     ]
-  ]
-  ;; Setup the mushroom hunters
-  crt hunters [
-    set size 2
-    set color violet + 2
-    set time-since-last-found 999
-    pen-down
-  ]
-  reset-ticks
+    reset-ticks
 end
 
-to search
-  ifelse time-since-last-found <= 20
-  [right (random 181) - 90]
-  [right (random 21) - 10]
-  fd 1
-  ifelse pcolor = brown [
-    set time-since-last-found 0
-    set pcolor red
-  ]
-  [
-    set time-since-last-found time-since-last-found + 1
-  ]
-end
 
 to go
+  ask patches [
+      ;; each patch counts its number of green neighboring patches
+      ;; and stores the value in its live-neighbors variable
+    set live-neighbors count neighbors with [pcolor = green]
+    ]
+  ask patches [
+      ;; patches with 3 green neighbors, turn (or stay) green
+    if live-neighbors = 3 [ set pcolor green ]
+      ;; patches with 0 or 1 green neighbors turn (or stay) dark blue
+      ;; from isolation
+    if (live-neighbors = 0) or (live-neighbors = 1)  [ set pcolor blue - 3 ]
+      ;; patches with 4 or more green neighbors turn (or stay) dark blue
+      ;; from overcrowding
+    if live-neighbors >= 4 [set pcolor blue - 3]
+      ;; patches with exactly 2 green neighbors keep their color
+  ]
   tick
-  ask turtles [search]
 end
 @#$#@#$#@
 GRAPHICS-WINDOW
-227
+210
 10
-647
-451
-20
-20
-10.0
+628
+449
+25
+25
+8.0
 1
 10
 1
@@ -60,10 +51,10 @@ GRAPHICS-WINDOW
 1
 1
 1
--20
-20
--20
-20
+-25
+25
+-25
+25
 1
 1
 1
@@ -71,11 +62,11 @@ ticks
 30.0
 
 BUTTON
-13
-10
-79
-43
-Setup
+37
+56
+103
+89
+NIL
 setup
 NIL
 1
@@ -88,11 +79,28 @@ NIL
 1
 
 BUTTON
-85
-10
-152
-43
-Go
+29
+189
+114
+222
+go-once
+go
+NIL
+1
+T
+OBSERVER
+NIL
+NIL
+NIL
+NIL
+0
+
+BUTTON
+39
+237
+102
+270
+NIL
 go
 T
 1
@@ -102,99 +110,127 @@ NIL
 NIL
 NIL
 NIL
-1
-
-SLIDER
-13
-51
-185
-84
-clusters
-clusters
-1
-15
-8
-1
-1
-NIL
-HORIZONTAL
-
-SLIDER
-13
-89
-185
-122
-radius
-radius
-5
-30
-9
-1
-1
-NIL
-HORIZONTAL
-
-CHOOSER
-12
-168
-150
-213
-hunters
-hunters
-1 2
 0
 
 SLIDER
-12
-128
-217
-161
-mushrooms-per-cluster
-mushrooms-per-cluster
-5
-40
-20
+34
+119
+206
+152
+density
+density
+50
+100
+50
 1
 1
 NIL
 HORIZONTAL
 
 @#$#@#$#@
+## ACKNOWLEDGEMENT
+
+This model is from Chapter Two of the book "Introduction to Agent-Based Modeling: Modeling Natural, Social and Engineered Complex Systems with NetLogo", by Uri Wilensky & William Rand.
+
+Wilensky, U & Rand, W. (2015). Introduction to Agent-Based Modeling: Modeling Natural, Social and Engineered Complex Systems with NetLogo. Cambridge, Ma. MIT Press.
+
+This model is in the IABM Textbook folder of the NetLogo models library. The model, as well as any updates to the model, can also be found on the textbook website: http://intro-to-abm.com.
+
 ## WHAT IS IT?
 
-(a general understanding of what the model is trying to show or explain)
+This program is a simple example of the Life model, which is a 2D cellular automaton.
+
+A cellular automaton is a computational machine that performs actions based on certain rules.  It can be thought of as a board which is divided into cells (such as square cells of a checkerboard).  Each cell can be either "alive" or "dead."  This is called the "state" of the cell.  According to specified rules, each cell will be alive or dead at the next time step.
 
 ## HOW IT WORKS
 
-(what rules the agents use to create the overall behavior of the model)
+The rules of the game are as follows.  Each cell checks the state of itself and its eight surrounding neighbors and then sets itself to either alive or dead.  If there are less than two alive neighbors, then the cell dies.  If there are more than three alive neighbors, the cell dies.  If there are 2 alive neighbors, the cell remains in the state it is in.  If there are exactly three alive neighbors, the cell becomes alive. This is done in parallel and continues forever.
+
+There are certain recurring shapes in Life, for example, the "glider" and the "blinker". The glider is composed of 5 cells which form a small arrow-headed shape, like this:
+
+       O
+        O
+      OOO
+
+This glider will wiggle across the world, retaining its shape.  A blinker is a block of three cells (either up and down or left and right) that rotates between horizontal and vertical orientations.
 
 ## HOW TO USE IT
 
-(how to use the model, including a description of each of the items in the Interface tab)
+Press SETUP to seed the model with a random set of "living" and "dead" cells.  Press GO-ONCE to iterate the model one step, or press GO to let the model run for awhile.
 
 ## THINGS TO NOTICE
 
-(suggested things for the user to notice while running the model)
+Can you identify the different structures, described in the textbook?  Specifically, can you find a "block", "oscillator", and "spaceship" or "glider"?
 
 ## THINGS TO TRY
 
-(suggested things for the user to try to do (move sliders, switches, etc.) with the model)
+Inspect some patches so that you can see the rules play out tick by tick.
 
 ## EXTENDING THE MODEL
 
-(suggested things to add or change in the Code tab to make the model more complicated, detailed, accurate, etc.)
+Modify the code so that there are more alive cells at the start of the run.
+
+Experiment with using neighbors4 instead of neighbors (see below).
 
 ## NETLOGO FEATURES
 
-(interesting or unusual features of NetLogo that the model uses, particularly in the Code tab; or where workarounds were needed for missing features)
+The neighbors primitive returns the agentset of the patches to the north, south, east, west, northeast, northwest, southeast, and southwest.  So `count neighbors with [living?]` counts how many of those eight patches have the `living?` patch variable set to true.
+
+`neighbors4` is like `neighbors` but only uses the patches to the north, south, east, and west.  Some cellular automata, like this one, are defined using the 8-neighbors rule, others the 4-neighbors.
 
 ## RELATED MODELS
 
-(models in the NetLogo Models Library and elsewhere which are of related interest)
+This model is a simplified version of the NetLogo Life model in the Computer Science section of the NetLogo models library.
+
+Life --- similar to this but with more controls
+Life Turtle-Based --- same as this, but implemented using turtles instead of patches, for a more attractive display
+CA 1D Elementary --- a model that shows all 256 possible simple 1D cellular automata
+CA 1D Totalistic --- a model that shows all 2,187 possible 1D 3-color totalistic cellular automata
+CA 1D Rule 30 --- the basic rule 30 model
+CA 1D Rule 30 Turtle --- the basic rule 30 model implemented using turtles
+CA 1D Rule 90 --- the basic rule 90 model
+CA 1D Rule 110 --- the basic rule 110 model
+CA 1D Rule 250 --- the basic rule 250 model
+
+## HOW TO CITE
+
+This model is part of the textbook, “Introduction to Agent-Based Modeling: Modeling Natural, Social and Engineered Complex Systems using NetLogo.”
+
+If you mention this model or the NetLogo software in a publication, we ask that you include the citations below.
+
+For the model itself:
+
+* Wilensky, U. (2008).  NetLogo Life Simple model.  http://ccl.northwestern.edu/netlogo/models/IABMTexbook/LifeSimple.  Center for Connected Learning and Computer-Based Modeling, Northwestern University, Evanston, IL.
+
+This model is a simplified version of:
+
+* Wilensky, U. (1998).  NetLogo Life model.  http://ccl.northwestern.edu/netlogo/models/Life.  Center for Connected Learning and Computer-Based Modeling, Northwestern University, Evanston, IL.
+
+Please cite the NetLogo software as:
+
+* Wilensky, U. (1999). NetLogo. http://ccl.northwestern.edu/netlogo/. Center for Connected Learning and Computer-Based Modeling, Northwestern University, Evanston, IL.
+
+Please cite the textbook as:
+
+* Wilensky, U & Rand, W. (2013). Introduction to Agent-Based Modeling: Modeling Natural, Social and Engineered Complex Systems with NetLogo. Cambridge, Ma. MIT Press.
 
 ## CREDITS AND REFERENCES
 
-(a reference to the model's URL on the web if it has one, as well as any other necessary credits, citations, and links)
+The Game of Life was invented by John Horton Conway.
+
+See also:
+
+Von Neumann, J. and Burks, A. W., Eds, 1966. Theory of Self-Reproducing Automata. University of Illinois Press, Champaign, IL.
+
+"LifeLine: A Quarterly Newsletter for Enthusiasts of John Conway's Game of Life", nos. 1-11, 1971-1973.
+
+Martin Gardner, "Mathematical Games: The fantastic combinations of John Conway's new solitaire game `life',", Scientific American, October, 1970, pp. 120-123.
+
+Martin Gardner, "Mathematical Games: On cellular automata, self-reproduction, the Garden of Eden, and the game `life',", Scientific American, February, 1971, pp. 112-117.
+
+Berlekamp, Conway, and Guy, Winning Ways for your Mathematical Plays, Academic Press: New York, 1982.
+
+William Poundstone, The Recursive Universe, William Morrow: New York, 1985.
 @#$#@#$#@
 default
 true
@@ -390,19 +426,12 @@ Polygon -7500403 true true 135 90 120 45 150 15 180 45 165 90
 
 sheep
 false
-15
-Circle -1 true true 203 65 88
-Circle -1 true true 70 65 162
-Circle -1 true true 150 105 120
-Polygon -7500403 true false 218 120 240 165 255 165 278 120
-Circle -7500403 true false 214 72 67
-Rectangle -1 true true 164 223 179 298
-Polygon -1 true true 45 285 30 285 30 240 15 195 45 210
-Circle -1 true true 3 83 150
-Rectangle -1 true true 65 221 80 296
-Polygon -1 true true 195 285 210 285 210 240 240 210 195 210
-Polygon -7500403 true false 276 85 285 105 302 99 294 83
-Polygon -7500403 true false 219 85 210 105 193 99 201 83
+0
+Rectangle -7500403 true true 151 225 180 285
+Rectangle -7500403 true true 47 225 75 285
+Rectangle -7500403 true true 15 75 210 225
+Circle -7500403 true true 135 75 150
+Circle -16777216 true false 165 76 116
 
 square
 false
@@ -487,13 +516,6 @@ Line -7500403 true 216 40 79 269
 Line -7500403 true 40 84 269 221
 Line -7500403 true 40 216 269 79
 Line -7500403 true 84 40 221 269
-
-wolf
-false
-0
-Polygon -16777216 true false 253 133 245 131 245 133
-Polygon -7500403 true true 2 194 13 197 30 191 38 193 38 205 20 226 20 257 27 265 38 266 40 260 31 253 31 230 60 206 68 198 75 209 66 228 65 243 82 261 84 268 100 267 103 261 77 239 79 231 100 207 98 196 119 201 143 202 160 195 166 210 172 213 173 238 167 251 160 248 154 265 169 264 178 247 186 240 198 260 200 271 217 271 219 262 207 258 195 230 192 198 210 184 227 164 242 144 259 145 284 151 277 141 293 140 299 134 297 127 273 119 270 105
-Polygon -7500403 true true -1 195 14 180 36 166 40 153 53 140 82 131 134 133 159 126 188 115 227 108 236 102 238 98 268 86 269 92 281 87 269 103 269 113
 
 x
 false
