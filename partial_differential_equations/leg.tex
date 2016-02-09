@@ -1,0 +1,139 @@
+\documentclass{hw}
+
+\title{Problems Involving Legendre Polynomials}
+\date{}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item Show $\int_{-1}^{1}x^2p_{l}(x)\dx = 0$ for $l\geq 3$.
+\begin{quote}
+We know that the general form for a Legendre polynomial $p_{l}(x)$ is given by Rodrigues' Formula to be
+\[
+p_{l}(x)={1\over2^ll!}{d^l\over \dx^l}\left[(x^2-1)^l\right].
+\]
+We can use integration by parts to perform the integration:\\
+\begin{center}
+\begin{tabular}{c c c}
+$(+)$ & $x^2$ & ${d^{l-1}\over\dx^{l-1}}\left[(x^2-1)^l\right]$\\
+& & \\
+$(-)$ & $2x$ & ${d^{l-2}\over\dx^{l-2}}\left[(x^2-1)^l\right]$\\
+& & \\
+$(+)$ & $2$ & ${d^{l-3}\over\dx^{l-3}}\left[(x^2-1)^l\right]$.\\
+\end{tabular}
+\end{center}
+We now have that
+\[
+\int_{-1}^{1}x^2p_{l}(x)\dx =
+x^2{d^{l-1}\over\dx^{l-1}}\left[(x^2-1)^l\right] -
+2x{d^{l-2}\over\dx^{l-2}}\left[(x^2-1)^l\right] +
+2{d^{l-3}\over\dx^{l-3}}\left[(x^2-1)^l\right].
+\]
+It is clear that the $l\geq3$ requirement is necessary, as any $l<3$ would lead to a negative
+order derivative. We now need to show that this value is equal to 0; to do so, we will start by
+substituting $Q(x) = (x^2-1)^l$. We now have
+\begin{align*}
+&x^2{d^{l-1}\over\dx^{l-1}}\left[(x^2-1)^l\right] -
+2x{d^{l-2}\over\dx^{l-2}}\left[(x^2-1)^l\right] +
+2{d^{l-3}\over\dx^{l-3}}\left[(x^2-1)^l\right]\\
+&= x^2{d^{l-1}\over\dx^{l-1}}Q(x) - 2x{d^{l-2}\over\dx^{l-2}}Q(x) + 2{d^{l-3}\over\dx^{l-3}}Q(x)\\
+&= x^2Q^{(l-1)}(x) - 2xQ^{(l-2)}(x) + 2Q^{(l-3)}(x).
+\end{align*}
+Let's consider the case where $l=3$ to show that this integral is indeed 0. Substituting 3 for $l$ yields
+\[
+x^2Q^{''}(x) - 2xQ^{'}(x) + 2Q(x).
+\]
+Through some careful integration, we find that
+\begin{align*}
+Q &= (x^2-1)\\
+Q^{'} &= 6x(x^2-1)^2\\
+Q^{''} &= 24x^2(x^2-1)+6(x^2-1)^2.
+\end{align*}
+Notice that in every term of each polynomial there is an $(x^2-1)^n$ term, where $n\in\NN$. If we factor
+this term, we find that we have $(x+1)^n(x-1)^n$. The original integral was over the interval $(-1,1)$,
+which yields a 0 in each term when we evaluate the anti-derivative at those bounds. Hence,
+\begin{align*}
+x^2Q^{''}(x) - 2xQ^{'}(x) + 2Q(x)\Big|_{-1}^{1} &= x^2(0)-2x(0)+2(0)\\
+&= 0.
+\end{align*}
+We have shown that for $l=3$, the value of the integral is 0. However, we need to show that
+$\forall l\geq3$, the value of the integral is 0. We can use the Leibniz Rule to express the
+$l^{\text{th}}$ derivative in terms of a summation.
+\[
+(f(x)g(x))^{(n)} = \sum_{k=0}^{n}{n\choose k}f^{(n-k)}(x)g^{(k)}(x).
+\]
+We are trying to prove that $x^2Q^{(l-1)}(x) - 2xQ^{(l-2)}(x) + 2Q^{(l-3)}(x) = 0$ for all $l\geq3$.
+We know $Q=(x^2-1)^l$, so we can take one derivative of $Q$, which gives us $2xl(x^2-1)^{l-1}$. Let
+$f(x)=2xl$ and $g(x)=(x^2-1)^{l-1}$. Our goal is to find the $l^{\text{th}}$ derivative of $Q$.
+By the Leibniz Rule we have
+\[
+(fg)^{(l)} = \sum_{k=0}^{l}{l\choose k}f^{(l-k)}g^{(k)}.
+\]
+Consider the case where we take another derivative. We know that we will have a $(x^2-1)^{(l-2)}$ term.
+Again, we can take another derivative, which would provide us with $(x^2-1)^{(l-3)}$. We know that this
+term will continue to appear until $k>l$. However, the Leibniz Rule will stop when $k=l$. Therefore,
+every product $f^{(l-k)}g^{(k)}$ will have a $(x^2-1)^{n}$ term where $n$ is the $l-k$ power.
+We can also rewrite $(x^2-1)^{n}$ as $(x-1)^n(x+1)^n$, so we now know that every term in the summation
+will have an $(x-1)^n(x+1)^n$ term. Recall that we are evaluating this term from $-1$ to $1$, so
+when we ultimately substitute into the equation, we will either have $(x-1)^n = 0$ or $(x+1)^n = 0$.
+Therefore, we can conclude that every term in the summation will be 0. This implies that the
+$l^{\text{th}}$ derivative of $Q$ is 0 for any $l \geq 3$. Therefore
+$x^2Q^{(l-1)}(x) - 2xQ^{(l-2)}(x) + 2Q^{(l-3)}(x) = 0$.
+\end{quote}
+
+
+\item We want to find $a_{l}$ in the series
+\[
+f(x) = \sum_{l=0}^{\infty}a_{l}p_{l}(x)
+\]
+where
+\[
+f(x)=
+\begin{cases}
+x,\ 0\leq x < 1\\
+0,\ -1 < x \leq 1
+\end{cases}.
+\]
+We know that we can express $a_{l}$ as
+\[
+a_{l} = {%
+\int_{-1}^{1}f(x)p_{l}(x)\dx%
+\over%
+\int_{-1}^{1}p_{l}^{2}(x)\dx%
+}.
+\]
+Since $f$ is piecewise defined to be $0$ on $-1 < x \leq 1$, we are only dealing with
+\[
+a_{l} = {%
+\int_{0}^{1}xp_{l}(x)\dx%
+\over%
+\int_{-1}^{1}p_{l}^{2}(x)\dx%
+}.
+\]
+We can use integration by parts to solve the numerator. If we let $u = x$ and
+$\dv = p_{l}(x)\dx$, we have that
+\[
+{%
+{x\over2^{l}l!}{d^{l-1}\over\dx^{l-1}}\left[(x^{2}-1)^l\right]\Big|_{0}^{1}%
+-\int_{0}^{1}{1\over2^{l}l!}{d^{l-1}\over\dx^{l-1}}\left[(x^{2}-1)^l\right]\dx%
+\over%
+\int_{-1}^{1}p_{l}^{2}(x)\dx%
+}.
+\]
+Let's consider the first term in the numerator:
+${x\over2^{l}l!}{d^{l-1}\over\dx^{l-1}}\left[(x^{2}-1)^l\right]\Big|_{0}^{1}$.
+In order to evaluate the differentiated term, we need to express the derivative in a closed form.
+If we make the substitution $y=x^{2}$, we have
+\[
+(y-1)^{l} = (y-1)(y^{l-1}+y^{l-2}+\cdots+1).
+\]
+By back substitution, we have
+\begin{align*}
+(x^{2}-1)^{l} &= (x^2-1)(x^{2l-2}+x^{2l-4}+\cdots+1)\\
+&= (x^2-1)(\sum_{j=0}^{l}x^{(2l-2j)})\\
+&= x^{2l+2}-1
+\end{align*}
+
+\end{enumerate}
+
+\end{document}

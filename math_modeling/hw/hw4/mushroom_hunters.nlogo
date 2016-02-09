@@ -26,7 +26,7 @@ end
 
 to search
   ifelse time-since-last-found <= 20
-  [right (random 181) - 45]
+  [right (random 181) - 90]
   [right (random 21) - 10]
   fd 1
   ifelse pcolor = brown [

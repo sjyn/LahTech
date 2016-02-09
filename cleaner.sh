@@ -6,7 +6,7 @@ recurse () {
 			recurse
 			cd ..
 		else
-			gbbs.sh
+			gbbs
 		fi
 	done
 }
