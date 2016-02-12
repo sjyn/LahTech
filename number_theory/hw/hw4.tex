@@ -27,13 +27,36 @@ Assume that $a^2\mid b^2$. Then $b^2=a^2m$ for some $m\in\ZZ$. By the Fundamenta
 we have that
 $(p_{1}^{\alpha_1}p_{2}^{\alpha_2}\dots p_{j}^{\alpha_j})^2 =
 (p_{1}^{\beta_1}p_{2}^{\beta_2}\dots p_{k}^{\beta_k})^2m$ for $j,k\in\ZZ$ and $\alpha,\beta\in\NN$.
+Then we can say that
+\[
+{
+(p_{1}^{\beta_1}p_{2}^{\beta_2}\dots p_{k}^{\beta_k})^2
+\over
+(p_{1}^{\alpha_1}p_{2}^{\alpha_2}\dots p_{j}^{\alpha_j})^2
+}
+= m\in\ZZ.
+\]
+Therefore, $m$ is a perfect square, so we can take its square root. Let $n=\sqrt{m}$. Then
+$\sqrt{a^2m}=\sqrt{b^2}$, or $an=b$, so $a|b$.
 \end{quote}
 
 \item If $n$ is a positive integer such that $a^n \mid b^n$ can we conclude that $a \mid b$? Either prove
 your answer or provide a counterexample.
 \begin{quote}
-
+By the same argument used above, we can say
+\[
+{b^n\over a^n} =
+{
+(p_{1}^{\beta_1}p_{2}^{\beta_2}\dots p_{k}^{\beta_k})^n
+\over
+(p_{1}^{\alpha_1}p_{2}^{\alpha_2}\dots p_{j}^{\alpha_j})^n
+}
+= m\in\ZZ.
+\]
+Therefore, $m$ is a perfect $n^{\text{th}}$ power, so we can say $j=\sqrt[n]{m}$. Then
+$\sqrt[n]{b^n}=\sqrt[n]{a^nm}$ simplifies to $b=aj$. Therefore, $a|b$.
 \end{quote}
+$\triangle$
 \end{enumerate}
 
 
@@ -142,7 +165,11 @@ $\triangle$
 \item Two primes $p$ and $q$ with $p<q$ are called twin primes if $p+2=q$. If $p$ and $q$ are twin primes
 with $3 < p < q$, prove that $6 \mid p + 1$.
 \begin{quote}
-
+We can take any three consecutive numbers starting with a prime $p$ where $p+2=q$ is also prime. We know
+that any prime number greater than 3 is even, so it is divisible by two. We also know that if we take
+three consecutive numbers, one of them has to be divisible by 3, since it will either have a remainder of
+0, 1, or 2. Since $p$ is prime and $p+2$ is prime, then $p+1$ must be divisible by three. Therefore
+$p+1$ must be divisible by 6, or $6|p+1$.
 \end{quote}
 \end{enumerate}
 \end{document}

@@ -10,62 +10,70 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      2928,         87]
-NotebookOptionsPosition[      2564,         69]
-NotebookOutlinePosition[      2922,         85]
-CellTagsIndexPosition[      2879,         82]
+NotebookDataLength[      3315,         92]
+NotebookOptionsPosition[      3022,         77]
+NotebookOutlinePosition[      3380,         93]
+CellTagsIndexPosition[      3337,         90]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
-
-Cell[CellGroupData[{
-Cell[BoxData[{
- RowBox[{
-  RowBox[{"ConsecCompos", "[", "num_", "]"}], ":=", "\[IndentingNewLine]", 
-  RowBox[{"For", "[", 
-   RowBox[{
-    RowBox[{
-     RowBox[{"i", " ", "=", " ", "2"}], ";", " ", 
-     RowBox[{"numConsec", " ", "=", " ", "0"}], ";", " ", 
-     RowBox[{"tableu", " ", "=", " ", 
-      RowBox[{"{", "}"}]}]}], ",", " ", 
-    RowBox[{"numConsec", "\[Equal]", " ", "num"}], ",", " ", 
-    RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
-    RowBox[{"If", "[", 
-     RowBox[{
-      RowBox[{"PrimeQ", "[", "i", "]"}], ",", "\[IndentingNewLine]", 
-      RowBox[{"numConsec", "=", "0"}], ",", "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{"numConsec", "++"}], ";", 
-       RowBox[{"tableu", " ", "=", 
-        RowBox[{"Range", "[", 
-         RowBox[{
-          RowBox[{"i", "-", "numConsec"}], ",", "i"}], "]"}]}], ";"}]}], 
-     "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
-   "]"}]}], "\[IndentingNewLine]", 
- RowBox[{"Return", "[", "tableu", "]"}], "\[IndentingNewLine]"}], "Input",
- CellChangeTimes->{{3.663955476730878*^9, 3.66395557943959*^9}, {
-  3.663955650808165*^9, 3.663955681741583*^9}, {3.663955713392453*^9, 
-  3.6639557148075323`*^9}, {3.663955753470128*^9, 3.663955804562936*^9}, {
-  3.6639558530363417`*^9, 3.6639560017198257`*^9}, {3.6639560790888023`*^9, 
-  3.663956101064526*^9}, {3.663956163607587*^9, 3.6639561914362087`*^9}, {
-  3.6639562469335814`*^9, 3.663956265445467*^9}, {3.6639563455076437`*^9, 
-  3.663956395041285*^9}, {3.6639565194412518`*^9, 3.663956521606257*^9}, {
-  3.6639565568487453`*^9, 3.663956595133031*^9}}],
-
 Cell[BoxData[
- RowBox[{"Return", "[", 
-  RowBox[{"{", "}"}], "]"}]], "Output",
- CellChangeTimes->{
-  3.6639562688647423`*^9, {3.663956359361177*^9, 3.663956375756124*^9}, 
-   3.663956584518188*^9}]
-}, Open  ]],
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "Finds", " ", "the", " ", "range", " ", "of", " ", "the", " ", "first", 
+    " ", "num", " ", "consecutive", " ", "composite", " ", "number"}], " ", 
+   "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"ConsecCompos", "[", "num_", "]"}], ":=", "\[IndentingNewLine]", 
+   RowBox[{"(", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Clear", "[", 
+      RowBox[{"i", ",", "numConsec"}], "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"i", " ", "=", " ", "2"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"numConsec", " ", "=", " ", "0"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"While", "[", 
+      RowBox[{
+       RowBox[{"True", "[", "]"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"(", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"PrimeQ", "[", "i", "]"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"numConsec", " ", "=", " ", "0"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"(", "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"numConsec", "++"}], ";", "\[IndentingNewLine]", 
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{"numConsec", " ", "\[Equal]", " ", "num"}], ",", 
+               RowBox[{
+                RowBox[{"Break", "[", "]"}], ";", 
+                RowBox[{"Print", "[", 
+                 RowBox[{"Range", "[", 
+                  RowBox[{
+                   RowBox[{"i", "-", "num"}], ",", "i"}], "]"}], "]"}]}]}], 
+              "]"}]}], "\[IndentingNewLine]", ")"}]}], "\[IndentingNewLine]", 
+          "]"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"i", "++"}], ";"}], "\[IndentingNewLine]", ")"}]}], 
+      "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+    ")"}]}]}]], "Input",
+ CellChangeTimes->CompressedData["
+1:eJxTTMoPSmViYGAQB2IQHZU8/VCBz2tHecG88yC69k7kDRDNs9v8Doj+1afz
+AET7XY8E017c+k9B9CTmSa9B9DbNhR9B9AUOc5ZCIF1x/REviJ4psEgAREcV
+FkuA6Jyvb6VB9LP7d5VAtIujniqInmdnoA+iTYMSTUH0Hrl3LiC6NM3YFUS/
+0ZjtCaJPOab4gehVTGK1fL6vHbl8JoLpR4sntoBotfk9PSBaw9x6Coi2+1sM
+phsd9s4E0bs/Tt8EopefnrAbREuvZd4DomUO/rsIou8Jtj4C0VUyJ5+B6KTr
+89+AaKad/5n5gXRPdDQLiH4uE8sJos/ZTxAB0f+cDORB9N3sFkUQveFsbTmI
+nqOSWAWiP9wTaBAA0gxJFm0gGgBL5qe2
+  "]],
 
 Cell[BoxData[
  RowBox[{"ConsecCompos", "[", "10", "]"}]], "Input",
- CellChangeTimes->{{3.663956005594998*^9, 3.663956017647141*^9}, {
-  3.663956277132505*^9, 3.6639562786581573`*^9}}]
+ CellChangeTimes->{{3.6642805115755043`*^9, 3.664280520578538*^9}, {
+  3.6642826443562803`*^9, 3.664282649793785*^9}}]
 },
 WindowSize->{Full, Full},
 WindowMargins->{{4, Automatic}, {Automatic, 4}},
@@ -84,11 +92,8 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[CellGroupData[{
-Cell[580, 22, 1582, 32, 165, "Input"],
-Cell[2165, 56, 197, 5, 28, "Output"]
-}, Open  ]],
-Cell[2377, 64, 183, 3, 28, "Input"]
+Cell[558, 20, 2272, 50, 335, "Input"],
+Cell[2833, 72, 185, 3, 28, "Input"]
 }
 ]
 *)

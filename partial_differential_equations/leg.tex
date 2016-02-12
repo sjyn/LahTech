@@ -82,6 +82,8 @@ $x^2Q^{(l-1)}(x) - 2xQ^{(l-2)}(x) + 2Q^{(l-3)}(x) = 0$.
 \end{quote}
 
 
+
+\newpage
 \item We want to find $a_{l}$ in the series
 \[
 f(x) = \sum_{l=0}^{\infty}a_{l}p_{l}(x)
@@ -110,30 +112,36 @@ a_{l} = {%
 \int_{-1}^{1}p_{l}^{2}(x)\dx%
 }.
 \]
-We can use integration by parts to solve the numerator. If we let $u = x$ and
-$\dv = p_{l}(x)\dx$, we have that
+We will begin by analyzing the numerator. We are solving
 \[
-{%
-{x\over2^{l}l!}{d^{l-1}\over\dx^{l-1}}\left[(x^{2}-1)^l\right]\Big|_{0}^{1}%
--\int_{0}^{1}{1\over2^{l}l!}{d^{l-1}\over\dx^{l-1}}\left[(x^{2}-1)^l\right]\dx%
-\over%
-\int_{-1}^{1}p_{l}^{2}(x)\dx%
-}.
+\int_{0}^{1}xp_{l}(x)\dx.
 \]
-Let's consider the first term in the numerator:
-${x\over2^{l}l!}{d^{l-1}\over\dx^{l-1}}\left[(x^{2}-1)^l\right]\Big|_{0}^{1}$.
-In order to evaluate the differentiated term, we need to express the derivative in a closed form.
-If we make the substitution $y=x^{2}$, we have
-\[
-(y-1)^{l} = (y-1)(y^{l-1}+y^{l-2}+\cdots+1).
-\]
-By back substitution, we have
+Using integration by parts gives us
 \begin{align*}
-(x^{2}-1)^{l} &= (x^2-1)(x^{2l-2}+x^{2l-4}+\cdots+1)\\
-&= (x^2-1)(\sum_{j=0}^{l}x^{(2l-2j)})\\
-&= x^{2l+2}-1
+&x{1\over2^ll!}{d^{l-1}\over dx^{l-1}}\left[(x^2-1)^l\right]-
+{1\over2^ll!}{d^{l-2}\over dx^{l-2}}\left[(x^2-1)^l\right]\Big|_{x=0}^{x=1}\\
+&= xp_{l-1}(x)-p_{l-2}(x)\Big|_{x=0}^{x=1}\\
+&= \left[1\cdot p_{l-1}(1) - p_{l-2}(1)\right] -\left[0-p_{l-2}(0)\right]\\
+&= p_{l-2}(0).
 \end{align*}
-
+We can express $p_{l}(0)$ as
+\[
+p_{l}(0) =
+\begin{cases}
+{(-1)^{l/2}\over2^l}{l\choose l/2}\quad x\in\mathbb{E}\\
+0\qquad\qquad\quad\ x\in\mathbb{O}
+\end{cases}.
+\]
+We will consider even $l$ here, since all odd $l$ will produce a 0. We can now express $a_{l}$ as
+\begin{align*}
+a_{l} &= {(2l+1)p_{l-2}(0)\over2}\\
+&= {4(2l+1)\over l!}.
+\end{align*}
+The Fourier series is now
+\[
+\sum{4(2l+1)\over l!}p_{l}(x)
+\]
+for even $l$.
 \end{enumerate}
 
 \end{document}
