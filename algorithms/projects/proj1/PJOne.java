@@ -15,10 +15,10 @@ import static java.lang.System.out;
 
 public class PJOne {
 
-    public static void algoOne(int size, int[] a){
+    public static void algoOne(int[] a){
+        int n = a.length;
         int j = 1;
-        int[] b = new int[size];
-        int n = size;
+        int[] b = new int[n];
         while(j <= n - 1){
             int i = 1;
             while(i <= n - j){
@@ -26,29 +26,29 @@ public class PJOne {
                 int r = min(m + j, n);
                 int u = i;
                 for(; u < r; u++){
-                    b[u] = a[u];
+                    b[u - 1] = a[u - 1];
                 }
                 u = i;
                 int v = m + 1;
                 int w = i;
                 for(; w < r; w++){
-                    if(u > m || (v <= r && b[v] < b[u])){
-                        a[w] = b[v];
+                    if((u > m) || (v <= r && b[v - 1] < b[u - 1])){
+                        a[w - 1] = b[v - 1];
                         v++;
                     } else {
-                        a[w] = b[u];
+                        a[w - 1] = b[u - 1];
                         u++;
                     }
                 }
-                i += 2 * j;
+                i = i + (2 * j);
             }
             j *= 2;
         }
     }
 
     public static void compute(int[] a, int[] b, int i){
-        if(i > a.length){
-            for(int j = i; j < a.length; j++){
+        if(i > a.length - 1){
+            for(int j = i; j < a.length - 1; j++){
                 if(b[j] > 0){
                     out.println(b[j]);
                 }
@@ -67,8 +67,13 @@ public class PJOne {
     }
 
     public static void main(String[] args){
-        int[] a = {1,2,3,4};
-        int[] b = {0,0,0,0};
-        compute(a,b,0);
+        int [] a = new int[]{12,-12,-55,0,-16,-189};
+        for(int aa : a)
+            out.printf("%6d", aa);
+        out.println();
+        algoOne(a);
+        for(int aa : a)
+            out.printf("%6d",aa);
+        out.println();
     }
 }
