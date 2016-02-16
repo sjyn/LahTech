@@ -1,8 +1,18 @@
 \documentclass{beamer}
 
 \usepackage{url}
+\usepackage{graphicx}
 
-\title{Microtransactions and DLC}
+\makeatletter
+\g@addto@macro{\UrlBreaks}{\UrlOrds}
+\makeatother
+
+\setbeamertemplate{bibliography item}{}
+\setbeamertemplate{bibliography entry title}{}
+\setbeamertemplate{bibliography entry location}{}
+\setbeamertemplate{bibliography entry note}{}
+
+\title{DLC}
 \author{Steven Rosendahl}
 \date{}
 
@@ -15,28 +25,139 @@
 \frametitle{The Issue}
 \begin{itemize}
 \pause
-\item Are micro-transactions ethical?
+\item Is the concept of Downloadable Content (DLC) ethical?
 \pause
 \item Should companies charge money for a product they market as free?
+\pause
+\item Should companies market an incomplete product and force users to pay more for the rest of the product?
+\pause
+\item When does DLC change from a fun add on to a game to a required purchase for a whole game?
 \end{itemize}
 \end{frame}
 
 \begin{frame}
 \frametitle{Examples}
-\pause
+% \begin{columns}
+% \begin{column}{0.5\textwidth}
 \begin{enumerate}
 \item The Saint's Row Franchise
 \pause
 \begin{itemize}
-\item
+\item Saints Row: The Third released November 15, 2011
+\pause
+\item Saint Row IV released August 20, 2013
+\begin{itemize}
+\pause
+\item A re-skinned version of Saints Row: The Third
 \end{itemize}
+\pause
+\item Saints Row: Gat Outta Hell released January 20, 2015
+\begin{itemize}
+\pause
+\item Marketed as a separate game, but only about $1/8$ as long as Saints Row IV
+\end{itemize}
+\end{itemize}
+\pause
+% \begin{figure}
+% \end{figure}
+\begin{columns}[T]
+\begin{column}{0.5\textwidth}
+\item Train Simulator 2016
+\begin{itemize}
+\item Base game: \$29.99.
+\pause
+\item All DLC: $> \$5,400.00$.
+\end{itemize}
+\end{column}
+
+\hspace{-1.8cm}
+
+\begin{column}{0.5\textwidth}
+\pause
+\includegraphics[scale=0.1]{p3vp4}
+\pause
+
+\vspace{0.2cm}
+
+\includegraphics[scale=0.4]{train_sim_dlc}
+\end{column}
+
+\hspace{-2cm}
+
+\end{columns}
 \end{enumerate}
 \end{frame}
 
-\begin{frame}[allowframebreaks]
+\begin{frame}
+\frametitle{Kantianism}
+\begin{itemize}
+\item ``Never use people as a means to an end"
+\pause
+\begin{itemize}
+\item Companies no longer care about making games
+\pause
+\item Profit can be maximized by continually making DLC at the expense of the gamer
+\pause
+\item All major game companies follow the DLC pattern, so gamers are forced to buy into it
+\pause
+\item The intention is to make more money off of gamers, which is using them as a means to an end
+\pause
+\end{itemize}
+\end{itemize}
+\begin{center}
+\includegraphics[scale=0.3]{unethical}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Utilitarianism}
+\begin{itemize}
+\item ``The most amount of good for the most amount of people"
+\pause
+\begin{itemize}
+\item Companies turn large profits from DLC
+\pause
+\item Companies use that profit to create more content for gamers
+\pause
+\item Gamers enjoy playing the new games
+\pause
+\item The cycle repeats
+\end{itemize}
+\end{itemize}
+\pause
+\begin{center}
+\includegraphics[scale=0.3]{ethical}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Social Contract}
+\begin{itemize}
+\item ``Rules that are agreed upon by all"
+\pause
+\begin{itemize}
+\item Game Companies vs. Gamers
+\pause
+\item Game companies want to turn a large profit
+\pause
+\item Gamers want complete games at a reasonable price
+\pause
+\item There has to be a compromise that both parties can agree upon
+\pause
+\item Current system favors the game companies, not the gamers
+\end{itemize}
+\end{itemize}
+\begin{center}
+\includegraphics[scale=0.3]{unethical}
+\end{center}
+\end{frame}
+
+\begin{frame}[shrink=20]
 \frametitle{References}
-\bibliographystyle{apalike}
-\bibliography{pres_bib.bib}
+\vspace{1cm}
+\nocite{*}
+\bibliographystyle{alpha}
+\bibliography{pres_bib}
 \end{frame}
 
 \end{document}
