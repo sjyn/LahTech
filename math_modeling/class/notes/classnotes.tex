@@ -279,4 +279,46 @@ This is based on combinatorics; if we have 3 candidates, we have
 \]
 possibilities.
 
+\subsection{Arrow's Axioms}
+
+Kenneth Arrow has several axioms that must be taken into account when modeling voting situations.
+%page 185-187
+\begin{enumerate}
+\item The model should be transitive
+\item The model should not consider irrelevant alternatives
+\item The voters should be able to vote for whomever they choose
+\item If every voter prefers one alternative to another, so does the whole society
+\item There should be no case that leads to a dictatorship
+\end{enumerate}
+
+Among these axioms, (2) is the most logical of all. This axiom is stating that if we wish to know the
+overall preference of $x$ vs $y$, then we \textbf{only} need to consider $x$ and $y$. In the general
+case, this makes sense. The outcome should not be affected by candidate $z$, so we need not consider that
+candidate.
+
+\begin{quote}
+\textit{\textbf{Example}} Consider the case where we have the following candidates:\\
+\[\text{Rubio: A, Trump: B, Carson: C, Cruz: D, Kaish: E.}\]
+\end{quote}
+We can consider the following setup\\
+\begin{center}
+\begin{tabular}{c c c c c c}
+A & B & C & D & E & E\\
+D & E & B & C& B &C\\
+E&D&E&E&D&D\\
+C&C&D&B&C&B\\
+B&A&A&A&A&A\\
+\hline
+18 & 12 & 10 & 9 & 4 & 2
+\end{tabular}
+\end{center}
+\textbf{Plurality:} Under Plurality, A has the majority vote (18), so A wins.\\\\
+\textbf{Single Runoff:} Under the single runoff model, the two candidates with the most 1st place votes
+have a runoff. The winner of the runoff wins. The two top candidates here are A and B. In a single
+runoff, A has 18 votes and B has 37, so B wins.\\\\
+\textbf{Hare:} Under the Hare system, C wins.\\\\
+\textbf{Bourda:} Under the Bourda method, D wins.\\\\
+\textbf{Pairwise:} Under pairwise comparison, there are ${5 \choose 2} = 10$ comparisons.
+In this case, E wins the election.
+
 \end{document}

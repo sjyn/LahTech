@@ -1,0 +1,72 @@
+\section{Non Linear Equations}
+\subsection{Brook's Equation}
+
+Brooks Equation is the simplest form of an equation describing the movement of shockwaves. The equation
+is given as follows:
+\[
+u_{t} - uu_{x} = 0.
+\]
+We will attempt to solve Brook's equation in a similar fashion to how we solved first order PDE's.
+\begin{quote}
+\textit{\textbf{Example:}} Find a solution to the equation
+\[
+\begin{cases}
+u_{t} - uu_{x} = 0\\
+u(x,0) = x
+\end{cases}.
+\]
+\textit{\textbf{Solution:}} We will begin by noticing that
+\[
+{dx\over dt} = u(x,t).
+\]
+This implies that the solution depends on the function itself, and, as a result, we cannot solve this in
+the typical way. We can, however, analyze the characteristic equation. Note that $u(x,t)$ is constant. We
+know this, since
+\[
+{d\over dt}u(x(t),t)=
+{\partial u\over\partial x}{\partial x \over \partial t} + {\partial u\over \partial t}=
+0.
+\]
+This is not a trivial fact; it actually leads us to several conclusions that we can use:
+\begin{enumerate}
+\item Any associated characteristic curve is a straight line. We know this since...
+\item ...the solution is constant on each characteristic curve. This leads us to...
+\item ...the slope of each line is the same as the value of $u(x,t)$ on that line.
+\end{enumerate}
+We can use (3) to help us here. We will now take our initial condition, $\phi(x)=u(x,0)=x$, into
+consideration. We know by (1) that there are infinitely many solutions that are straight lines, so
+we can consider the case where we have a solution that passes through $(x,t)$ and $(x_{0},t_{0})$. Note
+that $t_{0} = 0$. We can setup a relationship based on the slope $m$ as follows:
+\begin{alignat*}{3}
+m &= {x-x_{0}\over t-0}\qquad\qquad &&\text{by the definition of a slope}\\
+&= {dx\over dt} &&\text{since the slope is constant}\\
+&= u(x,t) &&\text{by the characteristic equation}\\
+&= u(x_{0},0) &&\text{by (3)}\\
+&= \phi(x_{0}) &&\text{by the definition of the initial value}.
+\end{alignat*}
+Now we have a very nice group of equalities, which we can manipulate as we please. We will take
+\[
+{x-x_{0}\over t-0} = \phi(x_{0}),
+\]
+which can be rearranged as
+\[
+x-x_{0} = t\phi(x_{0}).
+\]
+We also know that
+\[
+u(x,t) = \phi(x_{0}),
+\]
+so we would like to find a value for $\phi(x_{0})$. In our case, $\phi(x) = x$, so
+\begin{align*}
+&\qquad\ \ x-x_{0} = t\phi(x_{0})\\
+&\implies x-x_{0} = tx_{0}\\
+&\implies x = 2tx_{0}\\
+&\implies x_{0} = {x\over 2t},\quad t\neq0.
+\end{align*}
+We had that $u(x,t) = \phi(x_{0})$, so
+\[
+u(x,t) = {x\over2t}.
+\]
+We are not done yet. Our solution for $u$ is only applicable for $t\neq0$, but we know that the initial
+condition applies to $t=0$.
+\end{quote}
