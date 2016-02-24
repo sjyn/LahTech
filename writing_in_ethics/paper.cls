@@ -8,7 +8,7 @@
 \RequirePackage{fontspec}
 \RequirePackage[margin=1in]{geometry}
 \RequirePackage{hyperref}
-\RequirePackage[backend=bibtex,style=mla,showmedium=false]{biblatex}
+\RequirePackage[backend=bibtex]{biblatex}
 
 \date{}
 \author{}

@@ -1,0 +1,36 @@
+\documentclass{hw}
+
+\title{Game Theory}
+\date{}
+\author{}
+
+\begin{document}
+\maketitle
+
+\section{Game of Evens and Odds}
+
+The game of even's and odds is a two player game, where one player is the \textit{row player} and the other player is the \textit{column player}. In this game, we can discuss the concept of a \textit{payoff matrix}, which can be used to model the game.\\
+
+Consider the matrix
+\[
+\begin{array}{c c c}
+ & \text{Even} & \text{Odd}\\
+\text{Even} & \$1 & -\$1\\
+\text{Odd}&-\$1&\$1
+\end{array}.
+\]
+This matrix is representative of a mixed strategy. Both the row and column players have changed their choices between rounds.
+
+Imagine that we are dealing with two competing restaurants. On any given day, restaurant A, the row player, can offer a discount to try and get more customers than restaurant B. In response, B will also offer a discount. We can consider a matrix that is representative of this:
+\[
+\begin{array}{c c c}
+ & 5\% & 30\%\\
+10\% & \$5000 & -\$8000\\
+20\% & -\$3000 & \$1000
+\end{array}.
+\]
+The $-\$8000$ causes the row player to consider a \textit{max$\to$min} principal. Using this strategy, B will try to keep the best minimum, which is the bottom row $(\$1000)$. A, on the other hand wants to use a \textit{min$\to$max} principal, so A will stick to the second column. Both players want to avoid getting the $-\$8000$. This strategy is different from the mixed strategy used in the even and odd game.
+
+
+
+\end{document}
