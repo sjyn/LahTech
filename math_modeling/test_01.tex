@@ -1,0 +1,232 @@
+% pg 21, #33,34,35
+% pg 61, #29
+% pg 100, #8,11,1,2
+% pg 138, #6,14,29
+% pg 176, #4,5,6,13
+% pg 224, #3,4
+\documentclass{hw}
+
+\begin{document}
+
+\section{Mathematical Models}
+\begin{enumerate}
+\item A bank charges 18\% annual interest on credit card balances. What is the value of an original
+balance of \$1,000 after 1 year if the bank computes new balances
+\begin{enumerate}
+\item once a year?
+\begin{quote}
+We can use the equation $B_{n} = (1+r)B_{n-1}$ to calculate the balance. The original balance was \$1000,
+so after 1 year, we have $B_{1} = (1+0.18)(\$1000)$, so $B_{1}=\$1180$.
+\end{quote}
+\item twice a year?
+\begin{quote}
+Similarly, we can solve the problem using the same equation as above. We know that after the first 6
+months, the balance is \$1180. If we calculate again, we find that the new balance is $B_{2}=\$1392.40$.
+\end{quote}
+\item every three months?
+\begin{quote}
+After the first 8 months, the balance is \$1392.40. Calculating again yields $B_{3}=\$1643.03$.
+\end{quote}
+\item every week?
+\begin{quote}
+In this case, it helps to come up with a more generalized model, since there are 52 weeks in a year.
+We can abstract the model into $B_{n}=(1+r)^nB_{0}$, so we have that $B_{52}=(1+0.18)^{52}(\$1000)$,
+so $B_{52} = \$5468451.69$.
+\end{quote}
+\item every day?
+\begin{quote}
+We can again use our abstracted model, so we have $B_{365} = (1+0.18)^{365}(\$1000)$, so
+$B_{365} = \$1.73\times10^{29}$.
+\end{quote}
+\end{enumerate}
+\end{enumerate}
+
+\section{Stable and Unstable Arms Races}
+\begin{enumerate}
+\item Determine the outcome of an arms race governed by the Richardson model:
+\[
+\begin{cases}
+{dx\over dt}=10y-14x-12\\
+{dy\over dt}=8x-4y-24
+\end{cases}
+\]
+when the initial level is
+\begin{enumerate}
+\item (4,4)
+\item (13,6)
+\end{enumerate}
+\begin{quote}
+We will begin by finding a general solution to the provided system of ODE's. As it stands now, we
+need to find a substitution that will allow us to solve the system. We can do so by finding the stable
+point of the system.
+\[
+\left[
+\begin{array}{c c | c}
+-14 & 10 & 12\\
+8 & -4 & 24
+\end{array}
+\right]
+\to
+\left[
+\begin{array}{c c | c}
+1 & 0 & 12\\
+0 & 1 & 18
+\end{array}
+\right].
+\]
+We can make the substitution of $\alpha = x - 12$ and $\gamma = y - 18$. If we substitute in terms
+of $\alpha$ and $\gamma$ we get the system
+\[
+\begin{cases}
+\alpha' = 10\gamma - 14\alpha\\
+\gamma' = 8\alpha - 12\gamma
+\end{cases}.
+\]
+We can solve this. Our $A$ matrix is
+\[
+\left[
+\begin{array}{c c}
+-14 & 10\\
+8 & -12
+\end{array}
+\right]
+\implies
+\left[
+\begin{array}{c c}
+-14-\lambda & 10\\
+8 & -12-\lambda
+\end{array}
+\right].
+\]
+Our eigenvalues can be found by
+\begin{gather*}
+\lambda^2 -(a+d)\lambda+(ad-bc) = 0\\
+\lambda^2 + 26\lambda+88 = 0\\
+\lambda = -22\qquad \lambda = -4.
+\end{gather*}
+Our first eigenvector is given by
+\[
+\left[
+\begin{array}{c c}
+-14+22 & 10\\
+8 & -12+22
+\end{array}
+\right]
+\to
+\left[
+\begin{array}{c c}
+8 & 10\\
+8 & 10
+\end{array}
+\right]
+\to
+\left[
+\begin{array}{c c}
+1 & {5\over 4}\\
+0 & 0
+\end{array}
+\right]
+\implies
+\vv{\lambda}_{1} =
+\left[
+\begin{array}{c}
+1\\
+-{4\over5}
+\end{array}
+\right].
+\]
+We can find the second eigenvector in a similar fashion:
+\[
+\vv{\lambda}_{2} =
+\left[
+\begin{array}{c}
+1\\
+1
+\end{array}
+\right].
+\]
+We now have solutions in terms of $\alpha$ and $\gamma$.
+\[
+\begin{cases}
+\alpha = c_{1}e^{-22t}+c_{2}e^{-4t}\\
+\gamma = -{4\over5}c_{1}e^{-22t} + c_{2}e^{-4t}
+\end{cases}.
+\]
+We can back substitute, and we find that $x = \alpha + 12$ and $y = \gamma + 18$, so
+\[
+\begin{cases}
+x = c_{1}e^{-22t}+c_{2}e^{-4t} + 12\\
+y = -{4\over5}c_{1}e^{-22t} + c_{2}e^{-4t}+18
+\end{cases}.
+\]
+Finally, we can apply our initial conditions, as specified by the problem. With the initial vector
+$(4,4)$, we have that $c_{1} = 10/3$ and $c_{2} = -34/3$.
+\end{quote}
+\end{enumerate}
+
+\section{Single Species Ecological Models}
+\begin{enumerate}
+\item The rate of growth of a certain population of bacteria in a culture is directly proportional
+to the size of the population. If an experiment begins with 1,000 bacteria and one hour later
+the count is 1,500 bacteria, then how many bacteria are present at the end of 24 hours?
+\begin{quote}
+We can model population growth with the equation $P = P_{0}e^{rt}$. To find the rate, we can solve
+for $r$, which gives us
+\[
+r = {\log{P\over P_{0}}\over t}.
+\]
+Using the information provided, we have that
+\[
+r = {\log{1500\over 1000}\over 1} = 0.4054.
+\]
+After 24 hours, we will have
+\[
+P = 1000e^{(0.4054)(24)} = 16834112.19.
+\]
+\end{quote}
+
+\item Suppose that 20 years ago the population of a town was 2,000, and that the population increased
+continuously at a rate proportional to the existing population. If the population of the town is now
+6,000, what has been the rate of growth?
+\begin{quote}
+If we take 20 years ago to be $t=0$, then we have $P_{0} = 2000$. We can similarly find the rate
+as above. Doing so yields $r = 0.0549$.
+\end{quote}
+
+\item If the population of a country is undergoing exponential growth at a rate of r percent per
+year, show that the population doubles every $(\log{2})/r$ years. This number is called the
+``doubling time." Compute the doubling time if r = 2.
+\begin{quote}
+We know that population growth can be modeled by the equation $P = P_{0}e^{rt}$. We can divide and
+take the natural log of both sides to get $\log{(P/P_{0})} = rt$. $P$ is the current population,
+so if it double the original, $P = 2P_{0}$. This yields $\log{(2)} = rt$, or $(\log{(2)})/r = t$.
+When $r=2$, we have $t \approx 0.34$.
+
+\item Assume that the U.S. population has grown exponentially. Estimate the growth rate using
+each of the following years in place of the year 1830 as done in the text.
+\begin{enumerate}
+\item 1800
+\begin{quote}
+From the text, we have that the population of the United States can be modeled by the equation
+\[
+P(t) = 3.929e^{0.029643(t - 1790)}.
+\]
+For the year 1800, we have that $P(t) = 5.28$ million.
+\end{quote}
+\item 1850
+\[
+P(t) = 23.25\text{ million}.
+\]
+\item 1900
+\[
+P(t) = 102.32\text{ million}.
+\]
+\item 1970
+\[
+P(t) = 814.44\text{ million}.
+\]
+\end{enumerate}
+\end{quote}
+\end{enumerate}
+
+\end{document}

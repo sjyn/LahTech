@@ -15,13 +15,15 @@ import static java.lang.System.out;
 
 public class PJOne {
 
+    private static int COUNT_TWO = 0;
+
     public static void algoOne(int[] a){
         int INST_COUT = 0;
         //Begin counting instructions
         int n = a.length;
         int j = 1;
         int[] b = new int[n];
-        while(j <= n - 1){
+        while(j <= n){
             INST_COUT++;
             int i = 1;
             while(i <= n - j){
@@ -31,20 +33,20 @@ public class PJOne {
                 int u = i;
                 for(; u < r; u++){
                     INST_COUT++;
-                    b[u - 1] = a[u - 1];
+                    b[u] = a[u];
                 }
                 u = i;
                 int v = m + 1;
                 int w = i;
                 for(; w < r; w++){
                     INST_COUT++;
-                    if((u > m) || (v <= r && b[v - 1] < b[u - 1])){
+                    if((u > m) || (v <= r && b[v-1] < b[u-1])){
                         INST_COUT++;
-                        a[w - 1] = b[v - 1];
+                        a[w] = b[v];
                         v++;
                     } else {
                         INST_COUT++;
-                        a[w - 1] = b[u - 1];
+                        a[w] = b[u];
                         u++;
                     }
                 }
@@ -56,10 +58,13 @@ public class PJOne {
     }
 
     public static void compute(int[] a, int[] b, int i){
+        COUNT_TWO++;
         if(i > a.length - 1){
             for(int j = i; j < a.length - 1; j++){
+                COUNT_TWO++;
                 if(b[j] > 0){
                     out.println(b[j]);
+                    COUNT_TWO++;
                 }
             }
             return;
@@ -76,13 +81,18 @@ public class PJOne {
     }
 
     public static void main(String[] args){
-        int [] a = new int[]{-12,-12,-55,0,-16,-189, -42, -98};
-        // for(int aa : a)
-            // out.printf("%6d", aa);
-        // out.println();
+        int [] a = new int[]{1,2,3,4};
+        int [] b = new int[]{1,2,3,4,5,6,7,8};
+        int [] c = new int[]{-1,-2,-3,0,1,2,3,4,5,6,7,8};
         algoOne(a);
-        // for(int aa : a)
-        //     out.printf("%6d",aa);
-        // out.println();
+        algoOne(b);
+        algoOne(c);
+
+        // int [] e = new int[]{1,2,3,4};
+        // int [] d = new int[]{-1,2,-3,4,-5,6,-7,8};
+        // int [] f = new int[]{-1,2,-3,4,-5,6,-7,8,0,99,123,45634,1234234,7465745};
+        compute(a,new int[]{0,0,0,0},1);
+        compute(b,new int[]{0,0,0,0,0,0,0,0},1);
+        compute(c,new int[]{0,0,0,0,0,0,0,0,0,0,0,0},1);
     }
 }
