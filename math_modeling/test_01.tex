@@ -6,7 +6,18 @@
 % pg 224, #3,4
 \documentclass{hw}
 
+\usepackage{cancel}
+
 \begin{document}
+
+\section{Formulas/Methods}
+\begin{enumerate}
+\item Population Growth: $P = P_{0}e^{at}$
+\item Logistic Population Growth: $P^{'}=bP({a\over b}-P)$
+\item Account Balance: $B_{n}=(1+r)^nB_{0}$
+\end{enumerate}
+
+\newpage
 
 \section{Mathematical Models}
 \begin{enumerate}
@@ -41,6 +52,7 @@ $B_{365} = \$1.73\times10^{29}$.
 \end{enumerate}
 \end{enumerate}
 
+\newpage
 \section{Stable and Unstable Arms Races}
 \begin{enumerate}
 \item Determine the outcome of an arms race governed by the Richardson model:
@@ -164,6 +176,7 @@ $(4,4)$, we have that $c_{1} = 10/3$ and $c_{2} = -34/3$.
 \end{quote}
 \end{enumerate}
 
+\newpage
 \section{Single Species Ecological Models}
 \begin{enumerate}
 \item The rate of growth of a certain population of bacteria in a culture is directly proportional
@@ -227,6 +240,122 @@ P(t) = 814.44\text{ million}.
 \]
 \end{enumerate}
 \end{quote}
+\end{enumerate}
+
+\newpage
+\section{Interacting Species Ecological Models}
+\begin{enumerate}
+\item Show that $y=0$, $x =e^{at}$ is a solution of both predator-prey and competitive hunters models. What
+do the orbits look like? In which direction are they traced out? Answer the same questions if it is
+specified that $x = 0$ is one of the functions in a solution.
+\begin{quote}
+The predator-prey model can be written as
+\[
+\begin{cases}
+{dx\over dt} = ax-bxy\\
+{dy\over dt} = mxy - ny
+\end{cases}.
+\]
+We can simply plug into the solutions into the equations to check if they are valid. Since $y=0$,
+$y'=0$, and therefore $0=mx(0)-n(y) = 0$. We also have that $x'=ae^{at}$, so we have
+\begin{gather*}
+ae^{at} = ae^{at} - b(e^{at})(0)\\
+ae^{at} = ae^{at}.
+\end{gather*}
+We can do the same procedure for $x=0$, and we will find that the answer is still the same.
+\end{quote}
+\end{enumerate}
+
+% \newpage
+% \section{Tumor Growth Models}
+% \begin{enumerate}
+% \item
+% \end{enumerate}
+
+\newpage
+\section{Voting Methods}
+\begin{enumerate}
+\item Consider the following distribution of votes among 55 voters.\\
+\begin{center}
+\begin{tabular}{c | c}
+Number of Voters & Ranking\\
+\hline
+18 & $t>m>h>k>c$\\
+\hline
+12 & $c>h>m>k>t$\\
+\hline
+10 & $k>c>h>m>t$\\
+\hline
+9 & $m>k>h>c>t$\\
+\hline
+4 & $h>c>m>k>t$\\
+\hline
+2 & $h>k>m>c>t$
+\end{tabular}
+\end{center}
+Determine the outcome of the election using the Plurality, Pairwise Comparison, Borda, and Hare methods.
+\begin{quote}
+\begin{enumerate}
+\item \textit{Plurality}: In this case, $t$ has the most votes, so $t$ wins the election.\\
+\item \textit{Pairwise}: We have to compare every possible combination of matches and determine the
+outcome from there. We have
+\begin{align*}
+&t\ vs.\ m:\textbf{ m} \qquad &&t\ vs.\ h:\textbf{ h} \qquad &&&t\ vs.\ k:\textbf{ k} \qquad &&&&t\ vs.\ c: \textbf{ c}\\
+&m\ vs.\ h:\textbf{ h}  &&m\ vs.\ k:\textbf{ m}  &&&m\ vs.\ c: \textbf{ m} &&&&\\
+&h\ vs.\ k:\textbf{ h}  &&h\ vs. c:\textbf{ h} &&& &&&&\\
+&k\ vs.\ c:\textbf{ k} && &&& &&&&
+\end{align*}
+In this case, $h$ has 4 votes, $m$ has 3 votes, $k$ has 2 votes, $c$ has 1 vote, and $t$ has 0 votes,
+so $h$ is the winner.\\
+\item \textit{Borda}: Under the Borda method, we consider how many points each candidate receives based
+on their ranking in each row. The first place candidate in each row receives 4 times the number of votes
+points, the next receives 3 times the number of votes points, and so on to the last candidate, who receives
+0 points.\\
+\begin{center}
+\begin{tabular}{c | c | c | c | c | c}
+& $t$ & $m$ & $h$ & $k$ & $c$\\
+\hline
+18 $\times$ & 4 & 3 & 2 & 1 & 0\\
+\hline
+12 $\times$ & 0 & 2 & 3 & 1 & 4\\
+\hline
+10 $\times$ & 0 & 1 & 2 & 4 & 3\\
+\hline
+9 $\times$ & 0 & 4 & 2 & 3 & 1\\
+\hline
+4 $\times$ & 0 & 2 & 4 & 1 & 3\\
+\hline
+2 $\times$ & 0 & 2 & 4 & 3 & 1\\
+\hline
+\textbf{Total: }& 72 & 136 & 134 & 107 & 101
+\end{tabular}
+\end{center}
+\noindent\\
+\noindent In this case, $m$ had the most votes at 136, so $m$ wins the election.\\
+\item \textit{Hare}: The Hare method focuses on finding the majority vote needed to win the election.
+There were 55 voters in this example, so the majority would be 28 votes. In the Hare method, the candidates
+have runoffs until someone reaches a majority vote.\\
+\begin{center}
+\begin{tabular}{c | c | c | c | c}
+& 1 & 2 & 3 & 4\\
+\hline
+$t$ & 18 & 18 & 18 & 18\\
+\hline
+$c$ & 12 & 16 & $\cancel{16}$ & \\
+\hline
+$m$ & 9 & $\cancel{9}$ & & \\
+\hline
+$h$ & $\cancel{6}$ & & & \\
+\hline
+$k$ & 10 & 12 & 21 & 22\\
+\hline
+\end{tabular}
+\end{center}
+\noindent\\
+\noindent Here, neither party reached 28, but $k$ has more votes than $t$, so $k$ wins.
+\end{enumerate}
+\end{quote}
+
 \end{enumerate}
 
 \end{document}
