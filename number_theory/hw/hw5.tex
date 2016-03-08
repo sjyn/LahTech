@@ -20,7 +20,14 @@ $7305\equiv4\text{ mod }7$, so it will be $4$ days after Friday, which is Tuesda
 March 11, 2016?  If so, what month is it?  Otherwise, explain why modular arithmetic provides no help
 in solving this problem.
 \begin{quote}
-
+Modular arithmetic can be used to help solve the problem, but it cannot be used alone. Since months vary
+in the number of days, we need to know how many days are in each month. We can use mod arithmetic to
+calculate how many years go by.
+\[
+5000 = 365(13)+255\implies 13\text{ days from now}.
+\]
+March 24 and three leap years leaves us with March 27 and 252 days. From here, we can use a calendar
+to determine that the day should be sometime in December.
 \end{quote}
 
 \item Without using a calculator, find the remainder when $8^{10}$ is divided by 11 and when $5^9$
@@ -80,6 +87,12 @@ $\triangle$
 
 \item If $a$ and $b$ are integers such that $a\equiv b\text{ mod }m$ and $a\equiv b\text{ mod }n$, can
 we conclude that $a\equiv b\text{ mod }l$? Either prove your answer or provide a counterexample.
+\begin{quote}
+Since $a\equiv b\text{ mod }m$, we know that $m\mid (a-b)$, and since $a\equiv b\text{ mod }n$, we know
+that $n\mid (a-b)$. This implies that $a-b$ is a common factor of both $m$ and $n$, so $l=lcm(m,n)$ is
+also divisible by $a-b$.
+\end{quote}
+$\triangle$
 \end{enumerate}
 
 \item If $a,b,n\in\ZZ$, we adopt the notation that
@@ -87,5 +100,36 @@ we conclude that $a\equiv b\text{ mod }l$? Either prove your answer or provide a
 a+n\ZZ = \{a+nz\ :\ z\in\ZZ\}.
 \]
 If $(a+n\ZZ)\cap(b+n\ZZ)\neq\emptyset$, prove that $a+n\ZZ = b+n\ZZ$.
+\begin{quote}
+Suppose we have a $w\in(a+n\ZZ)\cap(b+n\ZZ)$. Then, by definition of $a+n\ZZ$, $w=a+nz_{1}$, and,
+by definition of $b+n\ZZ$, $w=b+nz_{2}$. We can say that $a+nz_{1} = b+nz_{2}$, or that
+$a-b=nz_{2}-nz_{1}$. Consider the case where we take an $x\in a+n\ZZ$. Then, by definition of $a+n\ZZ$,
+we have that $x=a+nz_{3}$. We can rearrange $a-b=nz_{2}-nz_{1}$ in terms of $a$ so that
+$a=b+nz_{2}-nz_{1}$. Then $x=b+nz_{2}-nz_{1}+nz_{3}$, or $x=b+n(z_{2}-z_{1}+z_{3})$. Then $x\in b+n\ZZ$.
+Similarly, we can take a $y\in b+n\ZZ$. Then $y=b+nz_{4}$ and $b=a+nz_{1}-nz_{2}$, so
+$y=a+nz_{1}-nz_{2}+nz_{4}$. Therefore $y=a+n(z_{1}-z_{2}+z_{4})$ which implies that $y\in a+n\ZZ$.
+\end{quote}
+$\triangle$
+
+\item If $a, b, n\in\ZZ$ with $n\geq 2$, prove that the following statements are equivalent.
+\begin{enumerate}[i]
+\item $a\equiv b\text{ mod }n$
+\item $a\in b+n\ZZ$
+\item $b\in a+n\ZZ$
+\end{enumerate}
+Conclude that $a+n\ZZ=\{x\in\ZZ\ :\ a\equiv x\text{ mod }n\}$.
+\begin{quote}
+\underline{$(i)\implies(ii)$} Suppose $a\equiv b\text{ mod }n$. Then $n\mid(a-b)$, so $a-b=nk,\ k\in\ZZ$.
+Then $a=b+nk$, so $a\in b+n\ZZ$ by definition.\\\\
+\underline{$(ii)\implies(iii)$} Suppose $a\in b+n\ZZ$. Then $a=b+nz,\ z\in\ZZ$, and $a-b=nz$. Then
+$b=a+n(-z)$, so $b\in a+n\ZZ$.\\\\
+\underline{$(iii)\implies(i)$} Suppose $b\in a+n\ZZ$. Then $b=a+nz,\ z\in\ZZ$, so $a-b=-nz$, or
+$a-b=n(-z)$. Then $n\mid(a-b)$, and $a\equiv b\text{ mod }n$ by definition.\\\\
+By the transitive property of implication, we are done.\\\\
+Let $x\in a+n\ZZ$. Then by properties $(iii)$ and $(i)$, $a\equiv x\text{ mod }n$. Let
+$y\in\{ x\in\ZZ\ :\ a\equiv x\text{ mod }n \}$. Then by properties $(i)$ and $(iii)$, we have that
+$y\in a+n\ZZ$.
+\end{quote}
+$\triangle$
 \end{enumerate}
 \end{document}
