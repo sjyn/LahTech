@@ -1,0 +1,24 @@
+\section{Liquids}
+Fluids can be modeled using several different techniques. The classical way involves using
+partial differential equations. However, they can also be modeled with an agent based model,
+known as DSMC (Direct Simulation Monte-Carlo).
+\subsection{Probability}
+\textit{\textbf} Find the probability of getting a 5 in 20 rolls of a die.
+\begin{quote}
+Our probability of not getting a 5 is $5/6$, and we only want one 5, which mean that the chance of not
+getting a 5 is $(5/6)^{19}$. The chance of getting a 5 is $1/6$, and we make 20 rolls, so we have
+\[
+P = \left({5\over 6}\right)^{19}\cdot20\cdot\left({1\over6}\right)
+\]
+\end{quote}
+This problem is easy to simulate on a TI-84 calculator:\\
+\begin{quote}
+\begin{verbatim}
+randInt(1,6,60)->L1
+\end{verbatim}
+\end{quote}
+\textit{\textbf} Given an answer key of A B B C D D A C B A, model how a student who has not studied
+at all will do.
+\begin{quote}
+    
+\end{quote}

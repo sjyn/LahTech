@@ -1,0 +1,306 @@
+\documentclass{hw}
+
+% \renewcommand{\arraystretch}{1.5}
+
+\begin{document}
+\begin{enumerate}
+\item Simulate 36 rolls of a fair die. Give the relative frequency and the corresponding theoretical
+probability of each of the outcomes and compare them.
+\begin{quote}
+With 36 rolls, the following numbers are produced:\\
+\[\{2,6,3,3,4,5,2,1,1,2,1,1,5,5,4,3,5,4,1,1,4,3,1,1,3,3,2,6,3,1,2,5,5,2,4,4\}\]
+\begin{center}
+\begin{tabular}{c | c | c}
+Dice Number & Frequency & Theoretical Probability\\
+\hline
+1 & 9 & ${1/4}$\\
+
+2 & 6 & ${1/6}$\\
+
+3 & 7 & ${7/36}$\\
+
+4 & 6 & ${1/6}$\\
+
+5 & 6 & ${1/6}$\\
+
+6 & 2 & ${1/18}$\\
+\end{tabular}
+\end{center}
+\end{quote}
+
+\item Simulate 96 rolls of a pair of dice where the sum is observed. Give the relative frequency and the
+corresponding theoretical probability of each of the outcomes. Make a table showing your results. Repeat
+the experiment 6 times and consider the total as if 576 rolls were simulated.
+\begin{quote}
+Rolling two die 96 times produces the matrix
+\[
+\left[
+\begin{array}{c c c c c c c c}
+7 & 3 & 6 & 12 & 9 & 7 & 2 & 6\\
+10 & 7 & 9 & 6 & 10 & 9 & 7 & 7\\
+5 & 8 & 4 & 7 & 3 & 11 & 7 & 11\\
+10 & 6 & 10 & 8 & 4 & 8 & 4 & 9\\
+10 & 9 & 6 & 11 & 7 & 7 & 9 & 7\\
+5 & 8 & 5 & 10 & 7 & 4 & 12 & 6\\
+5 & 10 & 6 & 8 & 9 & 9 & 12 & 4\\
+2 & 7 & 5 & 9 & 6 & 4 & 7 & 5\\
+9 & 6 & 4 & 10 & 6 & 6 & 6 & 11\\
+8 & 7 & 6 & 8 & 9 & 9 & 8 & 9\\
+5 & 6 & 9 & 12 & 5 & 8 & 7 & 7\\
+8 & 6 & 12 & 3 & 10 & 8 & 6 & 6
+\end{array}
+\right]
+\implies
+\begin{array}{c | c | c}
+\text{Value} & \text{Frequency} & \text{Probability}\\
+\hline
+1 & 0 & 0\\
+
+2 & 2 & {1/48}\\
+
+3 & 3 & {1/32}\\
+
+4 & 7 & {7/96}\\
+
+5 & 8 & {1/12}\\
+
+6 & 17 & {17/96}\\
+
+7 & 16 & {1/6}\\
+
+8 & 11 & {11/96}\\
+
+9 & 14 & {7/48}\\
+
+10 & 9 & {3/ 32}\\
+
+11 & 4 & {1/ 24}\\
+
+12 & 5 & {5/96}\\
+\end{array}
+\]
+Running the experiment 6 times produces
+\begin{center}
+\begin{tabular}{c | c | c | c | c | c | c | c}
+Value & Run 1 & Run 2 & Run 3 & Run 4 & Run 5 & Run 6 & Total\\
+\hline
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+2 & 1.5 & 1 & 1 & 1 & 1 & 2.5 & 8\\
+3 & 2.33 & 3 & 1.66 & 2.33 & 3.33 & 1.66 & 14.33\\
+4 & 2.5 & 1.75 & 1.75 & 3 & 1.5 & 1.75 & 12.25\\
+5 & 1.6 & 2.2 & 2.6 & 1.6 & 2 & 2.2 & 12.2\\
+6 & 2.5 & 3.16 & 2.33 & 2 & 1 & 1.5 & 12.5\\
+7 & 2 & 2.286 & 2.142 & 2 & 2.571 & 2.571 & 13.571\\
+8 & 2.5 & 1.25 & 1.5 & 1.75 & 2 & 1.625 & 10.625\\
+9 & 0.33 & 1.33 & 0.88 & 1.44 & 1.11 & 1.11 & 6.22\\
+10 & 1 & 0.4 & 1.1 & 0.7 & 0.8 & 1 & 5\\
+11 & 0.27 & 0.18 & 0.54 & 0.54 & 0.63 & 0.45 & 2.63\\
+12 & 0.25 & 0.33 & 0.25 & 0.0833 & 0.25 & 0.25 & 1.4166\\
+\end{tabular}
+\end{center}
+\end{quote}
+
+\newpage
+\item Simulate 10 free-throws for Kobe Bryant, whose free-throw average in 2008 was 81\%. How many
+of the shots were successful.
+\begin{quote}
+We can let 1 represent a successful free-throw, and 2 represent a miss. Running one test yields
+\begin{center}
+\begin{tabular}{c | c}
+Shot & Result\\
+1 & 1\\
+2 & 1\\
+3 & 1\\
+4 & 1\\
+5 & 1\\
+6 & 1\\
+7 & 1\\
+8 & 2\\
+9 & 2\\
+10 & 1
+\end{tabular}
+\end{center}
+From the table, we can see that he made 8 shots and missed two.
+\end{quote}
+
+\item A baseball player is a 0.331 hitter. Simulate 10 at-bats for this player and tell how many hits he
+gets.
+\begin{quote}
+We can let 0 represent a miss, and 1 represent a hit.
+\begin{center}
+\begin{tabular}{c | c}
+Shot & Result\\
+\hline
+1 & 1\\
+2 & 0\\
+3 & 1\\
+4 & 1\\
+5 & 0\\
+6 & 0\\
+7 & 1\\
+8 & 0\\
+9 & 0\\
+10 & 1
+\end{tabular}
+\end{center}
+Based on this run, the batter hits 50\% of the time.
+\end{quote}
+
+\newpage
+\item A student who has not studied for a 10 question multiple choice test with 4 choices among the answers
+(a, b, c, d) for each question, decides to simulate such a test and answer the questions according to a
+simulation in which each choice has the same probability. Assume the correct answers are
+\[\text{(a, b, b, c, d, d, a, c, b, a).}\]
+What is the student's score?
+\begin{center}
+\begin{tabular}{c | c | c}
+Student & Answer & Correct\\
+\hline
+a & a & Yes\\
+d & b & No\\
+a & b & No\\
+a & c & No\\
+b & d & No\\
+c & d & No\\
+a & a & Yes\\
+d & c & No\\
+d & b & No\\
+a & a & No\\
+\hline
+& & \textbf{Score:} 20\%
+\end{tabular}
+\end{center}
+
+\item In sampling 4 balls at random from an urn containing 30 balls, \textit{without replacing} after each
+draw, we consider the balls as numbered 1 to 30. In selecting random whole number from 1 to 30, we ignore
+any number that has already been selected and continue the selection until we obtain a sample size of 4.
+Assume there are 20 red balls and 10 green balls in the urn. Draw 10 samples of size 4 and tabulate the
+number of red balls in each sample. Compare your results with the theoretical probability.
+\begin{quote}
+
+\end{quote}
+
+\newpage
+\item Students are queued up at the registrars office with the registration windows open at 8. There are
+four open windows; students approach the first open window as they advance to the front of the queue.
+Assume that 10\% of the students require 5 minutes of service time, 30\% require 7 minutes, 40\% require 10
+minutes, and 20\% require 15 minutes. Simulate the service of the first 20 students in a random queue. Show
+the schedule of service at the four windows (A, B, C, D), and determine how long it takes to process these
+students and give the average time from 8 to leaving the service window.
+\begin{quote}
+One result of running the simulation yields
+\[5,10,7,7,10,10,5,15,15,7,15,15,10,10,7,7,10,7,15,15\]
+as the queue. Assuming that students prefer A to B to C to D, we have the following process
+\begin{center}
+\begin{tabular}{c | c | c | c}
+A & B & C & D\\
+\hline
+5 & 10 & 7 & 7\\
+10 & 15 & 10 & 5\\
+7 & 15 & 15 & 15\\
+15 & 7 & 10 & 10\\
+7 & 15 & 7 & 10\\
+\hline
+44 & 62 & 49 & 47
+\end{tabular}
+\end{center}
+The average time is 8.8 minutes for A, 12.4 for B, 9.8 for C, and 9.4 for D. The overall average time
+is 10.1 minutes.
+\end{quote}
+
+\item Simulate the following bank queue, and give the average time needed to process each customer.
+There are four bank tellers, and 40\% of customers need 3 minutes, 50\% need 5, and 10\% need 8. Assume
+there are 20 customers in line.
+\begin{quote}
+One run of the simulation yields
+\[3,5,3,3,5,5,3,5,5,3,5,5,5,5,3,3,5,3,5,8\]
+as the queue. On possible outcome of the tellers is
+\begin{center}
+\begin{tabular}{c | c | c | c}
+Teller 1 & Teller 2 & Teller 3 & Teller 4\\
+\hline
+3 & 5 & 3 & 3\\
+5 & 3 & 5 & 5\\
+5 & 3 & 5 & 5\\
+5 & 5 & 3 & 3\\
+8 & 5 & 3 & 5\\
+\hline
+26 & 21 & 19 & 21
+\end{tabular}
+\end{center}
+The average time is 5.2 for Teller 1, 4.2 for Teller 2, 3.8 for Teller 3, and 4.2 for Teller 4. The
+overall average is 4.35 minutes for each customer.
+\end{quote}
+
+\newpage
+\item A gas station with four self-serve pumps has determined that 80\% of all customers completely fill
+their gas tanks and the remaining 20\% fill their tank with a fixed dollar amount's worth of fuel. Suppose
+that it takes an average of 5 minutes for a complete fill up and 3 minutes for a partial fill up, and that
+for an hour customers arrive steadily. Simulate this process for 30 customers.
+\begin{quote}
+One outcome of the simulation is
+\[5,5,5,5,5,5,5,3,3,5,3,3,5,5,5,5,5,5,3,3,5,5,3,3,5,5,5,5,5,3.\]
+This yields the setup:
+\begin{center}
+\begin{tabular}{c|c|c|c}
+Pump 1 & Pump 2 & Pump 3 & Pump 4\\
+\hline
+5 & 5 & 5 & 5\\
+5 & 5 & 5 & 3\\
+5 & 3 & 3 & 3\\
+5 & 3 & 3 & 5\\
+3 & 5 & 5 & 3\\
+5 & 5 & 5 & 5\\
+  & 5 & 3 &  \\
+\hline
+28 & 31 & 29 & 26
+\end{tabular}
+\end{center}
+The overall average time is 4.4 minutes per customer.
+\end{quote}
+
+\item Simulate 108 rolls of three dice and show the frequency of each possible sum of the faces.
+\begin{quote}
+Here is the outcome of one such run
+\[
+\left[
+\begin{array}{c c c c c c c c c}
+12 & 6 & 12 & 7 & 10 & 13 & 13 & 5 & 13\\
+8 & 10 & 10 & 14 & 11 & 5 & 8 & 14 & 9\\
+12 & 5 & 10 & 6 & 14 & 5 & 6 & 11 & 16\\
+14 & 13 & 12 & 7 & 9 & 11 & 13 & 12 & 7\\
+15 & 8 & 11 & 13 & 8 & 10 & 7 & 14 & 13\\
+12 & 8 & 12 & 10 & 7 & 15 & 13 & 12 & 13\\
+15 & 12 & 11 & 9 & 7 & 8 & 11 & 4 & 14\\
+7 & 12 & 14 & 10 & 16 & 6 & 12 & 12 & 7\\
+14 & 9 & 14 & 3 & 14 & 14 & 8 & 10 & 10\\
+8 & 9 & 12 & 5 & 9 & 8 & 13 & 9 & 9\\
+5 & 18 & 13 & 14 & 9 & 11 & 7 & 12 & 15\\
+11 & 16 & 14 & 16 & 8 & 6 & 12 & 10 & 10\\
+\end{array}
+\right]
+\implies
+\begin{array}{c | c}
+\text{Dice Number} & \text{Frequency}\\
+\hline
+3 & 1\\
+4 & 1\\
+5 & 6\\
+6 & 5\\
+7 & 9\\
+8 & 10\\
+9 & 9\\
+10 & 11\\
+11 & 8\\
+12 & 15\\
+13 & 11\\
+14 & 13\\
+15 & 4\\
+16 & 4\\
+17 & 0\\
+18 & 1\\
+\end{array}
+\]
+\end{quote}
+\end{enumerate}
+\end{document}
