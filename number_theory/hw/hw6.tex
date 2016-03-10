@@ -1,0 +1,32 @@
+\documentclass{hw}
+
+\begin{document}
+\makeheader{6}
+
+\begin{enumerate}
+\item For each of the following linear congruences of the form $ax\equiv c\mod n$, determine whether a
+solution exists. If so, find a formula for all solutions and determine how many solutions there are in
+$\ZZ_{n}$.
+\begin{enumerate}
+\item $3x\equiv 5\mod7$
+\begin{quote}
+The GCD of $a$ and $n$ is 1, so there is a solution since $1\mid5$, and there is only one solution.
+If we solve the Diophantine equation $3x+7y=5$, we get a general solution for x as $x=3+7n$. The solution
+we want is 3, since all other $n$ give a solution equal to 3 in $\ZZ_{7}$.
+\end{quote}
+\item $4x\equiv 9\mod12$
+\begin{quote}
+This congruence has no solution since $gcd(4,12)=4$, but $4\nmid9$.
+\end{quote}
+\item $18x\equiv 27\mod45$
+\begin{quote}
+The $gcd(18,45)=9$, and $9\mid27$, so there is a solution, and in fact there are 9 solutions. If we
+solve the Diophantine equation $18x_{0}+45y_{0}=27$, we get that $x_{0}=-1+5n$. The nine solutions can
+be found by starting with $n=1$ to $n=9$, and are $4,9,14,19,24,29,34,39,44$.
+\end{quote}
+\end{enumerate}
+
+\item Let $S$ denote the number of solution to the linear congruence $ax\equiv c\mod20$. Prove that
+$S\in\{ 0,1,2,3,4,5,10,20\}$.
+\end{enumerate}
+\end{document}
