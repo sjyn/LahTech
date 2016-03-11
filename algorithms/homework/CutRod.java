@@ -1,12 +1,13 @@
 /*
- Compute maximum revenue using dynamic programming
- */
+Steven Rosendahl
+Compute maximum revenue using dynamic programming
+*/
 
 public class CutRod {
 	//array of prices
 	static int [] p = {0,1,5,8,9,10,17,17,20,24,30};
     //cost per cut
-    static int cost = 1;
+    static int cost = 2;
 
 	static int cut_rod(int n){
         //initially, there are no cuts

@@ -1,0 +1,48 @@
+\documentclass[notitlepage]{hw}
+\title{Elliptic Functions}
+\date{}
+\author{}
+
+\begin{document}
+\maketitle
+
+We will begin the discussion of Elliptic functions by analyzing the familiar trig functions, $\sin$ and
+$\cos$. Consider the following system of ODEs:
+\[
+\begin{cases}
+\frac{\dx}{\dt} = y\\
+\frac{\dy}{\dt} = -x
+\end{cases}
+\]
+This system has the solution $x(t)=\cos{t}$ and $y(t)=\sin{t}$. We will use this definition to formulate
+the Elliptic functions.\\
+
+We define a system of ODE's by letting $k\in(0,1)$ and $t\in\RR$ representative of time. We can define
+three functions, $sn(t,k),cn(t,k),dn(t,k)$, as solutions to the system
+\[
+\begin{cases}
+\frac{\dx}{\dt} = yz\\
+\frac{\dy}{\dt} = -zx\\
+{\dz\over\dt}=-k^{2}xy
+\end{cases}
+\implies
+\begin{cases}
+{d\over\dt}sn(t,k)=cn(t,k)dn(t,k)\\
+{d\over\dt}cn(t,k)=-dn(t,k)sn(t,k)\\
+{d\over\dt}dn(t,k)=-k^{2}sn(t,k)cn(t,k)
+\end{cases}
+\]
+The functions are not arbitrary; they have special properties. The first one we notice is that
+\[
+\lim_{k\to0^{+}}sn(t,k)=\sin{t}
+\qquad\lim_{k\to0^{+}}cn(t,k)=\cos{t}
+\qquad\lim_{k\to0^{+}}dn(t,k)=1.
+\]
+In addition, we have that
+\[
+\lim_{k\to1^{-}}sn(t,k)=\tanh{t}
+\qquad\lim_{k\to1^{-}}cn(t,k)=\sech{t}
+\qquad\lim_{k\to1^{-}}dn(t,k)=\sech{t}.
+\]
+
+\end{document}
