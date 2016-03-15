@@ -1,5 +1,7 @@
 \documentclass{hw}
 
+\usepackage{cancel}
+
 \begin{document}
 \makeheader{6}
 
@@ -10,9 +12,9 @@ $\ZZ_{n}$.
 \begin{enumerate}
 \item $3x\equiv 5\mod7$
 \begin{quote}
-The GCD of $a$ and $n$ is 1, so there is a solution since $1\mid5$, and there is only one solution.
-If we solve the Diophantine equation $3x+7y=5$, we get a general solution for x as $x=3+7n$. The solution
-we want is 3, since all other $n$ give a solution equal to 3 in $\ZZ_{7}$.
+The $gcd$ of $a$ and $n$ is 1, so there is a solution since $1\mid5$, and there is only one solution.
+If we solve the Diophantine equation $3x+7y=5$, we get a general solution for x as $x=-3+7n$. The
+solution we want is 4, since all other $n$ give a solution equal to 4 in $\ZZ_{7}$.
 \end{quote}
 \item $4x\equiv 9\mod12$
 \begin{quote}
@@ -27,6 +29,92 @@ be found by starting with $n=1$ to $n=9$, and are $4,9,14,19,24,29,34,39,44$.
 \end{enumerate}
 
 \item Let $S$ denote the number of solution to the linear congruence $ax\equiv c\mod20$. Prove that
-$S\in\{ 0,1,2,3,4,5,10,20\}$.
+$S\in\{ 0,1,2,4,5,10,20\}$.
+\begin{quote}
+We know that there are either 0 or $gcd(a,20)$ solutions to the congruence $ax\equiv c\mod20$.
+Suppose we have the set $A=\{0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20\}$. We know that for
+these numbers, we will have a unique $gcd$ with 20, and in fact all possible $gcd's$ will be
+represented in this set. If we find the $gcd$ of a relatively prime number $r$ and 20, then
+$gcd(r,20)=1$, so it is possible to have only one solution. In addition, $gcd(1,20)=1$, so we can
+eliminate this number as well. Now we can consider the set
+$B=A\backslash\{3,7,9,11,13,17,19\}=\{0,2,4,5,6,8,10,12,14,15,16,18,20\}$. For both 0 and 20,
+$gcd(0,20)=gcd(20,20)=20$, so it is possible to have 20 solutions. Now consider the set
+$C=B\backslash\{0,20\}=\{2,4,5,6,8,10,12,14,15,16,18\}$. We can find all the elements of $C$ such that
+$gcd(20,c)=2$, which are $\{2,6,14,18\}$, which leaves us with the set $D=\{4,5,8,10,12,15,16\}$.
+Now we can consider all the elements with which give us a $gcd$ of 4, which are $\{4,8,12,16\}$.
+This leaves us with the set $E=\{5,15\}$. If we take any element of $E$ and find $gcd(e,20)$, we
+will get 5. Now we are only left with $gcd(10,20)=10$, which provides us with 10.
+\end{quote}
+
+\item Suppose that $a,n\in\ZZ$ with $n\geq3$ and $gcd(a,n)>1$. Prove that there exist at least two
+non-zero points $c\in\ZZ_{n}$ such that $ax\equiv c\mod n$ has no solutions.
+\begin{quote}
+Suppose $ax\equiv c\mod n$. Then there are either $gcd(a,n)$ solutions, or 0 solutions. If there are
+0 solutions, then there are $n$ number of non-solutions $c\in\ZZ_{n}$. Now suppose we have $gcd(a,n)$
+solutions. We know that $gcd(a,n)>1$, so we can let $c_{1}=1$. In this case, the only thing that
+divides $c_{1}$ is 1, but $gcd(a,n)>1$, so there is no solution. We can also choose $c_{2}=n-1$. In
+this case, $n-1\equiv-1\mod n$, and the only thing that divides $-1$ is 1. Since $gcd(a,n)>1$, it does
+not divide $-1$, and therefore there are no solutions.
+\end{quote}
+
+\item Determine whether each given point is a unit in the given $\ZZ_{n}$. If so, find its
+multiplicative inverse. If not, explain why it fails to be a unit.
+\begin{enumerate}
+\item $3\in\ZZ_{6}$
+\begin{quote}
+$3\equiv1\mod6$ implies that $3x+6y=1$. However, $gcd(3,6)=3$, which does not divide 1. Therefore, 3
+is not a unit.
+\end{quote}
+\item $7\in\ZZ_{12}$
+\begin{quote}
+The greatest common divisor of 7 and 12 is 1, so 7 is a unit in $\ZZ_{12}$. We have the relationship
+that $7x\equiv1\mod12$, so $7x+12y=1$. One solution to this Diophantine equation is $x_{0}=-5$, so all
+solutions can be expressed as $x=-5+12n,\ n\in\ZZ$. When $n=1$, $x=7$, which means that $7$ is its own
+inverse.
+\end{quote}
+\item $13\in\ZZ_{18}$
+\begin{quote}
+$gcd(13,18)=1$, so 13 is a unit in $\ZZ_{18}$. We can form the relationship $13\equiv1\mod18$, so we
+have that $13x+18y=1$. We have one solution, $x_{0}=7$, so all solutions $x$ can be expressed as
+$x=7+18n,\ n\in\ZZ$. If we choose $n=0$, then we have $x=7$, so 7 is the inverse of 13.
+\end{quote}
+\end{enumerate}
+
+\item Suppose that $p$ is prime.
+\begin{enumerate}
+\item Prove that the set $\{0,1,2,\dots,p^{2}-2,p^{2}-1\}$ contains exactly $p(p-1)$ elements which
+are relatively prime to $p$. Conclude that $\ZZ_{p^{2}}$ contains exactly $p(p-1)$ units.
+\begin{quote}
+Suppose we consider the set containing all non-units of $\ZZ_{p^{2}}$. This set contains elements of
+the form $\{0,p,2p,3p,\dots,p(p-1)\}$. We know this set contains $p$ elements, since it contains
+$p-1$ multiples of $p$, and 0. If we subtract the number of elements in the $\ZZ_{p^{2}}$ from the
+number of non-units, we get $p^{2}-p$, or $p(p-1)$.
+\end{quote}
+\item How many units does $\ZZ_{p^{n}}$ have? Prove your answer.
+\begin{quote}
+We can consider the set of non-units in $\ZZ_{p^{n}}$. This yields the set
+\[\{0,p,2p,\dots,p^2,2p^{2},\dots,p^{3},\dots,p^{n-1}(p-1)\}.\] We know this set has size $p^{n-1}$,
+since it contains all multiples of powers of $p$ up to the $n-1$ power. Again, we can subtract the
+sizes of the entire set and the set of non-units, and we get $p^{n}-p^{n-1}=p^{n-1}(p-1)$.
+\end{quote}
+\end{enumerate}
+
+\item Suppose $p$ and $q$ are distinct primes. Prove that $\ZZ_{pq}$ contains exactly $(p-1)(q-1)$
+units.
+\begin{quote}
+We can consider the set of non-units of $\ZZ_{pq}$, which takes the form
+\[\{0,p,q,\dots,np,mq\},\ n<p,\ m<q.\]
+If we can determine the size of the set of non-units, then we can find the size of the units. We know
+that the non-units contain all multiples of $p$, $np$ for some $n\in\ZZ$, and the set also contains
+all multiples of $q$, $mq$ for some $m\in\ZZ$. We know we have up to $p$ multiples of $p$, and $q$
+multiples of $q$, so there are $q+p$ multiples in total. However, when $n=m$, we have a duplicate
+multiple, so the set of non-units contains $q+p-1$ elements. If we subtract the total size of the
+set from the size of the set of non-units, we have $pq-p-q+1=(p-1)(q-1)$.
+% Suppose $a$ is a unit of $\ZZ_{pq}$. We have that $ax\equiv1mod(pq)$, so $pq\mid(ax-1)$. By definition
+% of prime division, we have that $p\mid(ax-1)$ and $q\mid(ax-1)$. It follows that $ax\equiv1\mod p$,
+% so $gcd(a,p)=1$ for all $p\in\ZZ_{p}$. This means that every element of $\ZZ_{p}$ is a unit, so there
+% are $p-1$ units. Similarly, we have that there are $q-1$ units in $\ZZ_{q}$. Therefore there are
+% $(p-1)(q-1)$ units in $\ZZ_{pq}$.
+\end{quote}
 \end{enumerate}
 \end{document}

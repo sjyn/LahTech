@@ -18,9 +18,10 @@ int main(){
     // lsin(theta1) + lsin(theta2) <= 0
     // sin(theta1) + sin(theta2) <= 0
 
-    double theta1 = rand(); //* PI;
-    double theta2 = rand(); //* 2 * PI;
-    printf("theta1 = %f, theta2 = %f\n", theta1, theta2);
+    double theta1 = rand() * PI;
+    double theta2 = rand() * 2 * PI;
+
+    
 
     return 0;
 }
