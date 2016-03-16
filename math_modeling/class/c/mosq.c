@@ -20,8 +20,8 @@ int main(){
 
     double theta1 = rand() * PI;
     double theta2 = rand() * 2 * PI;
-
     
+
 
     return 0;
 }

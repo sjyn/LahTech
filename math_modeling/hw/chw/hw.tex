@@ -12,5 +12,15 @@ c_{2}{dT\over\dt}=-(T-T_{\infty}+c_{1}(T^{4}-T^{4}_{sur})).
 In this equation, $c_{1}=1.27575\times10^{-10}K^{-3}$ and $c_{2}=0.991667s$. If it is assumed that
 $T_{\infty}=473.15$, $T_{sur}=673.15K$, and $T(0)=298.15K$, determine the time $t_{s}$ at which
 $T(t_{s})=490.85K$.
+\begin{quote}
+We can start by expressing our derivative in a discreet form. This gives the equation
+\[
+c_{2}\left({T(n+1)-T(n)\over\Delta t}\right)=-(T-T_{\infty}+c_{1}(T^{4}-T^{4}_{sur})).
+\]
+Solving this for $T(n+1)$ gives
+\[
+T(n+1)=-{\Delta t\over c_{2}}(T-T_{\infty}+c_{1}(T^{4}-T^{4}_{sur})) + T.
+\]
+\end{quote}
 \end{enumerate}
 \end{document}
