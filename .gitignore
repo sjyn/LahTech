@@ -12,6 +12,9 @@
 
 /writing_in_ethics/emily_paper_one.pdf
 
+# Mathematica notebooks
+*.nb
+
 # OS X Files
 *.DS_Store
 
