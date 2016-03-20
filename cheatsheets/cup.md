@@ -12,7 +12,7 @@ with a white screen and black text. You will see something similar to
 `computername:~ username$ _`  
 
 From here, you have access to the majority of your operating system. You can run commands which will
-do various things. The one that we are interested in is `which`, which tells you where another
+do various things. The one that you are interested in is `which`, which tells you where another
 command is installed, or nothing if the command is installed. In the Terminal, type
 
 `which gcc`
@@ -49,7 +49,7 @@ To test your C installtion, return to the Terminal and type
 
 `cd Desktop ; touch test.c`
 
-This line tells the terminal to change its current directory into the Desktop, and to create a file
+This line tells the Terminal to change its current directory into the Desktop, and to create a file
 called `test.c`.
 
 ### Windows
@@ -73,7 +73,7 @@ int main(int argc, const char* argv[]){
     return 0;
 }
 ```
-This creates a simple program that will print "Hello, world!", but we need to compile it. In your
+This creates a simple program that will print "Hello, world!", but you need to compile it. In your
 Terminal, type `gcc test.c`. This compiles the code you just wrote, and produces a file called
 `a` or `a.exe` on Windows or `a.out` on OS X. To run this program, simply type `./a` or `./a.exe` on
 Windows, or `./a.out` on OS X, and press enter. You should see the "Hello, world!" pop up, and then
