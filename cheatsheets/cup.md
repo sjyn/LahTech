@@ -52,7 +52,8 @@ To test your C installtion, return to the Terminal and type
 This line tells the Terminal to change its current directory into the Desktop, and to create a file
 called `test.c`. If you open this file with TextEdit, then you will need to change some of the
 preferences of TextEdit. Press `Cmd + ,` and under format, choose Plain Text. In addition,
-under Options, uncheck the Smart quotes, Smart dashes, and Smart copy and paste options. Restart
+under Options, uncheck the Smart quotes, Smart dashes, and Smart copy and paste options.
+Under the Open and Save tab, uncheck the Add ".txt" extension to plain text files box. Restart
 TextEdit.
 
 ### Windows
