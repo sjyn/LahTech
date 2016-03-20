@@ -58,6 +58,10 @@ press `Ctrl + Shift + S`, and re-save the file with the name `test.c`. Before yo
 sure you choose `all files` from the dropdown menu below the name where it says `text file`. If you
 do now, you cannot compile the file correctly.
 
+Before continuing, open up Cygwin and type `cd` followed by a space. In your file explorer, simply
+drag the folder containing your C file into the Terminal window. Now press enter in Cygwin, and
+you will be in the correct directory for your C program.
+
 ### A Simple C Program
 
 You can now open up `test.c`, and type
