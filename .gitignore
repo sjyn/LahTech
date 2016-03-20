@@ -15,6 +15,9 @@
 # Mathematica notebooks
 *.nb
 
+# Java class files
+*.class
+
 # OS X Files
 *.DS_Store
 
