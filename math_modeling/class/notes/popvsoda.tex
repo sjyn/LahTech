@@ -1,0 +1,38 @@
+\documentclass{hw}
+
+\begin{document}
+Suppose we have the following table representative of how each state refers to soda.
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Time Zone & Pop & Soda & Coke\\
+\hline
+EST (0.4) & 0.2 & 0.3 & 0.5\\
+\hline
+CST (0.2) & 0.5 & 0.3 & 0.2\\
+\hline
+MST (0.1) & 0.333 & 0.333 & 0.333\\
+\hline
+PST (0.3) & 0.1 & 0.2 & 0.7\\
+\hline
+\end{tabular}
+\end{center}
+
+By the law of total probability, we can determine that the probability of someone calling it ``pop"
+is
+\[
+P(``pop")=P(pop|EST)\cdot P(EST) + P(``pop"|CST)\cdot P(CST) +
+P(``pop"|MST)\cdot P(MST) + P(``pop"|PST)\cdot P(PST).
+\]
+More interestingly, we can find the probability that someone is from the central US by Bayes Theorem.
+To do so, we need to come up with the value of $P(``pop")$. Recall that
+$P(A|B)={P(A\cap B)\over P(B)}$.
+\[
+P(``pop") = 0.2(0.4) + 0.5(0.2) + 0.3333(0.1) + 0.1(0.3) = 0.243
+\]
+We can now calcuate the probability that one is from CST given that they say ``pop".
+\[
+P(CST|``pop")={P(CST\cap``pop")\over P(``pop")}={0.2\cdot 0.5\over 0.243} = 0.41.
+\]
+\end{document}
