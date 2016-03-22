@@ -1,42 +1,46 @@
-import java.util.Arrays;
+/**
+* Talia Hicks and Steven Rosendahl
+*
+*/
 
+import java.util.Arrays;
+import java.io.File;
+import java.io.IOException;
+import java.util.Collections;
+import java.util.Scanner;
 
 public class StringSplit {
 
-    static int[] optcuts;
+    static int stringlength;
+	static int[] optcuts;
+	static int[] breakpoints;
+    static int optCutsCount;
 
-    // public static int splitString(String s, ArrayList<Integer> splits){
-    //     if(splits.size() == 0) {
-    //         return s.length();
-    //     } else {
-    //         // int mid = splits.get(splits.size() / 2);
-    //         int mid = splits.get(splits.size() - 1);
-    //         // int mid = splits.get(0);
-    //         System.out.println("Splitting " + s + " at index " + mid);
-    //         ArrayList<Integer> less = new ArrayList<>();
-    //         for(Integer i : splits){
-    //             if(i < mid)
-    //                 less.add(Math.abs(i - mid));
-    //         }
-    //         ArrayList<Integer> max = new ArrayList<>();
-    //         for(Integer i : splits){
-    //             if(i > mid)
-    //                 max.add(i);
-    //         }
-    //         return s.length() + Math.min(
-    //             splitString(s.substring(0, mid), less),
-    //             splitString(s.substring(mid, s.length() - 1), max)
-    //         );
-    //         // return min;
-    //     }
-    // }
+    public static void readFile(File input) {
+		try {
+			Scanner scanner = new Scanner(input); // read in file
+			stringlength = scanner.nextInt(); // set string size
+			int breaks = scanner.nextInt(); // set number of breakpoints
+			breakpoints = new int[breaks]; // Initialize size of array
+			for (int i = 0; i < breakpoints.length; i++) {
+				breakpoints[i] = scanner.nextInt(); // set break points
+			} // end while
+			scanner.close();
+		}
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
-    public static int splitString(String s, int[] cuts){
+    public static int splitString(int n, int[] cuts){
         Arrays.sort(cuts);
         optcuts = new int[cuts.length];
-        int cost = s.length() * cuts.length;
+        optCutsCount = 0;
+        int cost = n * cuts.length;
+        // int prevcost = 0;
+        int nval = 0;
         for(int i = 0; i < cuts.length; i++){
-            cost = Math.min(splitStringRec(cuts, s.length(), i), cost);
+            cost = Math.min(nval = splitStringRec(cuts, n, i), cost);
         }
         return cost;
     }
@@ -52,8 +56,14 @@ public class StringSplit {
             cutlen = Integer.MAX_VALUE;
             int[] cpy = Arrays.copyOfRange(cuts, 0, init);
             int first = cuts[init];
+            int pcl;
             for(int j = 0; j < cpy.length; j++){
-                cutlen = Math.min(splitStringRec(cpy, first, j), cutlen);
+                // System.out.println("Trying to make a cut " + cutlen);
+                cutlen = Math.min(pcl = splitStringRec(cpy, first, j), cutlen);
+                // System.out.println("Making a cut of cost " + cutlen);
+                if(cutlen <= stringlen){
+                    System.out.println("Making a cut on the left side of cost " + cutlen);
+                }
             }
         }
         if (init < cuts.length - 1){
@@ -65,17 +75,21 @@ public class StringSplit {
             }
             for(int i = 0; i < cpy.length; i++){
                 cutr = Math.min(splitStringRec(cpy, newcost, i), cutr);
+                if(cutr < stringlen){
+                    System.out.println("Making a cut on the right side of cost " + cutr);
+                }
             }
         }
         return stringlen + cutlen + cutr;
     }
 
     public static void main(String[] args){
-        String test = "kasdklfaslhkjfhkljasdlhkfjkladfkjkjashdfjklasdhfjk";
-        int[] splits = {7,13,28,41,45};
-        int res = splitString(test, splits);
-        //Should get that the cost is 122
-        System.out.println("The cost of splitting the string \"" + test + "\" is " + res);
+        // File myfile = new File("/Users/taliahicks/Desktop/CPSC420/StringBreaking/bin/sol.txt");
+        File myfile = new File("sol.txt");
+        readFile(myfile);
+        int res = splitString(stringlength, breakpoints);
+        // Should get that the cost is 122
+        System.out.println("The cost of splitting the string of length " + stringlength + " is " + res);
     }
 
 }
