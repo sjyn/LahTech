@@ -1,11 +1,7 @@
 \documentclass[notitlepage]{hw}
-\title{Elliptic Functions}
+\title{Jacobi Elliptic Functions in $\RR\times\RR$}
 \date{}
 \author{}
-
-\usepackage{pgf,tikz}
-\usepackage{mathrsfs}
-\usetikzlibrary{arrows}
 
 \begin{document}
 \maketitle
@@ -81,6 +77,10 @@ We can take a given radius $r$ at the point $Q$ on the ellipse, and a given poin
 addition, we can call the angle between the the $x$ axis and the radius $\theta$. Rather than consider
 a point $(x,y)$, we will actually consider a point $Q=(x(u),y(u))$, where $u$ is a function that we will
 define later. We can define the JEFs in terms of this ellipse; we have
+
+\vspace{0.5cm}
+
+\begin{minipage}{0.5\textwidth}
 \[
 \begin{cases}
 cn(u,k)=y\\
@@ -88,9 +88,17 @@ sn(u,k)={x\over a}\\
 dn(u,k)={r\over a}
 \end{cases}
 \]
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
 \begin{center}
-\includegraphics[scale=0.5]{ellipsis}
+\includegraphics[scale=0.5]{ellipsis}\\
+
+A generalized ellipse
 \end{center}
+\end{minipage}
+
+\vspace{0.5cm}
+
 We can establish some useful identities from this relationship, such as
 \[
 sn^{2}(u,k)+cn^{2}(u,k)=\left({x\over a}\right)^{2}+y^{2} = 1.
@@ -102,21 +110,102 @@ k^{2}sn^{2}(u,k)+dn^{2}(u,k)=1,
 which may not be as familiar, but it still holds true. Interestingly enough, we can formulate the
 special (or maybe not so special) system of ODEs from the previous section using this new definition.
 
+\section{Properties of Jacobi Functions}
+
+Before we continue, we will want to outline some fundamental properties of the JEFs. Recall that we
+already saw the analog to $\sin^{2}{x} + \cos^{2}{x} = 1$, which is
+\begin{gather}
+sn^{2}(u,k)+cn^{2}(u,k)= 1.
+\end{gather}
+In addition, we have
+\begin{gather}
+k^{2}sn^{2}(u,k)+dn^{2}(u,k)=1.
+\end{gather}
+We can also related the derivatives of the JEFs by
+\begin{align}
+{d\over\dt}sn(t,k)&=cn(t,k)dn(t,k)\\
+{d\over\dt}cn(t,k)&=-dn(t,k)sn(t,k)\\
+{d\over\dt}dn(t,k)&=-k^{2}sn(t,k)cn(t,k).
+\end{align}
+Since the functions are differentiable, we can talk about the limits of JEFs. If we let $k\to0$, we
+can see that our defining system of ODEs becomes
+\[
+\begin{cases}
+\dot{x}=yz\\
+\dot{y}=-zx\\
+\dot{z}=0
+\end{cases},
+\]
+which yields a basis of $\{\sin{t},\cos{t},1\}$, implying that
+\begin{align}
+\lim_{k\to0^{+}}sn(t,k)&=\sin{t}\\
+\lim_{k\to0^{+}}cn(t,k)&=\cos{t}\\
+\lim_{k\to0^{+}}dn(t,k)&=1.
+\end{align}
+We can also see what happens a $k\to1$:
+\begin{align}
+\lim_{k\to1^{-}}sn(t,k)&=\tanh{t}\\
+\lim_{k\to1^{-}}cn(t,k)&=\sech{t}\\
+\lim_{k\to1^{-}}dn(t,k)&=\sech{t}.
+\end{align}
+These are enough
+
 \section{Jacobi Functions as an Integral}
 
-There is a third definition of JEFs that we can consider; that is, the form they take from an integral.
-Consider the ODE
+There is a third definition of JEFs that we can consider; the form they take from an integral. As we
+saw previously, JEFs served as solutions to the system
 \[
-{\dx\over\dt}=\sqrt{(1-x^{2})(1-k^{2}x^{2})}.
+\begin{cases}
+\dot{x}=yz\\
+\dot{y}=-zx\\
+\dot{z}=-k^{2}xy
+\end{cases},
 \]
-We can attempt separation of variables as an approach to solve this. Doing so yields
+but this is not the only system for which JEFs provide a solution. Consider the following system
 \[
-\int_{0}^{sn(t,k)}{\dx\over\sqrt{(1-x^{2})(1-k^{2}x^{2})}}=t.
+\begin{cases}
+\dot{x}^{2}=(1-x^{2})(1-k^{2}x^{2})\\
+\dot{y}^{2}=(1-y^{2})(\kappa^{2}+k^{2}y^{2})\\
+\dot{z}^{2}=(1-z^{2})(z^{2}-\kappa^{2})
+\end{cases}.
 \]
-The upper limit comes from the comparison to the integral definition of $\sin$:
+We can transform the first ODE into
 \[
-t=\int_{0}^{\sin{t}}{\dx\over\sqrt{1-x^{2}}}.
+{\dx\over\dt}=\sqrt{(1-x^{2})(1-k^{2}x^{2})},
 \]
+which is a separable equation. We can rewrite this as
+\[
+\int{\dx\over\sqrt{(1-x^{2})(1-k^{2}x^{2})}}=t,
+\]
+Which we may notice as an Elliptic Integral of the first kind. If we make the substitution
+$x=\sin{u}$, then we have
+\[
+\int{\du\over\sqrt{1-k^{2}\sin^{2}{u}}}.
+\]
+This integral is not solvable by elementary means; rather we define the solution to be dependent on
+$sn(u,k)$. There are similar integral definitions corresponding to $cn(u,k)$ and $dn(u,k)$.
 
+\section{Applications to Elliptic Integrals}
 
+We saw previously that we cannot integrate
+\[
+\int{\dt\over\sqrt{1-k^{2}\sin^{2}{t}}}
+\]
+using elementary methods. We saw that this integral came from a substitution on
+\[
+\int{\dx\over\sqrt{(1-x^{2})(1-k^{2}x^{2})}}.
+\]
+Recall that by property $(3)$, we have
+\[
+{d\over\dt}sn(t,k)=cn(t,k)dn(t,k)=\sqrt{(1-sn^{2}(t,k))(1-k^{2}sn^{2}(t,k))}
+\]
+by property $(1)$. This leads us to the result that
+\[
+\int{d\over\dt}sn(t,k)=sn(t,k)=\int\sqrt{(1-sn^{2}(t,k))(1-k^{2}sn^{2}(t,k))}\dt.
+\]
+Note that we can invert the $sn(t,k)$, which leads us to
+\[
+sn^{-1}(t,k)=\int{\dt\over\sqrt{(1-t^{2})(1-k^{2}t^{2})}}.
+\]
+We can similarly formulate definitions for $cn^{-1}(t,k)$ and $dn^{-1}(t,k)$.
 \end{document}
