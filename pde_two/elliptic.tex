@@ -15,7 +15,7 @@ functions, $sn$, $cn$, and $dn$ as solutions to a system of ordinary differentia
 \section{Jacobi Functions as solutions to ODEs}
 
 We will begin by making a comparison of JEFs to Trig functions, with which we are familiar. Consider
-$\sin{}$ and $\cos{}$. There are many definitions of these two functions, but we will consider a
+$\sin{t}$ and $\cos{t}$. There are many definitions of these two functions, but we will consider a
 definition that relates the two functions to ODEs, namely the system
 \[
 \begin{cases}
@@ -23,7 +23,7 @@ definition that relates the two functions to ODEs, namely the system
 \dot{y}=-x
 \end{cases}.
 \]
-Under certain initial conditions, this leads to a basis composed of $\sin{}$ and $\cos{}$. It is with
+Under certain initial conditions, this leads to a basis composed of $\sin{t}$ and $\cos{t}$. It is with
 this analogy that we can consider the JEFs.
 
 Suppose we have a system of ODEs as follows
@@ -35,9 +35,14 @@ Suppose we have a system of ODEs as follows
 \end{cases}.
 \]
 These may seem like arbitrary selections for the system, but, as we will see, they are not. We need
-to define $k$ before continuing; it is known as the modulus. We will also want to define the
-complimentary modulus, $\kappa=\sqrt{1-k^{2}}$. If we return to our ODEs, we can define the JEFs
-as solutions to the system under the following initial conditions:
+to define $k$ before continuing; it is known as the modulus. On an ellipse, the value of $k$ is given
+by
+\[
+k=\sqrt{1-{a^{2}\over b^{2}}},
+\]
+where $a$ is the major axis and $b$ is the semi-major axis.
+We can also define $\kappa=\sqrt{1-k^{2}}$, known as the complimentary modulus. If we return to
+our system, we can define the JEFs as solutions to the system under the following initial conditions:
 \[
 \begin{cases}
 sn(0,k)=x(0)=0\\
@@ -47,17 +52,17 @@ dn(0,k)=z(0)=1\\
 \]
 
 We can draw a relationship between $x$, $y$, and $z$ by forming a basis, much like we did with the
-ODE definitions of $\sin{}$ and $\cos{}$. Namely, we have that
+ODE definitions for $\sin{t}$ and $\cos{t}$. Namely, we have that
 \[
 \{ x,y,z \}\to\{ sn(t,k),cn(t,k),dn(t,k) \}.
 \]
 This gives rise to the immediate result that
 \[
-\begin{cases}
+\begin{dcases*}
 {d\over\dt}sn(t,k)=cn(t,k)dn(t,k)\\
 {d\over\dt}cn(t,k)=-dn(t,k)sn(t,k)\\
 {d\over\dt}dn(t,k)=-k^{2}sn(t,k)cn(t,k)
-\end{cases}.
+\end{dcases*}.
 \]
 
 With these properties in mind, we will consider a slightly more geometric view of JEFs.
@@ -82,11 +87,11 @@ define later. We can define the JEFs in terms of this ellipse; we have
 
 \begin{minipage}{0.5\textwidth}
 \[
-\begin{cases}
-cn(u,k)=y\\
+\begin{dcases*}
+cn(u,k)=y\vphantom{\frac{0}{0}}\\
 sn(u,k)={x\over a}\\
 dn(u,k)={r\over a}
-\end{cases}
+\end{dcases*}
 \]
 \end{minipage}
 \begin{minipage}{0.5\textwidth}

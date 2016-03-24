@@ -1,5 +1,7 @@
 \documentclass{hw}
 
+\usepackage{cancel}
+
 \begin{document}
 \makeheader{7}
 
@@ -17,15 +19,53 @@
 \item Suppose that $p$ is prime and $k$ is a positive integer, and $x\in\ZZ_{p}$.
 \begin{enumerate}
 \item Prove that $x^{p^{k}}\equiv x\mod p$.
-
+\begin{quote}
+We can rewrite $x^{p^{k}}$ as $(((x^{p})^{p})^{p}...)^{p}$, where there are $k\ p'\text{s}$. We
+can mod out by $p$, and we get $(((x^{p})^{p})^{p}...)^{p}$, where there are $k-1\ p'\text{s}$. If
+we mod out $k-2$ more times, we get $x^{p}\equiv x\mod p$, which by the corollary to Fermat's
+Little Theorem means $x^{p^{k}}\equiv x\mod p$.
+\end{quote}
 \item Prove that $x^{p^{k}-1}\equiv 1\mod p$ if and only if $\gcd{(x,p)}=1$.
+\begin{quote}
+$\Rightarrow)$ Assume that $gcd(x,p)\neq1$. Then $x\equiv0\mod p$, since the only thing not coprime
+with $p$ is a multiple of $p$. We can raise both sides of the congruence to the ${p^{k}-1}$
+power to produce
+\[
+x^{p^{k}-1}\equiv 0^{p^{k}-1} \equiv 0 \ \cancel{\equiv}\ 1 \mod p.
+\]
+\noindent\\
+$\Leftarrow)$ Suppose $gcd(x,p)=1$. Then $x$ has an inverse in $\ZZ_{p}$. We know by part $(a)$
+that $x^{p^{k}}\equiv x\mod p$, so $x^{-1}\cdot x^{p^{k}}\equiv x\cdot x^{-1}\equiv 1\mod p$.
+\end{quote}
 \end{enumerate}
 
 \item Let $p,n$, and $r$ be non-negative integers with $p$ prime. Further, assume that $r$ is the
 remainder when $n$ is divided by $p-1$. Prove that $a^{n}\equiv a^{r}\mod p$.
+\begin{quote}
+Since $r$ is the remainder, we have that $n = q(p-1)+r$ by the division algorithm. Since
+$p,n$, and $r$ are non-negative, we can say $a^{n}=a^{q(p-1) + r}$, which is the same as
+$a^{n}=a^{q(p-1)}a^{r}$. By Fermat's Little Theorem, we have that $a^{p-1}=1\mod p$, so
+$a^{n}\equiv 1^{q}a^{r}\mod p$, or $a^{n}\equiv a^{r}\mod p$.
+\end{quote}
 
 \item Assume that $n$ is a positive integer. Prove that $1^{n}+2^{n}+3^{n}+4^{n}$ is divisible by
 5 if and only if $n$ is not divisible by 4.
+\begin{quote}
+$\Rightarrow)$ Suppose $4\mid n$. Then $n=4k,\ k\in\ZZ$, so we have
+\begin{align*}
+1^{n}+2^{n}+3^{n}+4^{n}&\equiv 1^{4k}+2^{4k}+3^{4k}+4^{4k}\\
+&\equiv 1^{4^k}+2^{4^k}+3^{4^k}+4^{4^k}\\
+&\equiv 1^k+1^k+1^k+1^k\mod5\\
+&\ \cancel{\equiv}\ 0\mod5.
+\end{align*}
+\noindent\\
+$\Leftarrow)$ Suppose $4\nmid n$. Then $n\ \cancel{\equiv}\ 0\mod4$. Suppose that $n\equiv1\mod4$.
+We now have $n=4k+1$ for some $k\in\ZZ$. By $(3)$, we know that $a^{n}\equiv a^{r}\mod p$.
+Similarly, we can say $a^{n} + b^{n} + c^{n} + d^{n}\equiv a^{r}+b^{r} + c^{r} + d^{r}\mod p$.
+Then, we have $1^{n}+2^{n}+3^{n}+4^{n}\equiv 1 + 2 + 3 + 4\mod5\equiv0\mod5$. Suppose $n\equiv2\mod4$.
+Then we have $1^{n}+2^{n}+3^{n}+4^{n}\equiv 1 + 4 + 9 + 16\equiv1-1+1-1\mod5\equiv0\mod5$. Finally,
+suppose $n\equiv3\mod4$. Then $1^{n}+2^{n}+3^{n}+4^{n}\equiv1+8+27+64\equiv1+2+3-1\equiv0\mod5$.
+\end{quote}
 
 \item Determine whether there exists a solution to each of the following systems of congruences.  If
 there is a solution, find all solutions to the system by writing the solution set as a single residue
@@ -33,6 +73,8 @@ class modulo $n$ for some $n\geq 2$. If there is no solution, prove that there i
 \begin{enumerate}
 \item $x\equiv5\mod7$\\
 $x\equiv0\mod4$
+\begin{quote}
+Since $gcd(7,4)=1$, we can use Chinese remainder theorem, which tells us
 \begin{align*}
 x_{0}&=a_{1}c_{1}d_{1}+1_{2}c_{2}d_{2}\\
 &= 5c_{1}d_{1} + 0c_{2}d_{2}\\
@@ -41,6 +83,7 @@ x_{0}&=a_{1}c_{1}d_{1}+1_{2}c_{2}d_{2}\\
 &= 40\\
 &\equiv 12\mod28
 \end{align*}
+\end{quote}
 
 \item $x\equiv 5\mod7$\\
 $x\equiv1\mod4$\\

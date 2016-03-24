@@ -32,12 +32,12 @@ public class StringSplit {
 		}
 	}
 
+    // Call this method to start the process
     public static int splitString(int n, int[] cuts){
         Arrays.sort(cuts);
         optcuts = new int[cuts.length];
         optCutsCount = 0;
         int cost = n * cuts.length;
-        // int prevcost = 0;
         int nval = 0;
         for(int i = 0; i < cuts.length; i++){
             cost = Math.min(nval = splitStringRec(cuts, n, i), cost);
@@ -45,6 +45,7 @@ public class StringSplit {
         return cost;
     }
 
+    // don't call this method directly.
     public static int splitStringRec(int[] cuts, int stringlen, int init){
         if(cuts.length == 1){
             return stringlen;
@@ -52,15 +53,12 @@ public class StringSplit {
         int cutlen = 0;
         int cutr = 0;
         if (init > 0){
-            //run as normal
             cutlen = Integer.MAX_VALUE;
-            int[] cpy = Arrays.copyOfRange(cuts, 0, init);
+            int[] cpy = copyArray(cuts, 0, init);
             int first = cuts[init];
             int pcl;
             for(int j = 0; j < cpy.length; j++){
-                // System.out.println("Trying to make a cut " + cutlen);
                 cutlen = Math.min(pcl = splitStringRec(cpy, first, j), cutlen);
-                // System.out.println("Making a cut of cost " + cutlen);
                 if(cutlen <= stringlen){
                     System.out.println("Making a cut on the left side of cost " + cutlen);
                 }
@@ -68,7 +66,7 @@ public class StringSplit {
         }
         if (init < cuts.length - 1){
             cutr = Integer.MAX_VALUE;
-            int[] cpy = Arrays.copyOfRange(cuts, init + 1, cuts.length);
+            int[] cpy = copyArray(cuts, init + 1, cuts.length);
             int newcost = stringlen - cuts[init];
             for(int i = 0; i < cpy.length; i++){
                 cpy[i] = cpy[i] - cuts[init];
@@ -81,6 +79,16 @@ public class StringSplit {
             }
         }
         return stringlen + cutlen + cutr;
+    }
+
+    // Sometimes we need to copy an array
+    public static int[] copyArray(int[] src, int startIndex, int endIndex){
+        int[] ret = new int[endIndex - startIndex];
+        for(int i = 0; i < endIndex; i++){
+            if(i >= startIndex)
+                ret[i - startIndex] = src[i];
+        }
+        return ret;
     }
 
     public static void main(String[] args){

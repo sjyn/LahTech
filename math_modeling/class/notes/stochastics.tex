@@ -1,0 +1,73 @@
+\documentclass{hw}
+
+\begin{document}
+\section*{Stochastic Modeling}
+
+A stochastic matrix is a square matrix whose elements are probabilities and where each row sums to
+one. One special example of a stochastic matrix is a matrix of transition probabilities.
+
+\begin{quote}
+\textit{\textbf{Example}}\\
+Consider the case where a student enters a college as a one major, but changes to another.
+
+\begin{center}
+\begin{tabular}{c | c c c}
+& STEM & Humanities & Business\\
+\hline
+STEM & 0.6 & 0.3 & 0.1\\
+Hum. & 0.05 & 0.7 & 0.25\\
+Bus. & 0.2 & 0.3 & 0.5
+\end{tabular}
+\end{center}
+
+In this matrix, each $a_{ij}$ entry represents the probability that a student will change to that
+major (or keep that major if it is the same). Suppose we have 1000 freshmen that enter the college
+\[
+x_{0}=[300,500,200]
+\]
+in the order STEM, Humanities, and Business. If we want to know the number of STEM majors in the
+class's sophomore year, we can multiply our initial vector by the STEM column of our matrix:
+\begin{align*}
+\text{STEM Majors}&=(0.6)(300)+(0.05)(500)+(0.2)(200)\\
+&=245\text{ students}\\
+\text{Hum. Majors}&=(0.3)(300) + (0.7)(500) + (0.3)(200)\\
+&= 500\text{ students}\\
+\text{Bus. Majors}&=(0.1)(300) + (0.25)(500) + (0.5)(200)\\
+&=255\text{ students}
+\end{align*}
+We can continue this process for each year that the students attend the college.
+\end{quote}
+
+This process for creating a sequence of vectors is called a Markov Chain. In general, we can
+start with a vector $\bf{x}_{0}$ and a matrix $P$, and we get that
+\begin{alignat*}{3}
+\bf{x}_{1}&=\bf{x}_{0}\cdot P\\
+\bf{x}_{2}&=\bf{x}_{1}\cdot P &&= \bf{x}_{0}\cdot P\cdot P\\
+\bf{x}_{3}&=\bf{x}_{2}\cdot P &&= \bf{x}_{0}\cdot P\cdot P\cdot P,\\
+\end{alignat*}
+which yields the recurrence relation
+\[
+\bf{x}_{n}=\bf{x}_{0}P^{n}.
+\]
+$P^{n}$ is called the $n$-step transition matrix. In this matrix, the $a_{ij}$ element gives the
+probability of going from state $i$ to state $j$.
+
+\begin{quote}
+\textit{\textbf{Example}}\\
+Consider the movement of people from the city to the suburb.
+\begin{center}
+\begin{tabular}{c | c c}
+& Cities & Suburbs\\
+\hline
+Cities & 0.96 & 0.04\\
+Suburbs & 0.1 & 0.99
+\end{tabular}
+\end{center}
+with the initial vector
+\[
+\bf{x}_{0}=[60,125].
+\]
+The current model assumes that population stabilizes, but this is not always the case. 
+\end{quote}
+
+\end{document}

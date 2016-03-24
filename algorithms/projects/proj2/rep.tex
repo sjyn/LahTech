@@ -1,0 +1,76 @@
+\documentclass{hw}
+
+\usepackage{minted}
+
+\begin{document}
+\section*{String Splitting Algorithm}
+\noindent Talia Hicks and Steven Rosendahl
+
+\vspace{1cm}
+
+We chose to implement the string breaking algorithm. To do this, we built a recursive algorithm
+that looks down the left and right side of the string, using the $i^{\text{th}}$ breakpoint as a
+starting index. The program loops through all possible starting indexes, and takes the least of them.
+
+\begin{minted}{java}
+for(int i = 0; i < cuts.length; i++){
+    cost = Math.min(nval = splitStringRec(cuts, n, i), cost);
+}
+\end{minted}
+
+This loop runs $n$ times, where $n$ is the size of the list of breakpoints. The function
+\textit{splitStringRec} is a recursive function that runs down the left and right sides of the
+string, trying out different breaks.
+
+\begin{center}
+\begin{minted}{java}
+//Looping down the left
+for(int j = 0; j < cpy.length; j++){
+    cutlen = Math.min(splitStringRec(cpy, first, j), cutlen);
+}
+
+//Looping down the right
+for(int i = 0; i < cpy.length; i++){
+    cutr = Math.min(splitStringRec(cpy, newcost, i), cutr);
+}
+\end{minted}
+\end{center}
+
+The loop that runs through the left breakpoints runs once the first time through, then twice on the
+second time through, and so on until it has run $n-1$ times. Similarly, the loop that runs through the
+right breakpoints runs $n-1$ times, then $n-2$, $n-3$, and so on until it only runs once. Since each
+loop takes the minimum of the cost, we have that only the minimum cuts will be preserved, while the
+rest are thrown away. The runtime of such an algorithm is close to
+\begin{align*}
+\sum_{n=0}^{i}\left(
+\sum_{k=0}^{n}(n-k) +
+\sum_{k=0}^{n}(k+n)
+\right)
+&=\sum_{n=0}^{i}\left(O(n^{2}) + O(n^{2})\right)\\
+&=\sum_{n=0}^{i}O(n^{2})\\
+&=O(n^{3})
+\end{align*}
+
+To state the recurrence relation, let $n$ be the length of the string, $C$ be the array of cuts,
+and $i=|C|$. We want to build a definition such that we loop down the left half of the string, making
+cuts, which results in a new string of size $n-c$. Similarly, we want to move down the right side of
+the string, making cuts which result in strings of size $c-n$. We also want to ``remove" the cuts that
+we have already made, so we create a new array that contains all the remaining cuts without the cut we
+just made (i.e. $C\backslash c_{0}$ where $c_{0}$ is the cut we just made).
+\[
+\text{min\_cost}(n, C)=
+\begin{cases}
+n,\hspace{6.2cm} i = 1\\
+n + \text{min}
+\begin{cases}
+\text{min\_cost}(n - c_{0},\ C\backslash c_{0})\\
+\text{min\_cost}(c_{0} - n,\ C\backslash c_{0})
+\end{cases},
+\hspace{0.8cm} i > 1
+\end{cases}
+\]
+
+
+
+
+\end{document}

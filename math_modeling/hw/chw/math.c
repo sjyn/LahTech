@@ -26,8 +26,7 @@ int main(int argc, const char* argv[]){
         if(i % 10 == 0){
             fprintf(fp, "%f\n", temps[i]);
         }
-        temps[i + 1] = (-1) * (deltat/c2) * (temps[i] - tinf +
-            c1 * (pow(temps[i],4) - tsur)) + temps[i];
+        temps[i + 1] = (-1) * (deltat/c2) * (temps[i] - tinf + c1 * (pow(temps[i],4) - tsur)) + temps[i];
         starttime += deltat;
     }
 
