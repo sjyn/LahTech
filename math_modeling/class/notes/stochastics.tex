@@ -67,7 +67,33 @@ with the initial vector
 \[
 \bf{x}_{0}=[60,125].
 \]
-The current model assumes that population stabilizes, but this is not always the case. 
+We can introduce some ``noise" into the system by discussing the eigenvalues of this system. In the
+usual case, $\lambda=1$. We can show this by solving the system.
+\begin{align*}
+(\bf{P}-\lambda)\bf{x}&\to
+\left[
+\begin{array}{c c c}
+-0.4 & 0.4 & 0\\
+0.1 & 0.1 & 0
+\end{array}
+\right]\\
+&\to
+\left[
+\begin{array}{c c c}
+1 & -1 & 0\\
+0 & 0  & 0
+\end{array}
+\right],
+\end{align*}
+so $x=y=1$.
 \end{quote}
 
+Often in Markov processes, we come across matrices raised to a power. To help us calculate these
+products, we can come up with a new matrix, $\bf{S}$. We can then calculate
+$\bf{S}^{-1}\bf{D}\bf{S}$, where $D$ is diagonalized matrix of the eigenvalues of $\bf{P}$. We know
+that we can diagonalize $\bf{P}$ by the following theorem:
+\begin{quote}
+An $n\times n$ matrix $\bf{P}$ is diagonalizable if and only if it has $n$ linearly independent
+eigenvectors.  
+\end{quote}
 \end{document}

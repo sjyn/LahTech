@@ -1,0 +1,40 @@
+\documentclass{hw}
+
+\begin{document}
+\makeheader{8}
+
+\begin{enumerate}
+\item Determine whether each of the following polynomials has a zero in the given $\ZZ_{p}$. Either
+find a zero or prove that no zero exists.
+\begin{enumerate}
+\item $f(x)=x^3+x^2+x+1$ in $\ZZ_{2}$.
+\begin{quote}
+We can factor $x^3+x^2+x+1$ into $(x^{2}+1)(x+1)$. The only two options for a root in $\ZZ_{2}$ are
+1 and 0. If we plug in zero we get $(0+1)(0+1)\equiv1\mod2$, so 1 is not a zero of the polynomial.
+If we try 1, we get $(1+1)(1+1)\equiv(2)(2)\equiv(0)(0)\equiv0\mod2$, so 1 is a zero of the
+polynomial.
+\end{quote}
+\item $f(x)=x^3+x^2+x+1$ in $\ZZ_{3}$.
+\begin{quote}
+$f(x)$ factors into $(x^{2}+1)(x+1)\equiv(x^{2}-2)(x-2)\mod3$. We have one zero at $x=2$. If we test
+0, we get $(0+1)(0+1)\equiv1\mod3$, so 0 is not a zero of the polynomial, and if we test 1 we get
+$(-1)(-1)\equiv1\mod3$, so 1 is not a zero either.
+\end{quote}
+\item $f(x)=x^{2}+2x+3$ in $\ZZ_{5}$.
+\begin{quote}
+The polynomial $f(x)=x^{2}+2x+3$ cannot be factored in $\ZZ_{5}$. Therefore, it has no zeros since
+we cannot express it in the form $g(x)(x-\alpha)$.
+\end{quote}
+\end{enumerate}
+
+\item Let $f(x)=x^{2}+1$. Prove that $f$ has a zero in $\ZZ_{5}$, but not in $\ZZ_{7}$.
+\begin{quote}
+If we consider the polynomial in $\ZZ_{5}$, we have that
+\[x^{2}+1\equiv x^{2}-4\equiv(x+2)(x-2)\equiv(x-3)(x-2)\mod5.\]
+Since $f$ was reducible in $\ZZ_{5}$, we know it has at least one zero, and in this case it has
+two zeros, $x=3$ and $x=5$. In $\ZZ_{7}$, we have
+\[x^{2}+1\equiv x^{2}-6\mod7.\]
+The polynomial $x^{2}-6$ is irreducible in $\ZZ_{7}$, so there are no roots.
+\end{quote}
+\end{enumerate}
+\end{document}
