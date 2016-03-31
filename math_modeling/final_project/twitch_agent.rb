@@ -4,12 +4,9 @@ require 'rubygems'
 require 'twitch'
 require 'pp'
 require 'json'
-# require 'twitch-chat'
-# require 'nokogiri'
 require 'open-uri'
 require 'open_uri_redirections'
 require 'thread_safe'
-# require 'cinch'
 
 require './const.rb'
 

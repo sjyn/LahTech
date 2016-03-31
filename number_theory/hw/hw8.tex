@@ -36,5 +36,120 @@ two zeros, $x=3$ and $x=5$. In $\ZZ_{7}$, we have
 \[x^{2}+1\equiv x^{2}-6\mod7.\]
 The polynomial $x^{2}-6$ is irreducible in $\ZZ_{7}$, so there are no roots.
 \end{quote}
+
+\item Suppose that $p$ is prime, $k$ is a non-zero element of $\ZZ_{p}$, and $f_{k}(x)=x^{2}-k$.
+\begin{enumerate}
+\item Prove that $s$ is a zero of $f_{k}$ if and only if $-s$ is also a zero of $f_{k}$.
+\begin{quote}
+$\Rightarrow)$ Suppose $s$ is a zero of $f_{k}$. Then $s^{2}-k\equiv0\mod p$. If $-s$ is not a zero,
+then we have $(-s)^{2}-k\ \cancel{\equiv}\ 0\mod p$, so $s^{2}-k\ \cancel{\equiv}\ 0\mod p$, which
+is a contradiction.\\\\
+$\Leftarrow)$ Suppose $-s$ is a zero of $f_{k}$. Then $(-s)^{2}-k\equiv0\mod p$. Then
+$s^{2}-k\equiv0\mod p$, so $s$ is a zero of $f_{k}$.
+\end{quote}
+\item Further assuming that $p>2$ prove that $f_{k}$ either has no zeros in $\ZZ_{p}$ or exactly
+two zeros in $\ZZ_{p}$.
+\begin{quote}
+Suppose there was only one zero in $\ZZ_{p}$. We know this cannot be the case, since by $(a)$ we
+showed that if $s$ is a zero, then $-s$ is also a zero. If we suppose there are more than 2 zeros,
+then we can consider another zero, $\sigma$. By $(a)$, we know that $-\sigma$ is also a zero. Since
+$deg(f)=2$, we know that there are at most 2 zeros in $\ZZ_{p}$. There cannot be just one zero, so
+there must be only two zeros, or no zeros.
+% We
+% know that, without loss of generality, that if we consider the first root $\sigma$, then we can
+% say
+% \begin{align*}
+% f_{k}(x)&=(x-\sigma)g(x)\\
+% x^{2}-k&=(x-\sigma)g(x)\\
+% {x^{2}-k\over x-\sigma}&=g(x).
+% \end{align*}
+% If we perform the division, we find that
+% \[g(x)=x+\sigma+{\sigma^{2}-k\over x-\sigma}=x+\sigma,\]
+% meaning that
+\end{quote}
+\end{enumerate}
+
+\item Let $p$ be a prime with $p>2$ and assume that $a,b,c,r\in\ZZ_{p}$ with $a\nequiv0\mod p$.
+Further, we define the polynomial $f(x)=ax^{2}+bx+c\in\ZZ_{p}[x]$.
+\begin{enumerate}
+\item Prove that $r$ is a zero of $f$ in $\ZZ_{p}$ if and only if
+$(2ar+b)^{2}\equiv b^{2}-4ac\mod p$.
+\begin{quote}
+$\Rightarrow)$ Since $r$ is a zero of $f(x)$ and $f$ is a quadratic polynomial, we can create the
+expression
+\begin{align*}
+ar^{2}+br+c&\equiv0\mod p\\
+ar^{2}+br&\equiv-c\mod p.
+\end{align*}
+Consider the term $(2ar+b)^{2}$. Then
+\begin{align*}
+(2ar+b)^{2}&= 4a^{2}r^{2}+4bar+b^{2}\\
+&=4a(ar^{2}+br)+b^{2}\\
+&=4a(-c)+b^{2}\\
+&=b^{2}-4ac\\
+&\equiv b^{2}-4ac\mod p
+\end{align*}
+\noindent\\
+$\Leftarrow)$ Suppose $(2ar+b)^{2}\equiv b^{2}-4ac\mod p$. Then
+\begin{align*}
+&4a^{2}r^{2}+4arb+b^{2}\equiv b^{2}-4ac\mod p\\
+&4a^{2}r^{2}+4arb\equiv-4ac\mod p\\
+&4a^{2}r^{2}+4arb+4ac\equiv0\mod p\\
+&4a(ar^{2}+br+c)\equiv0\mod p.
+\end{align*}
+Since we are in $\ZZ_{p}$, we know all elements have an inverse. We can multiply both sides of the
+congruence by $a^{-1}4^{-1}$, which gives us $ar^{2}+br+c\equiv0\mod p$. Therefore, $r$ is a root
+of $f$.
+\end{quote}
+\item A point $y\in\ZZ_{p}$ is called a \textit{perfect square} if there exists $z\in\ZZ_{p}$
+such that $z^{2}=y$.
+\begin{enumerate}
+\item If $f$ has at least one zero in $\ZZ_{p}$, prove that $b^{2}-4ac$ is a perfect square.
+\begin{quote}
+Suppose $r$ is a zero of $f$. Then by $(a)$ we have
+\[
+(2ar+b)^{2}\equiv b^{2}-4ac\mod p,
+\]
+which implies $b^{2}-4ac$ is a perfect square.
+\end{quote}
+\item If $b^{2}-4ac\equiv0\mod p$, prove that $f$ has a uniqe zero in $f$. Find a formula for that
+zero in terms of $a$ and $b$.
+\begin{quote}
+Suppose $b^{2}-4ac\equiv0\mod p$. We know by $(a)$ that $r$ is root, and therefore
+$(2ar+b)^2\equiv b^2-4ac \mod p$. Suppose $\rho$ is a root of $f$. then
+$(2a\rho+b)^2\equiv b^2-4ac \mod p$, so $(2ar+b)^2\equiv(2a\rho+b)^2$. Since $b^2-4ac$ is a perfect
+square, then $2ar+b\equiv2a\rho+b$. Then $2ar\equiv2a\rho$, and multiplying by $2^{-1}a^{-1}$ yields
+$r\equiv\rho$. To find an expression for $r$, we know that $(2ar+b)^2=0$, so if we multiply by
+$(2ar+b)^{-1}$, we have $2ar+b=0$. Then $r=-b2^{-1}a^{-2}$.
+\end{quote}
+\item If $b^{2}-4ac\nequiv0\mod p$ and $b^{2}-4ac$ is a perfect square, prove that $f$ has exactly
+two distinct zeros in $\ZZ_{p}$.
+\begin{quote}
+We know that we have the equivalence $(2ar+b)^2\equiv b^2-4ac$. Let $x=(2ar+b)^2$ and
+$k=b^2-4ac$. Then we can rearrange the congruence to say $x^2-k\equiv0\mod p$. We know
+$x^2-k$ has either 0 or 2 zeros. Since $k$ is a perfect square, we can let $k=j^2$ for some
+$j\in\ZZ_{p}$. Then $x^2-k=x^2-j^2=(x+j)(x-j)$, which has two distinct roots in $\ZZ_{p}$.
+\end{quote}
+\end{enumerate}
+\end{enumerate}
+
+\item Suppose that $g(x)=x^2+1\in\ZZ_{3}[x]$ and let $\phi$ be a zero of $g$.
+\begin{enumerate}
+\item Prove that $\phi\notin\ZZ_{3}$.
+\begin{quote}
+
+\end{quote}
+\item Define the set $\FF_{9}=\{ 0,1,2,\phi,\phi+1,\phi+2,2\phi,2\phi+1,2\phi+2 \}$. Assuming that
+the multiplication and addition in $\FF_{9}$ obeys the distributive law, prove that every element of
+$\FF_{9}$ has a multiplicative inverse.
+\begin{quote}
+
+\end{quote}
+\end{enumerate}
+
+\item If $p>2$ is prime, prove that $\ZZ_{p}$ contains exactly $(p+1)/2$ perfect squares.
+\begin{quote}
+
+\end{quote}
 \end{enumerate}
 \end{document}

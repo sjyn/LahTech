@@ -94,6 +94,59 @@ $\bf{S}^{-1}\bf{D}\bf{S}$, where $D$ is diagonalized matrix of the eigenvalues o
 that we can diagonalize $\bf{P}$ by the following theorem:
 \begin{quote}
 An $n\times n$ matrix $\bf{P}$ is diagonalizable if and only if it has $n$ linearly independent
-eigenvectors.  
+eigenvectors.\\\\
+
+\textit{\textbf{Example}}\\
+Consider three types of detergent that yield the Markov matrix
+\begin{center}
+\begin{tabular}{c | c c c}
+& Tide & Bounty & Bounce\\
+\hline
+Tide & .8 & .1 & .1\\
+Bounty & .2 & .6 & .2\\
+Bounce & .3 & .3 & .4
+\end{tabular}
+\end{center}
+where the entries indicate the probability that a user will stay with that product. Rather than
+finding the next state, we will consider a vector $\pmb{\pi}$, called the limiting state probability
+vector. This vector will be representative of the probabilities of users staying with a brand.
+Similar to the previous examples, we have
+\[\pmb{\pi}\bf{P}=\pmb{\pi}.\]
+From this equation, we get
+\[
+\begin{cases}
+.8\pi_{1}+.2\pi_{2}+.3\pi_{3}=\pi_{1}\\
+.1\pi_{1}+.6\pi_{2}+.3\pi_{3}=\pi_{2}\\
+.1\pi_{1}+.2\pi_{2}+.4\pi_{3}=\pi_{3}
+\end{cases}
+\]
+The third equation in this case is a linear combination of the first two, so we cannot user it here.
+However, we can replace it with a linearly independent row:
+\[
+\begin{cases}
+.8\pi_{1}+.2\pi_{2}+.3\pi_{3}=\pi_{1}\\
+.1\pi_{1}+.6\pi_{2}+.3\pi_{3}=\pi_{2}\\
+\pi_{1}+\pi_{2}+\pi_{3}=1
+\end{cases}
+\to
+\left[
+\begin{array}{c c c | c}
+-.2 & .2 & .3 & 0\\
+.1 & -.4 & .3 & 0\\
+1 & 1 & 1 & 0
+\end{array}
+\right]
+\to
+\pmb{\pi}=
+\left[
+\begin{array}{c}
+{6/11}\\
+{3/11}\\
+{2/11}
+\end{array}
+\right].
+\]
 \end{quote}
+
+
 \end{document}
