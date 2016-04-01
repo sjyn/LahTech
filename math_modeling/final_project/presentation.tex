@@ -1,0 +1,66 @@
+\documentclass{beamer}
+
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+\title{Modeling Zombies and Infection}
+\author{Ricky Marske and Steven Rosendahl}
+\date{}
+
+\usetheme{metropolis}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\section{A Simple Model}
+
+\begin{frame}{Population Decay}
+\begin{itemize}
+\item Population decay can be modeled by
+\[y=a(1-r)^{x}\]
+\pause
+\item $a:$ Initial amount of population
+\pause
+\item $r:$ Decay rate
+\pause
+\item $x:$ The amount of time that has passed
+\end{itemize}
+\end{frame}
+
+\section{Adding Complexity}
+
+\begin{frame}{Probability}
+\begin{itemize}
+\item In the initial model, we assumed
+\pause
+\begin{enumerate}
+\item No one was immune
+\pause
+\item Non-Infected would have no response to infected
+\pause
+\item No one could survive the virus or be cured
+\end{enumerate}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Immunities}
+
+\end{frame}
+
+\begin{frame}{Non-Infected Responses}
+
+\end{frame}
+
+\begin{frame}{Cures and Survival}
+
+\end{frame}
+
+\section{Modeling Outside of NetLogo}
+
+\end{document}

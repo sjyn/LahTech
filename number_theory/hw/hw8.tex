@@ -45,7 +45,7 @@ $\Rightarrow)$ Suppose $s$ is a zero of $f_{k}$. Then $s^{2}-k\equiv0\mod p$. If
 then we have $(-s)^{2}-k\ \cancel{\equiv}\ 0\mod p$, so $s^{2}-k\ \cancel{\equiv}\ 0\mod p$, which
 is a contradiction.\\\\
 $\Leftarrow)$ Suppose $-s$ is a zero of $f_{k}$. Then $(-s)^{2}-k\equiv0\mod p$. Then
-$s^{2}-k\equiv0\mod p$, so $s$ is a zero of $f_{k}$.
+$s^{2}-k\equiv0\mod p$, and $s$ is a zero of $f_{k}$, so $-s$ is a zero of $f$.
 \end{quote}
 \item Further assuming that $p>2$ prove that $f_{k}$ either has no zeros in $\ZZ_{p}$ or exactly
 two zeros in $\ZZ_{p}$.
@@ -120,7 +120,7 @@ $(2ar+b)^2\equiv b^2-4ac \mod p$. Suppose $\rho$ is a root of $f$. then
 $(2a\rho+b)^2\equiv b^2-4ac \mod p$, so $(2ar+b)^2\equiv(2a\rho+b)^2$. Since $b^2-4ac$ is a perfect
 square, then $2ar+b\equiv2a\rho+b$. Then $2ar\equiv2a\rho$, and multiplying by $2^{-1}a^{-1}$ yields
 $r\equiv\rho$. To find an expression for $r$, we know that $(2ar+b)^2=0$, so if we multiply by
-$(2ar+b)^{-1}$, we have $2ar+b=0$. Then $r=-b2^{-1}a^{-2}$.
+$(2ar+b)^{-1}$, we have $2ar+b=0$. Then $r=-b2^{-1}a^{-1}$.
 \end{quote}
 \item If $b^{2}-4ac\nequiv0\mod p$ and $b^{2}-4ac$ is a perfect square, prove that $f$ has exactly
 two distinct zeros in $\ZZ_{p}$.
@@ -137,19 +137,44 @@ $j\in\ZZ_{p}$. Then $x^2-k=x^2-j^2=(x+j)(x-j)$, which has two distinct roots in 
 \begin{enumerate}
 \item Prove that $\phi\notin\ZZ_{3}$.
 \begin{quote}
-
+Suppose that there is a zero of the polynomial $r\in\ZZ_{3}$. If $r=0$, then we have
+$g=1\nequiv0\mod3$, so $0$ is not a zero of the polynomial. If $r=1$, then we have
+$g=2\nequiv0\mod3$. If $r=2$, we have $2\equiv-1\mod3$, so $g=(-1)^2+1\equiv2\nequiv0\mod3$, so there
+are no zeros in $\ZZ_{3}$.
 \end{quote}
 \item Define the set $\FF_{9}=\{ 0,1,2,\phi,\phi+1,\phi+2,2\phi,2\phi+1,2\phi+2 \}$. Assuming that
-the multiplication and addition in $\FF_{9}$ obeys the distributive law, prove that every element of
-$\FF_{9}$ has a multiplicative inverse.
+the multiplication and addition in $\FF_{9}$ obeys the distributive law, prove that every non-zero
+element of $\FF_{9}$ has a multiplicative inverse.
 \begin{quote}
-
+We know that $\phi$ is a zero of $g$, so we have that $\phi^2+1=0$, and $\phi^{2}=2$. Subtracting
+1 from both sides yields $\phi^{2}-1=1$, so $(\phi+1)(\phi-1)=1$. Therefore the inverse of
+$(\phi+1)$ is $(\phi-1)$. If we consider $\phi(2\phi)$, we get $2\phi^2=4=1$, so
+$\phi$ and $2\phi$ are inverses. If we consider $(2\phi+1)(2\phi+2)$, we get
+$4\phi^2+4\phi+2\phi+2=(1)(2)+\phi-\phi-1=2-1=1$, so $(2\phi+1)$ and $(2\phi+2)$ are inverses.
+We also know that $(1)(1)=1$, so 1 is its own inverse. Finally, $(2)(2)=4=1$, so 2 is its own inverse
+as well.
 \end{quote}
 \end{enumerate}
 
 \item If $p>2$ is prime, prove that $\ZZ_{p}$ contains exactly $(p+1)/2$ perfect squares.
 \begin{quote}
-
+Consider the set $S=\{ \{x,-x\}|x\in\ZZ_{p}\text{ and }x\nequiv0\mod p \}$. We first want to show
+that $x\nequiv-x\mod p$.
+\begin{quote}
+Suppose $x\equiv-x\mod p$. Then $x\equiv(p-1)x\equiv px-x\mod p$, so $2x\equiv xp\mod p$. We can
+multiply by $x^{-1}$, which yields $2\equiv p\mod p$, so $p\equiv2\mod p$, which is a contradiction
+since $p>2$. Therefore $x\nequiv-x\mod p$.
+\end{quote}
+We now need to show that every set $A\in S$ is disjoint with another set $B\in S$.
+\begin{quote}
+Suppose $A=\{x,-x\}$ and $B=\{y,-y\}$ with $A\cap B\neq\emptyset$. Take $z\in A\cap B$.
+Then $z\in A$ and $z\in B$. Suppose without loss of generality that $z\equiv x\mod p$ and
+$z\equiv y\mod p$. Then $x\equiv y\mod p$, so they are the same element.
+\end{quote}
+We can now take every subset of $S$ and square the elements within that set. Doing so gives for
+any subset $\{ x^{2},x^{2} \}$ which contains two equivalent perfect squares. We know that for
+every $p$ there are $(p-1)/2$ of these sets, and that there is a trivial set $\{0,0\}$, so there are
+$((p-1)/2)+1$, or $(p+1)/2$ sets of perfect squares.
 \end{quote}
 \end{enumerate}
 \end{document}
