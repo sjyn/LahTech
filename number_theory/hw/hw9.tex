@@ -11,6 +11,51 @@ answer.
 &= 1 + 1 + 2 + 2 + 2 + 4\\
 &= 12
 \end{align*}
+
+\item Suppose that $p_{1},p_{2},\dots,p_{N}$ are distinct primes. Prove that
+\[
+{\phi(p_{1}p_{2}\dots p_{N}) \over p_{1}p_{2}\dots p_{N}}
+=
+\prod_{n=1}^{N}\left(1-{1\over p_{n}}\right)
+\]
+\begin{align*}
+{\phi(p_{1}p_{2}\dots p_{N}) \over p_{1}p_{2}\dots p_{N}} &=
+{\phi(p_{1})\phi(p_{2})\dots \phi(p_{N}) \over p_{1}p_{2}\dots p_{N}}\\
+&= \prod_{n=1}^{N}{\phi(p_{n})\over p_{n}}\\
+&= \prod_{n=1}^{N}{p_{n} -1 \over p_{n}}\\
+&= \prod_{n=1}^{N}\left(1-{1\over p_{n}}\right)
+\end{align*}
+
+\item Find a value of $n$ such that $\phi(n)/n < 1/4$. What do you think is a good strategy for
+choosing $n$ so that $\phi(n)/n$ is close to zero?
+\begin{quote}
+One value for which this holds true is $n=210$. $\phi(210)$ is 48, and $48/210 = 8/35 < 1/4$. One
+strategy for finding these numbers would be to
+\end{quote}
+
+\item Suppose that $p$ is prime and $m$ and $n$ are non-negative integers.
+\begin{enumerate}
+\item Prove that $\phi(p^{m+n})\geq\phi(p^{m})\phi(p^{n})$.
+\begin{quote}
+We can consider $\phi(p^{m+n})$. If we let $m+n=j$, then we have $\phi(p^{j})$, which can be
+expressed as $p^{j}-p^{j-1}$. If we consider $\phi(p^{m})\phi(p^{n})$, we have
+\begin{align*}
+\phi(p^{m})\phi(p^{n})&= (p^{m}-p^{m-1})(p^{n}-p^{n-1})\\
+&= p^{m+n} - 2p^{m+n-1} + p^{m+n-2}\\
+&= p^{j}-2p^{j-1}+p^{j-2}.
+\end{align*}
+If we compare the two values, we get
+\begin{align*}
+p^{j}-p^{j-1} &\stackrel{?}{\geq} p^{j}-2p^{j-1}+p^{j-2}\\
+p^{j-1} &\geq p^{j-2}.
+\end{align*}
+We know this is true since $m,n>0$, so $j>0$.
+\end{quote}
+
+\item Under what additional assumptions on $m$ and $n$ do we obtain
+$\phi(p^{m+n})=\phi(p^{m})\phi(p^{n})$?
 \end{enumerate}
 
+
+\end{enumerate}
 \end{document}

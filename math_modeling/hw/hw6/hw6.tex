@@ -1,4 +1,8 @@
+%% Quiz 4 on page 22/23
+
 \documentclass{hw}
+
+\usepackage{multicol}
 
 \usepackage{tikz}
 \usetikzlibrary{automata,positioning}
@@ -264,8 +268,52 @@ The probability that a granddaughter will have average weight is $(.5)(.5)=.25$.
 \item Using probabilistic considerations only, show that the square of a stochastic matrix is also a
 stochastic matrix.
 \begin{quote}
-
+If it was not a stochastic matrix, then there would be no way to represent the next state in the
+system. The total probability of all the transitions must sum to 1, since there is a 100\% chance
+of a transition occurring in every step of the chain.
 \end{quote}
+
+\item A stochastic matrix is doubly stochastic if the sum of the entries in each column is 1. If $A$
+and $B$ are doubly stochastic square matrices, is $A^{2}$ doubly stochastic? Is $AB$?
+\begin{quote}
+Yes, the square of a doubly stochastic matrix is still a doubly stochastic matrix. $AB$ is also
+still doubly stochastic.
+\end{quote}
+
+\item Write out inductive proofs for Theorems 2 and 3.
+
+\item Use matrix multiplication to solve Exercise 8.
+\[
+\left(
+\begin{array}{c c}
+.5 & .5\\
+.5 & .5
+\end{array}
+\right)
+\cdot
+\left(
+\begin{array}{c c}
+.5 & .5\\
+.5 & .5
+\end{array}
+\right)
+=
+\]
+
+\item Abigail bought a toy with her allowance this week (see Exercise 2). Find the probability that
+she will buy a toy 4 weeks from now.
+
+\item Find the distribution of birth weights (Example 1) after one generation if the initial
+probability distribution is (.4, .3, .3).
+
+\item Suppose the distribution of birth weights of a generation of daughters is
+$p^{(1)}=7(0.31,0.45,0.24)$. Can you find the distribution of birth weights of the mothers?
+
+\item Use the state diagram in Fig. 11.3 to find the probability that the process reaches state
+$S_{3}$ in two steps if it starts in state $S_{1}$.
+
+\item Let $P$ be the transition matrix of Eq. (4). Compute $P^{2}$. What can you say about the
+first column of $P^{3}$ and $P^{n}$?
 
 \setcounter{enumi}{20}
 \item The matrices determined in Exercises 1-7 are all transition matrices for Markov processes.
@@ -275,11 +323,36 @@ Exercises 1 and 2 are regular matrices, since they have all positive entries.
 \end{quote}
 
 \item Find, if possible, a fixed-point vector for each of the transition matrices of Exercises 1-7.
+\begin{multicols}{2}
 \begin{enumerate}
-\item $\displaystyle \bf{w}=\left\{{5\over9}, {4\over9}\right\}$
-\item $\displaystyle \bf{w}=\left\{{4\over7}, {3\over7}\right\}$
-\item $\displaystyle \bf{w}=\left\{{23\over70}, {43\over70}, {2\over35}\right\}$
+\item $\displaystyle \mathbf{w}=\left\{{5\over9}, {4\over9}\right\}$
+\item $\displaystyle \mathbf{w}=\left\{{4\over7}, {3\over7}\right\}$
+\item $\displaystyle \mathbf{w}=\left\{{23\over70}, {43\over70}, {2\over35}\right\}$
+\item This is not a regular matrix, so no $\bf{w}$ exists.
+\item This is not a regular matrix, so no $\bf{w}$ exists.
+\item This is not a regular matrix, so no $\bf{w}$ exists.
+\item This is not a regular matrix, so no $\bf{w}$ exists.
 \end{enumerate}
+\end{multicols}
+
+\item Does a matrix of the form
+$\displaystyle A=\left(\begin{array}{c c}a & b \\ -b & d\end{array}\right)$ have a fixed-point vector?
+\begin{quote}
+If it has a fixed-point vector, then that vector is given by
+\[
+\mathbf{w}=\left\{ {c\over b+c},{b\over b+c} \right\}
+= \left\{ {-b\over b-b},{b\over b-b}\right\}
+= \left\{ {-b\over 0},{b\over 0}\right\}.
+\]
+Therefore, there is no fixed-point vector for the matrix.
+\end{quote}
+
+\setcounter{enumi}{31}
+\item Which of the transition matrices of Exercises 1-7 represent absorbing Markov processes?
+\begin{quote}
+Exercises 4 and 6 represent absorbing Markov processes, since they have nodes which are not
+escapable.
+\end{quote}
 \end{enumerate}
 
 \end{document}
