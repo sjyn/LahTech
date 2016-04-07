@@ -35,6 +35,34 @@
 \end{itemize}
 \end{frame}
 
+\begin{frame}{A Zombie Model}
+\begin{itemize}
+\item Population decay model is a good starting point, but is not strong enough to model zombie
+outbreak
+\pause
+\item Final size population model
+\pause
+\begin{itemize}
+\item Size of the population as $t\to\infty$.
+\pause
+\item Let $S_{\infty}$ be final size of susceptible population
+\pause
+\item Let $I_{\infty}$ be final size of infected population
+\pause
+\item Let $R_{\infty}$ be final size of removed population
+\pause
+\item Left with the system
+\begin{gather*}
+\begin{cases}
+S'=-\beta(t)SI\\
+I'=\beta(t)SI-vI\\
+R'=vI
+\end{cases}
+\end{gather*}
+\end{itemize}
+\end{itemize}
+\end{frame}
+
 \section{Adding Complexity}
 
 \begin{frame}{Probability}
@@ -42,22 +70,146 @@
 \item In the initial model, we assumed
 \pause
 \begin{enumerate}
-\item No one was immune
-\pause
 \item Non-Infected would have no response to infected
+\pause
+\item No one was immune
 \pause
 \item No one could survive the virus or be cured
 \end{enumerate}
+\pause We will look at each one of these additional features individually
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Reaction to Zombies}
+\begin{itemize}
+\item The heat equation can be used to model the spread of zombies
+\pause
+\item Happens when humans randomly flee from zombies
+\end{itemize}
+\[
+\frac{\partial Z}{\partial t} (x,t) =
+D \frac{\partial^2 Z}{\partial x^2} (x,t) \;\;\;\;\;\; \text{(the partial differential equation)}
+\]
+\pause
+\[
+Z(x,0) = \begin{cases}
+Z_0 & \text{for $0 \leq x \leq 1$}\\
+0 & \text{for $x > 1$}
+\end{cases} \;\;\;\;\;\;\ \text{(the initial condition)}
+\]
+\pause
+\[
+\frac{\partial Z}{\partial x} (0,t) = 0 =
+\frac{\partial Z}{\partial x} (L,t) \;\;\;\;\; \text{(zero-flux boundary condition)}
+\]
+\noindent\\
+\noindent\\
+\noindent\\
+\pause
+\[
+Z(x,t) = \frac{Z_0}{L} + \sum_{n=1}^{\infty}
+\frac{2Z_0}{n \pi}\sin\left(\frac{n \pi}{L}\right)
+\cos\left(\frac{n \pi}{L} x\right) e^{\left(-\left(\frac{n \pi}{L}\right)^2 Dt\right)}
+\]
+\end{frame}
+
+\begin{frame}{Non-Infected Responses}
+\begin{itemize}
+\item Humans will have a natural response to virus outbreak
+\pause
+\begin{itemize}
+\item One reaction may be to form groups away from the infected
+\pause
+\item Prevalent in a zombie scenario
+\pause
+\item Twitch.tv provides a real life example of this
+\pause
+\item Popular users are like the groups of non-infected
+\pause
+\item We can analyze what happens when these large groups of non-infected are suddenly hit with the
+zombie virus
+\end{itemize}
+\pause
+\item This behavior can be modeled using NetLogo
+\end{itemize}
+\end{frame}
+
+\begin{frame}{NetLogo Zombie Model}
+\begin{itemize}
+\item Four different scenarios
+\pause
+\begin{enumerate}
+\item Zombies age and die
+\pause
+\item Virus dying out in carriers
+\pause
+\item Vaccination combating virus
+\pause
+\item Humans dying from old age
+\end{enumerate}
+\end{itemize}
+\begin{center}
+\pause
+\includegraphics[scale=0.5]{classes}
+\end{center}
+\end{frame}
+
+\begin{frame}{Societal Groups}
+\begin{center}
+\includegraphics[scale=0.25]{groups}
+\includegraphics[scale=0.6]{grouping}
+\end{center}
+\end{frame}
+
+\begin{frame}{Twitch Zombie Outbreak}
+\begin{itemize}
+\item We created a program to ``infect" twitch users
+\pause
+\begin{enumerate}
+\item Start with initial user/users
+\pause
+\item Mark all users in that chat as infected
+\pause
+\item Look through all the infected users
+\pause
+\begin{itemize}
+\item If the user is streaming, then infect all their viewers in their chat
+\end{itemize}
+\pause
+\item Repeat indefinitely
+\end{enumerate}
+\pause
+\item We expect to see bursts of infected after lulls of no infected
+\pause
+\item This can be modeled by INSERT EQUATION HERE
+\[
+\]
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Immunities}
-
+\begin{itemize}
+% \item Not every person is necessarily susceptible to a disease
+% \pause
+% \item There is a chance that someone in contact with an infected will not become infected
+% \pause
+\item We can model this with a modified version of the Twitch program
+\pause
+\begin{enumerate}
+\item Follow the same procedure again, but mark a user as either infected or immune
+\pause
+\item If the user is immune then they can not infect their users
+\pause
+\item Does not account for carriers of the disease
+\end{enumerate}
+\end{itemize}
 \end{frame}
 
-\begin{frame}{Non-Infected Responses}
-
-\end{frame}
+% \begin{frame}{Immunities}
+% \begin{itemize}
+% \item This behavior can be modeled in NetLogo
+% \end{itemize}
+% \end{frame}
 
 \begin{frame}{Cures and Survival}
 \begin{itemize}
@@ -117,6 +269,8 @@ u(x,t)=\zeta+\sum_{n=1}^{\infty}(k_{1}\sin{t}+k_{2}\cos{t})\sin{n\pi x}
 \end{itemize}
 \end{frame}
 
-\section{Modeling Outside of NetLogo}
+\begin{frame}{References}
+
+\end{frame}
 
 \end{document}

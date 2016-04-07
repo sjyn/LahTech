@@ -129,9 +129,14 @@ $p\mid n$, and $gcd(n,n-k)>1$.
 By definition, the totient function counts the number of units in $\ZZ_{n}$. Suppose that
 $n\geq3$. If we take any element $k$ from $\ZZ_{n}$, we know by $(a)$ that if $k$ is relatively
 prime to $n$, then $n-k$ is relatively prime to $n$. Therefore, if $k$ is a unit in $\ZZ_{n}$, then
-$n-k$ is also a unit in $\ZZ_{n}$. Then for every unit $k$ in $\ZZ_{n}$, we can find another unit
-$n-k$ also in $\ZZ_{n}$, which means there are an even number of units in $\ZZ_{n}$, so
-$\phi(n)\in\{ 2j\ |\ j\in\ZZ \}$.
+$n-k$ is also a unit in $\ZZ_{n}$. If $n$ is odd, then we know that there will not be any situation
+where $n-k=k$, since that would imply that $n=2k$, or $n$ is even which is a contradiction. Then for
+every unit $k$ in $\ZZ_{n}$, we can find another unit $n-k$ also in $\ZZ_{n}$, which means there are
+an even number of units in $\ZZ_{n}$, so $\phi(n)\in\{ 2j\ |\ j\in\ZZ \}$ when $n$ is odd. If $n$
+is even, however, there may be a unit $k$ in $\ZZ_{n}$ such that $k=n-k$. If this is the case,
+then this unit will be the same as $n/2$. Since it is a unit, then $gcd(n/2,n)=1$. We saw that
+$n$ was even, so we can say $n=2l,\ l\in\ZZ$. Then $gcd(2l/2,2l)=gcd(l,2l)\neq1$, so there cannot
+be a unit $k$ in an even $\ZZ_{n}$ such that $k=n-k$.
 \end{quote}
 \end{enumerate}
 

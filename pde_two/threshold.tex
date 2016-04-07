@@ -1,0 +1,67 @@
+\documentclass{hw}
+\usepackage{amsmath,amssymb}
+
+\title{Threshold Phenomenon in a Nonlinear Heat Equation}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+\section{Introduction}
+
+This paper concerns the behavior of the following non-linear heat equation given by
+\begin{gather}
+u_{t}=u_{xx}+u^{3},\ 0<x<\pi,\ t>0\\
+u(0,t)=u(\pi,t)=0,\ t>0\\
+u(x,0)=u_{0}(x),\ 0<x<\pi.
+\end{gather}
+
+This system corresponds to several physical situation, including exothermic reactions between
+chemicals. We know that this equation has a solution $u(x,t)$, but it may help us to consider the
+\textit{steady state} equation corresponding to this system. The steady state arises from holding
+time constant; thus, our differential equation becomes dependent only on $x$.
+
+\section{Steady State Analysis}
+The steady state equation of $(1)$ is given by
+\begin{gather}
+u_{xx}+u^{3}=0\\
+u(0)=u(\pi)=0.
+\end{gather}
+We want to find a solution $u_{s}(x)$ that satisfies the following properties
+\begin{enumerate}
+\item If $u_{0}(x)<u_{s}(x)$, then $u(x,t)\to u_{s}(x)$ as $t\to\infty$.
+\[
+\lim_{t\to \infty}u(x,t)=u_{s}(x).
+\]
+In this case, the solution to $(1)$ would independent of time. If this property is fulfilled, then
+there is a \textit{global solution} $u(x,t)$ to the boundary value problem described in $(1)$.
+\item If $u_{0}(x)>u_{s}(x)$, then $u(x,t)$ blows up in a finite time. This means that the solution
+tends towards infinity in a finite time $T$.
+\[
+\lim_{t\to T}u(x,t)=\infty.
+\]
+This case if often indicative of a singularity in the solution $u(x,t)$. The solution $u$ of $(1)$
+would not be global in this case.
+\end{enumerate}
+We can now attempt to solve this steady state problem.
+
+\subsection{Solution to the Steady State Problem}
+We are attempting to solve the ordinary differential equation
+\[
+u''=-u^{3}.
+\]
+Multiplying both sides of the equation gives us
+\begin{align*}
+u''u'&=-u'u^{3}\\
+\int u''u'&=\int -u'u^{3}\\
+{1\over2}(u')^{2}&= -{1\over4}u^{4}+c\\
+2(u')^{2}&=-u^{4}+c_{1}.
+\end{align*}
+This first order equation does not lend itself to separation of variables as readily as we would like
+(although it is possible if we want to deal with imaginary numbers). Instead, we will use a technique
+called the \textit{shooting method} in order to determine a solution. The shooting method provides
+us with a way to relax boundary conditions into initial conditions. Recall that $(5)$ provides us
+with boundary conditions that arose from the steady state of $(1)$. We will leave the first boundary
+condition alone and change the second boundary condition so that 
+
+\end{document}
