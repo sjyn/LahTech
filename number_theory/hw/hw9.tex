@@ -54,8 +54,92 @@ We know this is true since $m,n>0$, so $j>0$.
 
 \item Under what additional assumptions on $m$ and $n$ do we obtain
 $\phi(p^{m+n})=\phi(p^{m})\phi(p^{n})$?
+\begin{quote}
+If either $m$ or $n$, but not both $m$ and $n$ are zero, then we have
+$\phi(p^{m+0})=\phi(p^{m})\phi(p^{0})=\phi(p^{m})$ or
+$\phi(p^{0+n})=\phi(p^{0})\phi(p^{n})=\phi(p^{n})$.
+\end{quote}
 \end{enumerate}
 
+\item Suppose that $a$ and $b$ are positive integers.
+\begin{enumerate}
+\item Prove that $\phi(ab)\geq\phi(a)\phi(b)$.
+\begin{quote}
+Suppose that $a$ and $b$ are not relatively prime and consider the product $\phi(a)\phi(b)$. Then
+\begin{align*}
+\phi(a)\phi(b) &<
+\phi(p_{1}^{\alpha_{1}}p_{2}^{\alpha_{2}}\dots p_{r}^{\alpha_{r}})
+\phi(p_{1}^{\beta_{1}}p_{2}^{\beta_{2}}\dots p_{r}^{\beta_{r}})\\
+&= \phi(p_{1}^{\alpha_{1}})\phi(p_{2}^{\alpha_{2}})\dots \phi(p_{r}^{\alpha_{r}})
+\phi(p_{1}^{\beta_{1}})\phi(p_{2}^{\beta_{2}})\phi(p_{r}^{\beta_{r}})\\
+&= \prod_{i=1}^{r}\left(p_{i}^{\alpha_{i}}-p_{i}^{\alpha_{i}-1}\right)
+\prod_{i=1}^{r}\left(p_{i}^{\beta_{i}}-p_{i}^{\beta_{i}-1}\right)\\
+&= \prod_{i=1}^{r}p_{i}^{\alpha_{i}}\left(1-{1\over p_{i}}\right)
+\prod_{i=1}^{r}p_{i}^{\beta_{i}}\left(1-{1\over p_{i}}\right)\\
+&= ab\prod_{i=1}^{r}\left(1-{1\over p_{i}}\right)^{2}.
+\end{align*}
+We can also consider the function $\phi(ab)$.
+\begin{align*}
+\phi(ab) &= \phi(p_{1}^{\alpha_{1}}p_{2}^{\alpha_{2}}\dots p_{r}^{\alpha_{r}}
+p_{1}^{\beta_{1}}p_{2}^{\beta_{2}}\dots p_{r}^{\beta_{r}})\\
+&= \phi(p_{1}^{\alpha_{1}+\beta_{1}}p_{2}^{\alpha_{2}+\beta_{2}}\dots p_{r}^{\alpha_{r}+\beta_{r}})\\
+&= \phi(p_{1}^{\alpha_{1}+\beta_{1}})\phi(p_{2}^{\alpha_{2}+\beta_{2}})\dots
+\phi(p_{r}^{\alpha_{r}+\beta_{r}})\\
+&= \prod_{i=1}^{r}p_{i}^{\alpha_{i}+\beta_{i}}-p_{i}^{\alpha_{i}+\beta_{i}}{1\over p}\\
+&= \prod_{i=1}^{r}p_{i}^{\alpha_{i}+\beta_{i}}\left(1-{1\over p_{i}}\right)\\
+&= ab\prod_{i=1}^{r}\left(1-{1\over p_{i}}\right).
+\end{align*}
+Since
+\[
+\phi(ab)=ab\prod_{i=1}^{r}\left(1-{1\over p_{i}}\right) >
+ab\prod_{i=1}^{r}\left(1-{1\over p_{i}}\right)^{2}>\phi(a)\phi(b),
+\]
+we have
+\[
+\phi(ab) > \phi(a)\phi(b).
+\]
+If $gcd(a,b)=1$, then we can say $\phi(ab) = \phi(a)\phi(b)$. Therefore $\phi(ab)\geq\phi(a)\phi(b)$.
+\end{quote}
 
+\item Prove that $\phi(ab) = \phi(a)\phi(b)$ if and only if $gcd(a,b)=1$.
+\begin{quote}
+$\Rightarrow)$ Suppose $\phi(ab) = \phi(a)\phi(b)$ implies $gcd(a,b)>1$. We know from $(a)$ that
+when $a$ and $b$ are not relatively prime, $\phi(ab) > \phi(a)\phi(b)$, which is a direct contradiction
+to $\phi(ab) = \phi(a)\phi(b)$. Therefore $\phi(ab) = \phi(a)\phi(b)$ implies $gcd(a,b)=1$.
+\noindent\\\\
+$\Leftarrow)$ Suppose $gcd(a,b)=1$. Then $a$ and $b$ are relatively prime, so
+$\phi(ab)=\phi(a)\phi(b)$ by the theorem.
+\end{quote}
+\end{enumerate}
+
+\item Suppose that $n$ is a positive integer and $k$ is any integer.
+\begin{enumerate}
+\item Prove that $gcd(n,k)=1$ if and only if $gcd(n,n-k)=1$.
+\begin{quote}
+$\Leftarrow)$ Suppose that $gcd(n,k)>1$. Then $gcd(n,k)=q$, so $q\mid n$ and
+$q\mid k$, $n=qa$ and $k=qb$ for some $a,b\in\ZZ$. Then $n-k=pa-pb=p(a-b)$, so $p\mid n-k$, which
+implies that $gcd(n,n-k)>1$. Therefore, by contrapositive, $gcd(n,k)=1$ implies $gcd(n,n-k)=1$.
+\noindent\\\\
+$\Rightarrow)$ Suppose $gcd(n,n-k)>1$. Then there exists $p\in\ZZ$ such that $p\mid n$ and $p\mid k$.
+Then $n=pa$ and $k=pb$ for some $a,b\in\ZZ$. We can express $n-k=pa-pb=p(a-b)$, so $p\mid(n-k)$ and
+$p\mid n$, and $gcd(n,n-k)>1$.
+\end{quote}
+\item Prove that $\phi(n)$ is an even integer for all $n\geq3$.
+\begin{quote}
+By definition, the totient function counts the number of units in $\ZZ_{n}$. Suppose that
+$n\geq3$. If we take any element $k$ from $\ZZ_{n}$, we know by $(a)$ that if $k$ is relatively
+prime to $n$, then $n-k$ is relatively prime to $n$. Therefore, if $k$ is a unit in $\ZZ_{n}$, then
+$n-k$ is also a unit in $\ZZ_{n}$. Then for every unit $k$ in $\ZZ_{n}$, we can find another unit
+$n-k$ also in $\ZZ_{n}$, which means there are an even number of units in $\ZZ_{n}$, so
+$\phi(n)\in\{ 2j\ |\ j\in\ZZ \}$.
+\end{quote}
+\end{enumerate}
+
+\item If $n$ is a positive integer prove that $\phi(n)=2$ if and only if $n\in\{ 3,4,6\}$.
+\begin{quote}
+$\Rightarrow)$
+\noindent\\\\
+$\Leftarrow)$ Suppose $n\in\{ 3,4,6\}$. Then $\phi(3)=2$, $\phi(4)=2$, and $\phi(6)=2$.
+\end{quote}
 \end{enumerate}
 \end{document}

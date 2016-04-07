@@ -148,5 +148,72 @@ However, we can replace it with a linearly independent row:
 \]
 \end{quote}
 
+\section*{Irreducible Matrices}
+We attempted to find the $\pi$ vector in the previous examples. We can use the following theorem to
+discuss special Markov Chains.
+\begin{quote}
+Let $P$ be the transition matrix for an irreducible and aperiodic Markov Chain. Then there exists
+a unique probability vector $\pi$ such that
+\[
+\pi\cdot P=\pi.
+\]
+\end{quote}
+It follows that if $P$ is a regular matrix, then we can also find the $\pi$ vector. A more
+interesting phenomenon occurs when we do not have a regular $P$ matrix. A typical model of this can
+be seen in the Drunkard's walk without reflection.
+
+\subsection*{The Drunkard's Walk}
+The Drunkard's walk represents a random walk with several states. At some states, the drunk man may
+either end up in his bed or on the street. In the reflective version of this walk, it is possible that
+after going into his bed, the drunkard goes back out. In this example, we want to consider absorbing
+states, which are states that are not able to be escaped.
+
+In this walk, we want to model the drunkard by saying that if he falls asleep in the street or he
+goes to his bed, then the walk ends. Those conditions are representative of absorbing states.
+\[
+P=
+\left(
+\begin{array}{c c c c c}
+1 & 0 & 0 & 0 & 0\\
+1/2 & 0 & 1/2 & 0 & 0\\
+0 & 1/2 & 0 & 1/2 & 0\\
+0 & 0 & 1/2 & 0 & 1/2\\
+0 & 0 & 0 & 0 & 1
+\end{array}
+\right).
+\]
+More generally, an absorbing matrix takes the form of an $r\times r$ matrix with $k$ absorbing
+states. It is a fact that ultimately everything will end up in the absorbed state. Markov Chains
+are only absorbing when all absorbing state can be reached. If a state is not absorbing, it is
+called a transient state.
+
+For the drunkard's walk, we can partition the matrix into four parts:
+\[
+P=
+\left(
+\begin{array}{c c c c c}
+1 & 0 & 0 & 0 & 0\\
+1/2 & 0 & 1/2 & 0 & 0\\
+0 & 1/2 & 0 & 1/2 & 0\\
+0 & 0 & 1/2 & 0 & 1/2\\
+0 & 1/2 & 0 & 1/2 & 0
+\end{array}
+\right)
+=
+\left(
+\begin{array}{c c c c c}
+1 & 0 & 0 & 0 & 0\\
+0 & 1 & 0 & 0 & 0\\
+1/2 & 0 & 0 & 1/2 & 0\\
+0 & 0 & 1/2 & 0 & 1/2\\
+0 & 0 & 0 & 0 & 1
+\end{array}
+\right)
+\]
+which allows us to calculate a new matrix $N=(I-Q)^{-1}$. Every $n_{ij}$ entry in the $N$ matrix
+tells us the average number of times that the process is in the $j$ state if it starts in the $i$
+state.
+
+
 
 \end{document}
