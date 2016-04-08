@@ -1,21 +1,301 @@
-turtles-own [immunity, sur-prob]
+globals [turn-probability a prob ifvac]
+
+breed [not-immune-humans]
+breed [immune-humans]
+breed [zombies]
+breed [vaccine-humans]
+
+
+zombies-own [chasing-time lifespan zstatus]
+immune-humans-own [virus-span status iage]
+not-immune-humans-own [nage]
+vaccine-humans-own [vage]
+
 
 to go
+  set-current-plot "Population vs. time"
+  plot count zombies
+  plot count not-immune-humans
+  plot count immune-humans
+  let t ticks
 
+;  What zombies do
+  ask zombies [
+;    Waits until a specific time until the outbreak starts
+    if t <= time-until-outbreak-starts [
+      set zstatus 0
+    ]
+    if t > time-until-outbreak-starts[
+      set zstatus 1
+    ]
+    move
+;    Starts infecting stuff if the time is reached
+    if zstatus = 1[
+      if zombies-age? [
+        set lifespan lifespan - 1
+        if lifespan <= 0 [ die ]
+
+      ]
+      if any? turtles-here with [breed != zombies and breed != vaccine-humans]
+      [
+        ;probability of spreading infection
+        roll
+        if prob = 1 [
+          ask turtles-here with [breed != zombies] [
+            ask turtles-here with [breed = not-immune-humans] [
+                set breed zombies
+                set color green
+                set lifespan zombie-lifespan
+              ]
+          ]
+        ]
+      ]
+    ]
+;    General function for its movement
+    let beings-seen turtles in-cone vision-distance vision-angle with [self != myself]
+      ;; run towards zombies
+      if any? beings-seen [
+        let target one-of beings-seen
+        face target
+        step 1
+      ]
+    change
+  ]
+;  What immune humans do
+  ask immune-humans [
+    vaccine
+    if breed != vaccine-humans [
+    if humans-age? [
+      if t > time-until-outbreak-starts [
+      set iage iage + 1
+      if iage >= 100 [die]
+    ]
+    ]
+    move
+;    General function for movement
+    let beings-seen turtles in-cone vision-distance vision-angle with [self != myself]
+      ;; run towards zombies
+      if any? beings-seen [
+        let target one-of beings-seen
+        face target
+        step 1
+      ]
+;   Deals with the virus slowly going away in the immune carrier.
+    if virus-age? [
+      if status = 1[
+        if virus-span > 0[
+          set virus-span virus-span - 1
+          if virus-span <= 0 [set status 0]
+        ]
+      ]
+    ]
+;   Deals with the immune humans contracting the virus to carry
+    if any? turtles-here with [breed = zombies]
+    [
+        if ticks >= time-until-outbreak-starts [
+          set status 1
+          set virus-span virus-lifespan
+        ]
+    ]
+;   Deals with the immune humans spreading the disease
+    if status = 1[
+;      Deals with the immune carrier infecting the not immune humans
+      if any? turtles-here with [breed = not-immune-humans][
+        roll
+        if prob = 1 [
+          ask turtles-here with [breed = not-immune-humans] [
+            ask turtles-here with [breed = not-immune-humans] [                             ;;;;;;;;;;;;
+                set breed zombies
+                set color green
+                set lifespan zombie-lifespan
+              ]
+          ]
+        ]
+      ]
+;      Deals with the immune carrier spreading the disease to other immune humans, but only if they don't already have it.
+      if any? turtles-here with [breed = immune-humans][
+        roll
+        if prob = 1 [
+          ask turtles-here with [breed = immune-humans] [
+            ask turtles-here with [breed = immune-humans] [
+              if status = 0[                                             ;;;;;;;;;;;;;;
+                  set status 1
+                  set virus-span virus-lifespan
+                ]
+            ]
+          ]
+        ]
+      ]
+    ]
+    change
+    if status = 0 [
+      set color blue
+    ]
+    if status = 1 [
+      set color red
+    ]
+    ]
+  ]
+;  What non immune humans do
+  ask not-immune-humans [
+    vaccine
+    move
+
+    if humans-age? [
+      if t > time-until-outbreak-starts [
+      set nage nage + 1
+      if nage >= 100 [die]
+    ]
+    ]
+;    General function for movement
+    let beings-seen turtles in-cone vision-distance vision-angle with [self != myself]
+      ;; run towards zombies
+      if any? beings-seen [
+        let target one-of beings-seen
+        face target
+        step 1
+      ]
+    change
+  ]
+
+
+  ask vaccine-humans [
+    move
+
+    if humans-age? [
+      if t > time-until-outbreak-starts [
+        set nage nage + 1
+        if nage >= 100 [die]
+      ]
+    ]
+;    General function for movement
+    let beings-seen turtles in-cone vision-distance vision-angle with [self != myself]
+      ;; run towards zombies
+      if any? beings-seen [
+        let target one-of beings-seen
+        face target
+        step 1
+      ]
+    change
+  ]
+
+
+  tick
+  if not any? zombies[ stop ]
+  if not any? not-immune-humans[ stop ]
+end
+
+to step [dist] ;; kludge for default parameter
+  corrode-step dist false
+end
+
+to vaccine
+  if ifVaccine [
+    let vac count not-immune-humans + count immune-humans
+    if vac < (.01 * vaccine-percent) *(num-immune-humans + num-not-immune-humans) [
+      if any? turtles-here with [breed = vaccine-humans][
+        set breed vaccine-humans
+        set color yellow
+      ]
+    ]
+  ]
+end
+
+to change
+  let other1 random likelihood-of-leaving
+  let other2 random likelihood-of-leaving
+  if other1 = other2 [
+     rt random 50
+  lt random 50
+  fd 100
+  ]
+
+end
+to corrode-step [dist corrode]
+  if [pcolor] of patch-ahead dist != black [
+    ;; Turn so that we're facing parallel to the wall, ie. find the black neighbouring
+    ;; patch closest to where we would have gone (at distance 1), and turn to face it.
+    if-else corrode [
+      ask patch-ahead dist [ set pcolor black ]
+    ][
+      let x dx + xcor
+      let y dy + ycor
+    ]
+  ]
+  fd dist
+end
+
+to move
+  rt random 50
+  lt random 50
+  fd 1
+end
+
+to infect
+  let prey one-of not-immune-humans-here
+  if prey != nobody
+  [ ask prey [getVirus]
+  ]
+end
+
+to getVirus
+
+end
+
+to roll
+  set a random 100
+  set prob 0
+  if a <= prob-of-infection-spreading [
+    set prob 1
+  ]
 end
 
 to setup
+  ct
+  clear-all-plots
 
+  reset-ticks
+  cp
+  ask patches [
+    set pcolor gray - 3
+  ]
+  create-zombies num-zombies [
+    set color green
+    set lifespan zombie-lifespan
+    set zstatus 0
+  ]
+
+  create-immune-humans num-immune-humans [
+    set color blue - 4
+    set virus-span 0
+    set status 0
+    set iage 0
+    set ifvac 0
+  ]
+  create-not-immune-humans num-not-immune-humans [
+    set color white - 4
+    set nage 0
+    set ifvac 0
+  ]
+  create-vaccine-humans num-vaccine-humans [
+    set color yellow
+    set ifvac 1
+    set vage 0
+  ]
+  ask turtles [
+    setxy random-float world-width random-float world-height
+    set heading random-float 360
+  ]
 end
 @#$#@#$#@
 GRAPHICS-WINDOW
-210
-10
-649
-470
+756
+47
+1340
+652
 16
 16
-13.0
+17.4
 1
 10
 1
@@ -37,26 +317,9 @@ ticks
 
 BUTTON
 12
-10
-75
-43
-Go
-go
-NIL
-1
-T
-OBSERVER
-NIL
-NIL
-NIL
-NIL
-1
-
-BUTTON
-84
-10
-150
-43
+73
+82
+106
 Setup
 setup
 NIL
@@ -68,6 +331,306 @@ NIL
 NIL
 NIL
 1
+
+BUTTON
+13
+35
+76
+68
+Go
+go\n
+T
+1
+T
+OBSERVER
+NIL
+NIL
+NIL
+NIL
+1
+
+PLOT
+1364
+37
+1871
+484
+Population vs. Time
+Population
+Time
+0.0
+10.0
+0.0
+10.0
+true
+false
+"" ""
+PENS
+"Humans" 1.0 0 -16777216 true "" "plot count turtles"
+
+SWITCH
+14
+136
+162
+169
+zombies-age?
+zombies-age?
+0
+1
+-1000
+
+SLIDER
+237
+173
+406
+206
+zombie-lifespan
+zombie-lifespan
+1
+100
+70
+1
+1
+NIL
+HORIZONTAL
+
+SLIDER
+461
+177
+686
+210
+num-not-immune-humans
+num-not-immune-humans
+1
+1000
+501
+1
+1
+NIL
+HORIZONTAL
+
+SLIDER
+461
+137
+633
+170
+num-zombies
+num-zombies
+0
+100
+1
+1
+1
+NIL
+HORIZONTAL
+
+PLOT
+1410
+520
+1776
+773
+Population vs. time
+Time
+Population
+100.0
+200.0
+0.0
+512.0
+true
+true
+"" ""
+PENS
+"Zombies" 1.0 0 -16777216 true "" "if ticks > 100 [plot count zombies]"
+"Humans" 1.0 0 -7500403 true "" "if ticks > 100 [plot count vaccine-humans + count not-immune-humans + num-immune-humans]"
+
+MONITOR
+533
+394
+600
+447
+zombies
+count zombies
+17
+1
+13
+
+MONITOR
+532
+331
+656
+384
+humans
+count not-immune-humans + num-immune-humans + count vaccine-humans
+17
+1
+13
+
+SLIDER
+7
+330
+179
+363
+vision-distance
+vision-distance
+0
+100
+3
+1
+1
+NIL
+HORIZONTAL
+
+SLIDER
+7
+373
+179
+406
+vision-angle
+vision-angle
+0
+360
+360
+1
+1
+NIL
+HORIZONTAL
+
+SLIDER
+7
+418
+192
+451
+likelihood-of-leaving
+likelihood-of-leaving
+0
+5000
+1353
+1
+1
+NIL
+HORIZONTAL
+
+SLIDER
+461
+218
+659
+251
+num-immune-humans
+num-immune-humans
+0
+100
+23
+1
+1
+NIL
+HORIZONTAL
+
+SLIDER
+237
+135
+409
+168
+virus-lifespan
+virus-lifespan
+0
+100
+30
+1
+1
+NIL
+HORIZONTAL
+
+SWITCH
+16
+180
+141
+213
+virus-age?
+virus-age?
+0
+1
+-1000
+
+SLIDER
+203
+330
+424
+363
+time-until-outbreak-starts
+time-until-outbreak-starts
+0
+300
+100
+1
+1
+NIL
+HORIZONTAL
+
+SWITCH
+17
+267
+163
+300
+humans-age?
+humans-age?
+1
+1
+-1000
+
+SLIDER
+204
+418
+437
+451
+prob-of-infection-spreading
+prob-of-infection-spreading
+0
+100
+100
+1
+1
+NIL
+HORIZONTAL
+
+SLIDER
+204
+374
+376
+407
+vaccine-percent
+vaccine-percent
+0
+100
+71
+1
+1
+NIL
+HORIZONTAL
+
+SWITCH
+17
+225
+133
+258
+ifVaccine
+ifVaccine
+0
+1
+-1000
+
+SLIDER
+462
+258
+656
+291
+num-vaccine-humans
+num-vaccine-humans
+0
+100
+7
+1
+1
+NIL
+HORIZONTAL
 
 @#$#@#$#@
 ## WHAT IS IT?

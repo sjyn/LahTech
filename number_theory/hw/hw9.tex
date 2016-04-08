@@ -30,7 +30,8 @@ answer.
 choosing $n$ so that $\phi(n)/n$ is close to zero?
 \begin{quote}
 One value for which this holds true is $n=210$. $\phi(210)$ is 48, and $48/210 = 8/35 < 1/4$. One
-strategy for finding these numbers would be to
+strategy for finding these numbers would be to pick values for which $\phi(n)$ is small but has
+many unique prime factors.
 \end{quote}
 
 \item Suppose that $p$ is prime and $m$ and $n$ are non-negative integers.
@@ -142,7 +143,11 @@ be a unit $k$ in an even $\ZZ_{n}$ such that $k=n-k$.
 
 \item If $n$ is a positive integer prove that $\phi(n)=2$ if and only if $n\in\{ 3,4,6\}$.
 \begin{quote}
-$\Rightarrow)$
+$\Rightarrow)$ Suppose $\phi(n)=2$ and let $k\in\ZZ > 2$ and $l\in\ZZ > 1$. We want to consider the
+case where $n=2^k3^l$, so $\phi(n)=\phi(2^k3^l)=(2^k-2^{k-1})(3^l-3^{l-1})$. This can be further
+simplified to $2^k(1/2)3^l(2/3)=2^k3^l(1/3)>2$ for $l>1$ and $k>2$. Therefore we only have
+$\{ 1,2,3,4,6,12 \}$ to consider. Since $\phi(1)=\phi(2)=1$ and $\phi(12)=4$, we can eliminate
+those values. However, $\phi(3)=\phi(4)=\phi(6)=2$, so $\phi(n)=2$ when $n\in\{ 3,4,6\}$.
 \noindent\\\\
 $\Leftarrow)$ Suppose $n\in\{ 3,4,6\}$. Then $\phi(3)=2$, $\phi(4)=2$, and $\phi(6)=2$.
 \end{quote}
