@@ -1,0 +1,135 @@
+\documentclass{hw}
+
+\begin{document}
+\makeheader{10}
+\begin{enumerate}
+\item Let $\phi$ denote Euler's Function.
+\begin{enumerate}
+\item Calculate $\phi(22)$.
+\[
+\phi(22) = \phi(11)\phi(2)=10\cdot1 = 10.
+\]
+\item Does there exist $l\in\ZZ$ such that $a^{7l}\equiv a\mod 22$ for all units $a\in\ZZ_{22}$? If
+so, find $l$. Otherwise, explain why no such $l$ exists.
+\begin{quote}
+We know that we can find an $l$ if $7l\equiv1\mod\phi(22)$. Since $gcd(7,10)=1$, there is an inverse
+of 7 in $\ZZ_{10}$, which is 3. Therefore, $a^{21}\equiv a\mod22$ for all units $a\in\ZZ_{22}$.
+\end{quote}
+\end{enumerate}
+
+\item Suppose that $a\in\ZZ$ is such that $gcd(a,15)=1$. If $gcd(k,8)=1$, prove that
+$a^{k^{2}}\equiv a\mod15$.
+\begin{quote}
+Suppose $gcd(k,8)=1$, and define the set $U_{8}$ to be the set of units in $\ZZ_{8}$. We want to find
+$k^{-1}$ such that $k^{-1}k\equiv1\mod\phi(15)$, which allows us to say $a^{k^{-1}k}\equiv a\mod15$.
+We know that $U_{8}=\{ 1,3,5,7 \}$. Since $gcd(k,8)=1$, $k\in U_{8}$. Suppose that $k=1$. Then
+$k^{-1}=1$, so $a^{k^{2}}\equiv a^{1}\equiv a\mod15$. If $k=3$, $k^{-1}=3$, so $a^{k^{2}}\equiv
+a^{9}\equiv a\mod15$. If $k=5$, then $k^{-1}=5$, and $a^{k^{2}}\equiv a^{25}\equiv a\mod15$. If $k=7$,
+then $k^{-1}=7$, so $a^{k^{2}}\equiv a^{49}\equiv a\mod15$.
+\end{quote}
+
+\item Let $\Omega$ denote the prime counting map and $\lambda$ the Liouville function. Prove that
+$\lambda(x)=\lambda(y)$ if and only if $\Omega(x)\equiv\Omega(y)\mod2$.
+\begin{quote}
+$\Rightarrow)$ Suppose $\lambda(x)=\lambda(y)$. We know
+\[
+\lambda(a)=
+\begin{cases}
+1,\ \ \qquad\Omega(a)\in\{2k|k\in\ZZ\}\\
+-1,\qquad\Omega(a)\in\{2k+1|k\in\ZZ\}
+\end{cases}.
+\]
+Therefore, the only way $\lambda(x)=\lambda(y)$ is if the parity of $\Omega(x)$ is the same
+as the parity of $\Omega(y)$. Assume that $\Omega(x),\Omega(y)\in\{ 2k|k\in\ZZ\}$. Then
+$\Omega(x)\equiv\Omega(y)\equiv0\mod2$. Assume $\Omega(x),\Omega(y)\in\{ 2k+1|k\in\ZZ\}$. Then
+$\Omega(x)\equiv\Omega(y)\equiv1\mod2$. Therefore, if $\lambda(x)=\lambda(y)$,
+$\Omega(x)\equiv\Omega(y)\mod2$.\\\\
+$\Leftarrow)$ Suppose that $\Omega(x)\equiv\Omega(y)\mod2$. We know that $\lambda(a)$ is defined
+to be $(-1)^{\Omega(a)}$, so suppose without loss of generality that
+$\Omega(x),\Omega(y)\in\{ 2k|k\in\ZZ\}$. Then $\lambda(x)=(-1)^{2k}=1$, and $\lambda(y)=(-1)^{2k}=1$,
+so $\lambda(x)=\lambda(y)$.
+\end{quote}
+
+\item Let $i=\sqrt{-1}\in\CC$ and define $\rho:\NN\to\CC$ by $\rho(x)=i^{\Omega(x)}$. Prove that
+$\rho(x)=\rho(y)$ if and only if $\Omega(x)\equiv\Omega(y)\mod4$.
+\begin{quote}
+$\Rightarrow)$ Suppose $\rho(x)=\rho(y)$. We know that $i$ to a power is either $1,-1,i,$ or $-i$.
+If $\rho(x)$ is to equal $\rho(y)$, then both must equal one of the four variations of $i$ to a
+power. Suppose $\rho(x)=\rho(y)=1$. Then $i^{\Omega(x)}=i^{\Omega(y)}=1$, so $\Omega(x)$ and
+$\Omega(y)$ must be a multiple of 4. Then $\Omega(x)\equiv\Omega(y)\equiv0\mod4$. If
+$\rho(x)=\rho(y)=-1$, then $\Omega(x)$ and $\Omega(y)$ must be a multiple of 2 but not a multiple
+of 4, since being a multiple of 4 would cause $\rho(x)=\rho(y)=1$. If $\Omega(x)$ and $\Omega(y)$
+are multiples of 2 and not multiples of 4, then $\Omega(x)\equiv\Omega(y)\equiv2\mod4$. Suppose that
+$\rho(x)=\rho(y)=i$. Then $i^{\Omega(x)}=i^{\Omega(y)}=i$. We know that $\Omega(x)$ and $\Omega(y)$
+must be in the set $\{ 4k+1|k\in\ZZ\}$, or $\{ 4k+3|k\in\ZZ\}$. Suppose
+$\Omega(x),\Omega(y)\in\{ 4k+1|k\in\ZZ\}$. Then $i^{\Omega(x)}=i^{\Omega(y)}=i^{4k+1}=i^{4k}i=i$.
+In this case, we have $\Omega(x)\equiv\Omega(y)\equiv1\mod4$. Finally, suppose that
+$\Omega(x),\Omega(y)\in\{ 4k+3|k\in\ZZ\}$. Then $i^{\Omega(x)}=i^{\Omega(y)}=i^{4k+3}=i^{4k}(-i)=-i$.
+In this case, $\Omega(x)\equiv\Omega(y)\equiv3\mod4$. Therefore, if $\rho(x)=\rho(y)$,
+$\Omega(x)\equiv\Omega(y)\mod4$.\\\\
+
+$\Leftarrow)$ Suppose $\Omega(x)\equiv\Omega(y)\mod4$. Then $\Omega(x),\Omega(y)\in\{0,1,2,3\}$.
+If $\Omega(y)=0$, then $\Omega(x)=0$, and $\rho(x)=i^{0}=1$ and $\rho(y)=i^{0}=1$, so $\rho(x)=\rho(y)$.
+If $\Omega(x)=\Omega(y)=1$, then  $\rho(x)=i=\rho(y)$. If $\Omega(x)=\Omega(y)=2$, then
+$\rho(x)=-1=\rho(y)$. If $\Omega(x)=\Omega(y)=3$, then $\rho(x)=-i=\rho(y)$.
+\end{quote}
+
+\item Suppose that $f:\NN\to\CC$ is a function such that $f(xy)=f(x)+f(y)$ for all $x,y\in\NN$. If
+$f(p)=1$ for all primes $p$, prove that $f(x)=\Omega(x)$ for all $x\in\NN$.
+
+\item For an ordered pair $(a,b)\in\NN\times\NN$ we define the \textit{Generalized Prime Counting Map}
+by \[\overline{\Omega}(a,b)=\Omega(a)-\Omega(b).\] If $(a,b),(c,d)\in\NN\times\NN$ are such that
+$ad=bc$, prove that $\overline{\Omega}(a,b)=\overline{\Omega}(c,d)$.
+
+\item Let $\mu$ be the M\"{o}bius Function.
+\begin{enumerate}
+\item If $p$ and $q$ are distinct primes, prove that $\mu(pq)=1$.
+\begin{quote}
+Since $\mu$ is multiplicative, we have that $\mu(xy)=\mu(x)\mu(y)$ when $gcd(x,y)=1$. Since $p$ and
+$q$ are distinct, we know that $\mu(pq)=\mu(p)\mu(q)$. By definition of the M\"{o}bius function, for
+a prime $\rho$ we have
+\[
+\mu(\rho)=-\sum_{\substack{d\mid \rho\\d\neq\rho}}\mu(\rho)=-\mu(1)=-1,
+\]
+so $\mu(p)\mu(q)=(-1)(-1)=1$.
+\end{quote}
+\item If $p$ is prime, prove that $\mu(p^{2})=0$.
+\begin{quote}
+From $(a)$, we know that $\mu(\rho)=1$ for some prime $\rho$. If we consider $p^2$, we know that the
+only divisors are $1,p,$ and $p^2$. By the definition of the M\"{o}bius function, we have
+\[
+\mu(p^2)=-\sum_{\substack{d\mid p^2\\d\neq p^2}}\mu(d)=-(\mu(1) + \mu(p))=-1 +1 = 0.
+\]
+\end{quote}
+\item If $p$ is prime and $n$ is a positive integer, find a formula for the value of $\mu(p^{n})$.
+Prove your answer.
+\begin{quote}
+\[
+\mu(p^n)=
+\begin{dcases*}
+-1,\qquad n=1\\
+0,\ \ \qquad n>1
+\end{dcases*}
+\]
+Consider the value of $\mu(p^{n})$. We have already shown that $\mu(p)=-1$ for any prime $p$ and
+that $\mu(p^2)=0$ for any prime. We can suppose that $\mu(p^{n})=0$ for $n\geq2$, and
+$\mu(p^{n})=-1$ for $n=1$. We want to show that $\mu(p^{n+1})=0$ for $n\geq2$. Then
+\begin{align*}
+\mu(p^{n+1})&=-\sum_{\substack{d\mid p^{n+1}\\ d\neq p^{n+1}}}\mu(d)\\
+&= -(\mu(1)+\mu(p)+\mu(p^{2})+\mu(p^{3})+\dots+\mu(p^{n}))\\
+&= -(1+(-1)+0+0+\dots+0)\text{ by the inductive hypothesis}\\
+&= -(0+0+0+\dots+0)\\
+&= -0\\
+&= 0.
+\end{align*}
+%If $n$ is odd, then
+%we have $p^{n}=p^{2k+1}=p^{2k}p$ for some $k\in\ZZ$.
+\end{quote}
+\end{enumerate}
+
+\item If $\phi$ denotes Euler's Function and $s>2$, prove that
+\[
+{\zeta(s-1)\over\zeta(s)}=\sum_{n=1}^{\infty}{\phi(n)\over n^{s}}.
+\]
+\end{enumerate}
+\end{document}

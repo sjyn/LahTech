@@ -244,7 +244,7 @@ average birthweight.
 \end{array}
 \]
 \begin{quote}
-The probability that a granddaughter will have average weight is $(.5)(.5)=.25$.
+The probability that a granddaughter will have average weight is $(.5)(.5) + (.5)(.5)=.5$.
 \end{quote}
 
 \item Sketch the state diagram for the Lower Pine Cone College example.
@@ -281,8 +281,29 @@ still doubly stochastic.
 \end{quote}
 
 \item Write out inductive proofs for Theorems 2 and 3.
+\begin{quote}
+\textbf{Theorem 2}: From the text, we know
+\[
+p^{(0)}=(p_{1}^{(0)},p_{2}^{(0)},\dots p_{r}^{(0)})=
+(p_{1},p_{2},\dots p_{r})=p^{0}\cdot p.
+\]
+We can assume that $p^{(n)}=p^{n}$, and we want to show that $p^{(n+1)}=p^{n+1}$. We know that
+\begin{align*}
+p^{(n+1)}&=(p_{1}^{(n+1)},p_{2}^{(n+1)},\dots p_{r}^{(n+1)})\\
+&= (p_{1}^{(n)}p_{1}^{(1)},p_{2}^{(n)}p_{2}^{(1)},\dots p_{r}^{(n)}p_{r}^{(1)})\\
+&= p^{n+1}.
+\end{align*}
+\textbf{Theorem 3}: We know that $p^{(n)}=p^{(0)}p^{n}$. We want to show $p^{(n+1)}=p^{(0)}p^{n+1}$.
+From theorem 2, we have
+\begin{align*}
+p^{(n+1)}&=(p_{1}^{(n+1)},p_{2}^{(n+1)},\dots p_{r}^{(n+1)})\\
+&= (p_{1}^{(n)}p_{1}^{(0)},p_{2}^{(n)}p_{2}^{(0)},\dots p_{r}^{(n)}p_{r}^{(0)})\\
+&= p^{n+1}p^{(0)}.
+\end{align*}
+\end{quote}
 
 \item Use matrix multiplication to solve Exercise 8.
+\begin{quote}
 \[
 \left(
 \begin{array}{c c}
@@ -298,22 +319,95 @@ still doubly stochastic.
 \end{array}
 \right)
 =
+\left(
+\begin{array}{c c}
+.5 & .5\\
+.5 & .5
+\end{array}
+\right)
 \]
+Therefore, the probability is .5.
+\end{quote}
 
 \item Abigail bought a toy with her allowance this week (see Exercise 2). Find the probability that
 she will buy a toy 4 weeks from now.
+\begin{quote}
+The probability that she will buy a toy can be found by raising the matrix to the fourth power.
+\[
+\left(
+\begin{array}{c c}
+.4 & .6\\
+.8 & .2
+\end{array}
+\right)^{4}
+=
+\left(
+\begin{array}{c c}
+.5824 & .4176\\
+.5568 & .4432
+\end{array}
+\right).
+\]
+Therefore, the probability is $0.4432$.
+\end{quote}
 
 \item Find the distribution of birth weights (Example 1) after one generation if the initial
-probability distribution is (.4, .3, .3).
+probability distribution is $(.4, .3, .3)$.
+\[
+(.4,.3,.3)\cdot
+\left(
+\begin{array}{c c c}
+.5 & .45 & .05\\
+.25 & .5 & .25\\
+.3 & .3 & .4
+\end{array}
+\right)
+= (.365,.42,.215).
+\]
 
 \item Suppose the distribution of birth weights of a generation of daughters is
 $p^{(1)}=7(0.31,0.45,0.24)$. Can you find the distribution of birth weights of the mothers?
+\begin{quote}
+We need to solve the system
+\[
+(x,y,z)
+\left(
+\begin{array}{c c c}
+.5 & .45 & .05\\
+.25 & .5 & .25\\
+.3 & .3 & .4
+\end{array}
+\right)
+= 7(.31,.45,.24).
+\]
+Doing so yields
+\[
+(x,y,z)=(1.4,4.2,1.4).
+\]
+\end{quote}
 
 \item Use the state diagram in Fig. 11.3 to find the probability that the process reaches state
 $S_{3}$ in two steps if it starts in state $S_{1}$.
+\begin{quote}
+To move from $S_{1}$ to $S_{2}$ has a probability of $a$, and from $S_{2}$ to $S_{3}$ has a
+probability $(1-b)$, so the total probability is $a(1-b)$.
+\end{quote}
 
 \item Let $P$ be the transition matrix of Eq. (4). Compute $P^{2}$. What can you say about the
 first column of $P^{3}$ and $P^{n}$?
+\begin{quote}
+\[
+P^{2}=
+\left(
+\begin{array}{c c c}
+0 & a^2 & (1-a)^2\\
+0 & b^2 & (1-b)^2\\
+0 & c^2 & (1-c)^2
+\end{array}
+\right).
+\]
+The first column of $P^{n}$ will always be 0.
+\end{quote}
 
 \setcounter{enumi}{20}
 \item The matrices determined in Exercises 1-7 are all transition matrices for Markov processes.

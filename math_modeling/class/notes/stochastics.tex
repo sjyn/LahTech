@@ -1,5 +1,8 @@
 \documentclass{hw}
 
+\usepackage{tikz}
+\usetikzlibrary{automata,positioning}
+
 \begin{document}
 \section*{Stochastic Modeling}
 
@@ -214,6 +217,81 @@ which allows us to calculate a new matrix $N=(I-Q)^{-1}$. Every $n_{ij}$ entry i
 tells us the average number of times that the process is in the $j$ state if it starts in the $i$
 state.
 
+\section*{Poisson Probabilities}
 
+Suppose that $f(x,t)$ is the probability of getting $x$ successes during a time interval of length
+$t$. Assume the prob of success during a very small time internal from $t$ to $t+\delta t$ is $\mu$,
+the probability of more than one success during a time interval is negligible, and the probability
+of a success during such a time interval does not depend on what happened prior to time $t$. The
+Poisson distribution is given by
+\[
+f(x,t+\Delta t)=f(x,t)\cdot[1-\mu\Delta t]+f(x-1,t)\mu\Delta t = {e^{-\mu}\mu^{x}\over x!}
+\]
+The variable $x$ is indicative of the number of successes we want in the next time interval
+$t+\delta t$. One example of the use of Poisson distributions is to calculate the probability that
+an earthquake will occur again in a certain area.\\\\
+
+\begin{quote}
+\textit{\textbf{Example}}\\
+Suppose that in southern California, 5 earthquakes occur every 100 years on average. What is the
+probability that 2 earthquakes will occur in the next century?\\\\
+
+The answer is very straightforward:
+\[
+P={e^{-5}5^{2}\over 2!}
+\]
+If we wanted to know the probability in the next 10 years, we can calculate
+\[
+P={e^{-0.5}0.5^{2}\over 2!}.
+\]
+\end{quote}
+
+\section*{Markov Chains and Continuity}
+We can form a relationship between Markov Chains and differential equations.
+\begin{quote}
+\textit{\textbf{Example}}\\
+In the summer, an AC unit is in one of 3 states: (0) off, (1) low, or (2) high. While off,
+transitions to low occur after an exponential time with an expected time of 3 minutes.
+\begin{center}
+\begin{tikzpicture}[shorten >=1pt,node distance=2cm,on grid,auto]
+    \node[state] (off) {off};
+    \node[state] (low)[right=of off] {low};
+    \node[state] (high)[right=of low] {high};
+    \path[->]
+    (off) edge[bend right,swap] node {$1/3$} (low)
+    (low) edge[bend right,swap] node {$1/4$} (off)
+          edge[bend right,swap] node {$1/4$} (high)
+    (high) edge[bend right,swap] node {$1/3$} (low);
+\end{tikzpicture}
+\end{center}
+We assign a $\lambda$ value to each state where $\lambda\in(0,\infty)$. The density function is
+given by
+\[
+f(t)=\lambda e^{-\lambda t}
+\]
+for $t>0$. We can call the waiting time $T_{n}$, where $n$ is the state where we want to move. If
+we have $T_{1}$ and $T_{2}$, the smaller $T$ is the state to which we move.
+\end{quote}
+
+
+\section*{Various Distributions}
+\begin{center}
+\bgroup
+\def\arraystretch{3.5}
+\begin{tabular}{|c | c | c | c|}
+\hline
+Binomial Distribution & $B(x;n,p)$ & $\displaystyle \binom{n}{x}p^{x}q^{n-x}$ & Discreet\\
+\hline
+Poisson Distribution & $\rho(x,\mu)$ & $\displaystyle {e^{-\mu}\mu^{x}\over x!}$ & Discreet\\
+\hline
+Geometric Distribution & $G(x;p)$ & $\displaystyle p(1-p)^{x-1}$ & Discreet, Memoryless\\
+\hline
+Bell Curve & $B(\sigma,x,\mu)$ & $\displaystyle \int_{a}^{b}{1\over \sigma\sqrt{2\pi}}e^{-0.5\left({x-\mu\over\sigma}\right)^{2}}\dx$ & Continuous\\
+\hline
+Exponential Distribution & $E(t,\theta)$ & $\displaystyle\int_{a}^{b}{1\over\theta}e^{-t/\theta}\dt$ & Continuous, Memoryless\\
+\hline
+\end{tabular}
+\egroup
+\end{center}
 
 \end{document}
