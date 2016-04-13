@@ -80,6 +80,34 @@ $f(p)=1$ for all primes $p$, prove that $f(x)=\Omega(x)$ for all $x\in\NN$.
 \item For an ordered pair $(a,b)\in\NN\times\NN$ we define the \textit{Generalized Prime Counting Map}
 by \[\overline{\Omega}(a,b)=\Omega(a)-\Omega(b).\] If $(a,b),(c,d)\in\NN\times\NN$ are such that
 $ad=bc$, prove that $\overline{\Omega}(a,b)=\overline{\Omega}(c,d)$.
+\begin{quote}
+Suppose $ad=bc$. We can write out the prime factorizations of $a,b,c$, and $d$ as
+\begin{align*}
+a &= p_{1}^{\alpha_{1}}p_{2}^{\alpha_{2}}\dots p_{n}^{\alpha_{n}}\\
+b &= p_{1}^{\beta_{1}}p_{2}^{\beta_{2}}\dots p_{n}^{\beta_{n}}\\
+c &= p_{1}^{\gamma_{1}}p_{2}^{\gamma_{2}}\dots p_{n}^{\gamma_{n}}\\
+d &= p_{1}^{\delta_{1}}p_{2}^{\delta_{2}}\dots p_{n}^{\delta_{n}}.
+\end{align*}
+Then
+\begin{align*}
+ad&=p_{1}^{\alpha_{1}+\delta_{1}}p_{2}^{\alpha_{2}+\delta_{2}}\dots p_{n}^{\alpha_{n}+\delta_{n}}\\
+bc&=p_{1}^{\beta_{1}+\gamma_{1}}p_{2}^{\beta_{2}+\gamma_{2}}\dots p_{n}^{\beta_{n}+\gamma_{n}}.
+\end{align*}
+We can consider $\overline{\Omega}(ad,bc)=\Omega(ad)-\Omega(bc)=0$. We know
+$\Omega(ad)-\Omega(bc)=0$ since $ad=bc$ implies they will have the same prime factorization up to
+permutation, so the powers of the prime factors of $ad$ will be equivalent to the powers of the prime
+factors of $bc$. We now have
+\begin{align*}
+\Omega(ad)-\Omega(bc)&=(\alpha_{1}+\delta_{1})+(\alpha_{2}+\delta_{2})+\dots+(\alpha_{n}+\delta_{n})
+- (\beta_{1}+\gamma_{1})-(\beta_{2}+\gamma_{2})-\dots-(\beta_{n}+\gamma_{n})\\
+&= (\alpha_{1}+\alpha_{2}+\dots+\alpha_{n})-(\beta_{1}+\beta_{2}+\dots+\beta_{n})+
+(\delta_{1}+\delta_{2}+\dots+\delta_{n})-(\gamma_{1}+\gamma_{2}+\dots+\gamma_{n})\\
+&=\Omega(a)-\Omega(b)-\Omega(c)+\Omega(d)\\
+&= 0.
+\end{align*}
+Then $\Omega(a)-\Omega(b)=\Omega(c)-\Omega(d)$, which by definition is
+$\overline{\Omega}(a,b)=\overline{\Omega}(c,d)$.
+\end{quote}
 
 \item Let $\mu$ be the M\"{o}bius Function.
 \begin{enumerate}
