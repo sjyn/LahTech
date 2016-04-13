@@ -1,5 +1,8 @@
 \documentclass{hw}
 \usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
 
 \title{Threshold Phenomenon in a Nonlinear Heat Equation}
 \author{}
@@ -93,5 +96,54 @@ of our Jacobi elliptic function gives us
 \[
 x=\int_{0}^{sn(x,k)}{1\over\sqrt{(1-t^2)(1-t^2/2)}}.
 \]
+%% TODO -- Expand on this information
+Finally, we have a solution $u(x)$
+\[
+u(x)={a\ sn(ax,\sqrt{1/2})\over\sqrt{2-sn^{2}(ax,\sqrt{1/2})}}.
+\]
+Recall that the first positive zero of $sn(x,k)$ is given by
+\[
+K=\int_{0}^{1}{1\over\sqrt{(1-t^2)(1-{t^2\over2})}}\dt.
+\]
+Then $u(x)=u_{s}(x)$ provided that $a=2K/\pi$. We can see the results via these Mathematica plots:
+\begin{figure}[h]
+\centering
+\begin{subfigure}{0.45\textwidth}
+\includegraphics[scale=0.5]{u_of_1_x}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.45\textwidth}
+\includegraphics[scale=0.5]{u_of_2_x}
+\end{subfigure}
+\caption{The graphs of $u_{s}(x)$ for $a=1$ and $a=2$}
+\end{figure}
+
+\noindent It appears that, for $a=1$, $u_{s}(x)$ behaves similar to $\sin{x}$.
+
+\begin{figure}[h]
+\centering
+\begin{subfigure}{0.45\textwidth}
+\includegraphics[scale=0.5]{u_of_1_x}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.45\textwidth}
+\includegraphics[scale=0.5]{sinx}
+\end{subfigure}
+\caption{The graphs of $u_{s}(x)$ for $a=1$ and $\sin{x}$}
+\end{figure}
+
+\subsection{Average of the Steady State Solution}
+
+If we can find the average temperature of the steady state, then we know that our function $u(x)$
+has a global solution (otherwise there would be points in the range of $u$ for which $u$ blows up).
+We will want to show that
+\[
+{1\over\pi}\int_{0}^{\pi}u(x)\dx={\sqrt{2}\over2}.
+\]
+To begin, let
+\[
+y=\int_{0}^{x}u(t)\dt
+\]
+and $v(y)=u^{2}(x)$ where $x=x(y)=y^{-1}(x)$. 
 
 \end{document}
