@@ -76,6 +76,32 @@ $\rho(x)=-1=\rho(y)$. If $\Omega(x)=\Omega(y)=3$, then $\rho(x)=-i=\rho(y)$.
 
 \item Suppose that $f:\NN\to\CC$ is a function such that $f(xy)=f(x)+f(y)$ for all $x,y\in\NN$. If
 $f(p)=1$ for all primes $p$, prove that $f(x)=\Omega(x)$ for all $x\in\NN$.
+\begin{quote}
+We know that we can express $x$ and $y$ as
+\begin{gather*}
+x=p_{1}^{\alpha_{1}}p_{2}^{\alpha_{2}}+\dots+p_{n}^{\alpha_{n}}\\
+y=p_{1}^{\beta_{1}}p_{2}^{\beta_{2}}+\dots+p_{n}^{\beta_{n}}.
+\end{gather*}
+We can express $f(xy)-f(y)$ as $f(x)+f(y)-f(y)=f(x)$, and we also know
+\begin{align*}
+f(xy)&=f(p_{1}^{\alpha_{1}+\beta_{1}}p_{2}^{\alpha_{2}+\beta_{2}}+\dots+p_{n}^{\alpha_{n}+\beta_{n}})\\
+%
+&= f(p_{1}^{\alpha_{1}}) + f(p_{1}^{\beta_{1}}) + f(p_{2}^{\alpha_{2}}) + f(p_{2}^{\beta_{2}})+
+\dots + f(p_{n}^{\alpha_{n}}) + f(p_{n}^{\beta_{n}})\\
+%
+f(xy)-f(y)&=f(x)\\
+&=f(p_{1}^{\alpha_{1}}p_{2}^{\alpha_{2}}\dots p_{n}^{\alpha_{n}})\\
+%
+&=f(p_{1}^{\alpha_{1}})+f(p_{2}^{\alpha_{2}})+\dots+f(p_{n}^{\alpha_{n}})\\
+%
+&=\sum_{k=1}^{\alpha_{1}}f(p_{1}) + \sum_{k=1}^{\alpha_{2}}f(p_{2}) + \dots +
+\sum_{k=1}^{\alpha_{n}}f(p_{n})\\
+%
+&= \sum_{k=1}^{\alpha_{1}}1 + \sum_{k=1}^{\alpha_{2}}1\dots + \sum_{k=1}^{\alpha_{n}}1\\
+&= \alpha_{1} + \alpha_{2} + \dots + \alpha_{n}\\
+&=\Omega(x)
+\end{align*}
+\end{quote}
 
 \item For an ordered pair $(a,b)\in\NN\times\NN$ we define the \textit{Generalized Prime Counting Map}
 by \[\overline{\Omega}(a,b)=\Omega(a)-\Omega(b).\] If $(a,b),(c,d)\in\NN\times\NN$ are such that
@@ -109,6 +135,7 @@ Then $\Omega(a)-\Omega(b)=\Omega(c)-\Omega(d)$, which by definition is
 $\overline{\Omega}(a,b)=\overline{\Omega}(c,d)$.
 \end{quote}
 
+\newpage
 \item Let $\mu$ be the M\"{o}bius Function.
 \begin{enumerate}
 \item If $p$ and $q$ are distinct primes, prove that $\mu(pq)=1$.
@@ -150,8 +177,6 @@ $\mu(p^{n})=-1$ for $n=1$. We want to show that $\mu(p^{n+1})=0$ for $n\geq2$. T
 &= -0\\
 &= 0.
 \end{align*}
-%If $n$ is odd, then
-%we have $p^{n}=p^{2k+1}=p^{2k}p$ for some $k\in\ZZ$.
 \end{quote}
 \end{enumerate}
 

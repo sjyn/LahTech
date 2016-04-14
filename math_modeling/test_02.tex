@@ -128,4 +128,80 @@ To find the $\mathbf{\pi}$ vector, we can solve the system
 \item What is the ultimate number of people in the suburbs? The cities?
 \end{enumerate}
 \end{enumerate}
+
+\section*{Fundamental Matrices}
+\begin{enumerate}
+\item Find the fundamental matrix corresponding to the following $P$ matrix.
+\[
+\begin{array}{c | c c c c c}
+& A & B & C & D & E\\
+\hline
+A & 1 & 0 & 0 & 0 & 0\\
+B & 1/2 & 0 & 1/2 & 0 & 0\\
+C & 0 & 1/2 & 0 & 1/2 & 0\\
+D & 0 & 0 & 1/2 & 0 & 1/2\\
+E & 0 & 0 & 0 & 0 & 1
+\end{array}
+\]
+\begin{quote}
+To determine the fundamental matrix, we must complete a series of steps.
+\begin{enumerate}
+\item Group the absorbing states together.
+\[
+\begin{array}{c | c c c c c}
+& A & B & C & D & E\\
+\hline
+A & 1 & 0 & 0 & 0 & 0\\
+B & 1/2 & 0 & 1/2 & 0 & 0\\
+C & 0 & 1/2 & 0 & 1/2 & 0\\
+D & 0 & 0 & 1/2 & 0 & 1/2\\
+E & 0 & 0 & 0 & 0 & 1
+\end{array}
+\qquad\to\qquad
+\begin{array}{c | c c c c c}
+& A & E & C & D & B\\
+\hline
+A & 1 & 0 & 0 & 0 & 0\\
+E & 0 & 1 & 0 & 0 & 0\\
+C & 0 & 0 & 0 & 1/2 & 1/2\\
+D & 0 & 1/2 & 1/2 & 0 & 0\\
+B & 1/2 & 0 & 1/2 & 0 & 0
+\end{array}
+\]
+\item Partition the matrix into the form
+\[
+\left(
+\begin{array}{c | c}
+I & 0\\
+\hline
+J & Q
+\end{array}
+\right)
+\]
+\[
+\begin{array}{c | c c c c c}
+& A & E & C & D & B\\
+\hline
+A & 1 & 0 & 0 & 0 & 0\\
+E & 0 & 1 & 0 & 0 & 0\\
+C & 0 & 0 & 0 & 1/2 & 1/2\\
+D & 0 & 1/2 & 1/2 & 0 & 0\\
+B & 1/2 & 0 & 1/2 & 0 & 0
+\end{array}
+\qquad\to\qquad
+\begin{array}{c | c c | c c c}
+& A & E & C & D & B\\
+\hline
+A & 1 & 0 & 0 & 0 & 0\\
+E & 0 & 1 & 0 & 0 & 0\\
+\hline
+C & 0 & 0 & 0 & 1/2 & 1/2\\
+D & 0 & 1/2 & 1/2 & 0 & 0\\
+B & 1/2 & 0 & 1/2 & 0 & 0
+\end{array}
+\]
+\item Determine $(I-Q)^{-1}$.
+\end{enumerate}
+\end{quote}
+\end{enumerate}
 \end{document}
