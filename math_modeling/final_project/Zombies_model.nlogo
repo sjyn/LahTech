@@ -13,6 +13,10 @@ vaccine-humans-own [vage]
 
 
 to go
+  let x false
+  if zombies-age? [
+    set x true
+  ]
   set-current-plot "Population vs. time"
   plot count zombies
   plot count not-immune-humans
@@ -138,14 +142,22 @@ to go
   ]
 ;  What non immune humans do
   ask not-immune-humans [
-    vaccine
-    move
 
+    move
+    vaccine
     if humans-age? [
-      if t > time-until-outbreak-starts [
-      set nage nage + 1
-      if nage >= 100 [die]
-    ]
+      if breed = not-immune-humans [
+        if t > time-until-outbreak-starts [
+          set nage nage + 1
+          if nage >= 100 [die]
+        ]
+      ]
+      if breed = vaccine-humans [
+        if t > time-until-outbreak-starts [
+          set vage vage + 1
+          if vage >= 100 [die]
+        ]
+      ]
     ]
 ;    General function for movement
     let beings-seen turtles in-cone vision-distance vision-angle with [self != myself]
@@ -156,6 +168,7 @@ to go
         step 1
       ]
     change
+
   ]
 
 
@@ -164,8 +177,8 @@ to go
 
     if humans-age? [
       if t > time-until-outbreak-starts [
-        set nage nage + 1
-        if nage >= 100 [die]
+        set vage vage + 1
+        if vage >= 100 [die]
       ]
     ]
 ;    General function for movement
@@ -181,8 +194,12 @@ to go
 
 
   tick
-  if not any? zombies[ stop ]
-  if not any? not-immune-humans[ stop ]
+  if x = true [
+    if not any? zombies[ stop ]
+  ]
+  if x = false [
+    if not any? not-immune-humans[ stop ]
+  ]
 end
 
 to step [dist] ;; kludge for default parameter
@@ -264,7 +281,7 @@ to setup
     set lifespan zombie-lifespan
     set zstatus 0
   ]
-
+  if ifImmune [
   create-immune-humans num-immune-humans [
     set color blue - 4
     set virus-span 0
@@ -272,15 +289,18 @@ to setup
     set iage 0
     set ifvac 0
   ]
+  ]
   create-not-immune-humans num-not-immune-humans [
     set color white - 4
     set nage 0
     set ifvac 0
   ]
-  create-vaccine-humans num-vaccine-humans [
-    set color yellow
-    set ifvac 1
-    set vage 0
+  if ifVaccine [
+    create-vaccine-humans num-vaccine-humans [
+      set color yellow
+      set ifvac 1
+      set vage 0
+    ]
   ]
   ask turtles [
     setxy random-float world-width random-float world-height
@@ -289,10 +309,10 @@ to setup
 end
 @#$#@#$#@
 GRAPHICS-WINDOW
-756
-47
-1340
-652
+727
+14
+1311
+619
 16
 16
 17.4
@@ -316,10 +336,10 @@ ticks
 30.0
 
 BUTTON
-12
-73
-82
-106
+19
+50
+89
+83
 Setup
 setup
 NIL
@@ -333,10 +353,10 @@ NIL
 1
 
 BUTTON
-13
-35
-76
-68
+20
+12
+83
+45
 Go
 go\n
 T
@@ -368,21 +388,21 @@ PENS
 "Humans" 1.0 0 -16777216 true "" "plot count turtles"
 
 SWITCH
-14
+15
 136
-162
+163
 169
 zombies-age?
 zombies-age?
-0
+1
 1
 -1000
 
 SLIDER
-237
-173
-406
-206
+201
+169
+370
+202
 zombie-lifespan
 zombie-lifespan
 1
@@ -443,10 +463,10 @@ PENS
 "Humans" 1.0 0 -7500403 true "" "if ticks > 100 [plot count vaccine-humans + count not-immune-humans + num-immune-humans]"
 
 MONITOR
-533
-394
-600
-447
+465
+391
+532
+444
 zombies
 count zombies
 17
@@ -454,10 +474,10 @@ count zombies
 13
 
 MONITOR
-532
-331
-656
-384
+464
+328
+588
+381
 humans
 count not-immune-humans + num-immune-humans + count vaccine-humans
 17
@@ -473,7 +493,7 @@ vision-distance
 vision-distance
 0
 100
-3
+2
 1
 1
 NIL
@@ -518,17 +538,17 @@ num-immune-humans
 num-immune-humans
 0
 100
-23
+0
 1
 1
 NIL
 HORIZONTAL
 
 SLIDER
-237
-135
-409
-168
+201
+131
+373
+164
 virus-lifespan
 virus-lifespan
 0
@@ -631,6 +651,28 @@ num-vaccine-humans
 1
 NIL
 HORIZONTAL
+
+MONITOR
+465
+448
+561
+501
+non-immune
+count not-immune-humans
+17
+1
+13
+
+SWITCH
+16
+97
+135
+130
+ifImmune
+ifImmune
+0
+1
+-1000
 
 @#$#@#$#@
 ## WHAT IS IT?
