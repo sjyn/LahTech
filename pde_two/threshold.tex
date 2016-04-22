@@ -14,7 +14,7 @@
 
 This paper concerns the behavior of the following non-linear heat equation given by
 \begin{gather}
-u_{t}=u_{xx}+u^{3},\ 0<x<\pi,\ t>0\\
+u_{t}=u_{xx}+u^{3},\ 0<x<\pi,\ t>0\label{nlinh}\\
 u(0,t)=u(\pi,t)=0,\ t>0\\
 u(x,0)=u_{0}(x),\ 0<x<\pi.
 \end{gather}
@@ -27,7 +27,7 @@ time constant; thus, our differential equation becomes dependent only on $x$.
 \section{Steady State Analysis}
 The steady state equation of $(1)$ is given by
 \begin{gather}
-u_{xx}+u^{3}=0\\
+u_{xx}+u^{3}=0\label{ssone}\\
 u(0)=u(\pi)=0.
 \end{gather}
 We want to find a solution $u_{s}(x)$ that satisfies the following properties
@@ -154,6 +154,51 @@ v'(y)&=2u(x)u'(x){\dx\over\dy}\\
 &= 2{\dy\over\dx}u'(x){\dx\over\dy}\\
 &= 2u'(x)\\
 v''(y)&= 2u''(x){\dx\over\dy}\\
-&= {2u'(x)\over}
+&= {2u'(x)\over u(x)}.
+\end{align*}
+This implies that $v$ satisfies the following linear ordinary differential equation:
+\begin{gather}\label{vode}
+v''(y)+2v(y)=0
+\end{gather}
+on the interval $0<y<R$ where $v(0)=v(R)=0$. The differential equation in \eqref{vode} has the
+characteristic equation
+\[
+r^{2}+2=0,
+\]
+implying that the basis of our solution is the in the form $\{\sin{\sqrt{2}y},\cos{\sqrt{2}y}\}$.
+Applying our initial conditions leaves us with
+\[
+v(y)=c\sin{\sqrt{2}y},
+\]
+which yields $\sqrt{2}R=\pi$. Then
+\[
+{1\over\pi}R={1\over\pi}\int_{0}^{\pi}u(x)\dx={\sqrt{2}\over2},
+\]
+which was the desired result.
+
+\section{Non-Linear Analysis}
+
+We have shown that $u_{s}$ is a unique solution for for the system described in \eqref{ssone}. We now
+want to relate $u_{s}$ to \eqref{nlinh}. We make the observation that $u_{s}(x)$ is an upper bound
+of the solution to \eqref{nlinh}, called $u(x,t)$ when the initial condition $u_{0}(x)<u_{s}(x)$; by
+comparison we have that the solution to \eqref{nlinh} exists globally, and
+$0\leq u(x,t)\leq u_{s}(x)$. This solution, however is only stable when the initial condition
+satisfies
+\begin{equation}\label{bound}
+\int_{0}^{\pi}u_{0}(x)\sin{x}\dx\leq2.
+\end{equation}
+If $u_{0}(x)$ is too large, the solution blows up as $t\to\infty$. We will now try to show that the
+solution exits when \eqref{bound} holds.
+
+\subsection{Analysis of the Initial Conditions}
+We begin by letting
+\[
+F(t)=\int_{0}^{\pi}u(x,t)\sin{x}\dx.
+\]
+Differentiating with respect to $t$ yields
+\begin{align*}
+F'(t)&=\int_{0}^{\pi}u_{t}\sin{x}\dx\\
+&=\int_{0}^{\pi}(u_{xx}+u^{3})\sin{x}\dx\\
+&=
 \end{align*}
 \end{document}
