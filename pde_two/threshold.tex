@@ -198,7 +198,61 @@ F(t)=\int_{0}^{\pi}u(x,t)\sin{x}\dx.
 Differentiating with respect to $t$ yields
 \begin{align*}
 F'(t)&=\int_{0}^{\pi}u_{t}\sin{x}\dx\\
-&=\int_{0}^{\pi}(u_{xx}+u^{3})\sin{x}\dx\\
-&=
+&=\int_{0}^{\pi}(u_{xx}+u^{3})\sin{x}\dx
 \end{align*}
+Integrating leaves us with
+\begin{equation}\label{fprime}
+F'(t)=-F(t)+\int_{0}^{\pi}u^{3}\sin{x}\dx.
+\end{equation}
+
+We now want to determine bound on $F(t)$. Recall H\"older's inequality when concerned with the
+Lebesgue measure:
+\[
+\int_{D}|f(x)g(x)|\dx\leq
+\left(\int_{D}|f(x)|^{p}\dx\right)^{1\over p}
+\left(\int_{D}|g(x)|^{q}\dx\right)^{1\over q}
+\]
+where $1/p + 1/q=1$. Letting $p=3$ and $q=3/2$, we have
+\begin{align*}
+F(t)&=\int_{0}^{\pi}\sin^{1/3}{(x)}u\sin^{2/3}{(x)}\dx\\
+&\leq
+\left(\int_{0}^{\pi}(\sin^{2/3}{x})^{3/2}\dx\right)^{2/3}
+\left(\int_{0}^{\pi}(u\sin^{1/3}{x})^{3}\dx\right)^{1/3}\\
+&=\left(\int_{0}^{\pi}\sin{x}\dx\right)^{2/3}
+\left(\int_{0}^{\pi}u^{3}\sin{x}\dx\right)^{1/3}\\
+&= 2^{2/3}\left(\int_{0}^{\pi}u^{3}\sin{x}\dx\right)^{1/3}.
+\end{align*}
+Cubing both sides of the inequality yields
+\begin{align*}
+F^{3}(t)&\leq4\int_{0}^{\pi}u^{3}\sin{x}\dx\\
+{1\over4}F^{3}(t)&\leq\int_{0}^{\pi}u^{3}\sin{x}\dx\\
+\end{align*}
+By \eqref{fprime}, we have that
+\begin{equation}\label{fpineq}
+F'(t)\geq-F(t)+{1\over4}F^{3}(t).
+\end{equation}
+
+We now need to show that the solution to \eqref{nlinh} blows up as $F(t)\to\infty$. We begin by
+letting $G(t) = F^{-2}(t)$. Then
+\begin{align*}
+G'(t)&=-2F^{-1}(t)F'(t)\\
+-{1\over2}G'(t)F(t)&=F'(t).
+\end{align*}
+We can substitute this into the inequality in \eqref{fpineq}.
+\begin{align*}
+-{1\over2}G'(t)F(t)&\geq-F(t)+{1\over4}F^{3}(t)\\
+G'(t)&\leq2-{1\over2}F^{2}(t)\\
+G'(t)&\leq2-{1\over2G(t)} %% TODO -- fix this :(
+\end{align*}
+Solving this differential inequality for $G(t)$ yields
+\[
+G(t)\leq{1\over4}+\left(G(0)-{1\over4}\right)e^{2t}.
+\]
+Back substituting $G(t)=F^{-2}(t)$ gives us
+\begin{align}
+F^{-2}(t)&\leq{1\over4}+\left({1\over F^{2}(0)}-{1\over4}\right)e^{2t}\\
+F(t)&\geq\left[{1\over4}+\left({1\over F^{2}(0)}-{1\over4}\right)e^{2t}\right]^{-1/2}\label{final_ineq}.
+\end{align}
+
+
 \end{document}

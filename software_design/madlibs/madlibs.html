@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                overflow: scroll;
+                font-family: Arial;
+            }
+            html {
+                overflow: scroll;
+            }
+            button {
+                background-color: #3498db;
+                border-radius: 28px;
+                border-style: none;
+                color: #ffffff;
+                font-size: 20px;
+                padding: 10px 20px 10px 20px;
+            }
+            table {
+                padding: 24px;
+                text-align: left;
+            }
+            input {
+                padding: 2px;
+                margin: 0;
+            }
+            .lib_container {
+                width: 48%;
+                float: left;
+            }
+            .res_container {
+                width: 48%;
+                float: left;
+            }
+            #res_text{
+                vertical-align: 50%;
+            }
+            #outer_container {
+                text-align: center;
+                width: 100%;
+            }
+        </style>
+        <script src="./js/main.js"></script>
+    </head>
+
+    <body onload="getRandomMadlib();">
+        <div id="outer_container">
+            <div>
+                <h1>Madlibs Generator</h1>
+                <button onclick="getRandomMadlib()">New Madlib</button>
+                <button onclick="onSubmitPressed()">Submit</button>
+            </div>
+            <div class="lib_container">
+                <table id="madlib_table"></table>
+            </div>
+            <div class="res_container">
+                <p id='res_text'></p>
+            </div>
+        </div>
+    </body>
+</html>

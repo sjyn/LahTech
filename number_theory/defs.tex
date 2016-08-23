@@ -5,54 +5,115 @@
 
 \newcommand{\Define}[1]{\item\underline{#1}:}
 \newcommand{\prm}{p}
+\newcommand{\set}[1]{\mathcal{#1}}
+\newcommand{\setA}{\mathcal{A}}
+\newcommand{\setB}{\mathcal{B}}
+\newcommand{\setU}{\set{U}}
 
 \begin{document}
 \maketitle
 
-\begin{enumerate}
-\Define{Prime Number} A positive $n\in\ZZ$ such that $n>1$ is prime if its only
-divisors are 1 and $n$.
+\section{Definitions}
 
-\Define{Fundamental Theorem of Arithmetic} Suppose $n\in\ZZ > 1$. Then
+\subsection{Sets and Logic}
 \begin{enumerate}
-\item $\exists\alpha_{1},\alpha_{2},\dots,\alpha_{n}\in\NN$ and primes $\prm_{1},
-\prm_{2},\dots,\prm_{n}$ such that $n=\prm_{1}^{\alpha_{1}}\prm_{2}^{\alpha_{2}}
-\dots\prm_{n}^{\alpha_{n}}$, or $n=\prod_{i=1}^{n}\prm_{i}^{\alpha_{i}}$.
-\item The expression $\prod_{i=1}^{n}\prm_{i}^{\alpha_{i}}$ is unique up to
-permutation of the primes.
-
-\Define{Lemma} Suppose $\prm$ is prime and $a,b\in\ZZ$.
-\begin{enumerate}
-\item If $\prm\nmid a$, then $\prm$ and $a$ are relatively prime.
-\item If $\prm\mid ab$, then $\prm\mid a$ xor $\prm\mid b$.
+\Define{Logical Operator} A logical operator is a symbol that acts on a logical statement. The operators act as follows
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+& & Negation & Disjunction & Conjunction & Implication\\
+\hline
+P & Q & $\neg$ P & P $\wedge$ Q & P $\vee$ Q & P $\implies$ Q \\
+\hline
+1 & 1 & 0 & 1 & 1 & 1\\
+1 & 0 & 0 & 0 & 1 & 0\\
+0 & 1 & 1 & 0 & 1 & 1\\
+0 & 0 & 1 & 0 & 0 & 1\\
+\hline
+\end{tabular}
+\end{center}
+A statement that is always true (i.e. P $\vee\ \neg$P) is called a Tautology. A statement that is always false (i.e. P $\wedge\ \neg$P) is called a contradiction.\\
+An implication P $\implies$ Q is made of two parts: the hypothesis (P) and the conclusion (Q).\\
+Additionally, statements can be quantified using the two quantifiers, the universal quantifier, for all ($\forall$) and the existential quantifier, there exists ($\exists$).
+\Define{Set} A set is a collection of objects. The objects in a set are called elements.
+\Define{Empty Set} The empty set, symbolized by $\emptyset$ is the set with no elements.
+\Define{Subset} A set $\setA$ is a subset of a set $\setB$ (noted $\setA\subset\setB$) if for all $x\in\setA$, $x\in\setB$.
+\Define{Power Set} The power set of a set $\setA$ (noted $\set{P}(\setA)$) is the set of all subsets of $\setA$.
+\Define{The Universal Set} The universal set, $\setU$ is the set of which all sets are subsets.
+\Define{Intersection} For sets $\setA$ and $\setB$, the intersection ($\setA\cap\setB$) is the set of elements in both $\setA$ and $\setB$.
+\[\setA\cap\setB = \{x|x\in\setA\wedge x\in\setB\}.\]
+To say that $\setA$ and $\setB$ have a trivial intersection means that $\setA\cap\setB=\emptyset$. This is equivalent to saying $\setA$ and $\setB$ are disjoint.
+\Define{Union} For sets $\setA$ and $\setB$, the union ($\setA\cup\setB$) is the set of elements in either $\setA$ or $\setB$.
+\[\setA\cup\setB = \{x|x\in\setA\vee x\in\setB\}.\]
+\Define{Set Difference} The set difference of a set $\setA$ and a set $\setB$ ($\setA-\setB$) is the set of all elements in $\setA$ that are not in $\setB$.
+\[\setA-\setB=\{x|x\in\setA\wedge x\notin\setB\}.\]
+The complement of a set $\setA$ in regards to $\setU$ is $\setU-\setA$.
+\Define{Cartesian Product} For sets $\setA$ and $\setB$, the cartesian product ($\setA\times\setB$) is defined to be the set of ordered pairs $(a,b)$ such that $a\in\setA$ and $b\in\setB$.
+\[\setA\times\setB=\{(a,b)|a\in\setA\wedge b\in\setB\}.\]
+\Define{Axiom} An axiom is a statement whose truth value is accepted without proof.
+\Define{Theorem} A theorem is a mathematical statement whose truth value can be verified through proof.
+\Define{Lemma} A Lemma is a mathematical result that is used to prove other results.
+\Define{Corollary} A corollary is a mathematical result that follows from another result.
 \end{enumerate}
 
-\Define{Corollary} If $\prm$ is prime and divides $a_{1},a_{2},\dots,a_{n}$, then
-$p|a_{i}$ for some $i\in\{ 1,2,\dots,n \}$.
-
-\Define{Corollary} If $m$ is not a perfect square, then $\sqrt{m}\notin\QQ$.
-\end{enumerate}
-
-\Define{Exact Division} If $\prm^{\alpha}\mid n$ and $\prm^{\alpha+1}\nmid n$, then
-$\prm^{\alpha}$ exactly divides $n$, noted as $\prm^{\alpha}||n$.
-
-\Define{Theorem} Suppose $a_{1},a_{2},\dots,a_{k}$ are pairwise relatively prime
-and are greater than 0. If $a_{1}a_{2}\dots a_{k} = x^{m}$ for some $x\in\NN$ and
-$m\geq2$, then $\exists x_{i}\in\NN$ such that $a_{i} = x_{i}^{m}$ for all $i$.
-
-\Define{Theorem} There are infinitely many primes.
-
-\Define{Prime Number Theorem} Let $\pi(x)$ denote the number of primes such that
-$\prm_{i}\leq x$. We have that
+\newpage
+\subsection{Number Theory}
 \begin{enumerate}
-\item $\lim_{x\to\infty}\pi(x)=\infty$
-\item $\pi(x) < x$ for $x\geq2$.
+\Define{Division} To say that $a$ divides $b$ ($a\mid b$) implies that $\exists x\in\ZZ$ such that $b=ax$.
+\Define{Relation} A relation $\mathcal{R}$ from $\setA$ to $\setB$ is a subset of $\setA\times\setB$.
+$\setA$ is related to $\setB$ ($a\mathcal{R}b$) if $(a,b)\in\mathcal{R}$ for all $a\in\setA$ and
+$b\in\setB$. The domain of $\mathcal{R}$ is the set $\{x\ |\ (x,y)\in\mathcal{R}\}$. The range of
+$\mathcal{R}$ is the set $\{y\ |\ (x,y)\in\mathcal{R}\}$. If $\mathcal{R}$ has an inverse
+$\mathcal{R}^{-1}$, then it is $\{(y,x)\ |\ (x,y)\in\mathcal{R}\}$. A relation between two elements
+$a\in\setA$ and $b\in\setB$ is denoted by $a\sim b$.
+\Define{Reflexive} A relation $\mathcal{R}$ is reflexive if $x\mathcal{R}x$ for all $x\in\setA$.
+\Define{Symmetric} A relation $\mathcal{R}$ is symmetric if $x\mathcal{R}y$ and $y\mathcal{R}x$ for all
+$x\in\setA$ and $y\in\setB$.
+\Define{Transitive} A relation $\mathcal{R}$ is transitive if $x\mathcal{R}y$ and $y\mathcal{R}z$ implies
+$x\mathcal{R}z$ for all $x\in\setA$, $y\in\setB$, and $z\in\set{C}$.
+\Define{Equivalence Relation} An equivalence relation is a relation that is reflexive, symmetric, and
+transitive.
+\Define{Equivalence Class} For a non-empty set $\setA$ containing elements $a$ and $b$, the equivalence
+class of $a$, noted $[a]$ is the set $\{b\ |\ b\sim a\}$.
+\Define{Partition} A partition of a non-empty set $\setA$ is the set of subsets where
+\begin{enumerate}
+\item The union of all sets in the partition of $\setA$ is $\setA$
+\item The intersection of any two different sets in the partition of $\setA$ is not equivalent to
+$\emptyset$.
 \end{enumerate}
-We can also define the logarithmic integral as
-$\mathcal{L}_{i}(x)=\int_{2}^{x}{1\over\log{t}}\mathop{dt}$. Then
+\Define{Function} A function $f$ from $\setA\to\setB$ is a relation from $\setA$ to $\setB$ that satisfies
+\begin{enumerate}
+\item $(a,b)\wedge(a,c)\in f\implies b=c$.
+\item $\forall a\in\setA, \exists b\in\setB$ such that $(a,b)\in f$.
+\end{enumerate}
+\Define{Image} The image of a function $f:\setA\to\setB$ is $\{f(a)\ |\ a\in\setA\}$.
+\Define{Inverse Image} For a function $f:\setA\to\setB$ and sets $\setB$ and $\set{D}$ where
+$\set{D}\subset\setB$, the inverse image of $\set{D}$, $f^{-1}(\set{D})$, is defined to be
+$\{a\in\setA\ |\ f(a)\in\set{D}\}$.
+\Define{Injection} A function $f$ is injective if $\forall (a,b)\in\set{X},\ f(a)=f(b)\implies a=b$.
+\Define{Surjection} A function $f$ is surjective if $\forall y\in\set{Y},\ \exists x\in\set{X}$ such that
+$f(x)=y$.
+\Define{Bijection} A function $f$ is a bijection if it is an injection and a surjection.
+\end{enumerate}
+
+\newpage
+\section{Theorems and Important Ideas}
+\begin{enumerate}
+\Define{Division Algorithm} Suppose $a,b\in\ZZ$ and assume $b>0$. Then $\exists q,r\in\ZZ$ such that
+$a=qb+r$ and $0\leq r\leq b$. Moreover, $q$ and $r$ are the only integers satisfying this property.
+The integer $q$ is commonly called the quotient and $r$ is commonly called the remainder.
+\begin{quote}
+\textit{\textbf{Proof}}: Let $\set{S}=\{a-nb\ |\ n\in\ZZ\}$. We know that
 \[
-\lim_{x\to\infty}{\mathcal{L}_{i}\over\pi(x)}=
-\lim_{x\to\infty}{{x\over\log{x}}\over\pi(x)} = 1
+\lim_{n\to-\infty}(a-nb)\to+\infty,
 \]
+so $\set{S}$ must contain at least one positive integer. Let $r$ be the smallest element of $\set{S}$
+that is greater than zero, called the remainder. Then there is a $q\in\ZZ$ such that $r=a-qb\geq0$, or
+$a=qb+r$ for $r\geq0$. We have shown that this $r$ exists.\\
+Assume $r\geq b$. Then $r-b\geq0$, and we know $r=a-qb$, so $a-qb-b\geq 0$. Then $a-b(q+1)\in\set{S}$
+is greater than zero but less than $r$, which is a contradiction since $r$ is the smallest positive
+integer in $\set{S}$. Therefore $a=qr+b$ and $0\leq r\leq b$.\\
+Assume $a=bq+r$ and $a=bg+h$ where $0\leq r\leq b$ and $0\leq h\leq g$.
+\end{quote}
 \end{enumerate}
 \end{document}
