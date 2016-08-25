@@ -29,13 +29,12 @@ function loadFileAt(filename, onFileReady, onFileErr) {
 * return -- the string contents of the madlib
 */
 function getRandomMadlib(){
-    var madlibs = ["madlib_01.txt","madlib_02.txt","madlib_03.txt","madlib_04.txt"];
+    var madlibs = ["madlib_01.txt","madlib_02.txt","madlib_03.txt","madlib_04.txt","madlib_05.txt"];
     var random = Math.floor(Math.random() * madlibs.length);
 
     var chosenMadlib = "./mlibs/" + madlibs[random];
     globalMap = {};
     document.getElementById('madlib_table').innerHTML = "";
-    // var chosenMadlib = "./mlibs/madlib_01.txt";
 
     loadFileAt(chosenMadlib, parseMadLib, function(){
         console.log("error :(");
