@@ -45,15 +45,13 @@ function getRandomMadlib(){
 /**
 * parses the madlib and poplates the DOM with the appropriate fields
 *
-* madlib -- The raw madlib content
+* ml -- The raw madlib content
 */
 function parseMadLib(ml){
     madlib = ml;
     var table = document.getElementById('madlib_table');
     var madlibVarsRx = /\$[a-zA-Z0-9_ ']*\$\$/g;
     var madlibFields = madlib.match(madlibVarsRx);
-
-    console.log(madlibFields);
     var rowCount = 0;
     madlibFields.forEach(function(currentValue, index, array){
         var fieldName = currentValue.substring(1, currentValue.length - 5);
