@@ -1,17 +1,11 @@
 \documentclass{hw}
 \usepackage{amssymb,amsmath}
-\documentclass{article}
-
-\usepackage{geometry}
-\usepackage{amssymb,amsmath}
-\geometry{margin=1in}
-
-\newcommand{\ZZ}{\mathbb{Z}}
-\newcommand{\NN}{\mathbb{N}}
 
 \begin{document}
+\makeheader{1}
+
 \begin{enumerate}
-\item If $F$ is a field in which 0 has a mutiplicative inverse, show $|F|=1$.
+\item If $F$ is a field in which 0 has a multiplicative inverse, show $|F|=1$.
 \begin{quote}
 \textbf{\textit{Proof:}} Suppose $|F|>1$, and let $x\in F$ such that $x=0^{-1}$. Then $0x=1=0$. We know that under multiplication, any element in $F$ can be expressed as $1\times y\ \forall y\in F$, and since $1=0$, $1\times y = 0 \times y = 0$. Therefore the only element in $F$ is 0, and $|F|=1$
 \end{quote}
@@ -22,7 +16,7 @@ In order to be a field, $\ZZ_{n}$ must fulfill the following axioms:
 \begin{enumerate}
 \item[\textbf{(A1)}] Addition is commutative on $F$.
 \item[\textbf{(A2)}] Addition is associative on $F$.
-\item[\textbf{(A3)}] There is a uniqe additive identity, called 0.
+\item[\textbf{(A3)}] There is a unique additive identity, called 0.
 \item[\textbf{(A4)}] There is an additive inverse $-a$ for all $a\in F$.
 \item[\textbf{(M1)}] Multiplication is commutative on $F$.
 \item[\textbf{(M2)}] Multiplication is associative on $F$.
@@ -32,7 +26,7 @@ In order to be a field, $\ZZ_{n}$ must fulfill the following axioms:
 \item[\textbf{(ZO)}] The additive and multiplicative identity are distinct.
 \end{enumerate}
 
-\textbf{\textit{Proof:}} Suppose $n$ is prime. Then every element in $\ZZ_{n}$ is a unit, so $\ZZ_{n}$ is equipped with a multiplicative inverse. Since $\ZZ_{n}$ has addition and multiplication, we know it is commutative and associateve for both those operations. We know that $\ZZ_{n}$ contains 0, so it has the additive inverse. Addition and multiplication form the distributive law, so $\ZZ_{n}$ is equipped with the distributive law. Since $n>1$, $\ZZ_{n}$ $0\neq1$. Therefore, by defintion, $\ZZ_{n}$ is a field since it fulfills all the field axioms.\\\\
+\textbf{\textit{Proof:}} Suppose $n$ is prime. Then every element in $\ZZ_{n}$ is a unit, so $\ZZ_{n}$ is equipped with a multiplicative inverse. Since $\ZZ_{n}$ has addition and multiplication, we know it is commutative and associative for both those operations. We know that $\ZZ_{n}$ contains 0, so it has the additive inverse. Addition and multiplication form the distributive law, so $\ZZ_{n}$ is equipped with the distributive law. Since $n>1$, $\ZZ_{n}$ $0\neq1$. Therefore, by definition, $\ZZ_{n}$ is a field since it fulfills all the field axioms.\\\\
 Suppose $\ZZ_{n}$ is a field with $n$ not prime. Since $n$ is not prime, then we can find an element $x\in\ZZ_{n}$ such that $gcd(n,x)\neq1$. Therefore there is an element in $\ZZ_{n}$ that is not a unit, so $\ZZ_{n}$ is not a field, since there is an element without an inverse.
 \end{quote}
 
