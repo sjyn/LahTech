@@ -1,0 +1,33 @@
+\documentclass{hw}
+
+\begin{document}
+\makeheader{2}
+
+\begin{enumerate}
+\item If $F$ is a finite field, prove that the only absolute value on $F$ is the trivial absolute
+value.
+\begin{quote}
+\textit{\textbf{Proof:}} By definition, if we take any $x\in F$ such that $x\neq0$, then there is some
+integer $m\in\ZZ$ such that $x^{m}=1$, meaning that $|x|=1$. If $x=0$, then $|x|=0$, so the absolute
+value is trivial.
+\end{quote}
+
+\item Suppose $p$ is prime. Prove that $|p^{n}|_{p}$ tends to 0 as $n\to\infty$.
+\begin{quote}
+\textit{\textbf{Proof:}} We know that $v_{p}(x)>0$ for all $x\in\ZZ$, and that $v_{p}(x)$ counts the
+number of factors of $p$ in $x$. If we consider $p^n$, there are $n$ factors of $p$, meaning that
+$v_{p}(p^{n})=n$. Then $|p^{n}|_{p}=p^{-v_{p}(p^{n})}=p^{-n}$, so
+\[
+\lim_{n\to\infty}p^{-n}=0.
+\]
+\end{quote}
+
+\item Suppose that $F$ is a field and $|\ |$ is a non-Archemedian absolute value on $F$. if $c\in F$
+and $r$ is a positive real number, we define the \textit{open ball (or disk) centered at c of radius r}
+by
+\[
+B(c,r)=\{x\in F:|x-c|<r\}.
+\]
+If $d\in B(c,r)$, prove that $B(c,r)=B(d,r)$.
+\end{enumerate}
+\end{document}
