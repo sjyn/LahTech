@@ -1,0 +1,40 @@
+\documentclass{hw}
+
+\begin{document}
+    \makeheader{3}
+    \begin{enumerate}
+        \item Suppose $F$ is a field with a non-Archemedian absolute value $|\cdot|$ and $\IRing{F}$ is the ring of
+        integers of $F$. Prove that a point $x\in\IRing{F}$ is a unit if and only if $|x|=1.$
+        \begin{quote}
+            Suppose $x\in\IRing{F}$ is a unit and consider $x^{-1}\in\IRing{F}$ as the inverse of $x$. Since $x\in\IRing{F}$, we know
+            \begin{align*}
+                |x| &\leq 1\\
+                |x^{-1}||x| &\leq |x^{-1}|\leq1 \qquad\text{(since $x^{-1}\in\IRing{F}$)}\\
+                |x^{-1}x| &\leq |x^{-1}|\leq1\\
+                |1| &\leq |x^{-1}| \leq1\\
+                1 &\leq |x^{-1}| \leq 1.
+            \end{align*}
+            The only choice we have for $x^{-1}$ is 1, so
+            \begin{align*}
+                x^{-1} &= 1\\
+                xx^{-1}&= x\\
+                x&=1\\
+                |x|&=1.
+            \end{align*}
+        \end{quote}
+
+        \item If $n$ is a non-negative integer a $p$ is prime, define $\mathcal{I}_{n}=\{x\in\IRing{p}:|x|_{p}\leq p^{-n}\}$.
+        \begin{enumerate}
+            \item If $x,y\in\mathcal{I}_{n}$ prove that $x+y\in\mathcal{I}_{n}$.
+            \begin{quote}
+                Suppose $x,y\in\mathcal{I}_{n}$, and consider $|x+y|_{p}$. Then
+                \begin{align*}
+                    |x+y|_{p} &\leq \mmax{|x|_{p}}{|y|_{p}}\\
+                    &\leq \mmax{p^{-n}}{p^{-n}}\\
+                    &= p^{-n}
+                \end{align*}
+                Therefore $|x+y|_{p}\leq p^{-n}$, so $x+y\in\mathcal{I}_{n}$.
+            \end{quote}
+        \end{enumerate}
+    \end{enumerate}
+\end{document}
