@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <style>
+            @import "./style.css";
+        </style>
+    </head>
+
+    <body ng-app="excel_app" ng-controller="excel_controller">
+        <h1>Pseudo-Excel Spreadsheet</h1>
+        <table>
+            <tr>
+                <th class="colcorner"></th>
+                <th>A</th>
+                <th>B</th>
+                <th>C</th>
+                <th>D</th>
+                <th>E</th>
+            </tr>
+            <tr>
+                <td class="colnumber">1</td>
+                <td ng-click="reorderN1()">
+                    <div class="tooltip">
+                        <span class="tooltiptext">
+                            Sort by the numbers in this column
+                        </span>
+                        Number 1
+                    </div>
+                </td>
+                <td ng-click="reorderN2()">
+                    <div class="tooltip">
+                        <span class="tooltiptext">
+                            Sort by the numbers in this column
+                        </span>
+                        Number 2
+                    </div>
+                </td>
+                <td ng-click="reorderSum()">
+                    <div class="tooltip">
+                        <span class="tooltiptext">
+                            Sort by the sum
+                        </span>
+                        Sum
+                    </div>
+                </td>
+                <td ng-click="reorderProd()">
+                    <div class="tooltip">
+                        <span class="tooltiptext">
+                            Sort by the product
+                        </span>
+                        Product
+                    </div>
+                </td>
+                <td ng-click="reorderAvg()">
+                    <div class="tooltip">
+                        <span class="tooltiptext">
+                            Sort by the average
+                        </span>
+                        Average
+                    </div>
+                </td>
+            </tr>
+            <tr ng-repeat="(x,obj) in sheet">
+                <td class="colnumber"><p>{{ x + 2 }}</p></td>
+                <td><input ng-value="{{ obj.b1 }}" ng-change="recalcTotals()" ng-model="obj.b1" type="number"/></td>
+                <td><input ng-value="{{ obj.b2 }}" ng-change="recalcTotals()" ng-model="obj.b2" type="number"/></td>
+                <td>
+                    <div class="tooltip">
+                        <span class="tooltiptext">
+                            {{ obj.b1 + " + " + obj.b2 }}
+                        </span>
+                        <p>{{ obj.b1 + obj.b2 | limitTo:7 }}</p>
+                    </div>
+                </td>
+                <td>
+                    <div class="tooltip">
+                        <span class="tooltiptext">
+                            {{ obj.b1 + " * " + obj.b2 }}
+                        </span>
+                        <p>{{ obj.b1 * obj.b2 | limitTo:7 }}</p>
+                    </div>
+                </td>
+                <td>
+                    <div class="tooltip">
+                        <span class="tooltiptext">
+                            {{ "(" + obj.b1 + " + " + obj.b2 + ")" + " / " + 2}}
+                        </span>
+                        <p>{{ (obj.b1 + obj.b2) / 2 | limitTo:7 }}</p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="colnumber"><p>{{ sheet.length + 2 }}</p></td>
+                <td>
+                    <p><b>{{ totals[0] }}</b></p>
+                </td>
+                <td>
+                    <p><b>{{ totals[1] }}</b></p>
+                </td>
+                <td>
+                    <p><b>{{ totals[2] }}</b></p>
+                </td>
+                <td>
+                    <p><b>{{ totals[3] }}</b></p>
+                </td>
+                <td>
+                    <p><b>{{ totals[4] }}</b></p>
+                </td>
+            </tr>
+        </table>
+
+        <button style="margin-top: 12px;" ng-click="addItem()">Add Item</button>
+
+        <script src="./script.js"></script>
+    </body>
+</html>

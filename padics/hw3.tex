@@ -22,11 +22,11 @@
                 |x|&=1.
             \end{align*}
 
-            Suppose $|x| = 1$. 
+            Suppose $|x| = 1$.
         \end{quote}
 
         \item If $n$ is a non-negative integer a $p$ is prime, define
-        $\mathcal{I}_{n}=\{x\in\IRing{p}:|x|_{p}\leq p^{-n}\}$.
+        $\mathcal{I}_{n}=\{x\in\IRing{p}:|x|_{p}\leq p^{-n}\}$ where\\ $\IRing{p}=\{x\in\QQ : |x|_{p}\leq1\}$.
         \begin{enumerate}
             \item If $x,y\in\mathcal{I}_{n}$ prove that $x+y\in\mathcal{I}_{n}$.
             \begin{quote}
@@ -41,9 +41,7 @@
 
             \item If $x\in\mathcal{I}_{n}$ and $r\in\IRing{p}$ prove that $rx\in\mathcal{I}_{n}$.
             \begin{quote}
-                Consider $|rx| = |r|\cdot|x|$. Since $|x|\leq p^{-n}$ and $|r|\leq1$, we have
-                $|r|\cdot|x|\leq 1\cdot p^{-n} = p^{-n}$, so $|rx|\leq p^{-n}$ which implies that
-                $rx\in\mathcal{I}_{n}$.
+                Let $|\cdot|$ be the p-adic absolute value and consider $|rx| = |r|\cdot|x|$. Since $|x|\leq p^{-n}$ and $|r|\leq1$, we have $|r|\cdot|x|\leq 1\cdot p^{-n} = p^{-n}$, so $|rx|\leq p^{-n}$ which implies that $rx\in\mathcal{I}_{n}$.
             \end{quote}
 
             \item What is another way to describe the set $\ZZ\cap\mathcal{I}_{n}$?
