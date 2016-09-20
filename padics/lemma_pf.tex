@@ -1,0 +1,43 @@
+\documentclass{hw}
+
+\usepackage{amsthm}
+\newcommand{\FF}{\mathbb{F}}
+\newtheorem{theorem}{Lemma}
+
+\begin{document}
+% \begin{center}
+\section*{Equality of Absolute Values}
+
+\begin{theorem}
+	Let $|\cdot|_{1}$ and $|\cdot|_{2}$ be absolute values on a field $\FF$. Then the following are
+    equivalent:
+	\begin{quote}
+		\begin{enumerate}
+			\item $|\cdot|_{1}$ and $|\cdot|_{2}$ are equivalent (i.e. their topologies are the same).
+			\item For any $x\in\FF$, we have $|x|_{1}<1$ if and only if $|x|_{2} < 1$.
+			\item There is an $\alpha\in\RR$ such that for all $x\in\FF$, $|x|_{1} = |x|_{2}^{\alpha}$.
+		\end{enumerate}
+	\end{quote}
+\end{theorem}
+
+\begin{proof}
+    We will start by showing 1 $\implies$ 2. Suppose $|\cdot|_{1}$ and $|\cdot|_{2}$ are equivalent. Since the topologies are the same, we have that any sequence $a_{n}$ that converges under $|\cdot|_{1}$ will also converge under $|\cdot|_{2}$. If we consider any $x\in\FF$, then we have
+    \[
+        \lim_{n\to\infty}x^{n}=0
+    \]
+    exactly when $x<1$, so $|x|_{1}<1$ if and only if $|x|_{2} < 1$.\\\\
+
+    We must now show that 2 $\implies$ 3. Suppose that $x\in\FF$ and that $|x|_{1}<1$ if and only if $|x|_{2} < 1$. Our goal is to find an $\alpha$ such that for all $x\in\FF$, $|x|_{1} = |x|_{2}^{\alpha}$. We can find one such $\alpha$ rather easily. Consider an arbitrary $y\in\FF$ where $|y|_{1}<1|$. Then
+    \begin{align*}
+        |y|_{1} &= |y|_{2}^{\alpha}\\
+        \log{|y|_{1}} &= \log{|y|_{2}^{\alpha}}\\
+        \log{|y|_{1}} &= \alpha\log{|y|_{2}}\\
+        \alpha &= { \log{|y|_{1}} \over \log{|y|_{2}} }.
+    \end{align*}
+    We have asserted that such an $\alpha$ exists for $y$, but we want to show that this $\alpha$ does indeed work for any $x\in\FF$ (ideally that $\alpha$ does not depend on our choice of $x$).
+    We will choose another element of $\FF\setminus\{0\}$, $z\neq x$. We know that if $|x|_{1}=|y|_{1}$ then $|x|_{2}=|y|_{2}$ since $x/y$ or $y/x$ would have $|\cdot|_{2} < 1$ which would violate the assumption.
+\end{proof}
+
+
+% \end{center}
+\end{document}

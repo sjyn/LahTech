@@ -1,0 +1,38 @@
+\documentclass{hw}
+
+\begin{document}
+
+    \noindent We can define a function $f:\RR\to\RR$ by
+    \[
+        f(x)=
+        \begin{cases}
+            0, \qquad x\in\QQ\\
+            1, \qquad x\in\RR\setminus\QQ
+        \end{cases}.
+    \]
+    We know this function to be dicontinuous under the usual absolute value. In $\RR$ under the usual absolute value,
+    we define a function $h$ to be continuous at a point $a$ in the domain of $h$ by
+    \[
+        \forall\epsilon > 0,\ \exists\delta > 0 \text{ such that } 0<|x-a|<\delta\implies|h(x)-h(a)|<\epsilon.
+    \]
+    We can reformulate this definition in the p-adic sense by
+    \[
+        \forall\epsilon > 0,\ \exists\delta > 0 \text{ such that } 0<|x-a|_{p}<\delta\implies|h(x)-h(a)|_{p}<\epsilon.
+    \]
+    If we refomulate our original function, then we can show that under the p-adic absolute value, the function is
+    continuous at every point. We will define $g:\QQ_{p}\to\QQ_{p}$ as
+    \[
+        g(x)=
+        \begin{cases}
+            0, \qquad x\in\ZZ\\
+            1, \qquad x\in\QQ_{p}\setminus\ZZ
+        \end{cases}
+    \]
+    as an analog to the funtion $f$ we defined earlier. We will show that this function is indeed continuous.
+
+    \begin{quote}
+        \textit{\textbf{Proof:}} Let $\epsilon>0$ be given. If $g$ is continuous at a point $c$, then $\exists\delta>0$
+        such that $\forall\epsilon >0$, $|x-c|_{p}<\delta\implies|g(x)-g(c)|_{p}<\epsilon$. If we let $\delta=1$, then we have 
+
+    \end{quote}
+\end{document}

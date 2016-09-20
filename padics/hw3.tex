@@ -6,7 +6,8 @@
         \item Suppose $F$ is a field with a non-Archemedian absolute value $|\cdot|$ and $\IRing{F}$ is the ring of
         integers of $F$. Prove that a point $x\in\IRing{F}$ is a unit if and only if $|x|=1.$
         \begin{quote}
-            Suppose $x\in\IRing{F}$ is a unit and consider $x^{-1}\in\IRing{F}$ as the inverse of $x$. Since $x\in\IRing{F}$, we know
+            Suppose $x\in\IRing{F}$ is a unit and consider $x^{-1}\in\IRing{F}$ as the inverse of $x$. We know
+            $x^{-1}\in\IRing{F}$ since $x$ is a unit in $\IRing{F}$. Since $x\in\IRing{F}$, we know
             \begin{align*}
                 |x| &\leq 1\\
                 |x^{-1}||x| &\leq |x^{-1}|\leq1 \qquad\text{(since $x^{-1}\in\IRing{F}$)}\\
@@ -22,7 +23,16 @@
                 |x|&=1.
             \end{align*}
 
-            Suppose $|x| = 1$.
+            Suppose $|x| = 1$. We want to show that $x^{-1}\in\IRing{F}$. Consider $|x^{-1}|$ where $x^{-1}\in F$.
+            Then
+            \begin{align*}
+                |x|&=1\\
+                |x||x^{-1}| &= |x^{-1}|\\
+                |xx^{-1}| &= |x^{-1}|\\
+                |1| &= |x^{-1}|\\
+                1 &= |x^{-1}|.
+            \end{align*}
+            Therefore $|x^{-1}|=1$, so $x^{-1}\in\IRing{F}$ and therefore $x$ is a unit. 
         \end{quote}
 
         \item If $n$ is a non-negative integer a $p$ is prime, define
@@ -45,6 +55,13 @@
             \end{quote}
 
             \item What is another way to describe the set $\ZZ\cap\mathcal{I}_{n}$?
+            \begin{quote}
+                We know by definition of the p-adic absolute value that for all $x\in\ZZ$, $|x|_{p}\leq1$. This implies
+                $\ZZ\subset\IRing{p}$. We want to find all $x\in\ZZ$ where $|x|_{p}\leq p^{-n}$ for some $n\in\NN$.
+                We cannot consider any $x$ where $x$ is a multiple of $p$, since those values would be in $\QQ$. This
+                leaves only 1 (when $x$ does not share any factors of $p$) or 0 (when $x=0$). For any value $p$,
+                $0 < p^{-n} < 1$, so the only value we have is $x=0$. Therefore, $\ZZ\cap\mathcal{I}_{n}=\{0\}$.
+            \end{quote}
         \end{enumerate}
     \end{enumerate}
 \end{document}
