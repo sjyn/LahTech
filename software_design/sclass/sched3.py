@@ -2,22 +2,10 @@ class RowData:
 
     def __init__(self, line):
         self.vector = line.split(',"')
-        self.crn = self.vector[0].strip().replace('"','')
-        self.course = self.vector[1].strip().replace('"','')
-        self.section = self.vector[2].strip().replace('"','')
-        self.title = self.vector[3].strip().replace('"','')
-        self.hours = self.vector[4].strip().replace('"','')
-        self.area = self.vector[5].strip().replace('"','')
-        self.type = self.vector[6].strip().replace('"','')
-        self.days = self.vector[7].strip().replace('"','')
-        self.time = self.vector[8].strip().replace('"','')
-        self.loc = self.vector[9].strip().replace('"','')
-        self.instructor = self.vector[10].strip().replace('"','')
-        self.seats = self.vector[11].strip().replace('"','')
-        self.status = self.vector[12].strip().replace('"','').replace(",","")
 
     def __str__(self):
-        return '{:<4}|{:<10}|{:<3}|{:<35}|{:<7}|{:<10}|{:<8}|{:<6}|{:<10}|{:<14}|{:<45}|{:<3}|{:<8}'.format(self.crn,self.course,self.section,self.title,self.hours,self.area,self.type,self.days,self.time,self.loc,self.instructor,self.seats,self.status)
+        formatString = "%-4s|%-10s|%-3s|%-35s|%-7s|%-10s|%-8s|%-6s|%-10s|%-14s|%-45s|%-3s|%-8s"
+        return formatString % (self[0],self[1],self[2],self[3],self[4],self[5],self[6],self[7],self[8],self[9],self[10],self[11],self[12])
 
     def __getitem__(self, index):
         return self.vector[index].strip().replace('"',"").replace(",","")
@@ -74,7 +62,7 @@ def main():
                 if val[12].upper() == "OPEN":
                     print(val)
         elif yn == "E":
-            break
+            return
         print("(press enter to continue)")
         input()
 
