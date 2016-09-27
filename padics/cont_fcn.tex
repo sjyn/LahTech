@@ -1,3 +1,6 @@
+% jbrunelle@mitre.org
+% cnorthern@miter.org
+
 \documentclass{hw}
 
 \begin{document}
@@ -32,7 +35,21 @@
 
     \begin{quote}
         \textit{\textbf{Proof:}} Let $\epsilon>0$ be given. If $g$ is continuous at a point $c$, then $\exists\delta>0$
-        such that $\forall\epsilon >0$, $|x-c|_{p}<\delta\implies|g(x)-g(c)|_{p}<\epsilon$. If we let $\delta=1$, then we have 
+        such that $\forall\epsilon >0$, $|x-c|_{p}<\delta\implies|g(x)-g(c)|_{p}<\epsilon$. We can determine our
+        $\delta$ as follows:
+        \begin{quote}
+            If $a\in\IRing{p}$, then
+            \[
+                |g(x)-g(a)|_{p}=|g(x)-0|_{p}=|g(x)|_{p}=p^{-v_{p}(g(x))}\leq 1.
+            \]
+            If $a\in\QQ_{p}\setminus\IRing{p}$, then
+            \[
+                |g(x)-g(a)|_{p}=|g(x)-1|_{p} \leq \max{\{|g(x)|_{p},|-1|_{p}\}} \leq \max{\{1,1\}} = 1.
+            \]
+        \end{quote}
+        We now let $\delta=1$. We need to consider the cases where $a\in\IRing{p}$ and $a\in\QQ\setminus\IRing{p}$. If
+        $a\in\IRing{p}$ then we know $|g(x)-g(a)|_{p}\leq 1$. We need to show that there is nothing in the disk of
+        radius 1 centerd 0 except for 0 and 1 (i.e. there is nothing between 0 and 1).
 
     \end{quote}
 \end{document}

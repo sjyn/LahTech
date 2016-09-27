@@ -1,0 +1,12 @@
+DEMO:
+1. Went to openMRS website (openmrs.org)
+2. clicked demo at the top right
+3. Chose explore OpenMRS
+4. logged in with
+	username: admin
+	password: Admin123
+	location: isolation ward
+5. it works
+
+DOWNLOAD:
+1. 
