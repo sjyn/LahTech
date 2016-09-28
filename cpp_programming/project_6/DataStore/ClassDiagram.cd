@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DataStore">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAgICAAAAAAAAAEQAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataStore.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataStore_File">
+    <Position X="4" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAKCAAAAAAAAAAAAAQABAAAAAAAAAEAAAAIA=</HashCode>
+      <FileName>C:\Users\Perkins\Dropbox (CNU PCSE)\Classes\CPSC427\Projects\Project6_MED - Skeleton\includes\DataStore_File.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="String_Data">
+    <Position X="1" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAABISAAAEAAAAAAAAAwAAAkAAA=</HashCode>
+      <FileName>C:\Users\Perkins\Dropbox (CNU PCSE)\Classes\CPSC427\Projects\Project6_MED - Skeleton\includes\String_Data.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

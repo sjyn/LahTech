@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="Choose Download Site"
+        android:key="url_select">
+
+        <CheckBoxPreference
+            android:key="teton"
+            android:title="Teton Software"
+            android:defaultValue="true"
+            android:summary="Download Data from Teton Software"/>
+
+        <CheckBoxPreference
+            android:key="cnu"
+            android:title="CNU"
+            android:defaultValue="false"
+            android:summary="Download Data from CNU"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

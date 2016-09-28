@@ -19,3 +19,11 @@ This was a simple introductory course to proofs. I have a take home test and a f
 
 ### wim
 I had to take a writing intensive course. There is a final paper and some ruby scripts as well.
+
+### Computer Architecture
+The programming portion of the class only dealt with MIPS assembly, so the .asm files are all MIPS assembly written in the MARS environment.
+
+### C++ Programming
+The programs for this course were primarily written using Visual Studio 2015. The only exception is the exam question file, which we written in a UNIX environment (hence the shell script that runs UNIX commands to compile and clean the directory).
+### Programming Language Concepts
+This was a course in several programming languages that focused on the ideas behind the languages rather than the languages themselves. Excluded from the repository are a C# script and a rather in depth PHP assignment.

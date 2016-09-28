@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="@string/share_options">
+
+        <EditTextPreference
+            android:title="Share Subject"
+            android:key="message_subject"
+            android:summary="Change the subject of your message">
+
+        </EditTextPreference>
+
+        <EditTextPreference
+            android:title="Share Text"
+            android:key="message_text"
+            android:summary="Edit the text you want to include in the message you send">
+
+        </EditTextPreference>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Rendering Options">
+
+        <com.example.helpers.SeekBarPreference
+            android:key="sketch_level"
+            android:title="Sketchiness"
+            android:summary="Set the level of sketch applied to your photo"
+            android:defaultValue="50"
+            android:max="100"/>
+
+        <com.example.helpers.SeekBarPreference
+            android:key="color_level"
+            android:title="Colorization"
+            android:summary="Set the level of colorization applied to your photo"
+            android:defaultValue="50"
+            android:max="100"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Clear Memory">
+        <Preference
+            android:title="Clear all photos"
+            android:defaultValue="false"
+            android:summary="Clear the photo currently in the display, and reset it to the default picture"
+            android:key="button"/>
+    </PreferenceCategory>
+
+</PreferenceScreen>

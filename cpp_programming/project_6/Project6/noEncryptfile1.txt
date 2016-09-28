@@ -1,0 +1,2 @@
+Hello I Am String ,2600
+Hello I Am not String ,2800

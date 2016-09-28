@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="Broadcast Settings">
+        <CheckBoxPreference
+            android:key="enable_custom_broadcast"
+            android:title="Enable Custom Broadcast Track"
+            android:summary="Keep track of received broadcasts"/>
+
+        <Preference
+            android:title="Total Custom Broadcasts Received"
+            android:key="total_broads"
+            android:summary="0"/>
+
+        <CheckBoxPreference
+            android:key="enable_notify"
+            android:title="Enable Notifications"
+            android:summary="Send a notification when a custom broadcast is received"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Notification Settings">
+        <EditTextPreference
+            android:title="Default Notification"
+            android:key="set_notify_message"
+            android:defaultValue="Howdy! Got another custom broadcast!"/>
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ProjectFive</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="send_broadcast_text">Send Broadcast Notification</string>
+    <string name="broadcast_description">Send Custom Broadcast</string>
+    <string name="brdcast_button_txt">Send Broadcast</string>
+    <string name="reset_brdcst_cnt">Reset Broadcast Count</string>
+    <string name="reset_btn_txt">Reset</string>
+</resources>

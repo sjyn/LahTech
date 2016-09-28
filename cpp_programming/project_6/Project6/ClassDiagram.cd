@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="FileManager" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAQAAAAACAAAAAAAAAgAAABAA=</HashCode>
+      <FileName>FileManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="URL_Cache">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEIAAAAAAICAAAIAAAAAAAAAAAAAAAAAAACAAQAEIAA=</HashCode>
+      <FileName>URL_Cache.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="URL_Data">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAgAISAAAGAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>URL_Data.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>
