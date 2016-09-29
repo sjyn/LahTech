@@ -1,0 +1,49 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\newcommand{\Group}{\mathcal{G}}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\begin{document}
+    \theoremstyle{definition}
+    \begin{definition}
+        A \underline{Binary Operation} on a set $\mathcal{S}$ is a mapping $*$ from
+        $\mathcal{S}\times\mathcal{S}\to\mathcal{S}$ that associates elements in $\mathcal{S}\times\mathcal{S}$ to an
+        element in $\mathcal{S}$.
+    \end{definition}
+
+    \theoremstyle{definition}
+    \begin{definition}
+        A \underline{Group} is a pairing of a set $\Group$ and a binary operator $*$ $(\Group,*)$ such that
+        \begin{enumerate}
+            \item $*$ is associative, i.e. $a*(b*c) = (a*b)*c$.
+            \item $\exists e\in\Group \backepsilon x*e=e*x=x$. This is called the identity.
+            \item $\forall x\in\Group, \exists y\in\Group \backepsilon x*y = y*x =e$. $y$ is called the inverse of $x$.
+        \end{enumerate}
+        If $*$ is commutative, then $\Group$ is called \underline{abelian}.
+    \end{definition}
+
+    \begin{theorem}
+        Let $*$ be a binary operation on $\mathcal{S}$. If there is an identity, it is unique.
+    \end{theorem}
+    \begin{proof}
+        Let $e,f$ be identities in $(\mathcal{S},*)$. Then $e*f=e$ and $e*f=f$, so $e=f$.
+    \end{proof}
+
+    \begin{theorem}
+        If $\Group$ is a group, then the inverse of an element is unique.
+    \end{theorem}
+    \begin{proof}
+        Let $a\in\Group$ with $a''$ and $a'$    
+    \end{proof}
+
+\end{document}
