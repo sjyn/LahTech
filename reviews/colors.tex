@@ -1,0 +1,20 @@
+\documentclass{article}
+\usepackage[usenames, dvipsnames]{color}
+\usepackage{colortbl}
+
+\definecolor{greenbg}{RGB}{225,243,222}
+\definecolor{greenbar}{RGB}{60,141,47}
+
+\begin{document}
+    \colorbox{greenbg}{Here are some cool important facts. La La La}\\\\
+    \textcolor{greenbar}{Theorem 1.1}
+
+    \begin{tabular}{ !{\color{greenbar}\vrule width 3pt}p{\textwidth} }
+        {
+            {\color{greenbar} Hello World!} I love you Emily!
+            \begin{enumerate}
+                \item item
+            \end{enumerate}
+        }
+    \end{tabular}
+\end{document}
