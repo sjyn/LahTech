@@ -1,0 +1,24 @@
+\documentclass{hw}
+\begin{document}
+\makeheader{4}
+
+\begin{enumerate}
+    \item Recall that $f(x)=x^2 + 1$ has two zeros $\alpha,\beta\in\ZZ_{5}$ satisfying $|\alpha-2|_{5}\leq 1/5$ and
+    $|\beta-3|_{5}\leq 1/5$. Find the first three terms $b_{0}, b_{1}$, and $b_{3}$ of the \textit{p-adic} expansion
+    of $\beta$.
+
+    \item User Hensel's Lemma to verify that $f(x)=x^3+1$ has a zero $\alpha\in\ZZ_{7}$. Find an integer $n$ such that
+    $|\alpha-n|_{7} \leq 1/7$.
+    \begin{quote}
+        If we let $\alpha=3$, then $f(\alpha)=27+1\equiv 0\mod 7$. We also have that
+        $f'(\alpha)=3(9)=27\not\equiv0\mod7$, so Hensel's Lemma tells us that there is a zero of the function. 
+    \end{quote}
+
+    \item Show that Hensel's Lemma fails to apply to the polynomial $f(x)=x^3+1$ in $\ZZ_{3}$. Is this sufficient to
+    conclude that $f$ has no zeros in $\ZZ_{5}$?
+    \begin{quote}
+        Hensel's Lemma requires that $f'(x)\not\equiv 0 \mod p$. In this case, $f'(x)=3x^{2}$, and
+        $3x^{2}\equiv0\mod 3$, so we cannot use it. This is not enough to say that $f$ has no zeros. Hensel's Lemma only tells us about the properties of a zero, but it does not guarantee the existence of a zero.
+    \end{quote}
+\end{enumerate}
+\end{document}
