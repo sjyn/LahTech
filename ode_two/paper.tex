@@ -1,0 +1,25 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{graphicx}
+
+\doublespacing
+
+\title{The R\"{o}ssler System}
+\author{Steven Rosendahl}
+\date{}
+
+\begin{document}
+\maketitle
+
+In 1976, Otto R\"{o}ssler proposed a system of nonlinear ordinary differential equations that illustrated the simplest possible strange attractor. An attractor is a set of values towards which a system moves when initial conditions are \textit{near} the attractor; to call an attractor strange means that the attractor exhibits fractal behavior. Often, strange attractors are associated with chaotic systems. R\"{o}ssler's strange attractor is a chaotic attractor that solves his proposed system
+\begin{align}
+    \dot{x} &= -y-z\\
+    \dot{y} &= x+ay\\
+    \dot{z} &= b+z(x-c)
+\end{align}
+where $a,b,$ and $c$ are arbitrary values. R\"{o}ssler studied the effects that small (i.e. less than 1) $a$ and $b$ paired with a relatively large $c$ had on the system's chaotic behavior.
+
+
+\end{document}
