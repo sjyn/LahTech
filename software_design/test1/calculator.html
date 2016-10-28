@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<body style="text-align:center;" ng-app="calc" ng-controller="controller">
+
+    <h1>Simple Calculator</h1>
+
+    <div>
+        <input type="button" value="1" ng-click="setVal(1)" />
+        <input type="button" value="2" ng-click="setVal(2)" />
+        <input type="button" value="3" ng-click="setVal(3)" />
+        <input type="button" value="4" ng-click="setVal(4)" />
+    </div>
+    <div>
+        <input type="button" value="5" ng-click="setVal(5)" />
+        <input type="button" value="6" ng-click="setVal(6)" />
+        <input type="button" value="7" ng-click="setVal(7)" />
+        <input type="button" value="8" ng-click="setVal(8)" />
+    </div>
+    <div>
+        <input type="button" value="9" ng-click="setVal(9)" />
+        <input type="button" value="0" ng-click="setVal(0)" />
+    </div>
+    <div>
+        <input type="button" value="+" ng-click="setOp('a')" />
+        <input type="button" value="-" ng-click="setOp('s')" />
+        <input type="button" value="*" ng-click="setOp('m')" />
+        <input type="button" value="/" ng-click="setOp('d')" />
+        <input type="button" value="=" ng-click="calc()" />
+    </div>
+
+    <p>
+        <u>
+            {{value}}
+        </u>
+    </p>
+
+    <script>
+        var app = angular.module('calc', []);
+        app.controller('controller', function($scope) {
+
+            $scope.value = "";
+            $scope.v1 = -1;
+            $scope.v2 = -1;
+            $scope.oper = "nada";
+
+            $scope.setVal = function(val) {
+                if ($scope.v1 == -1) {
+                    $scope.value = "" + val;
+                    $scope.v1 = val;
+                } else {
+                    $scope.v2 = val;
+                    $scope.value += val;
+                }
+            };
+
+            $scope.setOp = function(op) {
+                $scope.oper = op;
+                switch (op) {
+                    case 'd':
+                        $scope.value += " / ";
+                        break;
+                    case 'm':
+                        $scope.value += " * ";
+                        break;
+                    case 'a':
+                        $scope.value += " + ";
+                        break;
+                    case 's':
+                        $scope.value += " - ";
+                        break;
+                }
+            }
+
+            $scope.calc = function() {
+                // $scope.oper = op;
+                switch ($scope.oper) {
+                    case 'd':
+                        $scope.value += " is " + ($scope.v1 / $scope.v2);
+                        break;
+                    case 'm':
+                        $scope.value += " is " + ($scope.v1 * $scope.v2);
+                        break;
+                    case 'a':
+                        $scope.value += " is " + ($scope.v1 + $scope.v2);
+                        break;
+                    case 's':
+                        $scope.value += " is " + ($scope.v1 - $scope.v2);
+                        break;
+                }
+                $scope.v1 = -1;
+                $scope.v2 = -1;
+            };
+
+            $scope.addExp = function() {
+                $scope.value = $scope.x + $scope.y;
+            };
+            $scope.subExp = function() {
+                $scope.value = $scope.x - $scope.y;
+            };
+            $scope.mulExp = function() {
+                $scope.value = $scope.x * $scope.y;
+            };
+            $scope.divExp = function() {
+                var y = $scope.y;
+                $scope.value = y != 0 ? $scope.x / $scope.y : "Can't divide by zero!";
+            };
+        });
+    </script>
+</body>
+
+</html>

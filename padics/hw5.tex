@@ -1,0 +1,54 @@
+\documentclass{hw}
+
+\begin{document}
+\makeheader{5}
+\begin{enumerate}
+	\item Let $f(x,y)=x^2 + y^2$. Observe that $(x,y)=(0,0)$ defines a solution to the equation $f(x,y)=0$. Do the remainder of this problem, we shall call $(0,0)$ the trivial solution to $f(x,y)=0$.
+	      \begin{enumerate}
+	      	\item Prove that $f(x,y)=0$ has no non-trivial solutions with $x,y\in\QQ$.
+	      	\item Prove that there exists a prime $p$ such that $f(x,y)=0$ has a nontrivial solution with $x,y\in\QQ_{p}$.
+	      	\item Verify that $f$ satisfies the Hasse Principle without referring to the Hasse-Minkowski Theorem.
+	      \end{enumerate}
+
+	\item Suppose that $\{ a_{n} \}_{n=0}^{\infty}$ is a sequence of points in $\ZZ_{p}$. Prove that the series
+	      \[
+	      	\sum_{n=0}^{\infty}a_{n}p^{n}
+	      \]
+	      converges in $\QQ_{p}$.
+	      \begin{quote}
+	      		\textit{\textbf{Proof:}} We know that a series will converge if and only if its sequence of partial sums converges. We can test for convergence by calculating
+				\[
+					\lim_{n\to\infty}\left|a_{n+1}p^{n+1}-a_{n}p^{n}\right|_{p}.
+				\]
+				We can say
+				\begin{align*}
+					\left|a_{n+1}p^{n+1}-a_{n}p^{n}\right|_{p} &= \max\left\{%
+						\left|a_{n+1}p^{n+1}\right|_{p},\left|a_{n}p^{n}\right|_{p}%
+					\right\}\\
+					&= \max\left\{%
+						\frac{1}{p^{v_{p}(a_{n+1}) + n + 1}}, \frac{1}{p^{n+v_{p}(a_{n})}}%
+					\right\}.\\
+					\lim_{n\to\infty}\max\left\{%
+						\frac{1}{p^{v_{p}(a_{n+1}) + n + 1}}, \frac{1}{p^{n+v_{p}(a_{n})}}%
+					\right\} &= \max\left\{0,0\right\}\\
+					&= 0.
+				\end{align*}
+				Therefore, the sequence of partial sums is Cauchy, and thus convergent, so the series converges.
+	      \end{quote}
+
+	\item Suppose that $k\in\NN$.
+	      \begin{enumerate}
+	      	\item Prove that the series
+	      	      \[
+	      	      	\sum_{n=1}^{\infty}\frac{1}{n^{k}}
+	      	      \]
+	      	      does not converge in $\QQ_{p}$ for any prime $p\neq\infty$.
+
+	      	\item Prove that the series
+	      	      \[
+	      	      	\sum_{n=1}^{\infty}n^{k}
+	      	      \]
+	      	      does not converge in $\QQ_{p}$ for any prime $p\neq\infty$.
+	      \end{enumerate}
+\end{enumerate}
+\end{document}
