@@ -16,24 +16,28 @@
 	      \]
 	      converges in $\QQ_{p}$.
 	      \begin{quote}
-	      		\textit{\textbf{Proof:}} We know that a series will converge if and only if its sequence of partial sums converges. We can test for convergence by calculating
-				\[
-					\lim_{n\to\infty}\left|a_{n+1}p^{n+1}-a_{n}p^{n}\right|_{p}.
-				\]
-				We can say
-				\begin{align*}
-					\left|a_{n+1}p^{n+1}-a_{n}p^{n}\right|_{p} &= \max\left\{%
-						\left|a_{n+1}p^{n+1}\right|_{p},\left|a_{n}p^{n}\right|_{p}%
-					\right\}\\
-					&= \max\left\{%
-						\frac{1}{p^{v_{p}(a_{n+1}) + n + 1}}, \frac{1}{p^{n+v_{p}(a_{n})}}%
-					\right\}.\\
-					\lim_{n\to\infty}\max\left\{%
-						\frac{1}{p^{v_{p}(a_{n+1}) + n + 1}}, \frac{1}{p^{n+v_{p}(a_{n})}}%
-					\right\} &= \max\left\{0,0\right\}\\
-					&= 0.
-				\end{align*}
-				Therefore, the sequence of partial sums is Cauchy, and thus convergent, so the series converges.
+	      	\textit{\textbf{Proof:}} We know that a series will converge if and only if its sequence of partial sums converges. We can test for convergence by calculating
+	      	\[
+	      		\lim_{n\to\infty}\left|a_{n+1}p^{n+1}-a_{n}p^{n}\right|_{p}.
+	      	\]
+	      	We can say
+	      	\begin{align*}
+	      		\left|a_{n+1}p^{n+1}-a_{n}p^{n}\right|_{p} &\leq \max\left\{%
+	      		\left|a_{n+1}p^{n+1}\right|_{p},\left|a_{n}p^{n}\right|_{p}%
+	      		\right\}\\
+	      		                                           &= \max\left\{%
+	      		\frac{1}{p^{v_{p}(a_{n+1}) + n + 1}}, \frac{1}{p^{n+v_{p}(a_{n})}}%
+	      		\right\}.\\
+	      		\lim_{n\to\infty}\max\left\{%
+	      		\frac{1}{p^{v_{p}(a_{n+1}) + n + 1}}, \frac{1}{p^{n+v_{p}(a_{n})}}%
+	      		\right\}                                   & = \max\left\{0,0\right\} \\
+	      		                                           & = 0.
+	      	\end{align*}
+			Since the $p$-adic absolute value is greater than or equal to 0, we know
+			\[
+			\lim_{n\to\infty}\left|a_{n+1}p^{n+1}-a_{n}p^{n}\right|_{p} = 0.
+			\]
+	      	Therefore, the sequence of partial sums is Cauchy, and thus convergent, so the series converges.
 	      \end{quote}
 
 	\item Suppose that $k\in\NN$.
@@ -43,57 +47,115 @@
 	      	      	\sum_{n=1}^{\infty}\frac{1}{n^{k}}
 	      	      \]
 	      	      does not converge in $\QQ_{p}$ for any prime $p\neq\infty$.
-				  \begin{quote}
-					  \textit{\textbf{Proof:}} Suppose otherwise. Then
-					  \[
-					  	\lim_{n\to\infty}\left|%
-							\frac{1}{(n+1)^{k}}-\frac{1}{n^{k}}%
-						\right|_{p} = 0.
-					  \]
-					  We can analyze the $p$-adic absolute value inside the limit:
-					  \begin{align*}
-						  \left|\frac{1}{(n+1)^{k}}-\frac{1}{n^{k}}\right|_{p} &\leq
-						  \max\left\{%
-						  	p^{-v_{p}\left(1/(n+1)^{k}\right)}, p^{-v_{p}\left(1/n^{k}\right)}%
-						  \right\}
-					  \end{align*}
-					  We can solve for the valuation in the first term:
-					  \[
-					  	v_{p}\left(
-							\frac{1}{(n+1)^{k}}
-						\right) =
-						-\frac{
-							k\log{(n+1)}+\log{m}
+	      	      \begin{quote}
+	      	      	\textit{\textbf{Proof:}} If we can show that the sequence of partial sums does not converge, then the series will not converge. We want to evaluate (and eventually take the limit of)
+	      	      	\[
+	      	      		\left|
+	      	      		\frac{1}{(n+1)^{k}}-\frac{1}{n^{k}}
+	      	      		\right|_{p}.
+	      	      	\]
+	      	      	We know by definition that
+	      	      	\begin{align*}
+	      	      		\left|
+	      	      		\frac{1}{(n+1)^{k}}-\frac{1}{n^{k}}
+	      	      		\right|_{p} &=
+						\left|
+							\frac{n^{k}-(n+1)^{k}}{n^{k}(n+1)^{k}}
+						\right|_{p}\\
+	      	      		&= p^{-
+	      	      			\left[
+	      	      			v_{p}(n^{k}-(n+1)^{k}) - v_{p}(n^{k})-v_{p}((n+1)^{k})
+	      	      			\right]
+	      	      		}.
+	      	      	\end{align*}
+					Through some tedious calculation, we can solve for the valuation of each term in the exponent.
+					\begin{gather*}
+						v_{p}\left(n^k-(n+1)^k\right) =
+						\frac{
+							\log{(n^k-(n+1)^k) - \log(m_{0})}
 						}{
-							\log{p}
+							\log{(p)}
+						}\\
+						v_{p}(n^{k}) =
+						\frac{
+							k\log{(n)}-\log{(m_{1})}
+						}{\log{(p)}}\\
+						v_{p}((n+1)^k) =
+						\frac{
+							k\log{(n+1)}-\log{(m_{2})}
+						}{
+							\log{(p)}
 						},
-					  \]
-					  where $m\nmid p$. If we take the limit as $n\to\infty$ of this expression, we see that it tends towards negative infinity, so the $p$-adic absolute value tends towards infinity. Similarly, we can evaluate the limit of $|1/n^{k}|_{p}$, and we will see that it too tends towards infinity. Therefore,
-					  \[
-					  	\lim_{n\to\infty}\left|%
-							\frac{1}{(n+1)^{k}}-\frac{1}{n^{k}}%
-						\right|_{p} \neq 0,
-					  \]
-					  so the series does not converge since its sequence of partial sums does not converge.
-				  \end{quote}
+					\end{gather*}
+					where $m_{0},m_{1}$, and $m_{2}$ do not divide $p$. Combining these valuations as required yields
+					\[
+					-\left[v_{p}(n^{k}-(n+1)^{k}) - v_{p}(n^{k})-v_{p}((n+1)^{k})\right]=
+					\frac{
+					\log{\left(
+						\frac{n^{k}(n+1)^{k}}{n^k-(n+1)^k}
+					\right)}
+					}{
+						\log{p}
+					} + c
+					\]
+					where $c$ is some constant number independant of $n$. We can now evaluate the real valued limit as $n\to\infty$.
+					\[
+						\lim_{n\to\infty}\frac{
+						\log{\left(
+							\frac{n^{k}(n+1)^{k}}{n^k-(n+1)^k}
+						\right)}}{\log{p}} + c = c+\frac{1}{\log{p}}\lim_{n\to\infty}\log{\left(
+							\frac{n^{k}(n+1)^{k}}{n^k-(n+1)^k}
+						\right)}.
+					\]
+					The function on the inside of the limit is continuous for all $k\in\NN$, so we can determine the limit as follows:
+					\begin{align*}
+						\lim_{n\to\infty}\log{\left(
+							\frac{n^{k}(n+1)^{k}}{n^k-(n+1)^k}
+						\right)} &= L\\
+						e^{
+						\lim_{n\to\infty}\log{\left(
+							\frac{n^{k}(n+1)^{k}}{n^k-(n+1)^k}
+						\right)}
+						} &= e^{L}\\
+						\lim_{n\to\infty}e^{\log{\left(
+							\frac{n^{k}(n+1)^{k}}{n^k-(n+1)^k}
+						\right)}
+						} &= e^{L}\\
+						\lim_{n\to\infty}\left(
+							\frac{n^{k}(n+1)^{k}}{n^k-(n+1)^k}
+						\right) &= e^{L}.
+					\end{align*}
+					For the fraction inside the limit, notice that after multiplication, the highest order term in the numerator will be $n^{2k}$, while the highest order term in the denominator will be $n^{k}$, so the limit behaves like
+					\[
+					\lim_{n\to\infty}\frac{n^{2k}}{n^k}=\lim_{n\to\infty}n^{k}=\infty = e^{L}.
+					\]
+					Taking the logarithm of both sides changes nothing, nor does dividing by $\log{p}$ where $p\neq\infty$, or adding $c$. Hence, we have that
+					\[
+					\lim_{n\to\infty}
+					\left|
+					\frac{1}{(n+1)^{k}}-\frac{1}{n^{k}}
+					\right|_{p} = \infty,
+					\]
+					so the sequence of partial sums does \textbf{not} converge, and therefore the series does not converge.
+	      	      \end{quote}
 
 	      	\item Prove that the series
 	      	      \[
 	      	      	\sum_{n=1}^{\infty}n^{k}
 	      	      \]
 	      	      does not converge in $\QQ_{p}$ for any prime $p\neq\infty$.
-				  \begin{quote}
-					  \textit{\textbf{Proof:}} We want to show that
-					  \[
-					  	\lim_{n\to\infty}\left|(n+1)^{k} - n^{k}\right|_{p}\neq 0.
-					  \]
-					  We can use a similar trick as above:
-					  \begin{align*}
-						  \left|(n+1)^{k} - n^{k}\right|_{p} &\leq \max\left\{
-						  	
-						  \right\}
-					  \end{align*}
-				  \end{quote}
+	      	      \begin{quote}
+	      	      	\textit{\textbf{Proof:}} We want to show that
+	      	      	\[
+	      	      		\lim_{n\to\infty}\left|(n+1)^{k} - n^{k}\right|_{p}\neq 0.
+	      	      	\]
+					Using the binomial theorem, we find that
+					\[
+					\left|(n+1)^{k} - n^{k}\right|_{p} =
+					\left|\sum_{j=0}^{k}\binom{k}{j}n^{j} - n^{k}\right|_{p} =
+					\left|\sum_{j=0}^{k-1}\binom{k}{j}n^{j}\right|_{p}
+					\]
+	      	      \end{quote}
 	      \end{enumerate}
 \end{enumerate}
 \end{document}
