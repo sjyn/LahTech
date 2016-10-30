@@ -43,12 +43,57 @@
 	      	      	\sum_{n=1}^{\infty}\frac{1}{n^{k}}
 	      	      \]
 	      	      does not converge in $\QQ_{p}$ for any prime $p\neq\infty$.
+				  \begin{quote}
+					  \textit{\textbf{Proof:}} Suppose otherwise. Then
+					  \[
+					  	\lim_{n\to\infty}\left|%
+							\frac{1}{(n+1)^{k}}-\frac{1}{n^{k}}%
+						\right|_{p} = 0.
+					  \]
+					  We can analyze the $p$-adic absolute value inside the limit:
+					  \begin{align*}
+						  \left|\frac{1}{(n+1)^{k}}-\frac{1}{n^{k}}\right|_{p} &\leq
+						  \max\left\{%
+						  	p^{-v_{p}\left(1/(n+1)^{k}\right)}, p^{-v_{p}\left(1/n^{k}\right)}%
+						  \right\}
+					  \end{align*}
+					  We can solve for the valuation in the first term:
+					  \[
+					  	v_{p}\left(
+							\frac{1}{(n+1)^{k}}
+						\right) =
+						-\frac{
+							k\log{(n+1)}+\log{m}
+						}{
+							\log{p}
+						},
+					  \]
+					  where $m\nmid p$. If we take the limit as $n\to\infty$ of this expression, we see that it tends towards negative infinity, so the $p$-adic absolute value tends towards infinity. Similarly, we can evaluate the limit of $|1/n^{k}|_{p}$, and we will see that it too tends towards infinity. Therefore,
+					  \[
+					  	\lim_{n\to\infty}\left|%
+							\frac{1}{(n+1)^{k}}-\frac{1}{n^{k}}%
+						\right|_{p} \neq 0,
+					  \]
+					  so the series does not converge since its sequence of partial sums does not converge.
+				  \end{quote}
 
 	      	\item Prove that the series
 	      	      \[
 	      	      	\sum_{n=1}^{\infty}n^{k}
 	      	      \]
 	      	      does not converge in $\QQ_{p}$ for any prime $p\neq\infty$.
+				  \begin{quote}
+					  \textit{\textbf{Proof:}} We want to show that
+					  \[
+					  	\lim_{n\to\infty}\left|(n+1)^{k} - n^{k}\right|_{p}\neq 0.
+					  \]
+					  We can use a similar trick as above:
+					  \begin{align*}
+						  \left|(n+1)^{k} - n^{k}\right|_{p} &\leq \max\left\{
+						  	
+						  \right\}
+					  \end{align*}
+				  \end{quote}
 	      \end{enumerate}
 \end{enumerate}
 \end{document}
