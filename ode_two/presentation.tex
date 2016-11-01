@@ -1,0 +1,50 @@
+\documentclass{beamer}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{graphicx}
+
+\title{The R\"{o}ssler System}
+\author{Steven Rosendahl}
+\date{}
+
+\usetheme{Rochester}
+\usecolortheme{whale}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{Introduction}
+    \begin{itemize}
+        \item Created by Otto R\"{o}ssler in 1976
+        \pause
+        \item System constructed to display simplest possible \textit{Strange Attractor}
+        \pause
+    \end{itemize}
+    \begin{definition}
+        An \alert{attractor} is a set of values towards which a system moves when initial conditions are \textit{near} the attractor.
+        \pause
+        An attractor is called \alert{strange} if it exhibits fractal behavior.
+    \end{definition}
+    \pause
+    \begin{itemize}
+        \item Strange attractors are often associated with chaotic systems.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{System}
+    \begin{align*}
+        \dot{x}&= -y-z\\
+        \dot{y}&= x+ay\\
+        \dot{z}&= b+z(x-c)
+    \end{align*}
+    \pause
+    \begin{itemize}
+        \item $a,b,c$ are responsible for attractive behavior
+        \pause
+        \item Want to analyze the effect small $a$ and $b$ have on system
+    \end{itemize}
+\end{frame}
+
+\end{document}

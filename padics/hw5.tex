@@ -3,11 +3,28 @@
 \begin{document}
 \makeheader{5}
 \begin{enumerate}
-	\item Let $f(x,y)=x^2 + y^2$. Observe that $(x,y)=(0,0)$ defines a solution to the equation $f(x,y)=0$. Do the remainder of this problem, we shall call $(0,0)$ the trivial solution to $f(x,y)=0$.
+	\item Let $f(x,y)=x^2 + y^2$. Observe that $(x,y)=(0,0)$ defines a solution to the equation $f(x,y)=0$. For the remainder of this problem, we shall call $(0,0)$ the trivial solution to $f(x,y)=0$.
 	      \begin{enumerate}
 	      	\item Prove that $f(x,y)=0$ has no non-trivial solutions with $x,y\in\QQ$.
+	      	      \begin{quote}
+	      	      	Suppose that $f(x,y)$ has a non-trivial zero in $\QQ$. Then $x^{2}+y^{2} = 0$ for some pair $(x,y)\neq(0,0)$. For any choice of $x\neq0$ or $y\neq0$, we know that $x^{2}$ and $y^{2}$ are both positive. The sum of two positive numbers is still positive, so $x^{2}+y^{2} > 0$ for $x\neq0$ and $y\neq0$. Therefore there cannot be any other zeros besides $(0,0)$.
+	      	      \end{quote}
 	      	\item Prove that there exists a prime $p$ such that $f(x,y)=0$ has a nontrivial solution with $x,y\in\QQ_{p}$.
+	      	      \begin{quote}
+	      	      	Let $p=2$ and $y=1$. We want to show by Hensel's Lemma that $f(x,1)=g(x)=x^{2}+1$ has a solution near $x=1$. We can see that the first property of Hensel's Lemma is satisfied since
+	      	      	\[
+	      	      		g(1)=1^{2}+1=2\equiv0\mod2.
+	      	      	\]
+	      	      	Similarly, the second property is satisfied, since
+	      	      	\[
+	      	      		g'(1)=1 \not\equiv 0\mod2.
+	      	      	\]
+	      	      	Hence, there is a non-trivial zero of $f$ at $(x,y)=(1,1)$.
+	      	      \end{quote}
 	      	\item Verify that $f$ satisfies the Hasse Principle without referring to the Hasse-Minkowski Theorem.
+	      	      \begin{quote}
+	      	      	We have shown that $f$ has has no non-trivial solutions in $\QQ$ and that $f$ has a non-trivial solution in $\QQ_{2}$, so it satisfies the negation of the Hasse Principle.
+	      	      \end{quote}
 	      \end{enumerate}
 
 	\item Suppose that $\{ a_{n} \}_{n=0}^{\infty}$ is a sequence of points in $\ZZ_{p}$. Prove that the series
@@ -22,10 +39,10 @@
 	      	\]
 	      	We can say
 	      	\begin{align*}
-	      		\left|a_{n+1}p^{n+1}-a_{n}p^{n}\right|_{p} &\leq \max\left\{%
+	      		\left|a_{n+1}p^{n+1}-a_{n}p^{n}\right|_{p} & \leq \max\left\{%
 	      		\left|a_{n+1}p^{n+1}\right|_{p},\left|a_{n}p^{n}\right|_{p}%
 	      		\right\}\\
-	      		                                           &= \max\left\{%
+	      		                                           & = \max\left\{%
 	      		\frac{1}{p^{v_{p}(a_{n+1}) + n + 1}}, \frac{1}{p^{n+v_{p}(a_{n})}}%
 	      		\right\}.\\
 	      		\lim_{n\to\infty}\max\left\{%
@@ -33,10 +50,10 @@
 	      		\right\}                                   & = \max\left\{0,0\right\} \\
 	      		                                           & = 0.
 	      	\end{align*}
-			Since the $p$-adic absolute value is greater than or equal to 0, we know
-			\[
-			\lim_{n\to\infty}\left|a_{n+1}p^{n+1}-a_{n}p^{n}\right|_{p} = 0.
-			\]
+	      	Since the $p$-adic absolute value is greater than or equal to 0, we know
+	      	\[
+	      		\lim_{n\to\infty}\left|a_{n+1}p^{n+1}-a_{n}p^{n}\right|_{p} = 0.
+	      	\]
 	      	Therefore, the sequence of partial sums is Cauchy, and thus convergent, so the series converges.
 	      \end{quote}
 
@@ -58,85 +75,85 @@
 	      	      	\begin{align*}
 	      	      		\left|
 	      	      		\frac{1}{(n+1)^{k}}-\frac{1}{n^{k}}
-	      	      		\right|_{p} &=
-						\left|
-							\frac{n^{k}-(n+1)^{k}}{n^{k}(n+1)^{k}}
-						\right|_{p}\\
-	      	      		&= p^{-
-	      	      			\left[
-	      	      			v_{p}(n^{k}-(n+1)^{k}) - v_{p}(n^{k})-v_{p}((n+1)^{k})
-	      	      			\right]
+	      	      		\right|_{p} & =
+	      	      		\left|
+	      	      		\frac{n^{k}-(n+1)^{k}}{n^{k}(n+1)^{k}}
+	      	      		\right|_{p}\\
+	      	      		            & = p^{-
+	      	      		\left[
+	      	      		v_{p}(n^{k}-(n+1)^{k}) - v_{p}(n^{k})-v_{p}((n+1)^{k})
+	      	      		\right]
 	      	      		}.
 	      	      	\end{align*}
-					Through some tedious calculation, we can solve for the valuation of each term in the exponent.
-					\begin{gather*}
-						v_{p}\left(n^k-(n+1)^k\right) =
-						\frac{
-							\log{(n^k-(n+1)^k) - \log(m_{0})}
-						}{
-							\log{(p)}
-						}\\
-						v_{p}(n^{k}) =
-						\frac{
-							k\log{(n)}-\log{(m_{1})}
-						}{\log{(p)}}\\
-						v_{p}((n+1)^k) =
-						\frac{
-							k\log{(n+1)}-\log{(m_{2})}
-						}{
-							\log{(p)}
-						},
-					\end{gather*}
-					where $m_{0},m_{1}$, and $m_{2}$ do not divide $p$. Combining these valuations as required yields
-					\[
-					-\left[v_{p}(n^{k}-(n+1)^{k}) - v_{p}(n^{k})-v_{p}((n+1)^{k})\right]=
-					\frac{
-					\log{\left(
-						\frac{n^{k}(n+1)^{k}}{n^k-(n+1)^k}
-					\right)}
-					}{
-						\log{p}
-					} + c
-					\]
-					where $c$ is some constant number independant of $n$. We can now evaluate the real valued limit as $n\to\infty$.
-					\[
-						\lim_{n\to\infty}\frac{
-						\log{\left(
-							\frac{n^{k}(n+1)^{k}}{n^k-(n+1)^k}
-						\right)}}{\log{p}} + c = c+\frac{1}{\log{p}}\lim_{n\to\infty}\log{\left(
-							\frac{n^{k}(n+1)^{k}}{n^k-(n+1)^k}
-						\right)}.
-					\]
-					The function on the inside of the limit is continuous for all $k\in\NN$, so we can determine the limit as follows:
-					\begin{align*}
-						\lim_{n\to\infty}\log{\left(
-							\frac{n^{k}(n+1)^{k}}{n^k-(n+1)^k}
-						\right)} &= L\\
-						e^{
-						\lim_{n\to\infty}\log{\left(
-							\frac{n^{k}(n+1)^{k}}{n^k-(n+1)^k}
-						\right)}
-						} &= e^{L}\\
-						\lim_{n\to\infty}e^{\log{\left(
-							\frac{n^{k}(n+1)^{k}}{n^k-(n+1)^k}
-						\right)}
-						} &= e^{L}\\
-						\lim_{n\to\infty}\left(
-							\frac{n^{k}(n+1)^{k}}{n^k-(n+1)^k}
-						\right) &= e^{L}.
-					\end{align*}
-					For the fraction inside the limit, notice that after multiplication, the highest order term in the numerator will be $n^{2k}$, while the highest order term in the denominator will be $n^{k}$, so the limit behaves like
-					\[
-					\lim_{n\to\infty}\frac{n^{2k}}{n^k}=\lim_{n\to\infty}n^{k}=\infty = e^{L}.
-					\]
-					Taking the logarithm of both sides changes nothing, nor does dividing by $\log{p}$ where $p\neq\infty$, or adding $c$. Hence, we have that
-					\[
-					\lim_{n\to\infty}
-					\left|
-					\frac{1}{(n+1)^{k}}-\frac{1}{n^{k}}
-					\right|_{p} = \infty,
-					\]
-					so the sequence of partial sums does \textbf{not} converge, and therefore the series does not converge.
+	      	      	Through some tedious calculation, we can solve for the valuation of each term in the exponent.
+	      	      	\begin{gather*}
+	      	      		v_{p}\left(n^k-(n+1)^k\right) =
+	      	      		\frac{
+	      	      			\log{(n^k-(n+1)^k) - \log(m_{0})}
+	      	      			}{
+	      	      			\log{(p)}
+	      	      			}\\
+	      	      		v_{p}(n^{k}) =
+	      	      		\frac{
+	      	      			k\log{(n)}-\log{(m_{1})}
+	      	      			}{\log{(p)}}\\
+	      	      		v_{p}((n+1)^k) =
+	      	      		\frac{
+	      	      			k\log{(n+1)}-\log{(m_{2})}
+	      	      			}{
+	      	      			\log{(p)}
+	      	      		},
+	      	      	\end{gather*}
+	      	      	where $m_{0},m_{1}$, and $m_{2}$ do not divide $p$. Combining these valuations as required yields
+	      	      	\[
+	      	      		-\left[v_{p}(n^{k}-(n+1)^{k}) - v_{p}(n^{k})-v_{p}((n+1)^{k})\right]=
+	      	      		\frac{
+	      	      			\log{\left(
+	      	      				\frac{n^{k}(n+1)^{k}}{n^k-(n+1)^k}
+	      	      				\right)}
+	      	      			}{
+	      	      			\log{p}
+	      	      		} + c
+	      	      	\]
+	      	      	where $c$ is some constant number independant of $n$. We can now evaluate the real valued limit as $n\to\infty$.
+	      	      	\[
+	      	      		\lim_{n\to\infty}\frac{
+	      	      			\log{\left(
+	      	      				\frac{n^{k}(n+1)^{k}}{n^k-(n+1)^k}
+	      	      				\right)}}{\log{p}} + c = c+\frac{1}{\log{p}}\lim_{n\to\infty}\log{\left(
+	      	      		\frac{n^{k}(n+1)^{k}}{n^k-(n+1)^k}
+	      	      		\right)}.
+	      	      	\]
+	      	      	The function on the inside of the limit is continuous for all $k\in\NN$, so we can determine the limit as follows:
+	      	      	\begin{align*}
+	      	      		\lim_{n\to\infty}\log{\left(
+	      	      		\frac{n^{k}(n+1)^{k}}{n^k-(n+1)^k}
+	      	      		\right)} & = L      \\
+	      	      		e^{
+	      	      		\lim_{n\to\infty}\log{\left(
+	      	      		\frac{n^{k}(n+1)^{k}}{n^k-(n+1)^k}
+	      	      		\right)}
+	      	      		}        & = e^{L}  \\
+	      	      		\lim_{n\to\infty}e^{\log{\left(
+	      	      		\frac{n^{k}(n+1)^{k}}{n^k-(n+1)^k}
+	      	      		\right)}
+	      	      		}        & = e^{L}  \\
+	      	      		\lim_{n\to\infty}\left(
+	      	      		\frac{n^{k}(n+1)^{k}}{n^k-(n+1)^k}
+	      	      		\right)  & = e^{L}.
+	      	      	\end{align*}
+	      	      	For the fraction inside the limit, notice that after multiplication, the highest order term in the numerator will be $n^{2k}$, while the highest order term in the denominator will be $n^{k}$, so the limit behaves like
+	      	      	\[
+	      	      		\lim_{n\to\infty}\frac{n^{2k}}{n^k}=\lim_{n\to\infty}n^{k}=\infty = e^{L}.
+	      	      	\]
+	      	      	Taking the logarithm of both sides changes nothing, nor does dividing by $\log{p}$ where $p\neq\infty$, or adding $c$. Hence, we have that
+	      	      	\[
+	      	      		\lim_{n\to\infty}
+	      	      		\left|
+	      	      		\frac{1}{(n+1)^{k}}-\frac{1}{n^{k}}
+	      	      		\right|_{p} = \infty,
+	      	      	\]
+	      	      	so the sequence of partial sums does \textbf{not} converge, and therefore the series does not converge.
 	      	      \end{quote}
 
 	      	\item Prove that the series
@@ -145,16 +162,7 @@
 	      	      \]
 	      	      does not converge in $\QQ_{p}$ for any prime $p\neq\infty$.
 	      	      \begin{quote}
-	      	      	\textit{\textbf{Proof:}} We want to show that
-	      	      	\[
-	      	      		\lim_{n\to\infty}\left|(n+1)^{k} - n^{k}\right|_{p}\neq 0.
-	      	      	\]
-					Using the binomial theorem, we find that
-					\[
-					\left|(n+1)^{k} - n^{k}\right|_{p} =
-					\left|\sum_{j=0}^{k}\binom{k}{j}n^{j} - n^{k}\right|_{p} =
-					\left|\sum_{j=0}^{k-1}\binom{k}{j}n^{j}\right|_{p}
-					\]
+	      	      	\textit{\textbf{Proof:}} We want to show that the individual terms in the series do not tend towards 0 $p$-adically. Consider all the elements of $\ZZ/p\ZZ$. We know that all multiples of $p$ will live in $\overline{0}$ and as such will have a $p$-adic absolute value less than 1. All other elements will have a $p$-adic absolute value of 1, since they contain a factor of $p^{0}$. Hence, the sum tends towards infinity, so the series does not converge.
 	      	      \end{quote}
 	      \end{enumerate}
 \end{enumerate}

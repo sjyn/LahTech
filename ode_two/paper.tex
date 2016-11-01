@@ -261,9 +261,11 @@ Figure \ref{fig:nzero_sln} displays two parametric plots of the solution curves 
 
 We now know that both equilibrium points are unstable when we ignore $a$ and $b$ in comparison to $c$. In fact, it turns out that this stability is preserved even when we reintroduce $a$ and $b$ back into the system. Figure \ref{fig:raw_ev} shows us what one of the raw eigenvalues looks like, according to Mathematica. The three eigenvalues resulting from the unsimplified system still exhibit the saddle focus behavior that we saw when we allowed $a$ and $b$ to drift towards zero. We now want to turn our attention towards the actions of the system when we change the values for $a$, $b$, and $c$.
 
-Attractors are often associated with chaotic systems; as such, we will now examine various bifurcations on the R\"{o}ssler system. We have three variables that contribute to the chaos of the system: $a$, $b$, and $c$. R\"{o}ssler analyzed the system for relatively small $a$ and $b$, and we analyzed the stability of critical points when we neglected $a$ and $b$. We will first analyze the effect that small changes to $a$ have on the system.
+Attractors are often associated with chaotic systems; as such, we will now examine various bifurcations on the R\"{o}ssler system. We have three variables that contribute to the chaos of the system: $a$, $b$, and $c$. R\"{o}ssler analyzed the system for relatively small $a$ and $b$, and we analyzed the stability of critical points when we neglected $a$ and $b$. The bifurcations will reveal behavior such as the periodicity and chaotic nature of the system. We will first analyze the effect that small changes to $a$ have on the system.
 
-The $a$ parameter affects our $g(x,y,z)$. For simplicity, we notice that $g$ is only dependent on $x$ and $y$, so we will let $g(x,y,z)=\gamma(x,y)$.
+In order to analyze the effect of $a$ on the system, we need to hold $b$ and $c$ constant. We will let $b=0.1$ and $c=8.8$. Figure \ref{fig:a_bifur_01} shows the effect that varying $a$ has on the system in the $x-y$ plane. As $a$ increases from $-\infty$, the system moves from a spiral sink to a center and finally to a saddle, moving from stable to semi-stable to unstable.
+
+When we examine the stability changes caused by $a$, we notice that the 
 
 \newpage
 \clearpage
@@ -316,6 +318,18 @@ The $a$ parameter affects our $g(x,y,z)$. For simplicity, we notice that $g$ is 
 	\end{gather*}
 	\caption{Example of one raw eigenvalue and its corresponding evaluation at $a=0.2$, $b=0.2$, and $c=0.2$.}
 	\label{fig:raw_ev}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\begin{tabular}{c c c}
+		\includegraphics[scale=0.4]{a_bifur_n0p2} &
+		\includegraphics[scale=0.4]{a_bifur_n1p52656} &
+		\includegraphics[scale=0.4]{a_bifur_2p1}\\
+		$a=-0.2$ & $a=-1.52656$ & $a=2.1$
+	\end{tabular}
+	\caption{Three bifurcations for $a$ when $z=0$}
+	\label{fig:a_bifur_01}
 \end{figure}
 
 \begin{figure}[h]
