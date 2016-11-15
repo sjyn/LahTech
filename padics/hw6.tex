@@ -1,0 +1,173 @@
+\documentclass{hw}
+
+\begin{document}
+\makeheader{6}
+\begin{enumerate}
+	\item Find the radius of convergence of the series
+	      \[
+	      	f(x)=\sum_{i=0}^{\infty}\left(
+	      	\frac{x}{7}
+	      	\right)^{n}
+	      \]
+	      in $\QQ_{p}$.
+	      \begin{quote}
+	      	We will consider the case in $\QQ_{7}$ first. We need to find
+	      	\begin{align*}
+	      		r & = \left(\limsup_{n\to\infty}\left(
+	      		\left|\frac{1}{7^n}\right|_{7}\right)^{1/n}
+	      		\right)^{-1}\\
+	      		  & = \left(
+	      		\limsup_{n\to\infty}(7^{n})^{1/n}
+	      		\right)^{-1}\\
+	      		  & = \left(
+	      		\limsup_{n\to\infty}7
+	      		\right)^{-1}\\
+	      		  & = \frac{1}{7}.
+	      	\end{align*}
+	      	By the $p$-adic root test, this means that the series converges for all $x\in\QQ_{p}$ such that $|x|_{p}<1/7$. To check convergence in $\QQ_{p}$ when $p\neq 7$, we can consider
+	      	\begin{align*}
+	      		\left|\frac{1}{7^{n}}\right| & = p^{-v_{p}(1/7^{n})}                                                              \\
+	      		                             & = p^{-v_{p}(1) + v_{p}(7^{n})}                                                     \\
+	      		                             & = p^{0+0} \quad\text{since there will be no factors of $p$ in $7^n$ when $p\neq7$} \\
+	      		                             & = 1,
+	      	\end{align*}
+	      	so
+	      	\[
+	      		r = \frac{1}{\limsup_{n\to\infty}\left|\frac{1}{7^{n}}\right|_{p}^{1/n}} =
+	      		\frac{1}{\limsup_{n\to\infty}1} = 1,
+	      	\]
+	      	and the radius of convergence is 1. Therefore, $f(x)$ converges on $\{x : |x|_{p}<1\}$, also known as $\ZZ_{p}$.
+	      \end{quote}
+
+	\item Suppose that $\{a_{n}\}$ is the sequence of points in $\{1,2,3,4,5\}$ defined so that $a_{n}\equiv n+1 \mod 5$. That is, $\{a_{n}\}$ is given by
+	      \[
+	      	1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,\dots
+	      \]
+	      Find the radius of convergence $r$ of the series
+	      \[
+	      	g(x)=\sum_{n=0}^{\infty}\left(\frac{x}{a_{n}}\right)^{n}
+	      \]
+	      in $\QQ_{5}$ and in $\QQ_{3}$. In each case, determine whether the series converges when $|x|_{p}=r$.
+	      \begin{quote}
+	      	Consider the case in $\QQ_{5}$. We have that
+	      	\begin{align*}
+	      		r & = \frac{1}{\limsup_{n\to\infty}\left|\frac{1}{a_{n}^{n}}\right|_{5}^{1/n}}     \\
+	      		  & = \frac{1}{\limsup_{n\to\infty}\left(\left|a_{n}\right|_{5}^{-n}\right)^{1/n}} \\
+	      		  & = \frac{1}{\limsup_{n\to\infty}\left|a_{n}\right|_{5}^{-1}}                    \\
+	      		  & = \frac{1}{\limsup_{n\to\infty}\left|\frac{1}{a_{n}}\right|_{5}}               \\
+	      		  & = \frac{1}{5}.
+	      	\end{align*}
+
+	      	We know that $1/5$ is the right choice, since the 5-adic absolute value of $1/5$ is the largest value that appears in the sequence 5-adically. Therefore, the radius of convergence of the sequence is $1/5$. We need a value that has $|x|_{5}=r$, so we will let $x=5$. Evaluating $g(5)$ gives us
+	      	\[
+	      		\sum_{n=0}^{\infty}\left(\frac{5}{a_{n}}\right)^{n},
+	      	\]
+	      	which we can analyze for convergence by looking at
+	      	\begin{align*}
+	      		\lim_{n\to\infty}\left|\left(\frac{5}{a_{n}}\right)^{n}\right|_{5}
+	      		  & =\lim_{n\to\infty}5^{-v_{5}(5^n)+v_{5}(a_{n}^n)}  \\
+	      		  & =\lim_{n\to\infty}\frac{5^{nv_{5}(a_{n})}}{5^{n}}
+	      	\end{align*}
+	      	If we consider the subsequence of $a_{n}$ consisting of $\{5,5,5,5,\dots\}$, then the limit tends to $1$ since
+	      	\[
+	      		\lim_{n\to\infty}\frac{5^{nv_{5}(a_{n})}}{5^{n}}=\lim_{n\to\infty}\frac{5^{n}}{5^{n}}=1
+	      	\]
+	      	Similarly, for the subsequence defined by $\{1,2,3,4,1,2,3,4,\dots\}$, we have
+	      	\[
+	      		\lim_{n\to\infty}\frac{5^{nv_{5}(a_{n})}}{5^{n}}=\lim_{n\to\infty}\frac{5^{0}}{5^{n}}=0,
+	      	\]
+	      	So the limit does not exist. Therefore, the sequence does not converge on the boundary.
+
+	      	\noindent Consider the case in $\QQ_{3}$. Then we can say that
+	      	\[
+	      		\frac{1}{\limsup_{n\to\infty}\left(\left|a_{n}\right|_{3}^{-n}\right)^{1/n}} =
+	      		\frac{1}{\limsup_{n\to\infty}\left|\frac{1}{a_{n}}\right|_{3}} = \frac{1}{3}.
+	      	\]
+	      	We need to pick a point on the boundary (i.e. $|x|_{3}=1/3$), so let $x=3$. Then
+	      	\begin{align*}
+	      		\lim_{n\to\infty}\left|\frac{3^{n}}{a_{n}^{n}}\right|_{3}
+	      		  & = \lim_{n\to\infty}3^{-v_{3}(3^{n})+v_{3}(a_{n}^{n})} \\
+	      		  & = \lim_{n\to\infty}\frac{3^{nv_{3}(a_{n})}}{3^{n}}.
+	      	\end{align*}
+	      	If we consider the subsequence of $a_{n}$ given by $\{3,3,3,3,\dots\}$, we see that
+	      	\[
+	      		\lim_{n\to\infty}\frac{3^{nv_{3}(a_{n})}}{3^{n}}=
+	      		\lim_{n\to\infty}\frac{3^{n}}{3^{n}}=1,
+	      	\]
+	      	and if we consider the subsequence given by $\{1,2,4,5,1,2,4,5,\dots\}$, then we find that
+	      	\[
+	      		\lim_{n\to\infty}\frac{3^{nv_{3}(a_{n})}}{3^{n}}=
+	      		\lim_{n\to\infty}\frac{3^{0}}{3^{n}}=0.
+	      	\]
+	      	Therefore, the limit does not exist, so the series diverges on the boundary of the region of convergence.
+
+	      \end{quote}
+
+	\item Find the radius of convergence of the power series
+	      \[
+	      	h(x)=\sum_{n=0}^{\infty}n!x^{n}
+	      \]
+	      in $\QQ_{p}$.
+		  \begin{quote}
+			  To begin, we want a formula for $v_{p}(n!)$. Luckily, there' a nice theorem that can help us here.
+			  \begin{quote}
+				  \textbf{Legendre's Theorem}:
+				  \[
+				  	v_{p}(n!)=\sum_{k=1}^{\infty}\left\lfloor\frac{n}{p^{k}}\right\rfloor.
+				  \]
+				%   \textbf{\textit{Proof:}} We claim that there are $\lfloor n/p \rfloor$ integers below $n$ that have a factor of $p$ in them. $n!$ is the product of integers $1\dots n$, so we get at least one factor of $p$ in $n!$ for each multiple of $p$ in $\{1,2,3,\dots,n\}$. Similarly, each multiple of $p^2$ contributes a factor of $p$, and each multiple of $p^3$ contributes a factor of $p$, and so on.
+			  \end{quote}
+			  In order to determine the radius of convergence, we need to evaluate
+			  \[
+			  	\frac{1}{\limsup_{n\to\infty}(|n!|_{p})^{1/n}}.
+			  \]
+			  Consider the quantity inside the $\limsup$ expression. We need to calculate $(p^{-v_{p}(n!)})^{(1/n)}$. Note that
+			  \begin{align*}
+				  \sum_{k=1}^{\infty}\left\lfloor\frac{n}{p^{k}}\right\rfloor &\leq \sum_{k=1}^{\infty}\frac{n}{p^{k}}\\
+				  -\sum_{k=1}^{\infty}\left\lfloor\frac{n}{p^{k}}\right\rfloor &\geq -\sum_{k=1}^{\infty}\frac{n}{p^{k}}\\
+				  p^{-\sum_{k=1}^{\infty}\left\lfloor\frac{n}{p^{k}}\right\rfloor} &\geq p^{-\sum_{k=1}^{\infty}\frac{n}{p^{k}}}\\
+				  \frac{1}{p^{-\sum_{k=1}^{\infty}\left\lfloor\frac{n}{p^{k}}\right\rfloor}} &\leq \frac{1}{p^{-\sum_{k=1}^{\infty}\frac{n}{p^{k}}}},
+			  \end{align*}
+			  so
+			  \begin{align*}
+				  \frac{1}{\limsup_{n\to\infty}|n!|_{p}^{1/n}} &=
+				  \frac{1}{\limsup_{n\to\infty}p^{\left(-\sum_{k=1}^{\infty}\left\lfloor\frac{n}{p^{k}}\right\rfloor\right)^{1/n}}}\\
+				  &\leq \frac{1}{\limsup_{n\to\infty}p^{\left(-\sum_{k=1}^{\infty}\frac{n}{p^{k}}\right)^{1/n}}}\\
+				  &= \frac{1}{\limsup_{n\to\infty}p^{-\sum_{k=1}^{\infty}\frac{1}{p^{k}}}}.
+			  \end{align*}
+			  By the geometric series test, we find that
+			  \[
+			  	\sum_{k=1}^{\infty}\frac{1}{p^k}=\frac{1}{1-p},
+			  \]
+			  so
+			  \[
+			  	\frac{1}{\limsup_{n\to\infty}|n!|_{p}^{1/n}} \leq p^{\frac{1}{p-1}}
+			  \]
+			  To determine a lower bound for the expression, consider
+			  \[
+			  	\sum_{k=1}^{\infty}\left\lfloor\frac{n}{p^{k}}\right\rfloor \geq \sum_{k=1}^{\infty}\frac{n}{p^{k}}-1.
+			  \]
+			  Using a similar argument as above, we find that
+			  \[
+			  	\frac{1}{p^{-\sum_{k=1}^{\infty}\left\lfloor\frac{n}{p^{k}}\right\rfloor}} \geq
+				\frac{1}{p^{\left(-\sum_{k=1}^{\infty}\frac{n}{p^{k}}-1\right)}}
+			  \]
+			  so that
+			  \begin{align*}
+				\frac{1}{\limsup_{n\to\infty}\left(p^{-\sum_{k}\left\lfloor\frac{n}{p^k}\right\rfloor}\right)^{1/n}} &\geq
+				\frac{1}{\limsup_{n\to\infty}\left(p^{-\sum_{k}\left(\frac{n}{p^k}-1\right)}\right)^{1/n}}\\
+				&=\frac{1}{\limsup_{n\to\infty}p^{-\sum_{k}\frac{1}{p^k}-\frac{1}{n}}}\\
+				&= \frac{1}{p^{-\sum_{k=1}^{\infty}\frac{1}{p^{k}}}}\\
+				&= \frac{1}{p^{-\frac{1}{p-1}}}\\
+				&= p^{\frac{1}{p-1}}
+			  \end{align*}
+			  Hence
+			  \[
+			  	p^{\frac{1}{p-1}}\leq
+				\frac{1}{\limsup_{n\to\infty}(|n!|_{p})^{1/n}}
+				\leq p^{\frac{1}{p-1}}\implies
+				\frac{1}{\limsup_{n\to\infty}(|n!|_{p})^{1/n}} = p^{\frac{1}{p-1}}
+			  \]
+		  \end{quote}
+\end{enumerate}
+\end{document}

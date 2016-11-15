@@ -259,13 +259,76 @@ results in the following three eigenvectors:
 \end{gather*}
 Figure \ref{fig:nzero_sln} displays two parametric plots of the solution curves for different initial values. The curves exhibit a center-like behavior that looks like a spring. We can compare this to the actual curve seen in \ref{fig:3dsys_02}. This behavior is seen in the purple spiral in the $x-y$ plane of the graph.
 
-We now know that both equilibrium points are unstable when we ignore $a$ and $b$ in comparison to $c$. In fact, it turns out that this stability is preserved even when we reintroduce $a$ and $b$ back into the system. Figure \ref{fig:raw_ev} shows us what one of the raw eigenvalues looks like, according to Mathematica. The three eigenvalues resulting from the unsimplified system still exhibit the saddle focus behavior that we saw when we allowed $a$ and $b$ to drift towards zero. We now want to turn our attention towards the actions of the system when we change the values for $a$, $b$, and $c$.
+We now know that both equilibrium points are unstable when we ignore $a$ and $b$ in comparison to $c$, but that behavior seems odd for an attractor. We analyzed the simple roots so that we would not have to try to symbolically analyze the eigenvalues of the system (see Figure \ref{fig:raw_ev} which gives one of the three eigenvalues of the linearized system when $a$ and $b$ are not ignored). We will now see the effects of the individual parameters on the system; to do this, we will have to hold two of the values constant. Throughout this discussion, we will consider $a=0.1, b=0.1$, and $c=8.8$ for the respective constant values.
 
 Attractors are often associated with chaotic systems; as such, we will now examine various bifurcations on the R\"{o}ssler system. We have three variables that contribute to the chaos of the system: $a$, $b$, and $c$. R\"{o}ssler analyzed the system for relatively small $a$ and $b$, and we analyzed the stability of critical points when we neglected $a$ and $b$. The bifurcations will reveal behavior such as the periodicity and chaotic nature of the system. We will first analyze the effect that small changes to $a$ have on the system.
 
-In order to analyze the effect of $a$ on the system, we need to hold $b$ and $c$ constant. We will let $b=0.1$ and $c=8.8$. Figure \ref{fig:a_bifur_01} shows the effect that varying $a$ has on the system in the $x-y$ plane. As $a$ increases from $-\infty$, the system moves from a spiral sink to a center and finally to a saddle, moving from stable to semi-stable to unstable.
+In order to analyze the effect of $a$ on the system, we need to hold $b$ and $c$ constant while changing $a$. The general strategy here will be to analyze the change on the eigenvalues of the linearized system, which will in turn allow us to . Figure \ref{fig:a_bifur_01} shows the effect that varying $a$ has on the system in the $x-y$ plane. As $a$ increases from $-\infty$, the system moves from a spiral sink to a center and finally to a saddle, moving from stable to semi-stable to unstable.
 
-When we examine the stability changes caused by $a$, we notice that the 
+To see the change  in the eigenvalues, we can use the roots we found in (\ref{eq:csln1}) and (\ref{eq:csln2}). Replacing $a,b,$ and $c$ with our constant values yields the new Jacobians the we need to analyze.
+\begin{equation}
+	J_{\text{roots at (\ref{eq:csln1})}}=
+	\left[
+	\begin{array}{c c c}
+		0                                  & -1 & -1                        \\
+		1                                  & a  & 0                         \\
+		\frac{8.8-\sqrt{77.44 - 0.4a}}{2a} & 0  & -4.4-0.5\sqrt{77.44-0.4a}
+	\end{array}
+	\right]\label{eq:a_mat_01}
+\end{equation}
+\noindent and
+\begin{equation}
+	J_{\text{roots at (\ref{eq:csln2})}} =
+	\left[
+	\begin{array}{c c c}
+		0                                   & -1 & -1                          \\
+		1                                   & a  & 0                           \\
+		\frac{0.5(8.8\sqrt{77.44-0.4a})}{a} & 0  & 0.5(-8.8+\sqrt{77.44-0.4a})
+	\end{array}
+	\right]\label{eq:a_mat_02}
+\end{equation}
+\noindent yield different stability based on the small changes in $a$. For the Jacobian given in (\ref{eq:a_mat_01}), the eigenvalues change around $a=2$.
+\begin{center}
+	\begin{tabular}{l | l}
+		$a=1.8$                      & $a=2.1$              \\
+		\hline
+		$\lambda_{1}=-8.77$          & $\lambda_{1}=-8.775$ \\
+		$\lambda_{2}=0.899-0.435i$   & $\lambda_{2}=0.727$  \\
+		$\lambda_{3}=0.899 + 0.435i$ & $\lambda_{3}=1.371$
+	\end{tabular}
+\end{center}
+\noindent\\
+\noindent We can clearly see that the stability changes from a stable focus node to an unstable saddle. As $a$ increases past $2.1$, the system continues to be unstable. In Figure \ref{fig:3dsys_02}, the purple section of the graph represents the portion of the system that we are analyzing. When $a>2$, the system is unstable at this point, causing trajectories to head away from the spiral and towards the orange section of the graph. We can also see what happens near the other fixed point. The eigenvalues of (\ref{eq:a_mat_02}) appear to change around $a=58.5$ and again around $a=193.6$.
+\begin{center}
+	\begin{tabular}{l | l | l}
+		$a=58.5$                      & $a=58.6$             & $a=198.4$                   \\
+		\hline
+		$\lambda_{1}=58.483$          & $\lambda_{1}=-0.366$ & $\lambda_{1}=193.695$       \\
+		$\lambda_{2}=-0.354 - 0.025i$ & $\lambda_{2}=-0.343$ & $\lambda_{2}=-4.39+0.1i $   \\
+		$\lambda_{3}=-0.354 + 0.025i$ & $\lambda_{3}=58.58$  & $\lambda_{3}=-.0002-0.001i$
+	\end{tabular}
+\end{center}
+\noindent\\
+\noindent Here we see an unstable focus node changing into an unstable saddle. As $a$ increases, the system cycles between the a focus node and and unstable saddle, which is indicative of periodic behavior of the system.
+
+We can now analyze the effect that changes in $b$ have on the system. For the fixed point in (\ref{eq:csln1}), we see a change in stability around $b=94.2$ and then again around $b=193.8$. At this fixed point, the eigenvalues change from a stable focus node to a stable node, and then into a set of three complex eigenvalues with non-zero real part. The final case is not a named type of equilibrium, and in fact it is not hyperbolic, so it does not tell us anything useful about the nonlinear system. It is unstable though, since at least one of the eigenvalues has a positive real part.
+\begin{center}
+	\begin{tabular}{l | l | l}
+		$b=94.2$                           & $b=100$                 & $b=195$                           \\
+		\hline
+		$\lambda_{1}=-5.27985$             & $\lambda_{1}=-4.75948$  & $\lambda_{1}=-2.51539 - 6.51211i$ \\
+		$\lambda_{2}=-1.08805 - 0.107786i$ & $\lambda_{2}=-1.93582$  & $\lambda_{2}=-1.78605 + 6.15461i$ \\
+		$\lambda_{3}=-1.08805 + 0.107786i$ & $\lambda_{3}=-0.664116$ & $\lambda_{3}=0.00144 - 0.0167i$
+	\end{tabular}
+\end{center}
+\noindent\\
+\noindent Similarly, we can analyze the effect that perturbations in $b$ have on the fixed point given in (\ref{eq:csln2}). When varying $b$ from $0.1$ to 250, we do not see any change in the stability of the fixed point. It remains an unstable saddle focus, so we need not analyze this any further. It should be noted that we are considering fixed values for $a,b$, and $c$. If we chose other values and repeat this process, we may find that the changes to $b$ in this case actually do affect the system. We will not consider these cases, since the resulting work would take several more pages.
+
+Finally, we can analyze the effect that $c$ has on the system. Similar to the effect of $b$ on (\ref{eq:csln2}), varying $c$ from $8.8$ to 2250 does not appear to change the stability of (\ref{eq:csln1}) and (\ref{eq:csln2}). In the first case, the fixed point remains an unstable saddle focus; in the latter case, the system also remains an unstable saddle focus. While $c$ may not change the stability of the fixed points, small changes in $c$ can yield both chaotic and periodic behavior. Figure \ref{fig:c_chaos} shows some of the values for which the attractor is periodic and chaotic. The figure considers the system with $a=b=0.1$, as we have done in our analysis. Notice that chaotic behavior creates infinite periods and that the system is subject to very small changes in $c$ (i.e. 12.6 to 13).
+
+Overall, the R\"{o}ssler system is globally stable, but exhibits local instability based on initial conditions. This is a property of attractors; any trajectories that start outside of the attractor will eventually head towards the attractor. We can see this behavior in Figure \ref{fig:attractive}. The pink trajectory moves towards the attractor regardless of the local stability of the attractor itself (hence the name \textit{attractor}). This behavior allows us to conclude that the attractor will be globally stable.
+
+The R\"{o}ssler system illustrates a simple attractor; as a result, it is not a useful system to model practical situations. Viewing the system as an illustration for more complex system provides insight to more complex examples. We have seen the effect that small changed in $a,b$, and $c$ have on the system, as well as the effect of initial conditions on solutions to the linear system. Luckily, the fixed points tend to remain hyperbolic as $a,b$, and $c$ change, which allows for easier analysis of the system. The R\"{o}ssler system provides an elegant view of a complex structure that would otherwise be very complicated.
 
 \newpage
 \clearpage
@@ -301,8 +364,8 @@ When we examine the stability changes caused by $a$, we notice that the
 	\begin{tabular}{l r}
 		\includegraphics[scale=0.5]{gen_sln_02_01} & \includegraphics[scale=0.5]{gen_sln_02_02} \\
 		$\gamma_{1}=1$                             & $\gamma_{1}=9$                             \\
-		$\gamma_{2}=1$                             & $\gamma_{2}=-3$                             \\
-		$\gamma_{3}=1$                            & $\gamma_{3}=-3$                             \\
+		$\gamma_{2}=1$                             & $\gamma_{2}=-3$                            \\
+		$\gamma_{3}=1$                             & $\gamma_{3}=-3$                            \\
 	\end{tabular}
 	\caption{Two parametric plots for the linearized system around $(c,-\frac{c}{a}, \frac{c}{a})$ with different initial values}
 	\label{fig:nzero_sln}
@@ -344,6 +407,20 @@ When we examine the stability changes caused by $a$, we notice that the
 	\end{tabular}
 	\caption{Several cuts of the stream plot given by Mathematica.}
 	\label{fig:plot_cuts}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.5]{varying_c}
+	\caption{The chaotic behavior and periodicity of the system based on changed in $c$, courtesy of \cite{rossler_bifur}}
+	\label{fig:c_chaos}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.6]{attractive}
+	\caption{An example of the global stability of the system. The pink trajectory heads towards the attractor and will remain there as $t\to\infty$ \cite{rossler_bifur} }
+	\label{fig:attractive}
 \end{figure}
 
 \newpage

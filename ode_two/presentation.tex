@@ -2,6 +2,8 @@
 \usepackage{amsmath, amssymb, amsthm}
 \usepackage{graphicx}
 
+\newcommand{\RR}{\mathbb{R}}
+
 \title{The R\"{o}ssler System}
 \author{Steven Rosendahl}
 \date{}
@@ -12,39 +14,128 @@
 \begin{document}
 
 \begin{frame}
-    \titlepage
+	\titlepage
 \end{frame}
 
 \begin{frame}{Introduction}
-    \begin{itemize}
-        \item Created by Otto R\"{o}ssler in 1976
-        \pause
-        \item System constructed to display simplest possible \textit{Strange Attractor}
-        \pause
-    \end{itemize}
-    \begin{definition}
-        An \alert{attractor} is a set of values towards which a system moves when initial conditions are \textit{near} the attractor.
-        \pause
-        An attractor is called \alert{strange} if it exhibits fractal behavior.
-    \end{definition}
-    \pause
-    \begin{itemize}
-        \item Strange attractors are often associated with chaotic systems.
-    \end{itemize}
+	\begin{itemize}
+		\item Created by Otto R\"{o}ssler in 1976
+		      \pause
+		\item System constructed to display simplest possible \textit{Strange Attractor}
+		      \pause
+	\end{itemize}
+	\begin{definition}
+		An \alert{attractor} is a set of values towards which a system moves when initial conditions are \textit{near} the attractor.
+		\pause
+		An attractor is called \alert{strange} if it exhibits fractal behavior.
+	\end{definition}
+	\pause
+	\begin{itemize}
+		\item Strange attractors are often associated with chaotic systems.
+	\end{itemize}
 \end{frame}
 
 \begin{frame}{System}
-    \begin{align*}
-        \dot{x}&= -y-z\\
-        \dot{y}&= x+ay\\
-        \dot{z}&= b+z(x-c)
-    \end{align*}
+	\begin{align*}
+		\dot{x} & = -y-z     \\
+		\dot{y} & = x+ay     \\
+		\dot{z} & = b+z(x-c)
+	\end{align*}
+	\pause
+	\begin{itemize}
+		\item $a,b,c$ are responsible for attractive behavior
+		      \pause
+		\item Want to analyze the effect small $a$ and $b$ have on system
+		      \pause
+		      \begin{itemize}
+		      	\item Is the system globally stable? Locally?
+		      	      \pause
+		      	\item When does chaotic behavior occur?
+		      \end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{First Glance}
+	\begin{itemize}
+		\item Finding fixed points
+	    \pause
+	\end{itemize}
+	\begin{center}
+		\scalebox{0.75}{
+			\texttt{Solve[f[x, y, z] == 0 \&\& g[x, y, z] == 0 \&\& h[x, y, z] == 0, \{x, y, z\}]}
+		}
+	\end{center}
+	\pause
+	\begin{columns}[T]
+		\begin{column}{0.48\textwidth}
+			\[
+				\begin{cases}
+					x=\frac{1}{2}\left(c-\sqrt{c^{2}-4ab}\right)                     \\
+					y=\frac{1}{2}\left(\frac{\sqrt{c^{2}-4ab}}{a}-\frac{c}{a}\right) \\
+					z=\frac{c-\sqrt{c^{2}-4ab}}{2a}
+				\end{cases}
+			\]
+		\end{column}
+		\begin{column}{0.48\textwidth}
+			\[
+				\begin{cases}
+					x=\frac{1}{2}\left(c+\sqrt{c^{2}-4ab}\right)                      \\
+					y=\frac{1}{2}\left(-\frac{\sqrt{c^{2}-4ab}}{a}-\frac{c}{a}\right) \\
+					z=\frac{c+\sqrt{c^{2}-4ab}}{2a}
+				\end{cases}
+			\]
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Simplification}
+    \begin{itemize}
+        \item Let $a,b$ tend to zero
+        \pause
+        \item Cannot actually be zero (division by 0 at fixed points)
+        \pause
+    \end{itemize}
+    \[\left\{x = 0\qquad y = 0\qquad z = 0\right\}\]
+    \pause
+    \[\left\{x = c\qquad y = -\frac{c}{a}\qquad z = \frac{c}{a}\right\}\]
     \pause
     \begin{itemize}
-        \item $a,b,c$ are responsible for attractive behavior
-        \pause
-        \item Want to analyze the effect small $a$ and $b$ have on system
+        \item Much easier to analyze stability of system
     \end{itemize}
+\end{frame}
+
+\begin{frame}{Linearization}
+    \begin{itemize}
+        \item Can take Jacobian of system to analyze stability
+        \pause
+        \item Which stabilities are hyperbolic in a 3D system?
+        \pause
+    \end{itemize}
+    % \begin{definition}
+    %     When $\lambda_{1}$, $\lambda_{2}$, and $\lambda_{3}$ are in $\RR$ and they all have the same sign, the fixed point is a \alert{node}.
+    % \end{definition}
+    % \pause
+    % \begin{definition}
+    %     When $\lambda_{1}$, $\lambda_{2}$, and $\lambda_{3}$ are in $\RR$ and at least one is positive and one is negative, the fixed point is a \alert{saddle}.
+    % \end{definition}
+    \begin{definition}
+        When $\lambda_{1}\in\RR$ and $\lambda_{2},\lambda_{3}$ are complex conjugates \textit{and} the real part of $\lambda_{1},\lambda_{2}$, and $\lambda_{3}$ all have the same sign, the fixed point is called a \alert{Focus Node}
+    \end{definition}
+    \pause
+    \begin{definition}
+        When $\lambda_{1}\in\RR$ and $\lambda_{2},\lambda_{3}$ are complex conjugates, then if the sign of $\lambda_{1}$ is the opposite of the sign of the real part of $\lambda_{2}$ and $\lambda_{3}$, the fixed point is called a \alert{Saddle Focus}
+    \end{definition}
+    \pause
+    \begin{itemize}
+        \item Other stability exists, but are often named after the bifurcations that produce them
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Linearization}
+    \begin{itemize}
+        \item Jacobian of system will tell us about behavior of fixed points
+    \end{itemize}
+    
 \end{frame}
 
 \end{document}
