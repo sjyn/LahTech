@@ -86,9 +86,9 @@ To find the behavior around the critical points given by (\ref{eq:csln1sm}), we 
 	\end{array}
 	\right]
 	\right| =
-	(c-\lambda)(\lambda + 1)^{2}=0.
+	(-c-\lambda)(\lambda^{2} + 1)=0.
 \]
-Hence, the system has three eigenvalues: $\lambda=-i, \lambda=-i,$ and $\lambda = -c$ (we will assume here that $c > 1$). This implies that the system has an unstable focus node at the origin \cite{equilibria}. Figure \ref{fig:plot_cuts} shows various cuts of the system for various $z$ values; the system spirals in the $x-y$ plane, while moving towards and then away from the origin as $z$ moves from $-\infty$ to $\infty$. We can solve this linearized system by looking at the equation
+Hence, the system has three eigenvalues: $\lambda=-i,\ \lambda=i,$ and $\lambda = -c$ (we will assume here that $c > 1$). This implies that the linear system has a center at the origin \cite{equilibria}. Since centers are \textbf{not} hyperbolic, we can look at various stream plots of the system. Figure \ref{fig:plot_cuts} shows various cuts of the system for various $z$ values; the system spirals in the $x-y$ plane, while moving towards and then away from the origin as $z$ moves from $-\infty$ to $\infty$. Hence, the system appears to actually have a spiral at the origin. We can solve this linearized system by looking at the equation
 \[
 	\mathbf{\dot{x}} =
 	\left[
@@ -119,7 +119,7 @@ Since we've already found the eigenvalues of the system, we can find the eigenve
 		\text{\underline{$\lambda=i$}}\\
 		\mathbf{\lambda_{2}}=\left[
 		\begin{array}{c}
-			i \\
+			-i \\
 			1 \\
 			0
 		\end{array}
@@ -145,7 +145,7 @@ Since we've already found the eigenvalues of the system, we can find the eigenve
 	\mathbf{x}(t) =
 	\gamma_{1}e^{-it}\left[
 	\begin{array}{c}
-		-i \\
+		-1 \\
 		1  \\
 		0
 	\end{array}
@@ -153,7 +153,7 @@ Since we've already found the eigenvalues of the system, we can find the eigenve
 	\gamma_{2}e^{it}
 	\left[
 	\begin{array}{c}
-		i \\
+		-1 \\
 		1 \\
 		0
 	\end{array}

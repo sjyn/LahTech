@@ -134,8 +134,113 @@
 \begin{frame}{Linearization}
     \begin{itemize}
         \item Jacobian of system will tell us about behavior of fixed points
+		\pause
     \end{itemize}
-    
+	\[
+		|J(0,0,0)-\lambda I| =
+		\left|
+		\left[
+		\begin{array}{c c c}
+			-\lambda & -1       & -1         \\
+			1        & -\lambda & 0          \\
+			0        & 0        & -c-\lambda
+		\end{array}
+		\right]
+		\right| =
+		(c-\lambda)(\lambda + 1)^{2}=0.
+	\]
+	\pause
+	\begin{itemize}
+		\item System has three eigenvalues
+		\pause
+	\end{itemize}
+	\[
+		\lambda=-i\qquad\pause \lambda=-i\qquad\pause\lambda = -c
+	\]
+	\pause
+	\begin{definition}
+		If two of the eigenvalues of the system are pure imaginary, then the system has a \alert{center} at the fixed point. This is \textbf{not} a hyperbolic equilibrium.
+    \end{definition}
+	\pause
+	\begin{itemize}
+		\item $\therefore (0,0,0)$ is a center of the linear system
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Analyzing the Center}
+	\begin{itemize}
+		\item How to analyze the center of linear system?
+		\pause
+		\item Hold $z$ constant
+		\pause
+		\item Look at behavior of $(0,0)$ in $x-y$ plane
+	\end{itemize}
+	\begin{center}
+		\begin{tabular}{c c}
+			\includegraphics[scale=0.3]{spz-2} & \includegraphics[scale=0.3]{spz2}\\
+			$z=-2$ & $z=2$
+		\end{tabular}
+	\end{center}
+	\pause
+	\begin{itemize}
+		\item Actually appears to be a spiral
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Linearization}
+	\begin{itemize}
+		\item Can analyze the other fixed point
+		\pause
+	\end{itemize}
+	\begin{gather*}
+		\left|J\left(c,-\frac{c}{a},\frac{c}{a}\right) -\lambda I\right| =
+		\frac{ ac - a\lambda - c\lambda + a^{2}\lambda^{2} -a\lambda^{3}}{a}.
+	\end{gather*}
+	\pause
+	\begin{itemize}
+		\item Solving with Mathematica yields bad values
+		\pause
+		\item Recall system was meant to be analyzed with small $a,b$
+		\pause
+		\item Let $a\to0.14$, $c\to8.8$
+	\end{itemize}
+	\pause
+	\[
+		\lambda =0.001-7.99i\pause\qquad \lambda=0.001+7.99i\pause\qquad\lambda=0.13
+	\]
+	\pause
+	\begin{itemize}
+		\item $\therefore$ fixed point is an unstable focus node
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Chaos}
+	\begin{center}
+		\includegraphics[scale=0.2]{bane}
+	\end{center}
+	\pause
+	\begin{itemize}
+		\item Mathematica demonstration
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Chaos}
+	\begin{itemize}
+		\item Small changes in the system yield drastic changes in behavior
+		\pause
+		\item Periodicity changes to chaotic behavior
+	\end{itemize}
+	\pause
+	\begin{center}
+		\includegraphics[scale=0.3]{varying_c}
+	\end{center}
+\end{frame}
+
+%can talk about atrractiveness if need more time
+\begin{frame}{References}
+	\nocite{*}
+	\bibliographystyle{alpha}
+	\bibliography{mbib}
 \end{frame}
 
 \end{document}
