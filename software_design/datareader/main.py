@@ -1,3 +1,6 @@
+#Steven rosendahl
+#Donnie Darko Simulator
+
 from clint.textui import colored
 from csv import reader
 
